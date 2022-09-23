@@ -1,0 +1,7 @@
+{
+  "name": "PlatformErpOdc",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

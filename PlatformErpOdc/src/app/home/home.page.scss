@@ -1,27 +1,51 @@
-#container {
+$ruler: 16px;
+
+form {
+  padding: $ruler;
+  width: $ruler*20;
+  margin: 0 auto;
+}
+.header{
+  display: flex;
+  // width: 100%;
+  justify-content: space-around;
+  // background-attachment: fixed;
+  // background-position: center;
+  //  background-size: cover;
+  height: 100vh;
+  position: relative;
+  background-size: cover;
+  padding: top 0;
+
+  
+ 
+ }
+.header p{
+  padding-top: 50px;
+  font-size: 3rem;
   text-align: center;
-
+  font-weight: 700;
+ border-bottom: 10px solid orangered ;
+  color:#FFF;
+  margin-left: 150px;
+  margin-right: 150px;
+  
+}
+.header img{
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  margin-top: 102px;
+  width: 556px;
+  margin-left: -171px;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+.monform{
+   background-image: url("../../assets/icon/ezgif-4-eedf5e4682.gif");
+  background-repeat:no-repeat;
+  padding-bottom: 0;
+  height: 100%;
+  margin-right: -170px;
+  width: 90vh;
+padding: 0 0 0;
+  background-size: cover;
+  
 }

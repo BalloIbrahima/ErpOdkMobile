@@ -1,20 +1,30 @@
-<ion-header [translucent]="true">
+<!-- <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Log In</ion-title>
   </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+</ion-header> -->
+<ion-content>
+<div class="header">
+  <div class="image">
+     <img src="../../assets/icon/Orange.png" alt="logoooo">
   </div>
+  <div class="monform">
+    <p> Connexion </p>
+    
+    <form>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Entrer votre email</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Entrer votre Mot de passe</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe">
+      </div>
+      <button type="submit" class="btn btn-primary">Connexion</button>
+    </form>
+  </div>
+</div>
 </ion-content>

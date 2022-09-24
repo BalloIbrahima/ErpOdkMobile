@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class HomePage {
    password:String;
    /////
  
-  constructor(private utilisateurService:UtilisateurService) {}
+  constructor(private utilisateurService:UtilisateurService,private router:Router) {}
 
   logForm(){
     this.utilisateurService.login(this.login,this.password).subscribe(data=>{
@@ -28,12 +29,14 @@ export class HomePage {
         if(data.data.role.libellerole=="ADMIN"){
           //rediriger vers la page admin
 
+          this.router.navigate(['/accueil'])
+
         }else if(data.data.role.libellerole=="RESPONSABLE"){
           //rediriger vers la page responsable
 
         }else{
           //rediriger vers la page du simple utilisateur
-          
+
         }
       }else if(data.message=="error"){
         console.log(data.data);

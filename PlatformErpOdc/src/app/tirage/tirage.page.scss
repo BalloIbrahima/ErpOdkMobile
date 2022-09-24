@@ -33,7 +33,7 @@ input {
   height: 500px;
   border-radius: 20px;
   margin-top: 20px;
-  margin-left: 90px;
+  margin-left: 200px;
   padding: 40px;
   padding-top: 50px;
   box-sizing: border-box;
@@ -47,7 +47,7 @@ input {
   height: 500px;
   border-radius: 20px;
 margin-top: -500px;
-  margin-left: 550px;
+  margin-left: 700px;
   padding: 40px;
   padding-top: 50px;
   box-sizing: border-box;
@@ -156,6 +156,39 @@ h1 {
   position: absolute;
   top: 0;
   left: 0;
+}
+/*Pour tablette ipad*/
+@media screen and (max-width: 768px) {
+
+  .container2 {
+    position: relative;
+    width: 550px;
+    height: 700px;
+    border-radius: 20px;
+    margin-top: 50px;
+    margin-left: 90px;
+    padding: 40px;
+    padding-top: -10px;
+    box-sizing: border-box;
+    background: white;
+    box-shadow: 10px 10px 10px grey, -10px -10px 10px grey;
+}
+
+
+.container {
+  position: relative;
+  width: 550px;
+  height: 700px;
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-left: 14px;
+  padding: 40px;
+  padding-top: 50px;
+  box-sizing: border-box;
+  background: white;
+  box-shadow: 10px 10px 10px  gray, -10px -10px 10px gray;
+}
+
 }
 
 @media only screen and (max-width: 650px) {

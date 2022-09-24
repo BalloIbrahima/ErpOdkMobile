@@ -1,9 +1,16 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <ion-header>
   <ion-toolbar>
-    <ion-title>Tirage</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="color: orangered; text-decoration: underline ;">Tirage</ion-title>
   </ion-toolbar>
 </ion-header>
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 <ion-content>
@@ -16,7 +23,7 @@
   </div>
     <form  >
       <div class="inputs">
-        <input type="text" placeholder="Donner un nom à votre tirage"   name="libelle_tirage"  class="form-control"/><br>
+        <input type="text" placeholder="Nom du tirage"   name="libelle_tirage"  class="form-control"/><br>
 
         <input type="number" placeholder="Entrer un nombre" name="nbredepostulants"  class="form-control"/><br>
 
@@ -76,6 +83,8 @@
   </div>
 </form>
 </div>
+
+
 
 
 </ion-content>

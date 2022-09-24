@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'useraddform',
     pathMatch: 'full'
   },
   {
@@ -18,7 +18,27 @@ const routes: Routes = [
   {
     path: 'useraddform',
     loadChildren: () => import('./useraddform/useraddform.module').then( m => m.UseraddformPageModule)
+
   },
+  {
+    path: 'sidebare',
+    loadChildren: () => import('./sidebare/sidebare.module').then( m => m.SidebarePageModule)
+  },
+  {
+    path: 'modifieruser',
+    loadChildren: () => import('./modifieruser/modifieruser.module').then( m => m.ModifieruserPageModule)
+  },
+  {
+    path: 'addsalle',
+    loadChildren: () => import('./addsalle/addsalle.module').then( m => m.AddsallePageModule)
+  },
+  {
+    path: 'modifiersalle',
+    loadChildren: () => import('./modifiersalle/modifiersalle.module').then( m => m.ModifiersallePageModule)
+  },
+
+
+
 
 ];
 

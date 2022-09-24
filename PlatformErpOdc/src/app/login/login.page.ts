@@ -24,7 +24,7 @@ export class LoginPage {
 
       if(data.message=="ok"){
         //enregistrement de l'utilisateur dans le local storage
-        localStorage.setItem('utilisateur',data.data)
+        localStorage.setItem('utilisateur',JSON.stringify(data.data))
         
         console.log(data.data)
         if(data.data.role.libellerole=="ADMIN"){

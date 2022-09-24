@@ -51,11 +51,11 @@
                </div>
                 <!-- code contentant l'image  de l'utilisateur -->
                <div class="blockImage">
-                 <img src="../../assets/icon/1.jpg" class="imageUtilisateur" alt="image pour l'accueil"><br><br>
-                 <span class="titleUtilisateur">Fatoumata Kalogua</span>
+                 <img src={{img}} class="imageUtilisateur" alt="image pour l'accueil"><br><br>
+                 <span class="titleUtilisateur">{{Utilisateur.prenom}} {{Utilisateur.nom}}</span>
                </div>
                <li class="nav-item">
-                 <a class="nav-link" routerLinkActive="activate" [routerLinkActiveOptions]={exact:true} href="/">
+                 <a class="nav-link" routerLinkActive="activate" [routerLinkActiveOptions]={exact:true} routerLink="accueil" >
                    <ion-icon name="home-outline"></ion-icon> &nbsp; Accueil
                  </a>
                </li>
@@ -83,7 +83,7 @@
                  </a>
                </li>
                <div class="contenuQuintenaire">
-                 <button type="button" class="">
+                 <button type="button" class="" (click)="deconnecter()">
                    Deconnexion
                  </button>
                </div>

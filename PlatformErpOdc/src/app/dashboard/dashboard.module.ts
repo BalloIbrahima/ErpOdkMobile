@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [DashboardPage,AccueilPipe]
+  declarations: [DashboardPage,AccueilPipe],
+  
 })
 export class DashboardPageModule {}

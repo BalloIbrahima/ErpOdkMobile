@@ -17,13 +17,13 @@
     <form>
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Entrer votre email</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+        <input type="email" [(ngModel)]="login" name="login" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
       </div>
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Entrer votre Mot de passe</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe">
+        <input type="password" [(ngModel)]="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe">
       </div>
-      <button type="submit" class="btn btn-primary">Connexion</button>
+      <button type="submit" class="btn btn-primary" (click)="logForm()">Connexion</button>
     </form>
   </div>
 </div>

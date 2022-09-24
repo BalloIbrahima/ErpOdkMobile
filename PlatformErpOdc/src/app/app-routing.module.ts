@@ -14,12 +14,20 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },  {
+  },
+  {
     path: 'ajout-entite',
     loadChildren: () => import('./ajout-entite/ajout-entite.module').then( m => m.AjoutEntitePageModule)
   },
 
+  {
+    path: 'sidebare',
+    loadChildren: () => import('./sidebare/sidebare.module').then( m => m.SidebarePageModule)
+  },
+
 ];
+
+
 
 @NgModule({
   imports: [

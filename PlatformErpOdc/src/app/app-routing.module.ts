@@ -14,7 +14,14 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },  {
+    path: 'list-personnel-entite',
+    loadChildren: () => import('./list-personnel-entite/list-personnel-entite.module').then( m => m.ListPersonnelEntitePageModule)
   },
+
+  
+
+
 ];
 
 @NgModule({

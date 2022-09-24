@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'detailslistes',
     pathMatch: 'full'
   },
   {
@@ -16,8 +16,14 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
+
     path: 'detailslistes',
     loadChildren: () => import('./detailslistes/detailslistes.module').then( m => m.DetailslistesPageModule)
+  },
+  {
+    path: 'sidebare',
+    loadChildren: () => import('./sidebare/sidebare.module').then( m => m.SidebarePageModule)
+
   },
 
 ];

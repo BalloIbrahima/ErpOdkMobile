@@ -8,13 +8,23 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'tirage',
     pathMatch: 'full'
   },
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'sidebare',
+    loadChildren: () => import('./sidebare/sidebare.module').then( m => m.SidebarePageModule)
+  },
+  {
+    path: 'tirage',
+    loadChildren: () => import('./tirage/tirage.module').then( m => m.TiragePageModule)
+  },
+
+
 ];
 
 @NgModule({

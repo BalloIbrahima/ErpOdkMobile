@@ -1,0 +1,446 @@
+
+.mere{
+ 
+    margin-top: 3%;
+    margin-bottom: 3%;
+  }
+  
+  .title_page{
+    color: #FF6200;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  
+  .carte_home{
+    background-color: #000000;
+    color: white;
+    mix-blend-mode: luminosity;
+    border-radius: 20px;
+    height: 200px;
+    
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  
+  }
+  
+  .carte_home2{
+  
+    background-color: #000000;
+    color: white;
+    mix-blend-mode: luminosity;
+    border-radius: 20px;
+    height: 425px;
+    
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  
+  
+  }
+  
+  
+  
+  .chiffre_t_activite{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: bold;
+  font-size:18px;
+  }
+  
+  
+  .btnActivite{
+    background-color: #FF6200;
+    padding: 12px;
+    border-radius: 18px;
+  }
+  
+  
+  .ligne{
+    height:1px ;
+    width: 90%; 
+    background-color: orange;  
+    display: block;
+    margin-left: auto;
+    margin-right: auto; margin-top:1%;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+  * {
+    box-sizing: border-box;
+  }
+  .cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: #f7f8fc;
+    font-family: "Roboto", sans-serif;
+    color: #10182f;
+  }
+  .container {
+    display: flex;
+    width: 1040px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  .card {
+    padding: none !important;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 0px;
+     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+     overflow: hidden;
+    width: 300px;
+  }
+  
+  .card-header{
+    padding: 0px !important;
+  }
+  
+  .card-header img {
+  
+    
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    min-height: 250px;
+  }
+  
+  .tag {
+    background: #cccccc;
+    border-radius: 50px;
+    font-size: 12px;
+    margin: 0;
+    color: #fff;
+    padding: 2px 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .tag-teal {
+    background-color: green;
+    border-radius: 5px;
+    padding: 4px;
+    color: #FFF
+    
+  }
+  
+  
+  .card-body p {
+    font-size: 13px;
+    margin: 0 0 40px;
+  }
+  .user {
+    display: flex;
+    margin-top: auto;
+  }
+  
+  .user img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  .user-info h5 {
+    margin: 0;
+  }
+  .user-info small {
+    color: #545d7a;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+   permettant de donner une marge interne a notre projet sideBare sur WEB
+  .navbar-expand-lg{
+    width: 15em;
+    
+  }
+  .contenuSecondaire{
+    background-color: #000000;
+    padding-left: 1em;
+    margin-top: -5px;
+    overflow: hidden;
+  }
+    .iconEntreprise{
+      margin-top: 15%;
+      margin-bottom: 15%;
+    }
+  
+  
+  
+  
+  
+  
+    .blockImage{
+      margin-bottom: 10%;
+    }
+    .imageUtilisateur{
+      width:150px;
+      height: 150px;
+      margin-left: 1.5em;
+      border-radius: 200px;
+      box-shadow: 0px 0px 10px darkgrey;
+      
+    }
+    .titleUtilisateur{
+      padding-left: 1em;
+      padding-top: 5px;
+      font-size: 18px;
+      font-weight: bolder;
+      text-shadow: 1px 1px 1px darkgrey;
+      color: #FF6200;
+    }
+    
+    .contenuQuintenaire{
+      margin: 1em;
+    }
+  
+    .contenuQuintenaire button{
+      height: 2em;
+      width: 10em;
+      border-radius: 20px;
+      margin-top: 50%;
+      margin-bottom: 18%;
+    }
+    .activate{
+      border-right: 5px solid red;
+      border-bottom: 2px solid red;
+      border-radius: 0px 0px 10px 0px;
+    }
+    .nav-link:hover{
+      border-right: 5px solid #FF6200;
+      border-bottom: 2px solid #FF6200;
+      border-radius: 0px 0px 10px 0px;
+      width: 13em;
+      color: #FF6200 !important;
+    }
+    .nav-link{
+      color: #ffffff;
+      letter-spacing: 1px;
+    }
+  
+  @media screen and (max-width: 1000px) {
+    // code permettant de donner une marge interne a notre projet sideBare sur APP
+    .contenuTernaire{
+      background-color: #000000;
+      padding-left: 1em;
+      width: 16em;
+    }
+    // code permettant de donner a notre iconEntreprise
+    .iconEntreprise{
+      margin-bottom: 15%;
+    }
+    // code permettant de donner a l'image des personnelle
+    .blockImage{
+      margin-bottom: 10%;
+    }
+    .contenuQuadrature{
+      margin-bottom: 0%;
+    }
+    .contenuQuintenaire button{
+      height: 2em;
+      width: 10em;
+      border-radius: 20px;
+      margin-top: 0%;
+    }
+    .activate{
+      border-right: 5px solid red;
+      border-radius: 0px 0px 10px 0px;
+      border-bottom: 2px solid red;
+    }
+    .nav-link:hover{
+      border-right: 5px solid red;
+      border-radius: 0px 0px 10px 0px;
+      border-bottom: 2px solid red;
+      width: 12.5em;
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  @import url('https://fonts.googleapis.com/css?family=Raleway:400,600');
+  
+  $wht    : #fff;
+  $blk    : #000;
+  $green  : #23b5af;
+  $yellow : #eeba4c;
+  $border : lighten($blk,85);
+  $bg     : darken($wht,2);
+  
+  body{
+    font-family: 'Raleway', sans-serif;
+    background:$bg;
+  }
+  
+  h1{
+    text-align: center;
+    padding:30px 0 0 0;
+  }
+  
+  h4{
+    font-size:1.2em;
+    text-align: center;
+    padding:0 0 30px 0;
+  }
+  
+  .timeline {
+    list-style: none;
+    padding: 20px 0 20px;
+    position: relative;
+    
+    &:before {
+      top: 0;
+      bottom: 0;
+      position: absolute;
+      content: "";
+      width: 3px;
+      background-color: $border;
+      margin-left: -1.5px;
+      left: 20px;
+      
+      @media (min-width: 576px) {
+        left: 50%;
+      }
+    }
+    
+    > li {
+      margin-bottom: 20px;
+      position: relative;
+      padding-left:55px;
+      
+      &:after, &:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      
+      .panel {
+        width: 100%;
+        float: left;
+        border-radius: 3px;
+        overflow:hidden;
+        position: relative;
+        background:$wht;
+        box-shadow: 1px 2px 80px 0 rgba($blk, 0.1);
+        
+        summary{
+          display:block;
+          user-select: none;
+          outline:none;
+          padding:20px;
+          margin-bottom:0px;
+          transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+          transition-property: margin, background;
+          font-weight:600;
+          
+          &::-webkit-details-marker { display:none; }
+          
+          &:hover{
+            background:rgba($blk, 0.1);
+          }
+        }
+        
+        p{
+          padding:0 20px 10px;
+        }
+        
+        &[open] summary{
+          margin-bottom:20px;
+          padding-bottom:20px;
+          border-bottom:1px solid rgba($blk, 0.1);
+        }
+      }
+      
+      @media (min-width: 576px) {
+        padding-left:0px;
+        
+        .panel {
+          width: 50%;
+        }
+        
+        &:not(:nth-child(even)) {
+          padding-right: 90px;
+        }
+  
+        &:nth-child(even) {
+          padding-left: 90px;
+          > :nth-child(even) {
+            float: right;
+          }
+        }
+      }
+    
+      > {
+        .icon {
+          color: $border;
+          width: 50px;
+          height: 50px;
+          line-height: 50px;
+          font-size: 2.5em;
+          text-align: center;
+          position: absolute;
+          left: 20px;
+          margin-left: -25px;
+          background-color: $bg;
+          z-index: 999;
+          border-radius: 50%;
+          font-family: Font Awesome\ 5 Free;
+          &:before{content: "\f192";}
+          
+          @media (min-width: 576px) {
+            left: 50%;
+          }
+          
+          &.done {
+            color: $green;
+            &:before{content: "\f058";}
+          }
+          
+          &.working {
+            color: $yellow;
+            &:before{content: "\f017";}
+          }
+          
+        }
+      }
+    }
+  }

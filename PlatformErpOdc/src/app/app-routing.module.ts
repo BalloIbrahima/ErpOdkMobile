@@ -16,8 +16,8 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'creer-activite',
-    loadChildren: () => import('./creer-activite/creer-activite.module').then( m => m.CreerActivitePageModule)
+    path: 'sidebare',
+    loadChildren: () => import('./sidebare/sidebare.module').then( m => m.SidebarePageModule)
   },
 
 ];

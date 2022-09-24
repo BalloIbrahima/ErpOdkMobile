@@ -1,0 +1,184 @@
+.marge {
+    margin-left: 30px;
+    direction: ltr;
+}
+
+.espace {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.titre {
+    font-size: 24px;
+    color: #FF6200;
+    font-weight: bold;
+}
+
+.aduser {
+    color: #FF6200;
+    direction: ltr;
+    margin-left: 80px;
+    margin-bottom: 80px;
+}
+
+.userplus {
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    padding: 14px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-color: #FF6200;
+    border-radius: 25px;
+    display: flex;
+    margin-left: auto;
+    margin-right: 80px;
+    margin-top: 6%;
+}
+
+.userplus:hover {
+    background-color: #FF6200;
+    border-color: black;
+}
+
+.tabspace {
+    margin-top: 60px;
+    margin-bottom: 20px;
+    padding-top: 60px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    align-items: center;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 20px 10px rgba(0, 0, 0, 0.25);
+}
+
+.tabtitle {
+    background: #FB5607;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 2px 5px rgba(0, 0, 0, 0.25);    
+    height: auto;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -85px;
+    //margin-bottom: 50px;
+}
+
+.texte {
+    padding-left: 200px;
+    padding-right: 200px;
+    color: white;
+}
+
+.tdispos {
+    overflow-x:auto;
+}
+
+table {
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+th, td {
+    text-align: center;
+    padding-left: 45px;
+    padding-right: 45px;
+    background-color: #F3F3F3;
+    border-top:1px solid black;
+    border-bottom:1px solid black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+svg {
+    color: #FF6200;
+}
+
+.delete {
+    color: red;
+}
+
+.enable {
+    color: green;
+}
+
+.iconspace {
+    margin: 5px;
+    direction: ltr;
+}
+
+//----------- Responsivité -----------
+@media screen and (max-width: 1200px) {
+    .tabtitle {
+        width: auto;
+    }
+    .texte {
+        padding-left: 5px;
+        padding-right: 5px;
+        color: white;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .cacher1 {
+        display: none;
+    }
+
+}
+@media screen and (max-width: 1060px) {
+    .tabtitle {
+        width: auto;
+    }
+    .texte {
+        padding-left: 5px;
+        padding-right: 5px;
+        color: white;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .cacher2 {
+        display: none;
+    }
+
+}
+@media screen and (max-width: 910px) {
+    .tabtitle {
+        width: auto;
+    }
+    .texte {
+        padding-left: 5px;
+        padding-right: 5px;
+        color: white;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .cacher3 {
+        display: none;
+    }    
+
+}
+@media screen and (max-width: 690px) {
+    .tabtitle {
+        width: auto;
+    }
+    .texte {
+        font-size: x-small;
+        padding-left: 5px;
+        padding-right: 5px;
+        color: white;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .cacher {
+        display: none;
+    }
+
+}

@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailEntitePage implements OnInit {
 
+  cp: number = 1;
   constructor() { }
 
   ngOnInit() {

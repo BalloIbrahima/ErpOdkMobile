@@ -8,12 +8,15 @@ import { DetailEntitePageRoutingModule } from './detail-entite-routing.module';
 
 import { DetailEntitePage } from './detail-entite.page';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DetailEntitePageRoutingModule
+    DetailEntitePageRoutingModule,
+    NgxPaginationModule
   ],
   declarations: [DetailEntitePage]
 })

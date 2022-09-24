@@ -1,3 +1,10 @@
+.mere{
+  padding-left: 11%;
+  padding-right:11% ;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
 .title_page{
   color: #FF6200;
   font-weight: bold;
@@ -19,15 +26,27 @@
 
 }
 
-.icon_plus{
-  font-size: 25px;
+.carte_home2{
+  background-color: #000000;
+  color: white;
+  mix-blend-mode: luminosity;
+  border-radius: 20px;
+  height: 400px;
+  
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
 }
+
+
 
 .chiffre_t_activite{
 font-family: 'Poppins';
 font-style: normal;
-font-weight: 700;
-font-size: 25px;
+font-weight: bold;
+font-size:18px;
 }
 
 
@@ -69,9 +88,9 @@ font-size: 25px;
   margin: 10px;
   background-color: #fff;
   border-radius: 0px;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-  width: 300px;
+   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+   overflow: hidden;
+  width: 325px;
 }
 .card-header img {
   width: 100%;

@@ -1,0 +1,60 @@
+
+
+  .contenair{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10%;
+    width: 100%;
+    height: auto;
+
+  }
+
+  .block1{
+    border-radius: 20px;
+    height: 290px;
+    width: 300px;
+    background-color: black;
+    margin-left: 10%;
+    padding-left: 20px;
+    box-sizing: content-box;
+  }
+
+
+  .nomsalle{
+    font-family: 'Times New Roman', Times, serif;
+    height: 130px;
+    width: 150px;
+    text-align: center;
+    margin-left: 125px;
+    color: #FF7900;
+  }
+
+  .imge{
+    width: 195px;
+    height: 125px;
+    border-radius: 20px,20px;
+    padding: 15px;
+    margin-left: 45px;
+  }
+  h1{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin-top: -1%;
+    color: white;
+  }
+ .nomformation{
+  font-family: 'Times New Roman', Times, serif;
+    color: #FF7900;
+    text-align: center;
+    margin-left: 125px;
+
+  }
+  span{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 12px;
+    color: white;
+
+  }
+
+
+

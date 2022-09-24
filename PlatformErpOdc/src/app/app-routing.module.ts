@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'accueil',
     pathMatch: 'full'
   },
   {
@@ -24,6 +24,11 @@ const routes: Routes = [
     path: 'sidebare',
     loadChildren: () => import('./sidebare/sidebare.module').then( m => m.SidebarePageModule)
   },
+  {
+    path: 'accueil',
+    loadChildren: () => import('./accueil/accueil.module').then( m => m.AccueilPageModule)
+  },
+
 
 ];
 

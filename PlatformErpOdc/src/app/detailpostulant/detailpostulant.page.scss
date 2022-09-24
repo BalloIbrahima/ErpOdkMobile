@@ -1,0 +1,46 @@
+img{
+    margin-top: 10px;
+    width: 36px;
+}
+
+.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.info{
+    text-align:center;
+}
+ion-list{
+    padding: 0% 20% 0% 20%;
+}
+
+ion-label{
+    font-weight: bolder;
+}
+
+ion-content{
+    --ion-background-color: black;
+}
+
+@media only screen and (max-width: 316px) {
+    .info{
+        text-align:center;
+        font-size: 12px;
+    }
+    .taille2{
+        font-size: 10px;
+    }
+    .taille2{
+        font-size: 13px;
+    }
+    ion-list{
+        padding: 2px
+    }
+}
+@media only screen and (min-width: 1024px) {
+    ion-list{
+        padding: 0% 20% 0% 20%;
+    }
+}

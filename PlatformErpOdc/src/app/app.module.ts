@@ -14,7 +14,7 @@ import { AccueilPipe } from './accueil.pipe';
 
 
 @NgModule({
-  declarations: [AppComponent,AccueilPipe],
+  declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,
     FormsModule,
     ReactiveFormsModule],

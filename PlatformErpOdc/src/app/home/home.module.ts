@@ -8,7 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 
 @NgModule({
-  imports: [
+  imports: [  
     CommonModule,
     FormsModule,
     IonicModule,

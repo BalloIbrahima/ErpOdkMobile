@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "PlatformErpOdc",
+	"appId": "com.odc",
+	"appName": "Orange Digital Center",
 	"webDir": "www",
 	"bundledWebRuntime": false
 }

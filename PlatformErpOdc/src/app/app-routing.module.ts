@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
+    path: 'activite',
+    loadChildren: () => import('./creer-activite/creer-activite.module').then(m => m.CreerActivitePageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'

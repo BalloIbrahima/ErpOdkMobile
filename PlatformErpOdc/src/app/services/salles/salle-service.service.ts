@@ -9,7 +9,11 @@ export class SalleServiceService {
 
   constructor(private http:HttpClient) { }
 
+// :::::::::Recupere salle par id
 
+getSalleParId(id:Number):Observable<any>{
+  return this.http.get(`http://localhost:8080/admin/getSalle/${id}`)
+}
 
   
 //::::::::::ajout de salle :::::::::::::::::::::::
@@ -25,7 +29,7 @@ nombre: number): Observable<any>{
     "nombreplace":nombre,
     "disponibilite":true
   }
-  return this.http.post(`http://localhost:8080/admin/creersalle/1`,salle);
+  return this.http.post(`http://localhost:8080/admin/creersalle/${id}`,salle);
 }
 
 
@@ -35,17 +39,23 @@ nombre: number): Observable<any>{
 
 ModifSalle(id:number,libelle:String,description:string,
   etage: string,
-  nombre: number): Observable<any>{
+  nombre: number, disponibilite:any): Observable<any>{
   
     var salle={
-      "id":4,
+      "id":id,
       "libelle":libelle,
       'description':description,
       "etage":etage,
       "nombreplace":nombre,
-      "disponibilite":true
+      "disponibilite":disponibilite
     }
     return this.http.put(`http://localhost:8080/admin/modifiersalle/4`,salle);
+  }
+
+  ////
+
+  recupererSalles():Observable<any>{
+    return this.http.get(`http://localhost:8080/admin/salle/all`)
   }
 }
 

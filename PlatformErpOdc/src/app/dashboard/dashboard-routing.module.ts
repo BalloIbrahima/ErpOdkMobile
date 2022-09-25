@@ -47,7 +47,7 @@ const routes: Routes = [
         loadChildren: () => import('../addsalle/addsalle.module').then( m => m.AddsallePageModule)
       },
       {
-        path: 'modifiersalle',
+        path: 'modifiersalle/:id',
         loadChildren: () => import('../modifiersalle/modifiersalle.module').then( m => m.ModifiersallePageModule)
       },
       {

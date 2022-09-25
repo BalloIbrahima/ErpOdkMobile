@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SalleServiceService } from '../services/salles/salle-service.service';
 
 @Component({
   selector: 'app-salles',
@@ -8,9 +9,32 @@ import { Router } from '@angular/router';
 })
 export class SallesPage implements OnInit {
 
-  constructor(public router:Router) { }
+  User:any;
+  Salles:any;
+  isSuperAdmin:boolean
+  disponible:String;
+  constructor(public router:Router, private salleService:SalleServiceService) { }
 
   ngOnInit() {
+    this.User=JSON.parse(localStorage.getItem('utilisateur'))
+
+    if(this.User.role.libellerole=="ADMIN"){
+      this.isSuperAdmin=true
+    }else{
+      this.isSuperAdmin=false
+    }
+    this.salleService.recupererSalles().subscribe(data=>{
+      if(data.message=='ok'){
+        this.Salles=data.data
+        if(this.Salles.disponible==true){
+          this.disponible="Disponible"
+        }else{
+          this.disponible="Indisponible"
+
+        }
+      }
+    })
+    this.Salles
   }
 
     

@@ -13,20 +13,23 @@
    
       <ul class="timeline">
         
-          <li class="timeline">
+          <li class="timeline" *ngFor="let salle of Salles">
             <div class="icon done"></div>
             <details class="panel">
-              <summary>Salle Etage 1</summary>
-              <p><strong>Etat:</strong>             
-                    <button type="submit" id="btnn" class="btn btn-primary">Disponible</button>
+              <summary>{{salle.libelle}} {{salle.etage}}éme Etage </summary>
+              <p><strong>Etat: </strong>             
+                    <button type="submit" id="btnn" class="btn btn-primary">{{disponible}}</button>
                               <br><br>
                 <strong>Description:</strong> 
-                Salle de formation pour Orange Digital Kalanso
-                composée de 40 Chaises,17 Tables deux Toilettes,
+                {{salle.description}}
+                <p><strong>Nombre de place :{{salle.nombreplace}}</strong> </p>
+                <button *ngIf="isSuperAdmin"  type="submit" id="btnn" class="btn btn-primary editbtn" [routerLink]="['../modifiersalle', salle.id]">Modifier</button>
+
             </details>
+
           </li>
         
-          <li class="timeline">
+          <!-- <li class="timeline">
             <div class="icon done"></div>
             <details class="panel">
               <summary>Salle Etage 2 </summary>
@@ -76,7 +79,7 @@
             Salle de formation pour Orange Digital Kalanso
             composée de 40 Chaises,17 Tables deux Toilettes,
                       </details>
-          </li>
+          </li> -->
         
          
         

@@ -57,5 +57,11 @@ ModifSalle(id:number,libelle:String,description:string,
   recupererSalles():Observable<any>{
     return this.http.get(`http://localhost:8080/admin/salle/all`)
   }
+
+  //recuperer salles disponibles
+  getAllDispo():Observable<any>{
+    return this.http.get(`http://localhost:8080/admin//getSalles/disponible`)
+
+  }
 }
 

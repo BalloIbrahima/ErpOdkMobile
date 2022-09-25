@@ -10,7 +10,7 @@ const routes: Routes = [
     children:[
       {
         path: '',
-        redirectTo: 'salles',
+        redirectTo: 'creer-activite',
         pathMatch: 'full'
       },
       {

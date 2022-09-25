@@ -10,7 +10,7 @@ const routes: Routes = [
     children:[
       {
         path: '',
-        redirectTo: 'accueil',
+        redirectTo: 'salles',
         pathMatch: 'full'
       },
       {
@@ -32,7 +32,11 @@ const routes: Routes = [
       {
         path: 'creer-activite',
         loadChildren: () => import('../creer-activite/creer-activite.module').then( m => m.CreerActivitePageModule)
-    
+  
+      },
+      {
+        path: 'salles',
+        loadChildren: () => import('../salles/salles.module').then( m => m.SallesPageModule)
       },
       { path: '**', redirectTo:'accueil',pathMatch:'full'}
 

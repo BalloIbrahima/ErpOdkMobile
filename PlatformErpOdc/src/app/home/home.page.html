@@ -105,6 +105,32 @@
       </div>
     </div>
 
+=======
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+<ion-content>
+<div class="header" >
+  <div class="image">
+     <img src="../../assets/icon/Orange.png" alt="logoooo">
+  </div>
+            <div class="monform">
+              <p> <b>Login</b></p>
+              
+              <form>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Entrer votre nom d'utilisateur </label>
+                  <input type="email" class="form-control"  [(ngModel)]="login" name="login"id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Identifiant">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Entrer votre Mot de passe</label>
+                  <input type="password" class="form-control"  [(ngModel)]="password" name="password"id="exampleInputPassword1" placeholder="Mot de passe">
+                </div>
+                <button type="submit" id="btnn" class="btn"  (click)="logForm()">Connexion</button>
+              </form>
+            </div>
+
+
   </div>
 
 
@@ -112,3 +138,4 @@
 
 </div>
  -->
+

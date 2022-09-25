@@ -124,16 +124,43 @@ form .button input:hover {
 @media (max-width: 584px) {
     .container {
         max-width: 100%;
+        height: 100%;
+        background: #FFFF;
+        padding: 5% 7%;
     }
     form .activite-details .input-box {
         margin-bottom: 15px;
         width: 100%;
     }
     .container form .activite-details {
-        max-height: 300px;
         overflow-y: scroll;
     }
     .activite-details::-webkit-scrollbar {
         width: 0;
+    }
+
+    form .button {
+        padding: 5%;
+        width: 100%;
+    }
+    
+    .title{
+        margin-top: 5%;
+    }
+    input[type=submit] {
+        border-radius: 10px;
+        padding: 7px 10px;
+        background-color: #FF7900;
+        color: #FFFF;
+        margin-bottom: 3%;
+        width: 100%;
+    }
+    
+    input[type=reset] {
+        border-radius: 5px;
+        padding: 7px 10px;
+        background-color: #FF7900;
+        color: #FFFF;
+        width: 100%;
     }
 }

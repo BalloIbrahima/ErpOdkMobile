@@ -6,15 +6,18 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
+  // {
+  //   path: '',
+  //   redirectTo: 'home',
+  //   pathMatch: 'full'
+  // },
   {
     path: '',
-
     redirectTo: 'accueil',
+    pathMatch:'full'
+  },
 // =======
 //     redirectTo: 'useraddform',
-
-    pathMatch: 'full'
-  },
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
@@ -27,7 +30,10 @@ const routes: Routes = [
 {
     path: 'useraddform',
     loadChildren: () => import('./useraddform/useraddform.module').then( m => m.UseraddformPageModule)
-
+},
+{
+    path: 'liste-personnel-entite',
+    loadChildren: () => import('./liste-personnel-entite/liste-personnel-entite.module').then( m => m.ListePersonnelEntitePageModule)
   },
 
   {

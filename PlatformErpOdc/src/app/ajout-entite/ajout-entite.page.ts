@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SalleServiceService } from 'src/services/salles/salle-service.service';
 
 @Component({
   selector: 'app-ajout-entite',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AjoutEntitePage implements OnInit {
 
-  constructor() { }
+  constructor(private service : SalleServiceService) { }
 
   ngOnInit() {
   }
 
+  description:String="";
+  libelleentite:String="";
+  AjoutEntite(){
+    this.service.ajoutEntite(this.description,this.libelleentite).subscribe(data=>{
+      console.log(data)
+
+    });
+}
+
+ToutEntite(){
+  this.service.ToutEntite().subscribe(data=>{
+    console.log(data)
+  }
+);
+}
 }

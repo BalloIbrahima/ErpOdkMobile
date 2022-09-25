@@ -38,6 +38,23 @@ const routes: Routes = [
         path: 'salles',
         loadChildren: () => import('../salles/salles.module').then( m => m.SallesPageModule)
       },
+      {
+        path: 'modifieruser',
+        loadChildren: () => import('../modifieruser/modifieruser.module').then( m => m.ModifieruserPageModule)
+      },
+      {
+        path: 'addsalle',
+        loadChildren: () => import('../addsalle/addsalle.module').then( m => m.AddsallePageModule)
+      },
+      {
+        path: 'modifiersalle',
+        loadChildren: () => import('../modifiersalle/modifiersalle.module').then( m => m.ModifiersallePageModule)
+      },
+      {
+        path: 'useraddform',
+        loadChildren: () => import('../useraddform/useraddform.module').then( m => m.UseraddformPageModule)
+    
+      },
       { path: '**', redirectTo:'accueil',pathMatch:'full'}
 
     

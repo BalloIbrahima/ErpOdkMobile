@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: () => import('./creer-activite/creer-activite.module').then(m => m.CreerActivitePageModule)
   },
   {
+    path: 'accueil',
+    loadChildren: () => import('./accueil/accueil.module').then(m => m.AccueilPageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'

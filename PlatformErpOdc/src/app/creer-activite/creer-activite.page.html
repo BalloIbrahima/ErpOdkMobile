@@ -99,11 +99,15 @@
             <div class="activite-details">
                 <div class="input-box">
                     <span class="details">Entité</span>
-                    <input type="select" placeholder="Choisisez une entité">
+                    <select name="typeentite" class="select">
+                        <option value="">Choisisez une entité</option>
+                    </select>
                 </div>
-                <div class="input-box">
+                <div class="input-box ">
                     <span class="details">Type d'activité</span>
-                    <input type="select" placeholder="Choisisez le type de l'activité">
+                    <select name="typeactivite" class="select">
+                        <option value="">Choisisez le type de l'activité</option>
+                    </select>
                 </div>
                 <div class="input-box">
                     <span class="details">Ajouter image</span>
@@ -119,29 +123,35 @@
                 </div>
                 <div class="input-box">
                     <span class="details">Le nom du lead de l'activité</span>
-                    <input type="select" placeholder="Choisisez un lead">
+                    <select name="choixlead" class="select">
+                        <option value="">Choisisez un lead</option>
+                    </select>
                 </div>
                 <div class="input-box">
                     <span class="details">Activité Attribuer à </span>
-                    <input type="select" placeholder="Choisisez une personne">
+                    <select name="activiteattribuer" class="select">
+                        <option value="">Choisisez une personne</option>
+                    </select>
                 </div>
                 <div class="input-box">
                     <span class="details">Salle dedié à l'activité</span>
-                    <input type="select" placeholder="Choisisez parmis les salles disponible">
+                    <select name="tchoixsalle" class="select">
+                        <option value="">Choisisez parmis les salles dispo</option>
+                    </select>
                 </div>
                 <div class="input-box">
                     <span class="details">Date debut</span>
-                    <input type="date" placeholder="Choisisez la date de debut">
+                    <input type="datetime-local" placeholder="Choisisez la date de debut">
                 </div>
                 <div class="input-box">
                     <span class="details">Date fin</span>
-                    <input type="date" placeholder="Choisisez la date de fin">
+                    <input type="datetime-local" placeholder="Choisisez la date de fin">
                 </div>
                 <div class="button">
-                    <input type="reset" value="Annuler">
+                    <input class="but" type="reset" value="Annuler">
                 </div>
                 <div class="button">
-                    <input type="submit" value="Créer l'activté">
+                    <input class="but" type="submit" value="Créer l'activté">
                 </div>
             </div>
         </form>

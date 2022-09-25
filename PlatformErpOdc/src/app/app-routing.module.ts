@@ -13,8 +13,11 @@ const routes: Routes = [
   // },
   {
     path: '',
-    redirectTo: 'accueil',
-    pathMatch:'full'
+    // redirectTo: 'accueil',
+    // pathMatch:'full'
+
+    redirectTo: 'tirage',
+   pathMatch: 'full'
   },
 // =======
 //     redirectTo: 'useraddform',
@@ -59,6 +62,10 @@ const routes: Routes = [
     loadChildren: () => import('./modifiersalle/modifiersalle.module').then( m => m.ModifiersallePageModule)
   },
 
+{
+    path: 'tirage',
+    loadChildren: () => import('./tirage/tirage.module').then( m => m.TiragePageModule)
+  },
 
 
 ];

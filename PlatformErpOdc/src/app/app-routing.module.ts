@@ -15,6 +15,10 @@ const routes: Routes = [
     loadChildren: () => import('./accueil/accueil.module').then(m => m.AccueilPageModule)
   },
   {
+    path: 'salle',
+    loadChildren: () => import('./salles/salles.module').then(m => m.SallesPageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'

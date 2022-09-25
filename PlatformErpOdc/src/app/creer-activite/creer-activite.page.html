@@ -1,0 +1,160 @@
+<!-- <ion-header>
+    <ion-toolbar>
+        <ion-title>creerActivite</ion-title>
+    </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+    <!--
+    <p>Nouvelle Activité</p>
+
+    <div class="container">
+
+        <form action="#">
+            <div class="add">
+
+                <div class="inp">
+                    <label for="name">Entité</label>
+                    <input type="select" placeholder="Choisisez une entité">
+                    <select name="" id="">
+          <option valeur="formation">Kalanso</option>
+          <option valeur="talk">FabLab</option>
+          <option valeur="evenement">OrangeFab</option>
+        </select>
+                </div>
+
+                <div class="inp">
+                    <label for="name">Type d'activité</label>
+                    <input type="select" placeholder="Choisisez une activité">
+                    <select name="" id="">
+          <option valeur="formation">Formation</option>
+          <option valeur="talk">Talk</option>
+          <option valeur="evenement">Evènement</option>
+        </select>
+                </div>
+
+                <div class="inp">
+                    <label for="logo">Image</label>
+                    <input type="file" placeholder="Logo.jpg" id="logo" name="logo" accept="image/png, image/jpeg, image/jpg">
+                </div>
+
+                <div class="inp">
+                    <script>
+                        date = new Date().toLocaleDateString();
+                        document.write(date);
+                    </script>
+                </div>
+
+                <div class="inp">
+                    <input type="select" placeholder="Nom du lead">
+                    <label for="name">Le nom du lead de la formation</label>
+                    <select name="" id="">
+          <option valeur="fk">Fatoumata Kaloga</option>
+          <option valeur="ns">Nènè Sylla</option>
+          <option valeur="as">Adama Samake</option>
+        </select>
+                </div>
+
+                <div class="inp">
+                    <input type="select">
+                    <label for="name">Attribuer à</label>
+                    <select name="" id="">
+          <option valeur="fk">Fatoumata Kaloga</option>
+          <option valeur="ns">Nènè Sylla</option>
+          <option valeur="as">Adama Samake</option>
+        </select>
+                </div>
+
+                <div class="inp">
+                    <label for="name">Salle dedié à l'activité</label>
+                    <input type="text" name="name" id="name" required>
+                </div>
+
+                <div class="inp">
+                    <label for="date">Date debut</label>
+                    <input type="date" name="date" id="date" required>
+                </div>
+
+                <div class="inp">
+                    <label for="date">Date fin</label>
+                    <input type="date" name="date" id="date" required>
+                </div>
+
+                <div class="button">
+                    <input type="submit" value="Créer l'activité">
+                </div>
+
+                <div class="button">
+                    <input type="submit" value="Annuler">
+                </div>
+
+            </div>
+        </form>
+    </div>
+    -->
+    <div class="title">Nouvelle Activité</div>
+    <div class="container">
+
+        <form action="#">
+            <div class="activite-details">
+                <div class="input-box">
+                    <span class="details">Entité</span>
+                    <select name="typeentite" class="select">
+                        <option value="">Choisisez une entité</option>
+                    </select>
+                </div>
+                <div class="input-box ">
+                    <span class="details">Type d'activité</span>
+                    <select name="typeactivite" class="select">
+                        <option value="">Choisisez le type de l'activité</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Ajouter image</span>
+                    <input type="file" placeholder="Logo.jpg" id="logo" name="logo" accept="image/png, image/jpeg, image/jpg">
+                </div>
+                <div class="input-box">
+                    <span class="details">Donner un nom à l'activité</span>
+                    <input type="text" placeholder="Nom de l'activité">
+                </div>
+                <div class="input-box">
+                    <span class="details">Durée</span>
+                    <input type="text" placeholder="Donner la durée de l'activité">
+                </div>
+                <div class="input-box">
+                    <span class="details">Le nom du lead de l'activité</span>
+                    <select name="choixlead" class="select">
+                        <option value="">Choisisez un lead</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Activité Attribuer à </span>
+                    <select name="activiteattribuer" class="select">
+                        <option value="">Choisisez une personne</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Salle dedié à l'activité</span>
+                    <select name="tchoixsalle" class="select">
+                        <option value="">Choisisez parmis les salles dispo</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Date debut</span>
+                    <input type="datetime-local" placeholder="Choisisez la date de debut">
+                </div>
+                <div class="input-box">
+                    <span class="details">Date fin</span>
+                    <input type="datetime-local" placeholder="Choisisez la date de fin">
+                </div>
+                <div class="button">
+                    <input class="but" type="reset" value="Annuler">
+                </div>
+                <div class="button">
+                    <input class="but" type="submit" value="Créer l'activté">
+                </div>
+            </div>
+        </form>
+    </div>
+
+</ion-content>

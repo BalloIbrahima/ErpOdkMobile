@@ -29,6 +29,11 @@ const routes: Routes = [
         path: 'ajout-entite',
         loadChildren: () => import('../ajout-entite/ajout-entite.module').then( m => m.AjoutEntitePageModule)
       },
+      {
+        path: 'creer-activite',
+        loadChildren: () => import('../creer-activite/creer-activite.module').then( m => m.CreerActivitePageModule)
+    
+      },
       { path: '**', redirectTo:'accueil',pathMatch:'full'}
 
     

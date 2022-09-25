@@ -15,11 +15,7 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
-  {
-    path: 'sidebare',
-    loadChildren: () => import('./sidebare/sidebare.module').then( m => m.SidebarePageModule)
-  },
-
+  
 ];
 
 @NgModule({

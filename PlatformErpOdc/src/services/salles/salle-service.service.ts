@@ -28,5 +28,24 @@ nombre: number): Observable<any>{
   return this.http.post(`http://localhost:8080/admin/creersalle/1`,salle);
 }
 
+
+
+  
+//::::::::::Modif de salle :::::::::::::::::::::::
+
+ModifSalle(id:number,libelle:String,description:string,
+  etage: string,
+  nombre: number): Observable<any>{
+  
+    var salle={
+      "id":4,
+      "libelle":libelle,
+      'description':description,
+      "etage":etage,
+      "nombreplace":nombre,
+      "disponibilite":true
+    }
+    return this.http.put(`http://localhost:8080/admin/modifiersalle/4`,salle);
+  }
 }
 

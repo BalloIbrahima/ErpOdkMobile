@@ -8,7 +8,11 @@ const routes: Routes = [
   },
   {
     path: '',
+
     redirectTo: 'accueil',
+// =======
+//     redirectTo: 'useraddform',
+
     pathMatch: 'full'
   },
   {
@@ -20,14 +24,35 @@ const routes: Routes = [
     loadChildren: () => import('./ajout-entite/ajout-entite.module').then( m => m.AjoutEntitePageModule)
   },
 
+{
+    path: 'useraddform',
+    loadChildren: () => import('./useraddform/useraddform.module').then( m => m.UseraddformPageModule)
+
+  },
+
   {
     path: 'sidebare',
     loadChildren: () => import('./sidebare/sidebare.module').then( m => m.SidebarePageModule)
   },
   {
+
     path: 'accueil',
     loadChildren: () => import('./accueil/accueil.module').then( m => m.AccueilPageModule)
   },
+
+  {
+    path: 'modifieruser',
+    loadChildren: () => import('./modifieruser/modifieruser.module').then( m => m.ModifieruserPageModule)
+  },
+  {
+    path: 'addsalle',
+    loadChildren: () => import('./addsalle/addsalle.module').then( m => m.AddsallePageModule)
+  },
+  {
+    path: 'modifiersalle',
+    loadChildren: () => import('./modifiersalle/modifiersalle.module').then( m => m.ModifiersallePageModule)
+  },
+
 
 
 ];

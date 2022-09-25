@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 0;
+    background-color: #fff;
+    
+}
+.userbox{
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    border-radius: 15px 15px 0px 0px;
+    text-align: center;
+    box-shadow:0px 4px 20px 10px rgba(0, 0, 0, 0.25);
+}
+.userbox .title{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: #000000;
+    color: #fff;
+    border-radius: 15px 15px 0 0;
+    padding: 10px;;
+    
+} 
+.userbox form{
+    display: flex;
+    flex-wrap: wrap;
+}
+form .inputbox{
+    margin: 20px 20px 12px 0;
+    width: calc(100%/2 - 20px);
+    
+}
+
+.inputbox input{
+    border: none;
+    border-bottom: 2px solid #000;
+    outline: none;
+    height: 40px;
+    
+}
+  
+h2 {
+    justify-content: center;
+}
+.button{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    margin-right: 50px;
+    
+}
+.button-left,.button-right {
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    padding: 14px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-color: #FF6200;
+    border-radius: 25px;
+    display: flex;
+    font-style: italic; 
+}
+.button-left{
+    margin-right: 50px;
+}
+
+  .box select {
+    width: 181px;
+    appearance: button;
+    border: none;
+    border-bottom: 2px solid;
+    height: 40px;
+  }
+  .box span {
+    color:rgba(0, 0, 0, 0.5);
+  }
+
+  .box::before {
+    font-family: FontAwesome;
+    font-size: 28px;
+    line-height: 45px;
+    color: rgba(255, 255, 255, 0.5);
+
+  }
+  
+  .box:hover::before {
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .box select option  {
+    padding: 30px;
+    color:rgba(0, 0, 0, 0.5);
+  }
+@media (max-width:320px) {
+  .userbox{
+    max-width: 100%;
+  }
+  .userbox form{
+    max-height: 500px;
+    overflow-y: scroll;
+  }
+  .inputbox::-webkit-scrollbar{
+    width: 0;
+  }
+  form .inputbox{
+    margin: 20px 20px 12px 0;
+    width: 100%;
+    
+}
+form .inputbox input{
+  margin: 20px 20px 12px 0;
+  width: 70%;
+  
+}
+.box select {
+  width: 70%;
+}
+}

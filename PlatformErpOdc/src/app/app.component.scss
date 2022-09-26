@@ -1,0 +1,114 @@
+@font-face {
+  font-family: myfon;
+  src: url("../assets/font/Poppins-Black.ttf");
+}
+
+ion-split-pane {
+  --border: none !important;
+  --side-width: 12em;
+
+  ion-menu {
+    --background: var(--ion-color-warning-contrast) !important;
+
+    ion-content {
+      --background: var(--ion-color-warning-contrast) !important;
+
+      ion-item {
+        --background: var(--ion-color-warning-contrast) !important;
+        --color: #FFFFFF !important;
+        
+        letter-spacing: 2px;
+
+        ion-icon {
+          padding-right: 5px !important;
+        }
+
+        ion-grid {
+          ion-row {
+
+            ion-col {
+// style appliquer au nom d'utilisateur
+              .imageUtilisateur {
+                height: 100px;
+                width: 100px;
+                border-radius: 50%;
+
+              }
+            }
+          }
+        }
+
+      }
+    }
+  }
+// style appliquer a un nom d'utilisateur 
+.nomUtilisateur {
+  font-family: myfon;
+  color: #FF6200 !important;
+  font-style: normal;
+  font-weight: 800;
+
+}
+// la taille des lien par defaut
+.lienPage {
+  font-size: medium !important;
+}
+// la couleur de l'icon par defaut
+ion-icon {
+  color: #ffffff;
+}
+// syle apliquer a une icon une fois active
+.active-item ion-icon {
+
+  color: #FF6200 !important;
+}
+// style appliquer a un lien une fois active
+.active-item {
+  border-bottom: #FF6200 2px solid;
+  border-right: #FF6200 5px solid;
+  border-radius: 0px 0px 10px 0px;
+  color: #FF6200 !important;
+}
+// style appliquer au button de deconnexion
+.butonDeconnexion {
+  --background: #FF6200 !important;
+  --color: #FFFFFF !important;
+}
+
+}
+
+// style appliquer lorsquer la largeur de l'ecran est inferieur a 600px
+@media screen and (max-width: 600px) {
+  .lienPage {
+    font-size: small !important;
+  }
+
+  .nomUtilisateur {
+    font-size: large;
+  }
+
+  ion-icon {
+    font-size: medium !important;
+  }
+
+  .butonDeconnexion {
+    height: 2em;
+    width: 10em;
+    position: relative;
+    left: 40px;
+  }
+
+  .imageEntreprise {
+    width: 100px;
+    height: 50;
+  }
+
+  .imageUtilisateur {
+    height: 60px !important;
+    width: 60px !important;
+    border-radius: 50%;
+
+  }
+
+  
+}

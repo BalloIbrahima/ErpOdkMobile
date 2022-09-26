@@ -39,6 +39,7 @@
 }
 
 .userplus:hover {
+    color: white;
     background-color: #FF6200;
     border-color: black;
 }
@@ -121,6 +122,12 @@ svg {
     .tabtitle {
         width: auto;
     }
+    .titre {
+        font-size: 18px;
+    }
+    .espace {
+        margin-bottom: 40px;
+    }
     .texte {
         padding-left: 5px;
         padding-right: 5px;
@@ -131,53 +138,31 @@ svg {
     .cacher1 {
         display: none;
     }
-
+    
+    td,th {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
 }
-@media screen and (max-width: 1060px) {
-    .tabtitle {
-        width: auto;
-    }
-    .texte {
-        padding-left: 5px;
-        padding-right: 5px;
-        color: white;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .cacher2 {
-        display: none;
+@media screen and (max-width: 900px) {
+    td,th {
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
 }
-@media screen and (max-width: 910px) {
-    .tabtitle {
-        width: auto;
-    }
-    .texte {
+@media screen and (max-width: 700px) {
+     .cacher2 {
+         display: none;
+     }
+     td,th {
         padding-left: 5px;
         padding-right: 5px;
-        color: white;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .cacher3 {
-        display: none;
     }    
 
 }
-@media screen and (max-width: 690px) {
-    .tabtitle {
-        width: auto;
-    }
-    .texte {
-        font-size: x-small;
-        padding-left: 5px;
-        padding-right: 5px;
-        color: white;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .cacher {
+@media screen and (max-width: 580px) {
+    .cacher3 {
         display: none;
     }
 

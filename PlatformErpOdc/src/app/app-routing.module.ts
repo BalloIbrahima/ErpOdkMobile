@@ -14,11 +14,12 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },  {
+  },
+  {
     path: 'personnels',
     loadChildren: () => import('./personnels/personnels.module').then( m => m.PersonnelsPageModule)
   },
-
+  
 ];
 
 @NgModule({

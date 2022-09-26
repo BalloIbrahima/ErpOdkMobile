@@ -11,6 +11,7 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
@@ -19,6 +20,12 @@ const routes: Routes = [
     path: 'sidebare',
     loadChildren: () => import('./sidebare/sidebare.module').then( m => m.SidebarePageModule)
   },
+  
+  {
+    path: 'creer-activite',
+    loadChildren: () => import('././creer-activite/creer-activite.module').then( m => m.CreerActivitePageModule)
+  },
+ 
 
 ];
 

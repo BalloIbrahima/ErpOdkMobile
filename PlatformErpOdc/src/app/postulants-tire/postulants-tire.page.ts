@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./postulants-tire.page.scss'],
 })
 export class PostulantsTirePage implements OnInit {
-
+  list!: any;
+  a!: any;
   constructor() { }
 
   ngOnInit() {

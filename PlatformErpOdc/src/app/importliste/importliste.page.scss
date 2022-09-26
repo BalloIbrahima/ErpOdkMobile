@@ -1,8 +1,9 @@
 /*le cadre principal*/
 .principal{
+
   position: relative;
   width: 350px;
-  height: 600px;
+  height: 500px;
   border-radius: 20px;
   margin-top: 10px;
   margin-right: auto;
@@ -72,7 +73,8 @@ button{
   transition: 0.5s;
    border: 2px solid orange;
    padding: 0px 100px 0px 0px;
-   margin-left: 50px;
+/*mieux centrer le text du button*/
+  margin-left: 50px;
   width: 60%;
   padding: 0;
   border-radius: 20px;
@@ -82,9 +84,35 @@ button{
 button:hover {
  background-color: white;
  color: black;
- border: 1px solid orange;
+border: 1px solid orange;
 
 }
+
+#import{
+  box-shadow: none;
+  border-radius: none;
+  background: white;
+}
+
+.importer{
+  border: 1px dashed black;
+  padding: 30px;
+}
+ #iconeImport{
+  margin-bottom: 10px;
+  font-size:60px ;
+  margin-left: 70px;
+
+}
+
+
+
+
+
+
+
+
+
 
 
 @media (max-width: 584px) {

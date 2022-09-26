@@ -8,21 +8,23 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'tirage',
+    redirectTo: 'importliste',
     pathMatch: 'full'
   },
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
-  {
-    path: 'sidebare',
-    loadChildren: () => import('./sidebare/sidebare.module').then( m => m.SidebarePageModule)
-  },
+
   {
     path: 'tirage',
     loadChildren: () => import('./tirage/tirage.module').then( m => m.TiragePageModule)
   },
+  {
+    path: 'importliste',
+    loadChildren: () => import('./importliste/importliste.module').then( m => m.ImportlistePageModule)
+  },
+
 
 
 ];

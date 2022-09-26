@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { SidebarePageRoutingModule } from './sidebare-routing.module';
+import { ImportlistePageRoutingModule } from './importliste-routing.module';
 
-import { SidebarePage } from './sidebare.page';
+import { ImportlistePage } from './importliste.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SidebarePageRoutingModule
+    ImportlistePageRoutingModule
   ],
-  declarations: [SidebarePage]
+  declarations: [ImportlistePage]
 })
-export class SidebarePageModule {}
+export class ImportlistePageModule {}

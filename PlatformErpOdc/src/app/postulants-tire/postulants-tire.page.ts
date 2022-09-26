@@ -6,6 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./postulants-tire.page.scss'],
 })
 export class PostulantsTirePage implements OnInit {
+  accueil = [
+    {nom: "dembele", prenom:"idrissa"},
+    {nom: "dembele", prenom:"idrissa"},
+    {nom: "dembele", prenom:"idrissa"},
+    {nom: "dembele", prenom:"idrissa"},
+    {nom: "dembele", prenom:"idrissa"},
+    {nom: "dembele", prenom:"idrissa"},
+    {nom: "dembele", prenom:"idrissa"},
+    {nom: "dembele", prenom:"idrissa"},
+    {nom: "dembele", prenom:"idrissa"},
+    {nom: "dembele", prenom:"idrissa"},
+    {nom: "dembele", prenom:"idrissa"},
+    {nom: "dembele", prenom:"idrissa"},
+  ]
+ 
+    
+  
 a!:any;
   constructor() { }
 

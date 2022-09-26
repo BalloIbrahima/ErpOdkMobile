@@ -16,16 +16,13 @@
     font-weight: bold;
 }
 
-.aduser {
-    color: #FF6200;
-    direction: ltr;
-    margin-left: 80px;
-    margin-bottom: 80px;
+.disposition {
+    display: flex;
 }
 
 .userplus {
-    border: 2px solid black;
-    background-color: white;
+    border: 1px solid black;
+    background-color: #FF6200;
     color: black;
     padding: 14px 20px;
     font-size: 16px;
@@ -38,16 +35,11 @@
     margin-top: 6%;
 }
 
-.filterentity {
-    color: #FF6200;
-    direction: ltr;
-}
-
 .entitytexte {
-    border: 2px solid black;
-    background-color: white;
+    border: 1px solid black;
+    background-color: #FF6200;
     color: black;
-    //<padding: 14px 20px;
+    padding: 14px 20px;
     font-size: 16px;
     cursor: pointer;
     border-color: #FF6200;
@@ -59,10 +51,17 @@
 }
 
 .userplus:hover {
-    color: white;
-    background-color: #FF6200;
-    border-color: black;
+    color: #FF6200;
+    background-color: white;
+    border-color: #FF6200;
 }
+
+.entitytexte:hover {
+    color: #FF6200;
+    background-color: white;
+    border-color: #FF6200;
+}
+
 
 .tabspace {
     margin-top: 60px;

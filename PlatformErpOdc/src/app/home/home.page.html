@@ -3,9 +3,47 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title >Accueil</ion-title>
+    <ion-title>Accueil</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <div>first element</div>
+  <div class="position-relative mt-5 m-3">
+    <div class="position-absolute top-50 end-0 translate-middle-y ">
+      <ion-button expand="block" shape="round">
+        Click me
+      </ion-button>
+    </div>
+  </div>
+  <div class="table-responsive container">
+
+    <table class="table tab position-relative mt-5 caption-top text-center">
+      <caption class="position-absolute top-0 start-50 translate-middle text-center">LISTE DES PERSONNELS DE ODC</caption>
+      <thead>
+        <tr>
+          <div class="p-4 espace">
+            espacement
+          </div>
+        </tr>
+        <tr class="titre">
+
+          <th scope="col">NOM</th>
+          <th scope="col">PRENOM</th>
+          <th scope="col">GENRE</th>
+          <th scope="col">CONTACT</th>
+          <th scope="col">ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="enregistrement table-active">
+          <td>DEMBELE</td>
+          <td>Idrissa</td>
+          <td>M</td>
+          <td>+223 83252448</td>
+          <td><ion-icon name="eye-outline"></ion-icon><ion-icon name="document-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
+        </tr>
+        <hr>
+      </tbody>
+    </table>
+  </div>
+
 </ion-content>

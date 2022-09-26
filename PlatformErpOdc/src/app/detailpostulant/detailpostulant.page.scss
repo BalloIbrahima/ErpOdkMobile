@@ -21,26 +21,145 @@ ion-label{
 }
 
 ion-content{
-    --ion-background-color: black;
+    --ion-background-color: #ffff;
+}
+
+.buttom{
+    padding: 0% 20% 0% 20%;
+    display: flex;
+    flex-direction: row;
+}
+.button1{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 2em;
+}
+
+.but1, .but2{
+    font-family: '!important';
+    letter-spacing: 2px;
+    padding: 20px;
+    margin-right: 4em;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    border: 1px solid #FF6200;
+    border-radius: 40px;
+    background-color: white;
+    font-size: 20px;
+    font-weight: 400;
+}
+.but1:hover, .but2:hover{
+    background-color: #FF6200;
+    color: white;
+}
+
+@media only screen and (max-width: 1106px) {
+    ion-list{
+        padding: 0% 10% 0% 10%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    ion-list{
+        padding: 0% 20% 0% 20%;
+    }
+    ion-list{
+        padding: 0% 10% 0% 10%;
+    }
+    .but1, .but2{
+        letter-spacing: 1px;
+        margin-right: 2em;
+        padding: 10px;
+    }
+}
+@media only screen and (max-width: 640px) {
+   
+    .but1, .but2{
+        margin-right: 1em;
+        padding: 6px;
+    }
+    ion-list{
+        padding: 0px;
+       
+    }
+    .buttom{
+        padding: 0% 10% 0% 10%;
+    }
+    .taille2{
+        font-size: 16px; 
+    }
+   
+    ion-label{
+        margin-right: 10px;
+    }
+}
+@media only screen and (max-width: 460px) {
+    .but1, .but2{
+        margin-right: 6px;
+        padding: 6px;
+        font-size: 18px;
+    }
+    ion-list{
+        padding: 0px;
+    }
+    .buttom{
+        padding: 0px;
+    }
+    .taille2{
+        font-size: 13px; 
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .buttom{
+        padding: 0% 10% 0% 10%;
+        display: flex;
+        flex-direction: column;
+    }
+    .buttom1{
+        text-align: center;
+        height: 20px;
+        margin-bottom: 2em;
+    }
+    .but1{
+       padding: 20px;
+    }
+    .but2{
+        text-align: center;
+        padding: 20px;
+     }
+
 }
 
 @media only screen and (max-width: 316px) {
+    .buttom{
+        padding: 0px;
+        display: flex;
+        flex-direction: column;
+    }
+    .but1{
+        padding: 10px;
+     }
+     .but2{
+         text-align: center;
+         padding: 10px;
+      }
     .info{
         text-align:center;
         font-size: 12px;
     }
     .taille2{
-        font-size: 10px;
+        font-size: 12px; 
     }
-    .taille2{
-        font-size: 13px;
+    .taille1{
+        font-size: 16px;
+    }
+    ion-label{
+        margin-right: 10px;
     }
     ion-list{
-        padding: 2px
+        padding: 0px;
     }
-}
-@media only screen and (min-width: 1024px) {
-    ion-list{
-        padding: 0% 20% 0% 20%;
-    }
+ 
+   
 }

@@ -6,11 +6,11 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
-  {
-    path: 'home',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
+  // {
+  //   path: '',
+  //   redirectTo: 'home',
+  //   pathMatch: 'full'
+  // },
   {
     path: '',
     redirectTo: 'detailpostulant',
@@ -21,9 +21,21 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
+
     path: 'detailpostulant',
     loadChildren: () => import('./detailpostulant/detailpostulant.module').then( m => m.DetailpostulantPageModule)
   },
+
+  {
+    path: 'sidebare',
+    loadChildren: () => import('./sidebare/sidebare.module').then( m => m.SidebarePageModule)
+  },
+  {
+    path: 'accueil',
+    loadChildren: () => import('./accueil/accueil.module').then( m => m.AccueilPageModule)
+  },
+
+
 
 ];
 

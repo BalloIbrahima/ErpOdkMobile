@@ -157,6 +157,16 @@ h1 {
   top: 0;
   left: 0;
 }
+
+
+#iconeImport{
+  font-size:30px ;
+  margin-left: 70px;
+
+}
+
+
+
 /*Pour tablette ipad*/
 @media screen and (max-width: 768px) {
 
@@ -190,8 +200,9 @@ h1 {
 }
 
 }
+/*Pour telephone */
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 650px) and (min-width: 274px) {
   .container2 {
     position: relative;
     width: 234px;
@@ -204,6 +215,12 @@ h1 {
     box-sizing: border-box;
     background: white;
     box-shadow: 10px 10px 10px grey, -10px -10px 10px grey;
+}
+
+.containair2 .inputs .importer #iconeImport{
+
+  font-size:30px ;
+  margin-left: 100px;
 }
 
 

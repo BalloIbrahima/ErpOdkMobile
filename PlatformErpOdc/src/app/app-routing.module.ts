@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'salles',
+    redirectTo: 'tirage',
     pathMatch: 'full'
   },
   {
@@ -24,6 +24,11 @@ const routes: Routes = [
 {    path: 'sidebare',
     loadChildren: () => import('./sidebare/sidebare.module').then( m => m.SidebarePageModule)
   },
+  {
+    path: 'tirage',
+    loadChildren: () => import('./tirage/tirage.module').then( m => m.TiragePageModule)
+  },
+
 
 ];
 

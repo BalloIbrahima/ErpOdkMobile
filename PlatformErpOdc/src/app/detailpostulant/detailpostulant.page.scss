@@ -38,19 +38,21 @@ ion-content{
 .but1, .but2{
     font-family: '!important';
     letter-spacing: 2px;
-    padding: 20px;
+    padding: 10px;
     margin-right: 4em;
     margin-top: 3em;
     margin-bottom: 3em;
     border: 1px solid #FF6200;
-    border-radius: 40px;
-    background-color: white;
+    border-radius: 15px;
+    background-color: #FF6200;
     font-size: 20px;
     font-weight: 400;
+    color: white;
 }
 .but1:hover, .but2:hover{
-    background-color: #FF6200;
-    color: white;
+    background-color: #ffff;
+    color: #FF6200;
+    border: 1px solid #FF6200;
 }
 
 @media only screen and (max-width: 1106px) {
@@ -103,7 +105,7 @@ ion-content{
         padding: 0px;
     }
     .buttom{
-        padding: 0px;
+        padding: 0% 5% 0% 5%;
     }
     .taille2{
         font-size: 13px; 
@@ -112,38 +114,46 @@ ion-content{
 
 @media only screen and (max-width: 414px) {
     .buttom{
-        padding: 0% 10% 0% 10%;
+        padding: 0% 5% 0% 5%;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
     }
     .buttom1{
-        text-align: center;
         height: 20px;
         margin-bottom: 2em;
     }
-    .but1{
-       padding: 20px;
+    .but1, .but2{
+       padding: 10px;
+       font-size: 13px;
     }
-    .but2{
-        text-align: center;
-        padding: 20px;
-     }
-
 }
 
 @media only screen and (max-width: 316px) {
     .buttom{
-        padding: 0px;
+        padding: 0% 5% 0% 5%;
         display: flex;
         flex-direction: column;
     }
+    .button1{
+        height: 50px;
+        margin-left: 10px;
+       
+    }
+    .button2{
+        margin-left: 10px;
+        
+    }
     .but1{
+        margin-right: 20px;
+        height: 40px;
         padding: 10px;
+        font-size: 10px;
      }
      .but2{
-         text-align: center;
-         padding: 10px;
-      }
+        height: 40px;
+        padding: 10px;
+        font-size: 10px;
+     }
     .info{
         text-align:center;
         font-size: 12px;

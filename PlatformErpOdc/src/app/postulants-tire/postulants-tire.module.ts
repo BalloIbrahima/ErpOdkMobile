@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { PostulantsTirePageRoutingModule } from './postulants-tire-routing.module';
 
@@ -13,7 +14,8 @@ import { PostulantsTirePage } from './postulants-tire.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    PostulantsTirePageRoutingModule
+    PostulantsTirePageRoutingModule,
+    NgxPaginationModule
   ],
   declarations: [PostulantsTirePage]
 })

@@ -16,9 +16,11 @@ const routes: Routes = [
     path: '',
     // redirectTo: 'accueil',
     // pathMatch:'full'
-
-    redirectTo: 'activite',
+    redirectTo: 'entite',
    pathMatch: 'full'
+    // redirectTo: 'entite',
+    // pathMatch: 'full'
+
   },
 // =======
 //     redirectTo: 'useraddform',
@@ -72,6 +74,10 @@ const routes: Routes = [
     loadChildren: () => import('./activite/activite.module').then( m => m.ActivitePageModule)
   },
 
+  {
+    path: 'entite',
+    loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
+  },
 
 ];
 

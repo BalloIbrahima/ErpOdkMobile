@@ -21,10 +21,9 @@ const routes: Routes = [
     path: 'salles',
     loadChildren: () => import('./salles/salles.module').then( m => m.SallesPageModule)
   },
-{    path: 'sidebare',
-    loadChildren: () => import('./sidebare/sidebare.module').then( m => m.SidebarePageModule)
-  },
+
   
+
 
 
 ];

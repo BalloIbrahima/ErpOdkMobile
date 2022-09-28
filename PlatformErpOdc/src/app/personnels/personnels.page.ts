@@ -6,15 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./personnels.page.scss'],
 })
 export class PersonnelsPage implements OnInit {
-  rows=[{
-  name:'keita',
-  prenom:'Ali',
-  genre:'Masculin',
-  contact:556667,
-  email:'djiguibabarema@gmail.com',
-  action:'Voir +',
- },
-];
+//   rows=[{
+//   name:'keita',
+//   prenom:'Ali',
+//   genre:'Masculin',
+//   contact:556667,
+//   email:'djiguibabarema@gmail.com',
+//   action:'Voir +',
+//  },
+// ];
 students =[
   {
       name: 'Djiguiba',
@@ -90,6 +90,7 @@ students =[
 ];
 
   constructor() { }
+   // eslint-disable-next-line @typescript-eslint/member-ordering, @typescript-eslint/type-annotation-spacing
    a!:any;
 
   ngOnInit() {

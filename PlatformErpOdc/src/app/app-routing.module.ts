@@ -16,10 +16,6 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'sidebare',
-    loadChildren: () => import('./sidebare/sidebare.module').then( m => m.SidebarePageModule)
-  },
-  {
     path: 'accueil',
     loadChildren: () => import('./accueil/accueil.module').then( m => m.AccueilPageModule)
   },

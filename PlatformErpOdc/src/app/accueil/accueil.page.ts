@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonSlides } from '@ionic/angular';
 
 @Component({
   selector: 'app-accueil',
@@ -8,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class AccueilPage implements OnInit {
 
   constructor() { }
-
+  @ViewChild(IonSlides) slides: IonSlides;
   ngOnInit() {
+    
   }
-
+  slideOpts = {
+    speed: 10000
+   };
 
   change():any{
     
@@ -45,5 +49,5 @@ export class AccueilPage implements OnInit {
   figure.style.transform = `rotateY(${currImage * -theta}rad)`;
   }
   }
-
+  
 }

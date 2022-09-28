@@ -21,6 +21,23 @@ const routes: Routes = [
   },
 
   
+
+  {
+    path: 'tirage',
+    loadChildren: () => import('./tirage/tirage.module').then( m => m.TiragePageModule)
+  },
+  {
+    path: 'importliste',
+    loadChildren: () => import('./importliste/importliste.module').then( m => m.ImportlistePageModule)
+  },
+{
+  path:'importeparticipantaprenant',
+  loadChildren: () => import('./importer-listeparticipant/importer-listeparticipant.module').then(m => m.ImporterListeparticipantPageModule)
+}
+
+
+
+
 ];
 
 @NgModule({

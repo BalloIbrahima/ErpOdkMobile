@@ -63,5 +63,21 @@ ModifSalle(id:number,libelle:String,description:string,
     return this.http.get(`http://localhost:8080/admin//getSalles/disponible`)
 
   }
+  //:::::::::ajout entite ::::::::::::::::
+
+  ajoutEntite(description:String,libelleentite:String): Observable<any>{
+
+    var entite={
+      "description":description,
+      'libelleentite':libelleentite,
+     
+    }
+      return this.http.post(`http://localhost:8080/admin/create/entite`,entite);
+    }
+
+    // tout entite ::::::::::::::::::::
+    ToutEntite(): Observable<any>{
+        return this.http.get(`http://localhost:8080/admin/getAll/entite`);
+      }
 }
 

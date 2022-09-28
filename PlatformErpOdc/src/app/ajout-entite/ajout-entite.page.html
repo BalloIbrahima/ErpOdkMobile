@@ -11,17 +11,17 @@
     </div>
     <form action="">
         <div class="inputbox">
-            <input type="text" id="libelle" name="libelle_entite" placeholder="Libelle">
+            <input type="text" id="libelle" [(ngModel)]="libelleentite" name="libelleentite" placeholder="Libelle">
         </div>
         <div class="inputbox">
-          <input type="text" id="libelle" name="description" placeholder="Description">
+          <input type="text" id="libelle" [(ngModel)] ="description" name="description" placeholder="Description">
         </div>
        
         
        
       <div class="button">
-        <div class="button-right"><button>ENREGISTRER</button></div>
         <div class="button-left"><button>FERMER</button></div>
+        <div class="button-right"><button (click)="AjoutEntite()">ENREGISTRER</button></div>
       </div>  
       
     </form>

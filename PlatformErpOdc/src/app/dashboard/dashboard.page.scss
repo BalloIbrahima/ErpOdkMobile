@@ -2,6 +2,9 @@
   ion-split-pane{
     --side-width:15em;
   }
+  ion-router-outlet{
+    --ion-background-color: #F2EDED;
+  }
   
   ion-menu{
     --ion-background-color: #000000 !important;

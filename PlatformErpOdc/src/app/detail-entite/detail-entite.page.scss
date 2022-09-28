@@ -52,24 +52,23 @@ button{
     border-radius: 5px;
 
 }
-title{
-    color: #FF7900;
-}
+
 
 .deuxieme{
     background-color: black;
     width: 96%;
-    height: 50%;
+    height: 315px;
     position: absolute;
     margin-top: 21%;
     margin-left: 2%;
     border-radius: 12px;
 }
+
 .troisieme{
     width: 96%;
     height: 50%;
     position: absolute;
-    margin-top: 50%;
+    margin-top: 48%;
     margin-left: 2%;
 }
 .horizon{
@@ -117,38 +116,100 @@ title{
 }
 
 
-
+/*
 @media screen and (max-width: 390px) { 
     .table{
-        margin-top:  280px;
+        margin-top:  153px;
     }
     .deuxieme{
         width: 370px;
-        height: 120px;
+        height: 255px;
         position: absolute;
-        margin-top: 350px;
+        margin-top: 155px;
         margin-left: 2%;
         border-radius: 12px;
     }
     .spV{
         color: #FF7900;
         margin-top: 9px;
-        margin-left: 12%;
+        margin-left: 3%;
         width: 80px;
     }
+    .photo{
+        height: 215px;
+        width: 308px;
+        object-fit: contain;
+        border-radius: 20px;
+        border: 1px solid rgba(0, 0, 0, 0);
+        margin-left: -2px;
+        margin-top: -34px;
+    }
     .textH{
-        display: none;
+        color: white;
+        margin-top: -150px;
+        margin-left: 117px;
+        width: 245px;
     }
     .textB{
-        margin-top: -90px;
-        margin-left: 45%;
-        width: 400px;
+        margin-top: -233px;
+        margin-left: 41%;
+        width: 354px;
 
     }
     .nbre{
         font-size: 20px;
     }
-    
+
+    .horizonB{
+        text-decoration: underline;
+        border-bottom: 2px solid;
+        width: 20%;
+        margin-top: 10px;
+        color: #FF7900;
+        margin-left: 11%;
+        
+    }
+    .text{
+        font-family: "Times New Roman", Times, serif;
+        font-size: large;
+        margin-top: 2%;
+        text-align: center;
+    }
+    .firstP3{
+        background-color: black;
+        width: 30%;
+        height: 17%; 
+        position: absolute;
+        margin-top: 2%;
+        margin-left: 68%;
+        border-radius: 20px;
+    }
+    .firstP2{
+        background-color: black;
+        width: 30%;
+        height: 17%;
+        position: absolute;
+        margin-top: 2%;
+        margin-left: 35%;
+        border-radius: 20px;
+    }
+    .firstP1{
+        background-color: black;
+        width: 30%;
+        height: 17%;
+        position: absolute;
+        margin-top: 2%;
+        margin-left: 2%;
+        border-radius: 20px;
+    }
+    .troisieme{
+        width: 96%;
+        height: 50%;
+        position: absolute;
+        margin-top: 67%;
+        margin-left: 2%;
+    }
+
 
     @media screen and (max-width: 1834px){
         .deuxieme{
@@ -185,7 +246,6 @@ title{
             width: 600px;
          
         }
-    
 
     }
-}
+}*/

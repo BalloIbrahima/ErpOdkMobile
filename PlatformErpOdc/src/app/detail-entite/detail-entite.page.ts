@@ -14,3 +14,4 @@ export class DetailEntitePage implements OnInit {
   }
 
 }
+//PlatformErpOdc/src/app/detail-entite/detail-entite-routing.module.ts

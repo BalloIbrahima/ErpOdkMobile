@@ -24,7 +24,15 @@ const routes: Routes = [
   {
     path: 'detail-entite',
     loadChildren: () => import('./detail-entite/detail-entite.module').then( m => m.DetailEntitePageModule)
+  },  {
+    path: 'detail-des-listes',
+    loadChildren: () => import('./detail-des-listes/detail-des-listes.module').then( m => m.DetailDesListesPageModule)
   },
+  {
+    path: 'postulant-tirer',
+    loadChildren: () => import('./postulant-tirer/postulant-tirer.module').then( m => m.PostulantTirerPageModule)
+  },
+
 
 ];
 

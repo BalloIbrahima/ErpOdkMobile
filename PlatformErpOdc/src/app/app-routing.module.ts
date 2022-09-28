@@ -18,7 +18,11 @@ const routes: Routes = [
   {
     path: 'postulants-tire',
     loadChildren: () => import('./postulants-tire/postulants-tire.module').then( m => m.PostulantsTirePageModule)
+  },  {
+    path: 'personnels',
+    loadChildren: () => import('./personnels/personnels.module').then( m => m.PersonnelsPageModule)
   },
+
 ];
 
 

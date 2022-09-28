@@ -1,0 +1,49 @@
+<ion-header >
+  <ion-toolbar >
+    <ion-title class="titre"> Personnel d'Orange Digital Center</ion-title>
+  </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content>
+
+
+ <div class="row">
+  <div class="col-sm-7"><button class="btn btn-primary button m-2 " type="button">Filtrer par entité</button></div>
+
+
+
+  <div class="col-sm-5 ">
+
+    <button class="btn btn-primary button m-2" type="button"><i class="bi bi-plus"></i> Ajouter Personnel Externe</button>
+    <button class="btn btn-primary button m-2" type="button"> <i class="bi bi-plus"></i>Ajouter Personnel</button>
+  </div>
+ </div>
+
+  <table class="table">
+    <thead class="tableEntete">
+      <tr>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Genre</th>
+        <th>Contact</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr >
+        <td>Djiguiba</td>
+        <td>Barema</td>
+        <td>Homme</td>
+        <td>73100973</td>
+        <td>djiguibabarema@gmail.com</td>
+        <td><button class="voirbutton">Voir +</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagibottom"><pagination-controls (pageChange)= "a = $event" nextLabel="Suivants" previousLabel="Précédents"></pagination-controls></div> 
+
+
+</ion-content>

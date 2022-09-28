@@ -10,14 +10,14 @@ ion-content {
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #FFFF);
     padding: 10px;
 }
 
 .title {
     font-family: 'Poppins', sans-serif;
-    font-size: 25px;
-    font-weight: 500;
+    margin: 15px;
+    font-size: 18px;
+    font-weight: bold;
     text-align: center;
     margin-top: 5px;
 }
@@ -34,7 +34,7 @@ ion-content {
     width: 100%;
     padding: 25px 30px;
     border-radius: 5px;
-    background: #000;
+    background: #fff;
     margin: auto;
 }
 
@@ -88,21 +88,23 @@ form .activite-details .input-box {
 
 form .button {
     height: 45px;
-    padding: 5%;
-
+    margin: 45px 0;
+    width: 100%;
+    display: flex;
+    justify-content: end;
 }
 
-input[type=submit] {
-    border-radius: 10px;
-    padding: 11px 24px;
+.but {
+    border-radius: 15px;
+    padding: 8px;
     background-color: #FF7900;
-    color: #FFFF;
+    color: #FFF;
+    border: #FF7900 1px solid;
 }
 
-input[type=reset] {
-    border-radius: 10px;
-    padding: 11px 24px;    background-color: #FF7900;
-    color: #FFFF;
+.but:hover {
+    background: #FFF;
+    color: #FF7900;
 }
 
 form .button .input {
@@ -114,11 +116,14 @@ form .button .input {
     font-weight: 500;
     border-radius: 5px;
     letter-spacing: 1px;
-    background: linear-gradient(135deg, #FF7900);
 }
 
 form .button input:hover {
     background: linear-gradient(135deg);
+}
+
+textarea {
+    color: #000;
 }
 
 @media (max-width: 584px) {

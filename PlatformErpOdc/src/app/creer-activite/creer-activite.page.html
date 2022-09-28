@@ -1,6 +1,9 @@
 <ion-header>
     <ion-toolbar>
-        <ion-title>creerActivite</ion-title>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title style="color: orangered; text-decoration: underline ;">creerActivite </ion-title>
     </ion-toolbar>
 </ion-header>
 
@@ -16,10 +19,22 @@
                         <option *ngFor="let entite of Entites">{{entite.libelleentite}}</option>
                     </select>
                 </div>
+                <div class="input-box">
+                    <span class="details">Responsable de l'activité </span>
+                    <select name="activiteattribuer" class="select">
+                        <option value="">Choisisez une personne</option>
+                    </select>
+                </div>
                 <div class="input-box ">
                     <span class="details">Type d'activité</span>
                     <select  class="select" [(ngModel)]="typeactivite" name="typeactivite" (change)="ActiviteChange()"  >
                         <option  *ngFor="let typeAc of TypeActivite" >{{typeAc.libelle}}</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Le nom du lead de l'activité</span>
+                    <select name="choixlead" class="select">
+                        <option value="">Choisisez un lead</option>
                     </select>
                 </div>
                 <div class="input-box">
@@ -29,24 +44,21 @@
                 
                 </div>
                 <div class="input-box">
+                    <span class="details">Date debut</span>
+                    <input type="datetime-local" placeholder="Choisisez la date de debut">
+                </div>
+                <div class="input-box">
                     <span class="details">Donner un nom à l'activité</span>
-                    <input type="text" [(ngModel)]="nomActivite" name="nomActivite" placeholder="Nom de l'activité">
+                    <input type="text" placeholder="Nom de l'activité">
                 </div>
                 <div class="input-box">
-                    <span class="details">Durée</span>
-                    <input type="text" [(ngModel)]="duree" name="duree" [disabled]="typeactivite=='Formations' || typeactivite=='Evenement'" placeholder="Donner la durée de l'activité">
+                    <span class="details">Date fin</span>
+                    <input type="datetime-local" placeholder="Choisisez la date de fin">
                 </div>
                 <div class="input-box">
-                    <span class="details">Le nom du lead de l'activité</span>
-                    <select name="choixlead" class="select" [(ngModel)]="leadNomPrenom" name="lead">
-                        <option *ngFor="let user of UsersActives">{{user.prenom}} {{user.nom}}</option>
-                    </select>
-                </div>
-                <div class="input-box">
-                    <span class="details">Activité Attribuer à </span>
-                    <select name="activiteattribuer" class="select">
-                        <option *ngFor="let user of UsersActives">{{user.prenom}} {{user.nom}}</option>
-                    </select>
+                    <span class="details"> Description</span>
+
+                    <textarea name="details" id="details" rows="3" cols="35"></textarea>
                 </div>
                 <div class="input-box">
                     <span class="details">Salle dedié à l'activité</span>
@@ -55,36 +67,6 @@
                     </select>
                 </div>
 
-                <!-- si c'est un talk -->
-                <div class="input-box" *ngIf="typeactivite!='Formations' && typeactivite!='Evenement'">
-                    <span class="details">Date</span>
-                    <input type="datetime-local" [(ngModel)]="date" name="date" placeholder="Choisisez la date">
-                </div>
-
-                <!-- <div class="input-box" *ngIf="typeactivite!='Formations' && typeactivite!='Evenement'">
-                    <span class="details">Date et heure</span>
-                    <ion-datetime-button datetime="datetime"></ion-datetime-button>
-
-                    <ion-modal [keepContentsMounted]="true">
-                      <ng-template>
-                        <ion-datetime  id="datetime" [(ngModel)]="date" name="date"  ></ion-datetime>
-                      </ng-template>
-                    </ion-modal>
-                </div> -->
-                
-
-                <!-- fin talk  -->
-                <div class="input-box" *ngIf="typeactivite=='Formations' || typeactivite=='Evenement'">
-                    <span class="details">Date debut</span>
-                    <input type="datetime-local" [(ngModel)]="datedebut" name="datedebut"  placeholder="Choisisez la date de debut">
-                </div>
-                <div class="input-box" *ngIf="typeactivite=='Formations' || typeactivite=='Evenement'">
-                    <span class="details">Date fin</span>
-                    <input type="datetime-local" [(ngModel)]="dateFin" name="dateFin"  placeholder="Choisisez la date de fin">
-                </div>
-                <div class="button">
-                    <input class="but" type="reset" value="Annuler">
-                </div>
                 <div class="button">
                     <input class="but" type="submit" (click)="CreerActivite()" value="Créer l'activté">
                 </div>

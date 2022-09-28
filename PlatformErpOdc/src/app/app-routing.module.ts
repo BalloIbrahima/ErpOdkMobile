@@ -9,6 +9,7 @@ const routes: Routes = [
     redirectTo: 'dashboard',
     pathMatch: 'full'
   },
+
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
@@ -20,6 +21,10 @@ const routes: Routes = [
     canActivate: [AcceuilGuard] 
   }
 
+ 
+  
+ 
+ 
 
 ];
 

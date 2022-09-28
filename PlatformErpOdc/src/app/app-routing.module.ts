@@ -13,7 +13,7 @@ const routes: Routes = [
   // },
   {
     path: '',
-    redirectTo: 'detailpostulant',
+    redirectTo: 'nouveaupersonnel',
     pathMatch: 'full'
   },
   {
@@ -34,6 +34,11 @@ const routes: Routes = [
     path: 'accueil',
     loadChildren: () => import('./accueil/accueil.module').then( m => m.AccueilPageModule)
   },
+  {
+    path: 'nouveaupersonnel',
+    loadChildren: () => import('./nouveaupersonnel/nouveaupersonnel.module').then( m => m.NouveaupersonnelPageModule)
+  },
+
 
 
 

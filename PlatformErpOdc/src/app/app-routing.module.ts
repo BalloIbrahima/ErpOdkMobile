@@ -33,7 +33,11 @@ const routes: Routes = [
 {
   path:'importeparticipantaprenant',
   loadChildren: () => import('./importer-listeparticipant/importer-listeparticipant.module').then(m => m.ImporterListeparticipantPageModule)
-}
+},  {
+    path: 'popupdtirage',
+    loadChildren: () => import('./popupdtirage/popupdtirage.module').then( m => m.PopupdtiragePageModule)
+  }
+
 
 
 

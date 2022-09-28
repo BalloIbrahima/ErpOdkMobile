@@ -21,7 +21,7 @@
     <button class="btn btn-primary button m-2" type="button"> <i class="bi bi-plus"></i>Ajouter Personnel</button>
   </div>
  </div>
-
+<!--
   <table class="table">
     <thead class="tableEntete">
       <tr>
@@ -44,7 +44,31 @@
       </tr>
     </tbody>
   </table>
-  <div class="pagibottom"><pagination-controls (pageChange)= "a = $event" nextLabel="Suivants" previousLabel="Précédents"></pagination-controls></div>
+  <div class="pagibottom"><pagination-controls (pageChange)= "a = $event" nextLabel="Suivants" previousLabel="Précédents"></pagination-controls></div> -->
 
+  <ion-grid class="ion-margin text-center tailleTexte">
+    <ion-row class="tableEntete ">
+      <ion-col>Nom</ion-col>
+      <ion-col>Prenom</ion-col>
+      <ion-col class="cacherCole">Genre</ion-col>
+      <ion-col >Contact</ion-col>
+      <ion-col class="cacherCole">Email</ion-col>
+      <ion-col>Action</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let student of students; index as i" >
+
+      <ion-col>{{ student.name }}</ion-col>
+      <ion-col>{{ student.prenom }}</ion-col>
+      <ion-col class="cacherCole">{{ student.genre }}</ion-col>
+      <ion-col>{{ student.contact }}</ion-col>
+      <ion-col class="cacherCole">{{ student.email }}</ion-col>
+      <ion-col> <button class="voir">voir plus</button> </ion-col>
+
+    </ion-row>
+    <div class="position-relative">
+      <div class="position-absolute top-0 end-0 mt-4"><pagination-controls (pageChange)= "a = $event" nextLabel="Suivants" previousLabel="Précédents"></pagination-controls></div>
+    </div>
+    <!-- <div class="pagibottom" style="margin-left: 200px;"></div> -->
+  </ion-grid>
 
 </ion-content>

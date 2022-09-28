@@ -1,3 +1,4 @@
+
 .titre{
   color: #FF6200;
 }
@@ -19,11 +20,14 @@
 .row{
   display: flex;
 }
-
-.tableEntete{
+.voir{
   background-color: #FF6200;
   color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 15px;
 }
+
 .voirbutton{
   background-color: #FF6200;
   color: white;
@@ -32,6 +36,36 @@
   font-weight: bold;
   border-radius: 15px;
 }
-.pagibottom{
-  text-align: center;
+
+
+@font-face {
+  font-family: myfon1;
+  src: url("../../assets/font/Poppins-Light.ttf");
 }
+
+.tailleTexte{
+  font-family: myfon1 !important;
+  font-size: 18px !important;
+}
+.tableEntete{
+  background-color: #FF6200;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+}
+@media screen and (max-width: 900px) {
+  .tailleTexte{
+    font-size: 12px;
+  }
+}
+
+
+@media screen and (max-width: 800px) {
+    .tailleTexte{
+      font-size: 8px;
+    }
+    .cacherCole{
+      display: none;
+    }
+}
+

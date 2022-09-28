@@ -15,9 +15,82 @@ export class PersonnelsPage implements OnInit {
   action:'Voir +',
  },
 ];
+students =[
+  {
+      name: 'Djiguiba',
+      prenom: 'Barema',
+      genre: 'Masculin',
+      email: 'djiguiba@orangemali.com',
+      contact: '+223 8456789'
+  },
+  {
+    name: 'Djiguiba',
+    prenom: 'Barema',
+    genre: 'Masculin',
+    email: 'djiguiba@orangemali.com',
+    contact: '+223 8456789'
+},
+{
+  name: 'Djiguiba',
+  prenom: 'Barema',
+  genre: 'Masculin',
+  email: 'djiguiba@orangemali.com',
+  contact: '+223 8456789'
+},
+{
+  name: 'Djiguiba',
+  prenom: 'Barema',
+  genre: 'Masculin',
+  email: 'djiguiba@orangemali.com',
+  contact: '+223 8456789'
+},
+{
+  name: 'Djiguiba',
+  prenom: 'Barema',
+  genre: 'Masculin',
+  email: 'djiguiba@orangemali.com',
+  contact: '+223 8456789'
+},
+{
+  name: 'Djiguiba',
+  prenom: 'Barema',
+  genre: 'Masculin',
+  email: 'djiguiba@orangemali.com',
+  contact: '+223 8456789'
+},
+{
+  name: 'Djiguiba',
+  prenom: 'Barema',
+  genre: 'Masculin',
+  email: 'djiguiba@orangemali.com',
+  contact: '+223 8456789'
+},
+{
+  name: 'Djiguiba',
+  prenom: 'Barema',
+  genre: 'Masculin',
+  email: 'djiguiba@orangemali.com',
+  contact: '+223 8456789'
+},
+{
+  name: 'Djiguiba',
+  prenom: 'Barema',
+  genre: 'Masculin',
+  email: 'djiguiba@orangemali.com',
+  contact: '+223 8456789'
+},
+{
+  name: 'Djiguiba',
+  prenom: 'Barema',
+  genre: 'Masculin',
+  email: 'djiguiba@orangemali.com',
+  contact: '+223 8456789'
+}
+
+];
 
   constructor() { }
-  a!:any;
+   a!:any;
 
   ngOnInit() {
   }

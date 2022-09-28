@@ -7,37 +7,9 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: '',
-    redirectTo: 'useraddform',
-    pathMatch: 'full'
-  },
-  {
-    path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },
-  {
-    path: 'useraddform',
-    loadChildren: () => import('./useraddform/useraddform.module').then( m => m.UseraddformPageModule)
-
-  },
-  {
     path: 'sidebare',
     loadChildren: () => import('./sidebare/sidebare.module').then( m => m.SidebarePageModule)
   },
-  {
-    path: 'modifieruser',
-    loadChildren: () => import('./modifieruser/modifieruser.module').then( m => m.ModifieruserPageModule)
-  },
-  {
-    path: 'addsalle',
-    loadChildren: () => import('./addsalle/addsalle.module').then( m => m.AddsallePageModule)
-  },
-  {
-    path: 'modifiersalle',
-    loadChildren: () => import('./modifiersalle/modifiersalle.module').then( m => m.ModifiersallePageModule)
-  },
-
-
 
 
 ];

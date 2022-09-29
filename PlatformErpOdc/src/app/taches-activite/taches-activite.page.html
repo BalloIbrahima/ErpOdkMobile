@@ -5,28 +5,28 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid class="ion-margin text-center tailleTexte">
-    <ion-row class="tableEntete ">
-      <ion-col>Nom</ion-col>
-      <ion-col>Prenom</ion-col>
-      <ion-col class="cacherCole">Genre</ion-col>
-      <ion-col >Contact</ion-col>
-      <ion-col class="cacherCole">Email</ion-col>
-      <ion-col>Action</ion-col>
-    </ion-row>
-    <ion-row *ngFor="let student of students; index as i" >
+  <table class="table table-striped text-center">
+    <thead>
+      <tr>
+        <th scope="col">Désignation</th>
+        <th scope="col">Réalisateur</th>
+        <th scope="col" class="hideColonne hideColonneOder">Lieu</th>
+        <th scope="col">Contact</th>
+        <th scope="col" class="hideColonne hideColonneOder">Date début</th>
+        <th scope="col" class="hideColonne">Date fin</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let table of students | paginate: { itemsPerPage: 5, currentPage: pages}">
+        <td> {{table.Designation}} </td>
+        <td> {{table.Realisateur}} </td>
+        <td class="hideColonne hideColonneOder"> {{table.Lieu}} </td>
+        <td> {{table.Statut}} </td>
+        <td class="hideColonne hideColonneOder"> {{table.Dated}} </td>
+        <td class="hideColonne">{{table.Datef}}</td>
+      </tr>
+      <pagination-controls (pageChange)=" pages = $event"> </pagination-controls>
+    </tbody>
 
-      <ion-col>{{ student.name }}</ion-col>
-      <ion-col>{{ student.prenom }}</ion-col>
-      <ion-col class="cacherCole">{{ student.genre }}</ion-col>
-      <ion-col>{{ student.contact }}</ion-col>
-      <ion-col class="cacherCole">{{ student.email }}</ion-col>
-      <ion-col> <button class="voir">voir plus</button> </ion-col>
-
-    </ion-row>
-    <div class="position-relative">
-      <!-- <div class="position-absolute top-0 end-0 mt-4"><pagination-controls (pageChange)= "a = $event" nextLabel="Suivants" previousLabel="Précédents"></pagination-controls></div> -->
-    </div>
-    <!-- <div class="pagibottom" style="margin-left: 200px;"></div> -->
-  </ion-grid>
+  </table>
 </ion-content>

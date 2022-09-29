@@ -1,68 +1,48 @@
-// @font-face {
-//     font-family: myfon1;
-//     src: url("../../assets/font/Poppins-Light.ttf");
-//   }
-  
-  .tailleTexte{
-    font-family: myfon1 !important;
-    font-size: 18px !important;
-  }
-  .tableEntete{
-    background-color: #FF6200;
-    color: white;
-    font-size: 22px;
-    font-weight: bold;
-  }
-  @media screen and (max-width: 900px) {
-    .tailleTexte{
-      font-size: 12px;
-    }
-  }
-  
-  
-  @media screen and (max-width: 800px) {
-      .tailleTexte{
-        font-size: 8px;
-      }
-      .cacherCole{
-        display: none;
-      }
-    }
-//   }@font-face {
-//   font-family: myfon1;
-//   src: url("../../assets/font/Poppins-Light.ttf");
-// }
-
-.tailleTexte{
-  font-size: 18px !important;
+// Style appliquer au tableau
+td{
+  font-family: myfon2;
 }
-.tableEntete{
-  background-color: #FF6200;
-  color: white;
-  font-size: 22px;
-  font-weight: bold;
+th{
+  font-family: myfon2;
+  color: #ffff !important;
+  font-weight: 600;
 }
-
-.voir{
-    background-color: #FF6200;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    border-radius: 15px;
-  }
+thead{
+  background-color: #FF7900;
+}
 
 @media screen and (max-width: 900px) {
-  .tailleTexte{
-    font-size: 12px;
+  .form-select{
+    font-size: medium;
   }
+  .buttonColor{
+    font-size: medium;
+    text-align: center;
+  }
+  .hideColonneOder{
+    display: none;
+  }
+  th{
+    font-size: medium;
+
+  }
+  td{
+    font-size: small;
+  }
+
 }
+@media screen and (max-width: 450px) {
+  .buttonColor{
+    font-size: small;
+  }
+  .hideColonne{
+    display: none;
+  }
+  th{
+    font-size: medium;
+  }
+  td{
+    font-size: small;
+  }
 
-
-@media screen and (max-width: 800px) {
-    .tailleTexte{
-      font-size: 8px;
-    }
-    .cacherCole{
-      display: none;
-    }
 }

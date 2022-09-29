@@ -7,78 +7,64 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TachesActivitePage implements OnInit {
   constructor() { }
+  pages: number = 1;
   students =[
     {
-        name: 'Djiguiba',
-        prenom: 'Barema',
-        genre: 'Masculin',
-        email: 'djiguiba@orangemali.com',
-        contact: '+223 8456789'
+      Designation: 'tache 1',
+      Realisateur: 'Abdoulaye',
+      Lieu: 'salle 1',
+      Statut: 'encour',
+      Dated: '01-6-2022',
+      Datef: '01-12-2022'
     },
     {
-      name: 'Djiguiba',
-      prenom: 'Barema',
-      genre: 'Masculin',
-      email: 'djiguiba@orangemali.com',
-      contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  }
-  
+      Designation: 'tache 2',
+      Realisateur: 'Aboubacar',
+      Lieu: 'salle 2',
+      Statut: 'terminé',
+      Dated: '01-6-2022',
+      Datef: '01-7-2022'
+    },
+    {
+      Designation: 'tache 3',
+      Realisateur: 'Karim',
+      Lieu: 'salle 2',
+      Statut: 'encour',
+      Dated: '01-6-2022',
+      Datef: '01-12-2022'
+    },
+    {
+      Designation: 'tache 4',
+      Realisateur: 'Abdoulaye',
+      Lieu: 'salle 1',
+      Statut: 'terminé',
+      Dated: '01-3-2022',
+      Datef: '01-6-2022'
+    },
+    {
+      Designation: 'tache 5',
+      Realisateur: 'Ousmane',
+      Lieu: 'salle 1',
+      Statut: 'terminé',
+      Dated: '01-8-2022',
+      Datef: '01-9-2022'
+    },
+    {
+      Designation: 'tache 6',
+      Realisateur: 'Ousmane',
+      Lieu: 'salle 1',
+      Statut: 'terminé',
+      Dated: '01-8-2022',
+      Datef: '01-9-2022'
+    },
+    {
+      Designation: 'tache 5',
+      Realisateur: 'Ousmane',
+      Lieu: 'salle 1',
+      Statut: 'terminé',
+      Dated: '01-8-2022',
+      Datef: '01-9-2022'
+    },
   ];
 
   ngOnInit() {

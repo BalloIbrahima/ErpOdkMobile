@@ -7,10 +7,7 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'sidebare',
-    loadChildren: () => import('./sidebare/sidebare.module').then( m => m.SidebarePageModule)
-  },
-  {
+
     path: 'taches-activite',
     loadChildren: () => import('./taches-activite/taches-activite.module').then( m => m.TachesActivitePageModule)
   },

@@ -16,6 +16,11 @@
   // scroll-behavior: auto;
 
 }
+
+::-webkit-scrollbar {
+  display: none;
+  }
+
 .side_gauche{
   background-color:white;
   border-radius: 15px;

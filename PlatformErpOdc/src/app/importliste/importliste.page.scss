@@ -5,7 +5,7 @@
   width: 350px;
   height: 500px;
   border-radius: 20px;
-  margin-top: 10px;
+  margin-top: 90px;
   margin-right: auto;
   margin-left: auto;
   padding: 40px;
@@ -133,6 +133,16 @@ border: 1px solid orange;
 }
 
 
-
+.modal-backdrop {
+   --bs-backdrop-zindex: 1050;
+   --bs-backdrop-bg: #000;
+   --bs-backdrop-opacity: 0.5;
+   top: 0;
+   left: 0;
+  z-index: var(--bs-backdrop-zindex);
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bs-backdrop-bg);
+}
 
 

@@ -37,7 +37,7 @@
 
 /* label*/
 label{
-  color: orangered;
+  color: #FF7900;
 }
 
 /*input*/
@@ -64,14 +64,14 @@ button{
 
   color: white;
   margin-top: auto;
-  background: orange;
+  background: #FF7900;
   height: 40px;
   border-radius: 5px;
   cursor: pointer;
   font-weight: 900;
   box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
   transition: 0.5s;
-   border: 2px solid orange;
+   border: 2px solid #FF7900;
    padding: 0px 100px 0px 0px;
 /*mieux centrer le text du button*/
   margin-left: 50px;
@@ -84,7 +84,7 @@ button{
 button:hover {
  background-color: white;
  color: black;
-border: 1px solid orange;
+border: 1px solid #FF7900;
 
 }
 

@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'importliste',
+    redirectTo: 'detailtirage',
     pathMatch: 'full'
   },
   {
@@ -27,7 +27,12 @@ const routes: Routes = [
 {
   path:'importeparticipantaprenant',
   loadChildren: () => import('./importer-listeparticipant/importer-listeparticipant.module').then(m => m.ImporterListeparticipantPageModule)
-}
+},
+  {
+    path: 'detailtirage',
+    loadChildren: () => import('./detailtirage/detailtirage.module').then( m => m.DetailtiragePageModule)
+  }
+
 
 
 

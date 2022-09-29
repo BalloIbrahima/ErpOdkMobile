@@ -1,63 +1,77 @@
-
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title style="color: orangered; text-decoration: underline ;">Importer une liste</ion-title>
+
+    <div class="row">
+      <div class="col">
+        <ion-title style="color: #ff7900; margin-left: 10px"
+          >Importer une liste Participant</ion-title
+        >
+      </div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col" style="width: 100%; color: #ff7900; font-size: 30px">
+        <i class="fa-regular fa-bell"></i>
+      </div>
+    </div>
   </ion-toolbar>
 </ion-header>
 
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+  integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
 
 <ion-content>
+  <div class="container">
+    <div class="col">
+      <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6" class="principal">
+          <img src="" alt="" />
+          <div class="col" class="title">Importer</div>
+          <br />
 
-<div class="container">
-  <div class="col">
-    <div class="row">
+          <form action=" ">
+            <div class="row">
+              <div class="col" class="importer">
+                <i class="fa-solid fa-file-circle-plus" id="iconeImport"></i>
+                <input
+                  type="file"
+                  name="nbredepostulants"
+                  id="import"
+                  class="form-control"
+                />
+              </div>
+            </div>
+            <br />
 
+            <div class="row">
+              <div class="col">
+                <label>Nombre</label>
+                <input type="number" id="inputs" />
+              </div>
+            </div>
+            <br /><br />
 
+            <div class="row">
+              <div class="col">
+                <button
+                  type="submit" (click)="succesImport()" class="swalmodel">
+                  <i class="fa-sharp fa-solid fa-download" style="margin-right: 10px"></i>Importer
+                </button>
+              </div>
+            </div>
 
-      <div class="col-sm-12 col-md-6 col-lg-6" class="principal">
-
-          <img src="" alt="">
-          <div class="col"  class="title">Importer </div><br>
-
-      <form action=" ">
-        <div class="row">
-          <div class="col" class="importer"> <i class="fa-solid fa-file-circle-plus"  id="iconeImport"></i>
-            <input type="file"  name="nbredepostulants" id="import" class="form-control" /></div>
-        </div><br>
-
-
-        <div class="row">
-          <div class="col">
-            <label>Nombre</label>
-            <input type="number" id="inputs">
-          </div>
-        </div><br><br>
-
-      
-
-
-        <div class="row">
-          <div class="col">
-            <button type="submit"> <i class="fa-sharp fa-solid fa-download" style="margin-right: 10px;"></i>Importer</button>
-          </div>
+          </form>
         </div>
-      </form>
       </div>
-
-
-
-
-
     </div>
   </div>
-</div>
-
 </ion-content>
-

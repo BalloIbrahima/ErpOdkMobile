@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<ion-header>
+  <ion-toolbar>
+
+    <div class="row">
+      <div class="col"><ion-title style="color: #FF7900; margin-left: 10px;">Detail du tirage1</ion-title></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col" style="width: 100%; color:#FF7900; font-size: 30px;"><i class="fa-regular fa-bell"></i></div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+  <ion-grid class="ion-margin text-center tailleTexte">
+    <ion-row class="tableEntete ">
+      <ion-col>Nom</ion-col>
+      <ion-col>Prenom</ion-col>
+
+      <ion-col >Contact</ion-col>
+
+      <ion-col>Action</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let student of students| paginate:{itemsPerPage:10,currentPage:page} index as i" class="bordure">
+
+
+      <ion-col>{{ student.name }}</ion-col>
+      <ion-col>{{ student.prenom }}</ion-col>
+
+      <ion-col>{{ student.date }}</ion-col>
+
+      <ion-col> <button class="voir">voir <ion-icon name="add-outline"></ion-icon> </button> </ion-col>
+    </ion-row>
+    <div class="position-relative">
+      <div class="position-absolute top-0 end-0 mt-4"><pagination-controls (pageChange)= "page = $event" nextLabel="Suivants" previousLabel="Précédents"></pagination-controls></div>
+    </div>
+    <!-- <div class="pagibottom" style="margin-left: 200px;"></div> -->
+  </ion-grid>
+
+</ion-content>

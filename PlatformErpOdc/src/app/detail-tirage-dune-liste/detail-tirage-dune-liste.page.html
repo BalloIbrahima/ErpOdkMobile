@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Détail Tirage</ion-title>
+  </ion-toolbar>
+</ion-header>
+<table class="table table-striped text-center">
+  <thead>
+    <tr>
+      <th scope="col">N°</th>
+      <th scope="col">Libelle</th>
+      <th scope="col" class="hideColonne hideColonneOder">Date</th>
+      <th scope="col">Nombre postulant tirer</th>
+      <th scope="col" class="hideColonne hideColonneOder">Etat</th>
+      <th scope="col" class="hideColonne">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor= "let table of students | paginate:{itemsPerPage: 5, currentPage:p}" >
+      <td> {{table.numero}} </td>
+      <td> {{table.libelle}} </td>
+      <td> {{table.date}} </td>
+      <td> {{table.nbr}} </td>
+      <td> {{table.etat}} </td>
+      <td class="hideColonne"> <span class="voirPlus">voir <ion-icon name="add-outline"></ion-icon> </span> </td>
+    </tr>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+   
+  </tbody>
+
+</table>
+
+
+<ion-content>
+
+</ion-content>

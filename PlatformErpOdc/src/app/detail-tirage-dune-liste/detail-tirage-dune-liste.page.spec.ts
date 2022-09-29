@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { SidebarePage } from './sidebare.page';
+import { DetailTirageDuneListePage } from './detail-tirage-dune-liste.page';
 
-describe('SidebarePage', () => {
-  let component: SidebarePage;
-  let fixture: ComponentFixture<SidebarePage>;
+describe('DetailTirageDuneListePage', () => {
+  let component: DetailTirageDuneListePage;
+  let fixture: ComponentFixture<DetailTirageDuneListePage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ SidebarePage ],
+      declarations: [ DetailTirageDuneListePage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SidebarePage);
+    fixture = TestBed.createComponent(DetailTirageDuneListePage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

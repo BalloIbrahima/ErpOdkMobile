@@ -3,9 +3,330 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title >Accueil</ion-title>
+    <ion-title>Accueil</ion-title>
+    <!-- <ion-buttons slot="end">
+      <img [src]="imag" />
+    </ion-buttons> -->
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <div>first element</div>
+  <div class="row">
+    <div class="col-lg-3 col-12">
+      <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-start">
+        <select class="form-select form-select-md" aria-label=".form-select-sm example">
+          <option selected>
+            <ion-icon name="funnel-outline" slot="start"></ion-icon>Filtrer par entité
+          </option>
+          <option value="1">ODC</option>
+          <option value="2">ODK</option>
+          <option value="3">FABLAB</option>
+          <option value="3">ORANGE FAB</option>
+        </select>
+      </div>
+
+    </div>
+    <div class="col-lg-9 col-12">
+      <div class="d-grid m-2 gap-2 d-md-flex justify-content-md-end">
+        <button class="btn buttonColor" type="button">+ &nbsp; Ajouter Personnel Externe</button>
+        <button class="btn buttonColor" type="button">+ &nbsp; Ajouter Personnel</button>
+      </div>
+    </div>
+  </div>
+  <table class="table table-striped text-center">
+    <thead>
+      <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Prenom</th>
+        <th scope="col" class="hideColonne hideColonneOder">Genre</th>
+        <th scope="col">Contact</th>
+        <th scope="col" class="hideColonne hideColonneOder">Email</th>
+        <th scope="col" class="hideColonne">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let table of students ">
+        <td> {{table.name}} </td>
+        <td> {{table.prenom}} </td>
+        <td class="hideColonne hideColonneOder"> {{table.genre}} </td>
+        <td> {{table.contact}} </td>
+        <td class="hideColonne hideColonneOder"> {{table.email}} </td>
+        <td class="hideColonne"> <span class="voirPlus">voir plus</span> </td>
+      </tr>
+      <!-- <pagination-controls (pageChange)=" pages = $event"> </pagination-controls> -->
+    </tbody>
+
+  </table>
+
+
+  <div class="container">
+    <div class="position-relative">
+      <div class="position-absolute top-0 start-50 translate-middle-x">
+
+      </div>
+
+    </div>
+
+    <div class="p-2 d-grid gap-2 m-2 d-md-flex justify-content-md-start">Nom</div>
+    <div class="p-2 d-grid gap-2 m-2 d-md-flex justify-content-md-end">DEMBELE</div>
+    <div class="p-2 d-grid gap-2 m-2 d-md-flex justify-content-md-start">Prénom</div>
+    <div class="p-2 d-grid gap-2 m-2 d-md-flex justify-content-md-end"> Idrissa</div>
+    <div class="p-2 d-grid gap-2 m-2 d-md-flex justify-content-md-start">Date de Naissance</div>
+    <div class="p-2 d-grid gap-2 m-2 d-md-flex justify-content-md-end">12/12/1990</div>
+    <div class="p-2 d-grid gap-2 m-2 d-md-flex justify-content-md-start">Lieu de Naissance</div>
+    <div class="p-2 d-grid gap-2 m-2 d-md-flex justify-content-md-end"> KOULIKORO</div>
+    <div class="p-2 d-grid gap-2 m-2 d-md-flex justify-content-md-start">Genre</div>
+    <div class="p-2 d-grid gap-2 m-2 d-md-flex justify-content-md-end">Masculin</div>
+    <div class="p-2 d-grid gap-2 m-2 d-md-flex justify-content-md-start">Contact</div>
+    <div class="p-2 d-grid gap-2 m-2 d-md-flex justify-content-md-end">+223 5678903</div>
+    <div class="p-2 d-grid gap-2 m-2 d-md-flex justify-content-md-start">Email</div>
+    <div class="p-2 d-grid gap-2 m-2 d-md-flex justify-content-md-end"> id@orangemali.com</div>
+    <div class="p-2 d-grid gap-2 m-2 d-md-flex justify-content-md-start">Entité</div>
+    <div class="p-2 d-grid gap-2 m-2 d-md-flex justify-content-md-end">Orange Digital Kalanso</div>
+    <div class="p-2 d-grid gap-2 m-2 d-md-flex justify-content-md-start">Rôle</div>
+    <div class="p-2 d-grid gap-2 m-2 d-md-flex justify-content-md-end">Responsable</div>
+
+  </div>
+  <!-- <ion-button id="open-modal" expand="block">Open</ion-button>
+     <p>{{ message }}</p>
+     <ion-modal trigger="open-modal">
+       <ng-template>
+         <ion-header>
+           <ion-toolbar>
+             <ion-buttons slot="start">
+               <ion-button (click)="cancel()">Cancel</ion-button>
+             </ion-buttons>
+             <ion-title>Welcome</ion-title>
+             <ion-buttons slot="end">
+               <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+             </ion-buttons>
+           </ion-toolbar>
+         </ion-header>
+         <ion-content class="ion-padding">
+           <ion-item>
+             <ion-label position="stacked">Enter your name</ion-label>
+             <ion-input type="text" placeholder="Your name" [(ngModel)]="name"></ion-input>
+           </ion-item>
+         </ion-content>
+       </ng-template>
+     </ion-modal> -->
+  <ion-button id="open-modal" expand="block">Open Card Modal</ion-button>
+
+  <ion-modal #modal trigger="open-modal">
+    <ng-template>
+      <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-end">
+        <ion-buttons slot="end">
+          <ion-button (click)="modal.dismiss()">Close</ion-button>
+        </ion-buttons>
+      </div>
+      <ion-content>
+
+        <div class="text-center">
+          <div class="text">
+            Liste Importée avec succès !
+          </div>
+          <div class="text">
+            Choissisez une action:
+          </div>
+        </div>
+        <div class="row mx-5 m-2">
+          <div class="col">
+            <button type="button" class="btn colorbutton1 btn-sm">Small button</button>
+          </div>
+          <div class="col">
+            <button type="button" class="btn colorbutton2 btn-sm">Small button</button>
+          </div>
+          <div class="col">
+            <button type="button" class="btn colorbutton3 btn-sm">Small button</button>
+          </div>
+        </div>
+        <!-- <ion-list>
+            <ion-item>
+              <ion-avatar slot="start">
+                <ion-img src="https://i.pravatar.cc/300?u=b"></ion-img>
+              </ion-avatar>
+              <ion-label>
+                <h2>Connor Smith</h2>
+                <p>Sales Rep</p>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-avatar slot="start">
+                <ion-img src="https://i.pravatar.cc/300?u=a"></ion-img>
+              </ion-avatar>
+              <ion-label>
+                <h2>Daniel Smith</h2>
+                <p>Product Designer</p>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-avatar slot="start">
+                <ion-img src="https://i.pravatar.cc/300?u=d"></ion-img>
+              </ion-avatar>
+              <ion-label>
+                <h2>Greg Smith</h2>
+                <p>Director of Operations</p>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-avatar slot="start">
+                <ion-img src="https://i.pravatar.cc/300?u=e"></ion-img>
+              </ion-avatar>
+              <ion-label>
+                <h2>Zoey Smith</h2>
+                <p>CEO</p>
+              </ion-label>
+            </ion-item>
+          </ion-list> -->
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <!-- <div class="m-4 contenair">
+    <div class="col"  >
+
+      <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-3 col-12 m-1" style="background-color: #ffff; ">
+          <div class="row m-2 mt-5">
+            <div class="col">
+              <div class="circleblack"></div>
+            </div>
+            <div class="col">120</div>
+            <div class="col">Activité realisés</div>
+          </div>
+          <div class="row m-2">
+
+            <div class="col">
+              <div class="circlewhite"></div>
+            </div>
+            <div class="col">100</div>
+            <div class="col">Personnels actives</div>
+
+          </div>
+          <div class="row m-2">
+
+            <div class="col">
+              <div class="circleorange"></div>
+            </div>
+            <div class="col">03</div>
+            <div class="col">Entités</div>
+
+          </div>
+        </div>
+        <div class="col-sm-1 col-md-1 col-lg-1 col-12 m-1 ">
+
+          <ion-button class="buttonAjouterActiviter" expand="block" fill="clear" shape="round">
+            +
+          </ion-button>
+
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2 col-12 m-1" [ngStyle]="{backgroundImage: 'url('+imag+')', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover'}"></div>
+        <div class="col-sm-2 col-md-2 col-lg-2 col-12 m-1" [ngStyle]="{backgroundImage: 'url('+imag+')', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover'}">P</div>
+        <div class="col-sm-2 col-md-2 col-lg-2 col-12 m-1" [ngStyle]="{backgroundImage: 'url('+imag+')', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover'}">P</div>
+      </div>
+
+
+      <div class="col">
+
+      </div>
+    </div>
+    <div class="row">
+
+    </div>
+  </div> -->
+  <!-- 
+  <div class="">
+    <div class="row">
+      
+      <div class="col-12 col-sm-3 col-md-3 m-2 me-5" style="background-color: #ffff;">
+        <div class="row mt-5">
+          <div class="col align-self-center">
+            <div class="circleblack"></div>
+          </div>
+          <div class="col align-self-center">120</div>
+          <div class="col align-self-center">Activité realisés</div>
+        </div>
+        <div class="row">
+          <div class="col align-self-center">
+            <div class="circlewhite"></div>
+          </div>
+          <div class="col align-self-center">120</div>
+          <div class="col align-self-center">Activité realisés</div>
+        </div>
+        <div class="row">
+          <div class="col align-self-center">
+            <div class="circleorange"></div>
+          </div>
+          <div class="col align-self-center">120</div>
+          <div class="col align-self-center">Activité realisés</div>
+        </div>
+      </div>
+
+      <div class="col-12  col-sm-12 col-md-1 col-lg-1 row text-center buttonAjouterActiviter  m-2">
+        <div class="col align-self-center ">
+          <span class="titleButton">Ajouter une activité</span> +
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-8 col-md-7 align-self-center">
+        <div class="row">
+          <div class="col m-2 image row"
+            [ngStyle]="{backgroundImage: 'url('+imag+')', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover'}">
+
+            <div class="col align-self-end"
+              style="background: rgba(250, 220, 220, 0.74); height: 75px; width: 153px; margin: 5px; border-radius: 15px;">
+              <span class="nomActivite">
+                Nom Activité
+              </span>
+
+              <br>
+              <span class="Date">
+                Status
+              </span>
+
+              <br>
+              <img src="../../assets/icon/1.jpg" style="border-radius: 50%; width:30px" alt="" srcset=""> <span
+                class="nomLead">BALLO Ibrahima</span>
+            </div>
+
+          </div>
+          <div class="col m-2 image row"
+            [ngStyle]="{backgroundImage: 'url('+imag+')', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover'}">
+            <div class="col align-self-end"
+              style="background: rgba(250, 220, 220, 0.74); height: 75px; width: 153px; margin: 5px; border-radius: 15px;">
+              <span class="nomActivite">
+                Nom Activité
+              </span>
+
+              <br>
+              <span class="Date">
+                Status
+              </span>
+              <br>
+              <img src="../../assets/icon/1.jpg" style="border-radius: 50%; width:30px" alt="" srcset=""> <span
+                class="nomLead">BALLO Ibrahima</span>
+            </div>
+          </div>
+          <div class="col m-2 image row"
+            [ngStyle]="{backgroundImage: 'url('+imag+')', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover'}">
+            <div class="col align-self-end"
+              style="background: rgba(250, 220, 220, 0.74); height: 75px; width: 153px; margin: 5px; border-radius: 15px;">
+              <span class="nomActivite">
+                Nom Activité
+              </span>
+
+              <br>
+              <span class="Date">
+                Status
+              </span>
+              <br>
+              <img src="../../assets/icon/1.jpg" style="border-radius: 50%; width:30px" alt="" srcset=""> <span
+                class="nomLead">BALLO Ibrahima</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div> -->
+
 </ion-content>

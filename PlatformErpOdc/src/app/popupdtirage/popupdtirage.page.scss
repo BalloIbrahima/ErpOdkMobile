@@ -1,55 +1,87 @@
-@font-face {
-    font-family: myfon1;
-    src: url("../../assets/font/Poppins-Light.ttf");
+// Style appliquer au tableau
+td{
+  font-family: myfon2;
+}
+th{
+  font-family: myfon2;
+  color: #ffff !important;
+    font-weight: 600;
+}
+thead{
+  background-color: #FF7900;
+}
+.voirPlus{
+  background-color: #FF7900;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 15px;
+  color: #ffff;
+}
+//Style de la pagination
+.paginat {
+  margin-left: 40%;
+}
+//Style du titre
+ion-title {
+  color: #FF7900;
+  font-weight: bold;
+}
+//Style du div du bouton
+.button {
+  height: 45px;
+  margin: 45px 10px;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+@media screen and (max-width: 900px) {
+  .form-select{
+    font-size: medium;
   }
-  
-  .tailleTexte{
-    font-family: myfon1 !important;
-    font-size: 18px !important;
+  .buttonColor{
+    font-size: medium;
+    text-align: center;
   }
-  .tableEntete{
-    background-color: #FF6200;
-    color: white;
-    font-size: 22px;
-    font-weight: bold;
+  .hideColonneOder{
+    display: none;
   }
-  .voir{
-    background-color: #FF6200;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    border-radius: 15px;
-  }
-  ion-row:nth-child(-n+3) {
+  th{
+    font-size: medium;
 
-    margin-bottom: 1px;
   }
-  
-  ion-row:nth-child(even) {
-    background-color: #F3F3F3;
-  
+  td{
+    font-size: small;
   }
 
-  .alignerbas {
-    margin-top: 90px;
+}
+//style des boutons
+.but {
+  border-radius: 15px;
+  padding: 8px;
+  background-color: #FF7900;
+  color: #FFF;
+  border: #FF7900 1px solid;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.but:hover {
+  background: #FFF;
+  color: #FF7900;
+}
+@media screen and (max-width: 450px) {
+  .buttonColor{
+    font-size: small;
   }
-  ion-button {
-    margin-left: 30px;
-    margin-right: 30px;
+  .hideColonne{
+    display: none;
+  }
+  th{
+    font-size: medium;
+  }
+  td{
+    font-size: small;
   }
 
-  @media screen and (max-width: 900px) {
-    .tailleTexte{
-      font-size: 12px;
-    }
-  }
-  
-  
-  @media screen and (max-width: 800px) {
-      .tailleTexte{
-        font-size: 8px;
-      }
-      .cacherCole{
-        display: none;
-      }
-  }
+}

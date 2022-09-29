@@ -8,83 +8,26 @@ import { ModalController } from '@ionic/angular';
 })
 export class PopupdtiragePage implements OnInit {
   a : number=1;
-  students =[
-    {
-        name: 'Djiguiba',
-        prenom: 'Barema',
-        genre: 'Masculin',
-        email: 'djiguiba@orangemali.com',
-        contact: '+223 8456789'
-    },
-    {
-      name: 'Djiguiba',
-      prenom: 'Barema',
-      genre: 'Masculin',
-      email: 'djiguiba@orangemali.com',
-      contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  }
   
-  ];
-  @Input() model_title: string;
   constructor(private modalController: ModalController) { }
-
+  @Input() valider: boolean;
+  @Input() donnee_tableau: string;
   ngOnInit() {
+
+  }
+
+  async validerPopup() {
+    const close: string = "Tirage validé !";
+    this.valider = true
+    await this.modalController.dismiss(close);
+    //alert(close)
+  }
+
+  async annulerPopup() {
+    const close: string = "Tirage annulé !";
+    await this.modalController.dismiss(close);
+    this.valider = false
+    //alert(close)
   }
 
 }

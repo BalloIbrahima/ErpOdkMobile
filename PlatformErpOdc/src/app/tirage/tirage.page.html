@@ -55,8 +55,8 @@
 
         <div class="row">
           <div class="col">
-            <button> Trier </button>
-
+            <button (click)="ouvrirPopup()"> Trier </button>
+            <strong *ngIf="modelData">{{modelData}}</strong>
           </div>
         </div>
       </form>

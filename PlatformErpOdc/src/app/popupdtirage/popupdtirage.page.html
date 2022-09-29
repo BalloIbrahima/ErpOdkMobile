@@ -1,37 +1,35 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>popupdtirage</ion-title>
+    <ion-title>Tirage effectué avec succès, voici un aperçu du résultat</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-grid class="ion-margin text-center tailleTexte">
-    <ion-row class="tableEntete ">
-      <ion-col>Nom</ion-col>
-      <ion-col>Prenom</ion-col>
-      <ion-col class="cacherCole">Genre</ion-col>
-      <ion-col >Contact</ion-col>
-      <ion-col class="cacherCole">Email</ion-col>
-      <ion-col>Action</ion-col>
-    </ion-row>
-    <ion-row *ngFor="let student of students| paginate:{itemsPerPage:8,currentPage:a} index as i" >
-
-      <ion-col>{{ student.name }}</ion-col>
-      <ion-col>{{ student.prenom }}</ion-col>
-      <ion-col class="cacherCole">{{ student.genre }}</ion-col>
-      <ion-col>{{ student.contact }}</ion-col>
-      <ion-col class="cacherCole">{{ student.email }}</ion-col>
-      <ion-col> <ion-col> <button class="voir">voir plus</button> </ion-col> </ion-col>
-
-    </ion-row>
-    <div class="position-relative">
-      <div class="position-absolute top-0 end-0 mt-4"><pagination-controls (pageChange)= "a = $event" nextLabel="Suivants" previousLabel="Précédents"></pagination-controls></div>
-    </div>
-    <div class="alignerbas">
-      <ion-button>Valider</ion-button>
-      <ion-button>Annuler</ion-button>
-    </div>
-    
-    <!-- <div class="pagibottom" style="margin-left: 200px;"></div> -->
-  </ion-grid>
+  <table class="table table-striped text-center">
+    <thead>
+      <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Prenom</th>
+        <th scope="col" class="hideColonne hideColonneOder">Genre</th>
+        <th scope="col">Contact</th>
+        <th scope="col" class="hideColonne hideColonneOder">Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let table of donnee_tableau | paginate: { itemsPerPage: 5, currentPage: a}">
+        <td> {{table.name}} </td>
+        <td> {{table.prenom}} </td>
+        <td class="hideColonne hideColonneOder"> {{table.genre}} </td>
+        <td> {{table.contact}} </td>
+        <td class="hideColonne hideColonneOder"> {{table.email}} </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="paginat">
+    <pagination-controls (pageChange)=" a = $event"> </pagination-controls>
+  </div>
+  <div class="button">
+    <input class="but" type="submit" value="Valider" (click)="validerPopup()">
+    <input class="but" type="submit" value="Annuler" (click)="annulerPopup()">
+  </div>
 </ion-content>

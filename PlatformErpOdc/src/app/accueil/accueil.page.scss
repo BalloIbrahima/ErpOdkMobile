@@ -12,17 +12,31 @@
 
 .mere{
   background-color:#F2EDED;
-  overflow-y: scroll;
+   overflow-y: scroll;
+  // scroll-behavior: auto;
 
 }
 .side_gauche{
   background-color:white;
   border-radius: 15px;
-  margin: auto;
+  // margin: auto;
+  height: 100%;
+  margin-left: 3%;
   padding: 20px;
 
+}
+
+
+@media screen and (max-width: 990px) {
+  .side_gauche{
+    background-color:white;
+    border-radius: 15px;
+    margin: auto;
+    height: 100%;
+    padding: 20px;
   
- 
+  }
+  
 }
 @media screen and (max-width: 574px) {
   .side_gauche{
@@ -68,6 +82,10 @@ i{
   color: #FF6200;
 }
 
+.reporting{
+  margin-top: 100%;
+  margin-bottom:10%;
+}
 
 .text_info{
   border-bottom: 3px solid black;
@@ -113,6 +131,9 @@ i{
   background: #777;
   position:relative;
   color: white;
+ 
+  
+
 } 
 
 .carousel-control-prev-icon, .carousel-control-next-icon {
@@ -166,11 +187,12 @@ h5{
   font-family:myfontLight ;
 }
 .carousel-inner{
-  border-radius: 0px;
+  // border-radius: 15px;
   padding-left:10px ;
    padding-right: 10px;
  
 }
+
 
 // .slide{
 //   border-radius: 0px;
@@ -320,3 +342,53 @@ margin-bottom: 20px;
 //   padding: 5px 10px;
 // }
 
+
+
+// css des activitées à venir
+
+.circleblack {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  background-color: black;
+  margin-bottom: 2px;
+}
+
+.circlewhite {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  border: 2px solid black;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 2px;
+}
+
+.circleorange {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  background-color: #FF6200;
+  margin-bottom: 2px;
+
+}
+
+// .buttonAjouterActiviter {
+//   background: #FF7900;
+//   border-radius: 15px;
+//   font-size: 40px;
+//   width: 84px;
+//   font-weight: bolder;
+//   color: #ffff !important;
+// }
+.image{
+  width: 193px;
+  height: 270px;
+}
+.nomActivite{
+  font-size: 12px;
+  font-weight: bold;
+}
+.Date{
+  font-size: 10px;
+  font-weight: bold;
+}

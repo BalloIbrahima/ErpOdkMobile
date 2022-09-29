@@ -1,0 +1,293 @@
+@font-face {
+    font-family: myfontLight;
+ 
+    src: url("../../assets/font/Poppins-Light.ttf");
+  }
+
+  @font-face{
+    font-family: myfontBlack;
+    src: url("../../assets/font/Poppins-Black.ttf");
+  }
+
+
+.mere{
+  background-color:#F2EDED;
+  overflow-y: scroll;
+
+}
+.side_gauche{
+  background-color:white;
+  border-radius: 15px;
+  margin-left: 3%;
+  padding: 20px;
+ 
+}
+
+.activite{
+
+  margin-bottom:3%;
+  background-color:white;
+  border-radius: 15px;
+}
+
+.titre_inf{
+  font-weight:700 ; 
+  font-size: 26Px; 
+  font-family: myfontBlack;
+  font-style: normal;
+}
+
+i{
+  font-size: 35px;
+}
+
+.icon2{
+  color: #50BE87;
+}
+.icon3{
+  color: #4BB4E6;
+}
+
+.icon4{
+  color: #FFD200;
+}
+.icon5{
+  color: #FF6200;
+}
+
+
+.text_info{
+  border-bottom: 3px solid black;
+  font-family: myfontLight;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19px;
+  margin-bottom: 10%;
+
+}
+.nombre{
+
+  margin-top: 10px;
+  font-size: 26px;
+  font-weight: 700;
+  font-family: myfontBlack;
+}
+.btn{
+  background-color: #FF6200;
+  color: white;
+  font-weight: bold;
+  font-family:myfontLight ;
+  font-style: normal;
+  border-radius: 15px;
+  width: 90%;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn:hover{
+  background-color: #FF6200;
+  color: white;
+  font-weight: bold;
+  font-family:myfontLight ;
+}
+
+
+
+
+
+.carousel-item{
+  height: 15rem;
+  background: #777;
+  position:relative;
+  color: white;
+} 
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  
+
+ border-radius: 50%;
+  border: 1px solid red;
+}
+
+.carousel-control-prev-icon {
+  filter: invert(1) grayscale(100);
+  color: red !important;
+}
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  height: 30px;
+  width: 30px;
+  outline: black;
+  background-color: black;
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+.carousel-dark .carousel-caption{
+  color: white !important;
+}
+.carousel-caption{
+  background-color: rgba(221, 215, 215, 0.60);;
+  border-radius: 15px;
+  width: 35%;
+  margin-left: auto;
+  margin-right:auto;
+}
+
+// .nom{
+//   color: black; 
+//   font-weight: 700;
+//   font-family:myfontBlack ;
+
+// }
+
+
+h5{
+ color: black; 
+ font-weight: 700;
+ font-family:myfontBlack ;
+}
+.encours_ticket{
+  color: black; 
+  font-weight: 700;
+  font-family:myfontLight ;
+}
+.carousel-inner{
+  border-radius: 0px;
+  padding-left:10px ;
+   padding-right: 10px;
+ 
+}
+
+// .slide{
+//   border-radius: 0px;
+//   // height: 25rem;
+//   height: 25rem;
+//   padding-left:10px ;
+//    padding-right: 10px;
+ 
+// }
+
+
+
+
+.carousel-item {
+  
+    height: 50%;
+    height: 25rem;
+    background: #777;
+    position: relative;
+    color: white;
+}
+
+.AenCours{
+  font-weight:700 ; 
+  font-size: 26Px; 
+  font-family: myfontBlack;
+  font-style: normal;
+margin-left:32% ;
+margin-bottom: 20px;
+
+
+}
+
+// @media screen and {
+  
+// }
+
+
+.activite{
+  padding-top:6%;
+  padding-bottom: 5%;
+  font-family: myfontBlack;
+}
+
+
+
+
+
+
+// .carousel {
+//   padding: 20px;
+//   perspective: 500px;
+//   overflow: hidden;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// }
+
+
+
+
+// .d-block, h2 {
+//   color: #ff7900;
+//   font-weight: bold;
+//   font-size: 2.5rem;
+//   display: block;
+//   margin: 0 auto;
+//   text-align: center;
+//   padding-bottom: 20px;
+// }
+
+
+
+
+// // .carousel > * {
+// //   flex: 0 0 auto;
+// // }
+// // .carousel figure {
+// //   margin: 0;
+// //   width: 400px;
+// //   transform-style: preserve-3d;
+// //   transition: transform 0.5s;
+// //   transform-origin: 50% 50% -482.8427124746px;
+// // }
+// // .carousel figure img {
+// //   width: 100%;
+// //   box-sizing: border-box;
+// //   padding: 0 40px;
+// //   opacity: 0.9;
+// // }
+// // .carousel figure img:not(:first-of-type) {
+// //   position: absolute;
+// //   left: 0;
+// //   top: 0;
+// //   transform-origin: 50% 50% -482.8427124746px;
+// // }
+// // .carousel figure img:nth-child(2) {
+// //   transform: rotateY(0.7853981634rad);
+// // }
+// // .carousel figure img:nth-child(3) {
+// //   transform: rotateY(1.5707963268rad);
+// // }
+// // .carousel figure img:nth-child(4) {
+// //   transform: rotateY(2.3561944902rad);
+// // }
+// // .carousel figure img:nth-child(5) {
+// //   transform: rotateY(3.1415926536rad);
+// // }
+// // .carousel figure img:nth-child(6) {
+//   transform: rotateY(3.926990817rad);
+// }
+// .carousel figure img:nth-child(7) {
+//   transform: rotateY(4.7123889804rad);
+// }
+// .carousel figure img:nth-child(8) {
+//   transform: rotateY(5.4977871438rad);
+// }
+// .carousel nav {
+//   display: flex;
+//   justify-content: center;
+//   margin: 20px 0 0;
+// }
+// .carousel nav button {
+//   flex: 0 0 auto;
+//   margin: 0 5px;
+//   cursor: pointer;
+//   color: #333;
+//   background: none;
+//   border: 1px solid;
+//   letter-spacing: 1px;
+//   padding: 5px 10px;
+// }
+

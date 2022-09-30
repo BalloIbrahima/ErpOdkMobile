@@ -12,12 +12,16 @@ export class LoginPage {
    //variable concernant le login
    login:String;
    password:String;
+   error:Boolean;
+   erreur:String;
    /////
  
   constructor(private utilisateurService:UtilisateurService,private router:Router) {}
  
 
   logForm(){
+    this.error=false;
+    this.erreur=""
     this.utilisateurService.login(this.login,this.password).subscribe(data=>{
       //on vas recupere le message de retour et voir si tout ses bien passe
       console.log(data)
@@ -40,7 +44,9 @@ export class LoginPage {
 
         }
       }else if(data.message=="error"){
-        console.log(data.data);
+        console.log(data.object);
+        this.error=true;
+        this.erreur=data.data
       }
     })
   }

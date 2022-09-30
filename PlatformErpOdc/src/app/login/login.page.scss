@@ -7,7 +7,7 @@ ion-content{
   $ruler: 16px;
 
   .lienPass{
-    color: #FFF;
+    color: rgb(53, 32, 175);
     display: flex;
     font-size: 15px;
     font-family: system-ui;
@@ -163,6 +163,11 @@ ion-content{
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
     
+  }
+
+  #erreur{
+
+    color: red;
   }
   
   

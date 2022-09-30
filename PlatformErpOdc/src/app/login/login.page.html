@@ -27,6 +27,7 @@
           <!-- <label for="exampleInputPassword1" class="form-label">Entrer votre Mot de passe</label> -->
           <ion-input type="password" class="form-control" [(ngModel)]="password" name="password" id="exampleInputPassword1" placeholder="Mot de passe"></ion-input>
         </div>
+        <ion-label id="erreur" *ngIf="error">{{erreur}}</ion-label>
         <button type="submit" id="btnn" class="btn" (click)="logForm()">Se connecter</button>
 
         <a class="lienPass">Mots de passe oublié !</a>

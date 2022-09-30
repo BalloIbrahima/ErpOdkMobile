@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PopoverController } from '@ionic/angular';
+import { PopupNotificationPage } from '../popup-notification/popup-notification.page';
+
 
 @Component({
   selector: 'app-taches-activite',
@@ -6,14 +10,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./taches-activite.page.scss'],
 })
 export class TachesActivitePage implements OnInit {
-  constructor() { }
+  constructor(private router: Router,private popoverCtrl: PopoverController) { }
   pages: number = 1;
   students =[
     {
       Designation: 'tache 1',
       Realisateur: 'Abdoulaye',
       Lieu: 'salle 1',
-      Statut: 'encour',
+      Statut: 'encours',
       Dated: '01-6-2022',
       Datef: '01-12-2022'
     },
@@ -29,7 +33,7 @@ export class TachesActivitePage implements OnInit {
       Designation: 'tache 3',
       Realisateur: 'Karim',
       Lieu: 'salle 2',
-      Statut: 'encour',
+      Statut: 'encours',
       Dated: '01-6-2022',
       Datef: '01-12-2022'
     },
@@ -70,5 +74,14 @@ export class TachesActivitePage implements OnInit {
   ngOnInit() {
     
   }
+  async OpenNotification(id){
+    // this.router.navigate((['tabs',"message",id]));
+    const popover = await this.popoverCtrl.create({
+      component:PopupNotificationPage,
+      event:id,
+      cssClass:"notif-popup"
+    });
+    await popover.present()
+}
 
 }

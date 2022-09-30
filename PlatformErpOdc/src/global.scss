@@ -26,3 +26,23 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+.notif-popup{
+        --ion-backdrop-opacity:0.6;
+        .popover-arrow{
+            display: none;
+        }
+        
+}
+.popover-content {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    width: 400px;
+    max-height: var(--max-height);
+    background: var(--background);
+    box-shadow: var(--box-shadow);
+    overflow: auto;
+    z-index: 10;
+}

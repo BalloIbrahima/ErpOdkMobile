@@ -23,6 +23,11 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'popup-notification',
+    loadChildren: () => import('./popup-notification/popup-notification.module').then( m => m.PopupNotificationPageModule)
+  },
+
   
 
 ];

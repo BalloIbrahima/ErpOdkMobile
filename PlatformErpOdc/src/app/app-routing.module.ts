@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'profil',
+    redirectTo: 'accueil',
     pathMatch: 'full'
   },
   {
@@ -35,7 +35,7 @@ const routes: Routes = [
   // {
   //   path: 'profil',
   //   loadChildren: () => import('./profil/profil.module').then( m => m.ProfilPageModule)
-  // },
+  //  },
 
 
 ];

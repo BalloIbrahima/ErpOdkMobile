@@ -27,6 +27,14 @@ const routes: Routes = [
     loadChildren: () => import('./popupdtirage/popupdtirage.module').then( m => m.PopupdtiragePageModule)
   },
   {
+
+    path: 'taches-activite',
+    loadChildren: () => import('./taches-activite/taches-activite.module').then( m => m.TachesActivitePageModule)
+  },
+
+
+
+  {
     path: '',
     redirectTo: 'tirage',
     pathMatch: 'full'
@@ -50,7 +58,14 @@ const routes: Routes = [
   {
     path: 'detailtirageduneliste',
     loadChildren: () => import('./detail-tirage-dune-liste/detail-tirage-dune-liste.module').then( m => m.DetailTirageDuneListePageModule)
-  }
+  },
+  {
+    path: 'popup-notification',
+    loadChildren: () => import('./popup-notification/popup-notification.module').then( m => m.PopupNotificationPageModule)
+  },
+
+  
+
 ];
 
   @NgModule({

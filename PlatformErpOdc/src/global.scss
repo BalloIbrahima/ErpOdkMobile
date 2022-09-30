@@ -28,3 +28,15 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 
+.notif-popup{
+    --ion-backdrop-opacity:0.6;
+        
+    .popover-arrow{
+            display: none;   
+        }
+        
+    .popover-content {
+        width: 100% ;
+        left: 10px;
+    }
+}

@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "PlatformErpOdc",
+	"appId": "com.odc",
+	"appName": "ERP EDC",
 	"webDir": "www",
 	"bundledWebRuntime": false
 }

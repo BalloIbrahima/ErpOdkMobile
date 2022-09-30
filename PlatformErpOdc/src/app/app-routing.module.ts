@@ -1,29 +1,16 @@
 
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AcceuilGuard } from './guard/acceuil/acceuil.guard';
+
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  // {
-  //   path: '',
-  //   redirectTo: 'home',
-  //   pathMatch: 'full'
-  // },
-  {
     path: '',
-    // redirectTo: 'accueil',
-    // pathMatch:'full'
-    redirectTo: 'entite',
-   pathMatch: 'full'
-    // redirectTo: 'entite',
-    // pathMatch: 'full'
-
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
   },
-// =======
-//     redirectTo: 'useraddform',
+  
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
@@ -78,6 +65,12 @@ const routes: Routes = [
     path: 'entite',
     loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
   },
+{
+    path: 'dashboard',
+    loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule),
+    canActivate: [AcceuilGuard] 
+  }
+
 
 ];
 

@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+ion-content {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #FFFF);
+    padding: 10px;
+}
+
+.title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.title ::before {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 30px;
+}
+
+.container {
+    max-width: 700px;
+    width: 100%;
+    padding: 25px 30px;
+    border-radius: 5px;
+    background: #000;
+    margin: auto;
+}
+
+input {
+    color: #000;
+}
+
+.container form .activite-details {
+    color: #FF7900;
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+form .activite-details .input-box {
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+}
+
+.select {
+    color: #000;
+    width: 100%;
+    padding: 3.25%;
+    margin-top: 1px;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.activite-details .input-box .details {
+    display: block;
+    font-weight: 500;
+}
+
+.activite-details .input-box input {
+    outline: none;
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0, 3s ease;
+}
+
+.activite-details .input-box input:focus,
+.activite-details .input-box input:valid {
+    border-color: #ccc;
+}
+
+form .button {
+    height: 45px;
+    padding: 5%;
+
+}
+
+input[type=submit] {
+    border-radius: 10px;
+    padding: 11px 24px;
+    background-color: #FF7900;
+    color: #FFFF;
+}
+
+input[type=reset] {
+    border-radius: 10px;
+    padding: 11px 24px;    background-color: #FF7900;
+    color: #FFFF;
+}
+
+form .button .input {
+    height: 100%;
+    width: 45%;
+    color: #FFFF;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #FF7900);
+}
+
+form .button input:hover {
+    background: linear-gradient(135deg);
+}
+
+@media (max-width: 584px) {
+    .container {
+        max-width: 100%;
+        height: 100%;
+        background: #FFFF;
+        padding: 5% 7%;
+    }
+    form .activite-details .input-box {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    .container form .activite-details {
+        overflow-y: scroll;
+    }
+    .activite-details::-webkit-scrollbar {
+        width: 0;
+    }
+
+    form .button {
+        padding: 5%;
+        width: 100%;
+    }
+    
+    .title{
+        margin-top: 5%;
+    }
+    input[type=submit] {
+        border-radius: 10px;
+        padding: 7px 10px;
+        background-color: #FF7900;
+        color: #FFFF;
+        margin-bottom: 3%;
+        width: 100%;
+    }
+    
+    input[type=reset] {
+        border-radius: 5px;
+        padding: 7px 10px;
+        background-color: #FF7900;
+        color: #FFFF;
+        width: 100%;
+    }
+}

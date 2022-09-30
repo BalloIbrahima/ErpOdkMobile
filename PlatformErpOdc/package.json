@@ -1,6 +1,6 @@
 {
-  "name": "PlatformErpOdc",
-  "version": "0.0.1",
+  "name": "OrangeDigitalCenter",
+  "version": "1.0",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
   "scripts": {
@@ -9,16 +9,19 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "resources": "capacitor-resources -p android,ios"
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "^14.2.3",
     "@angular/common": "^14.0.0",
-    "@angular/core": "^14.0.0",
+    "@angular/core": "^14.2.3",
     "@angular/forms": "^14.0.0",
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
+    "@capacitor/android": "4.3.0",
     "@capacitor/app": "4.0.1",
     "@capacitor/core": "4.3.0",
     "@capacitor/haptics": "4.0.1",
@@ -39,13 +42,11 @@
     "@angular-eslint/eslint-plugin": "~13.0.1",
     "@angular-eslint/eslint-plugin-template": "~13.0.1",
     "@angular-eslint/template-parser": "~13.0.1",
-    "@angular/cli": "^14.0.0",
     "@angular/compiler": "^14.0.0",
     "@angular/compiler-cli": "^14.0.0",
     "@angular/language-service": "^14.0.0",
     "@capacitor/cli": "4.3.0",
-
-    "@ionic/angular-toolkit": "^6.0.0",
+    "@ionic/angular-toolkit": "^7.0.0",
     "@ionic/app-scripts": "^3.2.4",
     "@ionic/lab": "3.2.13",
 

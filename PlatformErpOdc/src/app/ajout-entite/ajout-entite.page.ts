@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SalleServiceService } from 'src/services/salles/salle-service.service';
+import { SalleServiceService } from '../services/salles/salle-service.service';
 
 @Component({
   selector: 'app-ajout-entite',

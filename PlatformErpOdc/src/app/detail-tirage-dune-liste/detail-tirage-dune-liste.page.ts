@@ -12,8 +12,8 @@ export class DetailTirageDuneListePage implements OnInit {
   students =[
     {
       
-      numero:'1',
-      libelle: 'Kanoute',
+      numero:'1',  
+      libelle: 'Kadidia',
       date: '2022-12-12',
         nbr: '20',
         etat:'valide'
@@ -45,7 +45,7 @@ export class DetailTirageDuneListePage implements OnInit {
   {
     numero:'5',
 
-    libelle: 'Kanoute',
+    libelle: 'Lah',
       date: '2022-12-12',
         nbr: '20',
         etat:'valide'

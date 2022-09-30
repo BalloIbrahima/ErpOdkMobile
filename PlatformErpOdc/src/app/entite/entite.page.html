@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nos entite</ion-title>
+  </ion-toolbar>
+  
+  <button (click)="nouvelleent()" class="btnn">Nouvelle-entite</button>
+
+</ion-header>
+
+<ion-content>
+  <div class="col-sm-7 mx-auto">
+    <header class="section-header text-center">
+      <span class="h1 d-block">
+        <span>❝</span>
+      </span>
+      <h2>Nos Entités</h2>
+    </header>
+  </div>
+  
+  <div id="flex-container" class="testimonials">
+    <div id="left-zone">
+      <ul class="list item1">
+       
+        <li class="item" *ngFor="let inf of info">
+          <input type="radio" id="{{inf.entite}}" name="basic_carousel"  />
+          <label class="label_testimonial" class="{{inf.entite}}" for="{{inf.entite}}">{{inf.entite}}</label>
+          <div class="content-test content_testimonial">
+            <img width="300px" height="200" src="assets/image/img.jfif" alt="">
+            <h1>{{inf.entite}}</h1>
+            <p class="desc">{{inf.descrription}}</p>
+            <p class="testimonialFrom">{{inf.status}}</p>
+            <p class="testimonialState"> {{inf.nom}} </p>
+            <p class="testimonialState"><button>Voir+</button></p>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+    <div id="right-zone"></div>
+  </div>
+</ion-content>

@@ -10,44 +10,32 @@ export class PopupNotificationPage implements OnInit {
   constructor() { }
   salleactivites=[
     {
-      titre:"Python",
-      type:"Formation",
-      status:"à venir"
+      user:"Fatoumata Kalogo",
+      activite:"activité",
     },
     {
-      titre:"Python",
-      type:"Formation",
-      status:"à venir"
+      user:"Fatoumata Kalogo",
+      activite:"activité",
     },
     {
-      titre:"Python",
-      type:"Formation",
-      status:"à venir"
+      user:"Fatoumata Kalogo",
+      activite:"activité",
     },
     {
-      titre:"Python",
-      type:"Formation",
-      status:"à venir"
+      user:"Fatoumata Kalogo",
+      activite:"activité",
     },
     {
-      titre:"Python",
-      type:"Formation",
-      status:"à venir"
+      user:"Fatoumata Kalogo",
+      activite:"activité",
     },
     {
-      titre:"Python",
-      type:"Formation",
-      status:"à venir"
+      user:"Fatoumata Kalogo",
+      activite:"activité",
     },
-    {
-      titre:"Python",
-      type:"Formation",
-      status:"à venir"
-    }
-
   ]
   close(){
-    
+
   }
 
   ngOnInit() {

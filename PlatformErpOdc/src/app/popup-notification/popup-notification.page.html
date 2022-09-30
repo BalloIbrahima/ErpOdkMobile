@@ -1,6 +1,6 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>popup-notification</ion-title>
+    <ion-title>Notification</ion-title>
     <ion-buttons>
         <ion-button (click)="close()" fill="clear" color="dark">
             <ion-icon name="close" slot="icon-only"></ion-icon>
@@ -15,21 +15,17 @@
       <div class="pag" *ngFor= "let salleactivite of  salleactivites let index =index">
      
       <div class="card float-left">
-          <div class="row ">
-              <div class="col-sm-5">
+          <div class="row">
+              <div class="col-5">
                   <img class="img" src="../../assets/Avatar_girl_face.png" alt="">
               </div>
-              <div class="col-sm-7">
+              <div class="col-7">
                   <div class="card-block">
-                      <!--           <h4 class="card-title">Small card</h4> -->
-                      <p><b>{{salleactivite.titre}}</b> <br> <span>{{salleactivite.type}}</span></p>
+                      <h6>{{salleactivite.user}}</h6> 
 
                       <div class="statutbtn">
-                          <div style="margin-top: 7px; color:#FF7900;">{{salleactivite.status}}</div>
-                          <div class="butrad">
-                              <input type="radio" id="" name="" value="" checked>
-                              <label for=""></label>
-                          </div>
+                        <span>a crée </span>
+                          <div class="act-nom">{{salleactivite.activite}}</div>
                       </div>
                   </div>
               </div>
@@ -41,11 +37,5 @@
   </div>
 
   
-  </div>
-  <div class="pagination">
-      <!-- <pagination-controls (pageChange)="p=$event" nextLabel="Suivants" previousLabel="Précédents"></pagination-controls> -->
-  </div>
-  <div class="button">
-      <button> Attribuer </button>
   </div>
 </ion-content>

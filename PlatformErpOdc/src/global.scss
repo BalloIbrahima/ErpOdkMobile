@@ -29,20 +29,14 @@
 
 
 .notif-popup{
-        --ion-backdrop-opacity:0.6;
-        .popover-arrow{
-            display: none;
+    --ion-backdrop-opacity:0.6;
+        
+    .popover-arrow{
+            display: none;   
         }
         
-}
-.popover-content {
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    width: 400px;
-    max-height: var(--max-height);
-    background: var(--background);
-    box-shadow: var(--box-shadow);
-    overflow: auto;
-    z-index: 10;
+    .popover-content {
+        width: 100% ;
+        left: 10px;
+    }
 }

@@ -72,13 +72,3 @@ margin-bottom: 20px;
         height: 60%;
     }
 }
-.popover-content {
-    left: 0px;
-    right: 0px;
-    top: calc(var(--offset-top) * -1);
-    bottom: calc(var(--offset-bottom) * -1);
-    position: absolute;
-    box-shadow: rgba(155, 75, 75, 0.25) 20px 60px 4px !important;
-    border-radius: 150px !important;
-    background: var(--background);
-}

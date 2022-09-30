@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { DesactiverpersonnelPage } from '../desactiverpersonnel/desactiverpersonnel.page';
 import { ModifierpersonnelPage } from '../modifierpersonnel/modifierpersonnel.page';
 import { SupprimerpersonnelPage } from '../supprimerpersonnel/supprimerpersonnel.page';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-detailpostulant',
@@ -13,6 +14,50 @@ export class DetailpostulantPage implements OnInit {
 
   modelData:any;
   constructor(private modalController:ModalController) { }
+
+  DeletePersonnel() {
+    //   Swal.fire({'Félicitations ...', 'Fichier importer avec succès !', 'success',
+    // });
+      Swal.fire({
+        title: "Attention vous sûr de vouloir SUPPRIMER le personnel",
+        showConfirmButton: true,
+        confirmButtonText: "Oui",
+        confirmButtonColor: 'green',
+        showCancelButton: true,
+        cancelButtonText: "Non",
+        cancelButtonColor: 'red',
+        heightAuto: false
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          //Swal.fire('Saved!', '', 'success');
+        } else if (result.isDenied) {
+          //Swal.fire('Changes are not saved', '', 'info');
+        }
+      });
+    }
+
+    DPersonnel() {
+      Swal.fire({
+        title: "Attention vous sûr de vouloir DESACTIVER le personnel",
+        showConfirmButton: true,
+        confirmButtonText: "Oui",
+        confirmButtonColor: 'green',
+        showCancelButton: true,
+        cancelButtonText: "Non",
+        cancelButtonColor: 'red',
+        heightAuto: false
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          //Swal.fire('Saved!', '', 'success');
+        } else if (result.isDenied) {
+          //Swal.fire('Changes are not saved', '', 'info');
+        }
+      });
+    }
+    
+    
 
   async ModifierPersonnel() {
     const modal = await this.modalController.create({

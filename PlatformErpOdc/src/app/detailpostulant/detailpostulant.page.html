@@ -60,14 +60,50 @@
 
   <div class="buttom">
     <div class="button1">
-      <input class="but1" type="reset" value="MODIFIER" (click)="ModifierPersonnel()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-      <input class="but1" type="submit" value="SUPPRIMER" (click)="SupprimerPersonnel()">
+      <input class="but1" type="reset" value="MODIFIER"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      <!-- <input class="but1" type="submit" value="SUPPRIMER" (click)="SupprimerPersonnel()"> -->
+      <input class="but1" type="submit" value="SUPPRIMER" (click)="DeletePersonnel()">
     </div>
     <div class="button2">
-      <input class="but2" type="submit" value="DESACTIVER" (click)="DesactiverPersonnel()">
+      <!-- <input class="but2" type="submit" value="DESACTIVER" (click)="DesactiverPersonnel()"> -->
+      <input class="but2" type="submit" value="DESACTIVER" (click)="DPersonnel()">
     </div>
   </div>
 
-  </ion-content>
+  <!-- (click)="ModifierPersonnel()" -->
   
-
+   
+  <ion-button id="open-modal" expand="block">Open Card Modal</ion-button>
+  <ion-modal #modal trigger="open-modal">
+      <ng-template>
+        <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-end">
+          <ion-buttons slot="end">
+            <ion-button (click)="modal.dismiss()">Close</ion-button>
+          </ion-buttons>
+        </div>
+        <ion-content>
+  
+          <div class="text-center">
+            <div class="text">
+              Liste Importée avec succès !
+            </div>
+            <div class="text">
+              Choissisez une action:
+            </div>
+          </div>
+          <div class="row mx-5 m-2">
+            <div class="col">
+              <button type="button" class="btn colorbutton1 btn-sm">Small button</button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn colorbutton2 btn-sm">Small button</button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn colorbutton3 btn-sm">Small button</button>
+            </div>
+          </div>
+    
+      </ion-content>
+      
+    
+  

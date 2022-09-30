@@ -12,12 +12,6 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
-
-
-  {
-    path: 'detail-entite',
-    loadChildren: () => import('./detail-entite/detail-entite.module').then( m => m.DetailEntitePageModule)
-  },
   {
     path: 'detail-des-listes',
     loadChildren: () => import('./detail-des-listes/detail-des-listes.module').then( m => m.DetailDesListesPageModule)

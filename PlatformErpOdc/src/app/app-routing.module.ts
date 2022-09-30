@@ -33,16 +33,47 @@ const routes: Routes = [
 {
   path:'importeparticipantaprenant',
   loadChildren: () => import('./importer-listeparticipant/importer-listeparticipant.module').then(m => m.ImporterListeparticipantPageModule)
-},  {
+},
+  {
     path: 'popupdtirage',
     loadChildren: () => import('./popupdtirage/popupdtirage.module').then( m => m.PopupdtiragePageModule)
-  }
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: '',
+    redirectTo: 'tirage',
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'detailtirage',
+    loadChildren: () => import('./detailtirage/detailtirage.module').then( m => m.DetailtiragePageModule)
+  },
+
+  {
+    path: 'tirage',
+    loadChildren: () => import('./tirage/tirage.module').then( m => m.TiragePageModule)
+  },
+  {
+    path: 'importliste',
+    loadChildren: () => import('./importliste/importliste.module').then( m => m.ImportlistePageModule)
+  },
 
 
-
+  {
+    path:'importlisteparticipant',
+    loadChildren: () => import('./importer-listeparticipant/importer-listeparticipant.module').then(m=>m.ImporterListeparticipantPageModule)
+  },
 
 
 ];
+
 
 @NgModule({
   imports: [

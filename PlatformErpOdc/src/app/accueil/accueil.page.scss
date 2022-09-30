@@ -21,6 +21,39 @@
   display: none;
   }
 
+  .side_droite{
+    margin-left: 3%;
+  }
+
+  @media screen and (max-width: 990px) {
+    .side_droite{
+
+      margin-left: 8%;
+    }
+  }
+  @media screen and (max-width: 512px) {
+    .side_droite{
+
+      margin-left: 1%;
+    }
+
+    
+
+   
+  }
+
+  @media screen and (max-width:600x) {
+
+    .AenCours{
+      font-weight:700 ; 
+      font-size: 20Px; 
+      font-family: myfontBlack;
+      font-style: normal;
+      margin-bottom: 20px;
+    }
+  }
+
+
 .side_gauche{
   background-color:white;
   border-radius: 15px;
@@ -93,7 +126,7 @@ i{
   margin-bottom:10%;
 }
 
-@media screen and (max-width: 986px) {
+@media screen and (max-width: 990px) {
   .reporting{
     margin-top: 1%;
     margin-left: 2%;
@@ -246,7 +279,9 @@ h5{
   font-size: 26Px; 
   font-family: myfontBlack;
   font-style: normal;
-margin-left:32% ;
+
+
+ margin-left:32% ;
 margin-bottom: 20px;
 
 

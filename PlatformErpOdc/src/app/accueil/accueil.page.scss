@@ -67,6 +67,7 @@
   font-size: 26Px; 
   font-family: myfontBlack;
   font-style: normal;
+  padding-top:10% ;
 }
 
 i{
@@ -92,6 +93,13 @@ i{
   margin-bottom:10%;
 }
 
+@media screen and (max-width: 986px) {
+  .reporting{
+    margin-top: 1%;
+    margin-left: 2%;
+    margin-bottom:10%;
+  }
+}
 .text_info{
   border-bottom: 3px solid black;
   font-family: myfontLight;
@@ -127,8 +135,20 @@ i{
   font-family:myfontLight ;
 }
 
+.img_activite_avenir{
+  border-radius: 50%;
+  width:30px
+}
 
-
+.nom_activite{
+  margin-top: 0%;
+   margin-left: 0px;
+}
+.side{
+  display:flex;
+  flex-direction: column; 
+  justify-content: space-evenly;
+}
 
 
 .carousel-item{
@@ -173,12 +193,6 @@ i{
   margin-right:auto;
 }
 
-// .nom{
-//   color: black; 
-//   font-weight: 700;
-//   font-family:myfontBlack ;
-
-// }
 
 
 h5{
@@ -192,22 +206,11 @@ h5{
   font-family:myfontLight ;
 }
 .carousel-inner{
-  // border-radius: 15px;
+
   padding-left:10px ;
    padding-right: 10px;
  
 }
-
-
-// .slide{
-//   border-radius: 0px;
-//   // height: 25rem;
-//   height: 25rem;
-//   padding-left:10px ;
-//    padding-right: 10px;
- 
-// }
-
 
 
 
@@ -260,97 +263,6 @@ margin-bottom: 20px;
 
 
 
-
-
-
-// .carousel {
-//   padding: 20px;
-//   perspective: 500px;
-//   overflow: hidden;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// }
-
-
-
-
-// .d-block, h2 {
-//   color: #ff7900;
-//   font-weight: bold;
-//   font-size: 2.5rem;
-//   display: block;
-//   margin: 0 auto;
-//   text-align: center;
-//   padding-bottom: 20px;
-// }
-
-
-
-
-// // .carousel > * {
-// //   flex: 0 0 auto;
-// // }
-// // .carousel figure {
-// //   margin: 0;
-// //   width: 400px;
-// //   transform-style: preserve-3d;
-// //   transition: transform 0.5s;
-// //   transform-origin: 50% 50% -482.8427124746px;
-// // }
-// // .carousel figure img {
-// //   width: 100%;
-// //   box-sizing: border-box;
-// //   padding: 0 40px;
-// //   opacity: 0.9;
-// // }
-// // .carousel figure img:not(:first-of-type) {
-// //   position: absolute;
-// //   left: 0;
-// //   top: 0;
-// //   transform-origin: 50% 50% -482.8427124746px;
-// // }
-// // .carousel figure img:nth-child(2) {
-// //   transform: rotateY(0.7853981634rad);
-// // }
-// // .carousel figure img:nth-child(3) {
-// //   transform: rotateY(1.5707963268rad);
-// // }
-// // .carousel figure img:nth-child(4) {
-// //   transform: rotateY(2.3561944902rad);
-// // }
-// // .carousel figure img:nth-child(5) {
-// //   transform: rotateY(3.1415926536rad);
-// // }
-// // .carousel figure img:nth-child(6) {
-//   transform: rotateY(3.926990817rad);
-// }
-// .carousel figure img:nth-child(7) {
-//   transform: rotateY(4.7123889804rad);
-// }
-// .carousel figure img:nth-child(8) {
-//   transform: rotateY(5.4977871438rad);
-// }
-// .carousel nav {
-//   display: flex;
-//   justify-content: center;
-//   margin: 20px 0 0;
-// }
-// .carousel nav button {
-//   flex: 0 0 auto;
-//   margin: 0 5px;
-//   cursor: pointer;
-//   color: #333;
-//   background: none;
-//   border: 1px solid;
-//   letter-spacing: 1px;
-//   padding: 5px 10px;
-// }
-
-
-
-// css des activitées à venir
-
 .circleblack {
   height: 35px;
   width: 35px;
@@ -377,14 +289,6 @@ margin-bottom: 20px;
 
 }
 
-// .buttonAjouterActiviter {
-//   background: #FF7900;
-//   border-radius: 15px;
-//   font-size: 40px;
-//   width: 84px;
-//   font-weight: bolder;
-//   color: #ffff !important;
-// }
 .image{
   width: 193px;
   height: 270px;

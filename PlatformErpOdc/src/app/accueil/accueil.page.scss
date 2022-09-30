@@ -33,7 +33,6 @@
   }
   @media screen and (max-width: 512px) {
     .side_droite{
-
       margin-left: 1%;
     }
 
@@ -42,14 +41,15 @@
    
   }
 
-  @media screen and (max-width:600x) {
-
+  @media screen and (max-width: 420px) {
     .AenCours{
       font-weight:700 ; 
-      font-size: 20Px; 
+      font-size: 26Px; 
       font-family: myfontBlack;
       font-style: normal;
-      margin-bottom: 20px;
+     margin-left:20% !important ;
+     margin-bottom: 20px;
+        
     }
   }
 
@@ -279,10 +279,8 @@ h5{
   font-size: 26Px; 
   font-family: myfontBlack;
   font-style: normal;
-
-
  margin-left:32% ;
-margin-bottom: 20px;
+ margin-bottom: 20px;
 
 
 }

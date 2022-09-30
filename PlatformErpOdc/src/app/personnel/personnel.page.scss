@@ -4,7 +4,7 @@
     font-family: myfon;
     src: url("../../assets/font/Poppins-Black.ttf");
   }
-  
+
   @font-face {
     font-family: myfon2;
     src: url("../../assets/font/Poppins-Light.ttf");
@@ -19,19 +19,19 @@
     font-family: myfon2;
     color: #FF7900;
   }
-  
+
   .buttonColor {
     background-color: #FF7900;
     color: #ffff;
     font-family: myfon2;
     border-radius: 15px;
   }
-  
+
   .buttonColor:hover {
     border: 1px solid #FF7900;
     color: #FF7900;
   }
-  
+
   // Style appliquer au tableau
   td{
     font-family: myfon2;
@@ -65,12 +65,12 @@
     }
     th{
       font-size: medium;
-      
+
     }
     td{
       font-size: small;
     }
-    
+
   }
   @media screen and (max-width: 450px) {
     .buttonColor{
@@ -85,6 +85,70 @@
     td{
       font-size: small;
     }
-    
+
   }
-  
+
+
+.un{
+  font-weight: bold;
+}
+
+.searchbar-input.sc-ion-searchbar-md {
+  width: 30%;
+}
+
+
+img{
+  width: 65%;
+  border-radius: 50%;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+
+.card-body{
+  text-align: left;
+}
+
+.card{
+  padding: 1.5em .5em .5em;
+  border-radius: 2em;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.card-title{
+  font-weight: 700;
+  font-size: 1em;
+}
+
+// .btn{
+//   border-radius:2em;
+//   background-color: teal;
+//   color: #ffffff;
+//   padding: .5em 1.5em;
+// }
+// .btn:hover {
+//   background-color: rgba(0, 128, 128, 0.7);
+//   color: #ffffff;
+//   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+// }
+.iconprof{
+  display: flex;
+  justify-content: space-between;
+}
+.par{
+  margin-top: 20px;
+}
+
+ion-col{
+  display: flex;
+
+}
+
+ion-col.md.hydrated{
+  margin-left:28%;
+  border-radius: 56px;
+}
+pagination-controls{
+  margin-left: 30%;
+}

@@ -7,10 +7,8 @@
       <ion-title slot="start" style="color: white;">Detail</ion-title>
       <ion-button slot="end"><ion-icon name="close-outline"></ion-icon></ion-button>
     </ion-item>
-
   </ion-toolbar>
 </ion-header>
-
 
   <ion-content>
     <img src="https://images.pexels.com/photos/7562313/pexels-photo-7562313.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="center">
@@ -59,19 +57,17 @@
       <ion-label slot="end" style="color: black;" class="taille2">Responsable</ion-label> 
     </ion-item>
   </ion-list>
-  
+
   <div class="buttom">
     <div class="button1">
-      <input class="but1" type="reset" value="MODIFIER">
-      <input class="but1" type="submit" value="SUPPRIMER">
-     
+      <input class="but1" type="reset" value="MODIFIER" (click)="ModifierPersonnel()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      <input class="but1" type="submit" value="SUPPRIMER" (click)="SupprimerPersonnel()">
     </div>
     <div class="button2">
-      <input class="but2" type="submit" value="DESACTIVER">
+      <input class="but2" type="submit" value="DESACTIVER" (click)="DesactiverPersonnel()">
     </div>
   </div>
 
-  
   </ion-content>
   
 

@@ -1,10 +1,10 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
       <ion-buttons slot="start">
           <ion-menu-button></ion-menu-button>
       </ion-buttons>
       <div class="row">
-        <ion-title style="color: orangered;margin-left: 2rem;" class="title_page ion-text-uppercase" class="firsttitle" >Personnel </ion-title>    
+        <ion-title style="color: orangered;margin-left: 2rem;" class="title_page ion-text-uppercase" class="firsttitle" >Modifier personnel </ion-title>    
         <div class="col">
         </div>       
         <div class="col">
@@ -19,7 +19,7 @@
       </div>
        
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -27,15 +27,16 @@
 <ion-content>
   <div class="container">
     <form action="#">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       <div class="box">
-        <h1>Nouveau personnel</h1>
+        <h1>Modifier personnel</h1>
             <div class="ajout">
                 <div class="input-box">
                     <span class="details">Nom *</span>
                     <input type="text" placeholder="Nom du personnel">
                 </div>
                 <div class="input-box">
-                  <span class="details">Mail *</span>
+                  <span class="details">Email *</span>
                   <div class="mail">
                     <input type="text" placeholder="loremipsun" id="inp">
                     <!-- <span class="input-group-text" aria-label="fin de mail">@orangemali.com</span> -->
@@ -57,9 +58,22 @@
                   <input type="date" placeholder="La date de naissance">
                 </div>
                 <div class="input-box">
-                  <span class="details">Numéro *</span>
+                  <span class="details">Contact *</span>
                   <input type="text" placeholder="Numéro du personnel">
                 </div>
+                <div class="input-box">
+                  <span class="details">Lieu de naissance *</span>
+                  <select name="tchoixsalle" class="select">
+                    <option value="">Bamako</option>
+                    <option value="">Sikasso</option>
+                    <option value="">Segou</option>
+                    <option value="">Mopti</option>
+                    <option value="">Kayes</option>
+                    <option value="">Koulikoro</option>
+                    <option value="">Gao</option>
+                    <option value="">Kidal</option>
+                  </select>
+               </div>
                 <div class="input-box">
                     <span class="details">Entité *</span>
                     <select name="tchoixsalle" class="select">
@@ -67,17 +81,29 @@
                       <option value="">Orange FabLab</option>
                     </select>
                 </div>
-
                 <div class="input-box">
-                  <span class="details">Ajouter image *</span>
-                  <input type="file" class="form-control" placeholder="Logo.jpg" id="logo" name="logo" accept="image/png, image/jpeg, image/jpg">
+                  <span class="details">Genre *</span>
+                  <select name="tchoixsalle" class="select">
+                    <option value="">Homme</option>
+                    <option value="">Femme</option>
+                  </select>
               </div>
+              <div class="input-box">
+                <span class="details">Rôle *</span>
+                <select name="tchoixsalle" class="select">
+                  <option value="">Administrateur</option>
+                  <option value="">Responsable</option>
+                  <option value="">Utilisateur</option>
+                </select>
+            </div>
             </div>
       </div>
       <div class="button">
-        <input class="but" type="submit" value="Ajouter personnel">
+        <input class="but" type="submit" value="Annuler">
+        <input class="but" type="submit" value="Modifier">
       </div>
 
+      
     </form>
 </div>
 

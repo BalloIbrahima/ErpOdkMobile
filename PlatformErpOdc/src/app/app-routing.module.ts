@@ -37,7 +37,19 @@ const routes: Routes = [
   {
     path: 'nouveaupersonnel',
     loadChildren: () => import('./nouveaupersonnel/nouveaupersonnel.module').then( m => m.NouveaupersonnelPageModule)
+  },  {
+    path: 'modifierpersonnel',
+    loadChildren: () => import('./modifierpersonnel/modifierpersonnel.module').then( m => m.ModifierpersonnelPageModule)
   },
+  {
+    path: 'desactiverpersonnel',
+    loadChildren: () => import('./desactiverpersonnel/desactiverpersonnel.module').then( m => m.DesactiverpersonnelPageModule)
+  },
+  {
+    path: 'supprimerpersonnel',
+    loadChildren: () => import('./supprimerpersonnel/supprimerpersonnel.module').then( m => m.SupprimerpersonnelPageModule)
+  },
+
 
 
 

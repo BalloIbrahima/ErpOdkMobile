@@ -1,24 +1,18 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { IonModal, ModalController } from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 
+
 @Component({
-  selector: 'app-modifierpersonnel',
-  templateUrl: './modifierpersonnel.page.html',
-  styleUrls: ['./modifierpersonnel.page.scss'],
+  selector: 'app-modifier-personnel',
+  templateUrl: './modifier-personnel.component.html',
+  styleUrls: ['./modifier-personnel.component.scss'],
 })
-export class ModifierpersonnelPage implements OnInit {
+export class ModifierPersonnelComponent implements OnInit{
 
-  // @Input() model_title : string;
-  // constructor(private modalController:ModalController) { }
+  constructor() { }
 
-  ngOnInit() {
-  }
-  // async closeModel(){
-  //   const close :string = "Modal Removed";
-  //   await this.modalController.dismiss(close);
-  // }
-
+  ngOnInit() {}
 
   @ViewChild(IonModal) modal: IonModal;
 
@@ -40,5 +34,4 @@ export class ModifierpersonnelPage implements OnInit {
     }
   }
 
-  
 }

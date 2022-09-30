@@ -11,9 +11,15 @@ const routes: Routes = [
   //   redirectTo: 'home',
   //   pathMatch: 'full'
   // },
+  
+  // {
+  //   path:"modifier-personnel",
+  //   component:ModifierPersonnelComponent
+  // },
+
   {
     path: '',
-    redirectTo: 'nouveaupersonnel',
+    redirectTo: 'modifier-personnel',
     pathMatch: 'full'
   },
   {
@@ -37,7 +43,8 @@ const routes: Routes = [
   {
     path: 'nouveaupersonnel',
     loadChildren: () => import('./nouveaupersonnel/nouveaupersonnel.module').then( m => m.NouveaupersonnelPageModule)
-  },  {
+  },
+  {
     path: 'modifierpersonnel',
     loadChildren: () => import('./modifierpersonnel/modifierpersonnel.module').then( m => m.ModifierpersonnelPageModule)
   },
@@ -63,3 +70,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+

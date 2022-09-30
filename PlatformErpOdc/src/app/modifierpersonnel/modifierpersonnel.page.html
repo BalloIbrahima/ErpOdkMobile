@@ -1,4 +1,4 @@
-<!-- <ion-header>
+<ion-header>
   <ion-toolbar>
       <ion-buttons slot="start">
           <ion-menu-button></ion-menu-button>
@@ -19,13 +19,14 @@
       </div>
        
   </ion-toolbar>
-</ion-header> -->
+</ion-header> 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-
-<ion-content>
-  <div class="container">
+  <!-- 
+ <ion-content>
+ 
+<div class="container">
     <form action="#">
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       <div class="box">
@@ -39,7 +40,7 @@
                   <span class="details">Email *</span>
                   <div class="mail">
                     <input type="text" placeholder="loremipsun" id="inp">
-                    <!-- <span class="input-group-text" aria-label="fin de mail">@orangemali.com</span> -->
+                     <span class="input-group-text" aria-label="fin de mail">@orangemali.com</span> 
                     <div style="width: 270px;">
                     <select name="tchoixsalle" class="mailmodel">
                       <option value="">@orangefablab.com</option>
@@ -105,6 +106,33 @@
 
       
     </form>
-</div>
+</div> 
+</ion-content>
+-->
 
+
+<ion-content class="ion-padding">
+  <ion-button id="open-modal" expand="block">Open</ion-button>
+  <p>{{ message }}</p>
+  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+          </ion-buttons>
+          <ion-title>Welcome</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item>
+          <ion-label position="stacked">Enter your name</ion-label>
+          <ion-input type="text" placeholder="Your name" [(ngModel)]="name"></ion-input>
+        </ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

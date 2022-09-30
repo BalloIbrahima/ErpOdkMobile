@@ -1,4 +1,10 @@
-
+@font-face {
+    font-family: myfon;
+    src: url('./assets/font/Poppins-Light.ttf');
+}
+*{
+    font-family: myfon;
+}
 /*
  * App Global CSS
  * ----------------------------------------------------------------------------

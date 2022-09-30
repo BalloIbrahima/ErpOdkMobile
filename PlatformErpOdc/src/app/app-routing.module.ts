@@ -24,8 +24,28 @@ const routes: Routes = [
     loadChildren: () => import('./nouveaupersonnel/nouveaupersonnel.module').then( m => m.NouveaupersonnelPageModule)
   },
   {
-    path: 'detailpersonnel',
+    path: 'detail-personnel',
     loadChildren: () => import('./detailpostulant/detailpostulant.module').then( m => m.DetailpostulantPageModule)
+  },
+  {
+    path: 'entite',
+    loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
+  },
+  {
+    path: 'details-entite',
+    loadChildren: () => import('./details-entite/details-entite.module').then( m => m.DetailsEntitePageModule)
+  },
+  {
+    path: 'role',
+    loadChildren: () => import('./role/role.module').then( m => m.RolePageModule)
+  },
+  {
+    path: 'details-entite',
+    loadChildren: () => import('./details-entite/details-entite.module').then( m => m.DetailsEntitePageModule)
+  },
+  {
+    path: 'nouvelle-entite',
+    loadChildren: () => import('./nouvelle-entite/nouvelle-entite.module').then( m => m.NouvelleEntitePageModule)
   },
 
 ];

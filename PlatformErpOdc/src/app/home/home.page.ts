@@ -12,7 +12,7 @@ export class HomePage {
    login:String;
    password:String;
    /////
- 
+
    Utilisateur:any
   constructor(private utilisateurService:UtilisateurService) {}
 

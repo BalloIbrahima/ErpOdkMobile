@@ -8,6 +8,7 @@
       <div class="col"></div>
       <div class="col"></div>
       <div class="col"></div>
+      <div class="co"></div>
       <div class="col" style="width: 100%; color:#FF7900; font-size: 30px;"><i class="fa-regular fa-bell"></i></div>
     </div>
   </ion-toolbar>
@@ -15,9 +16,38 @@
 
 <ion-content>
 
+  <table class="table table-striped ">
+    <thead>
+      <tr>
+        <th scope="col">Numéro</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Prenom</th>
+        <th scope="col">email</th>
+        <th scope="col">date</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let table of students | paginate: { itemsPerPage: 4, currentPage: page}">
+        <td> {{table.numero}} </td>
+        <td> {{table.name}} </td>
+        <td> {{table.prenom}} </td>
+        <td> {{table.email}} </td>
+        <td> {{table.date}} </td>
 
 
-  <ion-grid class="ion-margin text-center tailleTexte">
+
+      </tr>
+
+    </tbody>
+
+  </table>
+  <div class="position-relative">
+    <div class="position-absolute top-0 end-0 mt-4 stylePagination"><pagination-controls previousLabel="Précédent"
+      nextLabel="Suivant" (pageChange)=" page = $event"> </pagination-controls></div>
+  </div>
+
+  <!-- <ion-grid class="ion-margin text-center tailleTexte">
     <ion-row class="tableEntete ">
       <ion-col>Nom</ion-col>
       <ion-col>Prenom</ion-col>
@@ -39,7 +69,7 @@
     <div class="position-relative">
       <div class="position-absolute top-0 end-0 mt-4"><pagination-controls (pageChange)= "page = $event" nextLabel="Suivants" previousLabel="Précédents"></pagination-controls></div>
     </div>
-    <!-- <div class="pagibottom" style="margin-left: 200px;"></div> -->
-  </ion-grid>
+     <div class="pagibottom" style="margin-left: 200px;"></div>
+  </ion-grid> -->
 
 </ion-content>

@@ -8,12 +8,16 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'detailtirage',
+    redirectTo: 'tirage',
     pathMatch: 'full'
   },
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'detailtirage',
+    loadChildren: () => import('./detailtirage/detailtirage.module').then( m => m.DetailtiragePageModule)
   },
 
   {
@@ -24,20 +28,16 @@ const routes: Routes = [
     path: 'importliste',
     loadChildren: () => import('./importliste/importliste.module').then( m => m.ImportlistePageModule)
   },
-{
-  path:'importeparticipantaprenant',
-  loadChildren: () => import('./importer-listeparticipant/importer-listeparticipant.module').then(m => m.ImporterListeparticipantPageModule)
-},
+
+
   {
-    path: 'detailtirage',
-    loadChildren: () => import('./detailtirage/detailtirage.module').then( m => m.DetailtiragePageModule)
-  }
-
-
-
+    path:'importlisteparticipant',
+    loadChildren: () => import('./importer-listeparticipant/importer-listeparticipant.module').then(m=>m.ImporterListeparticipantPageModule)
+  },
 
 
 ];
+
 
 @NgModule({
   imports: [

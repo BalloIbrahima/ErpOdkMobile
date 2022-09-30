@@ -144,3 +144,22 @@ h4 {
         }
     }
 }
+/*button*/
+button{
+    color: white;
+    margin-top: auto;
+    background: #FF7900;
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 900;
+    box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+    transition: 0.5s;
+     border: 2px solid #FF7900;
+     padding: 0px 100px 0px 0px;
+     margin-left: 50px;
+    width: 60%;
+    padding: 0;
+    border-radius: 20px;
+  
+  }

@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    
 }
 
 ion-content {
@@ -15,7 +16,7 @@ ion-content {
 
 h1 {
     font-family: 'Poppins', sans-serif;
-    margin: 15px;
+    margin: 2px;
     font-size: 32px;
     font-weight: bold;
     text-align: center;
@@ -34,7 +35,9 @@ h1 {
     border-radius: 15px;
     border: #000 3px solid;
     margin: 20px auto;
+    
 }
+
 
 .container {
     max-width: 700px;

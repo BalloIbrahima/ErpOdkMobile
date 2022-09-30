@@ -6,8 +6,46 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lier-salle-activity.page.scss'],
 })
 export class LierSalleActivityPage implements OnInit {
-a!:any
+ p:number = 1;
   constructor() { }
+  salleactivites=[
+    {
+      titre:"Python",
+      type:"Formation",
+      status:"à venir"
+    },
+    {
+      titre:"Python",
+      type:"Formation",
+      status:"à venir"
+    },
+    {
+      titre:"Python",
+      type:"Formation",
+      status:"à venir"
+    },
+    {
+      titre:"Python",
+      type:"Formation",
+      status:"à venir"
+    },
+    {
+      titre:"Python",
+      type:"Formation",
+      status:"à venir"
+    },
+    {
+      titre:"Python",
+      type:"Formation",
+      status:"à venir"
+    },
+    {
+      titre:"Python",
+      type:"Formation",
+      status:"à venir"
+    }
+
+  ]
 
   ngOnInit() {
   }

@@ -5,10 +5,9 @@
         <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <!-- <ion-title>Tout les activités </ion-title> -->
         <div class="row">
             <div class="col">
-                <ion-title style="color: #FF7900; margin-left: 10px;">Tout les activités</ion-title>
+                <ion-title style="color: #FF7900;margin-top: 7px; margin-left: 10px;">Tout les activités</ion-title>
             </div>
             <div class="col"></div>
             <div class="col"></div>
@@ -24,38 +23,17 @@
 <ion-content>
     <div class="statutbtn">
         <div style="margin-top: 7px; color:#FF7900;">
-            <select class="form-select form-select-lg mb-3">
+            <select class="form-select form-select-lg mb-3" style="margin-left: 60px;">
             <option  style="margin-top: 15px; color:#FF7900;"> Filtrer Par</option>
             <option  style="margin-top: 15px; color:#FF7900; " value="1">Entité</option>
             <option   style="margin-top: 15px; color:#FF7900; "value="2">Statut</option>
           </select>
         </div>
-        <div> <a href="#" class="btn  btn-sm" style="margin-right: 15px; margin-top: 15px; ">Creer Activité</a>
-
+        <div> <a href="#" class="btn  btn-sm"id="button" style="margin-right: 60px;margin-top: 7px;border-raduis:20px;padding: 8px 15px 8px 16px;">Creer Activité</a>
         </div>
     </div>
     <div class="container">
-        <div class="card float-left">
-            <div class="row ">
-                <div class="col-sm-5">
-                    <img class="img" src="../../assets/odc1.png" alt="">
-                </div>
-                <div class="col-sm-7">
-                    <div class="card-block">
-                        <!--           <h4 class="card-title">Small card</h4> -->
-                        <p><b>Titreeeeee</b> <br> <span>type d'activité</span></p>
-
-                        <p>Description Description Description Description Description Description </p>
-                        <div class="statutbtn">
-                            <div style="margin-top: 7px; color:#FF7900;"> Statut</div>
-                            <div> <a href="#" class="btn btn-primary btn-sm" style="margin-right: 7px;">Voir +</a> </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
+        <div class="pag" *ngFor= "let allactivite of  allactivites | paginate:{itemsPerPage:6, currentPage:p}; let index =index">
 
         <div class="card float-left">
             <div class="row ">
@@ -64,69 +42,21 @@
                 </div>
                 <div class="col-sm-7">
                     <div class="card-block">
-                        <!--           <h4 class="card-title">Small card</h4> -->
-                        <p><b>Titreeeeee</b> <br> <span>type d'activité</span></p>
-
-                        <p>Description Description Description Description Description Description </p>
+                       
+                        <p><b>{{allactivite.titre}}</b> <br> <span>{{allactivite.type}}</span></p>
+                        <p>{{allactivite.description}} </p>
                         <div class="statutbtn">
-                            <div style="margin-top: 7px; color:#FF7900;"> Statut</div>
+                            <div style="margin-top: 7px; color:#FF7900;"> {{allactivite.status}}</div>
                             <div> <a href="#" class="btn btn-primary btn-sm" style="margin-right: 7px;">Voir +</a> </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
-        <!-- ////////////////////////////////////////////////// -->
-        <div class="card float-left">
-            <div class="row ">
-                <div class="col-sm-5">
-                    <img class="img" src="../../assets/odc1.png" alt="">
-                </div>
-                <div class="col-sm-7">
-                    <div class="card-block">
-                        <!--           <h4 class="card-title">Small card</h4> -->
-                        <p><b>Titreeeeee</b> <br> <span>type d'activité</span></p>
-
-                        <p>Description Description Description Description Description Description </p>
-                        <div class="statutbtn">
-                            <div style="margin-top: 7px; color:#FF7900;"> Statut</div>
-                            <div> <a href="#" class="btn btn-primary btn-sm" style="margin-right: 7px;">Voir +</a> </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
         </div>
-        <!-- //////////////////////////////////////////////// -->
-        <div class="card float-left">
-            <div class="row ">
-                <div class="col-sm-5">
-                    <img class="img" src="../../assets/odc1.png" alt="">
-                </div>
-                <div class="col-sm-7">
-                    <div class="card-block">
-                        <!--           <h4 class="card-title">Small card</h4> -->
-                        <p><b>Titreeeeee</b> <br> <span>type d'activité</span></p>
-
-                        <p>Description Description Description Description Description Description </p>
-                        <div class="statutbtn">
-                            <div style="margin-top: 7px; color:#FF7900;"> Statut</div>
-                            <div> <a href="#" class="btn btn-primary btn-sm" style="margin-right: 7px;">Voir +</a> </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-
-
-
-        <br>
     </div>
-    <br>
+    <div class="pagination">
+        <pagination-controls (pageChange)="p=$event" nextLabel="Suivants" previousLabel="Précédents"></pagination-controls>
+    </div>
 
 </ion-content>

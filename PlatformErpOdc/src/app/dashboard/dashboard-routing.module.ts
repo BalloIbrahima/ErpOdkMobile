@@ -10,7 +10,7 @@ const routes: Routes = [
     children:[
       {
         path: '',
-        redirectTo: 'creer-activite',
+        redirectTo: 'lier-salle-activity',
         pathMatch: 'full'
       },
       {
@@ -53,6 +53,37 @@ const routes: Routes = [
         loadChildren: () => import('../useraddform/useraddform.module').then( m => m.UseraddformPageModule)
     
       },
+
+      
+  {
+    path: 'allactivity',
+    loadChildren: () => import('../allactivity/allactivity.module').then( m => m.AllactivityPageModule)
+  },
+  {
+    path: 'detailactivity',
+    loadChildren: () => import('../detailactivity/detailactivity.module').then( m => m.DetailactivityPageModule)
+  },
+  {
+    path: 'salles',
+    loadChildren: () => import('../salles/salles.module').then( m => m.SallesPageModule)
+  },
+  {
+    path: 'lier-salle-activity',
+    loadChildren: () => import('../lier-salle-activity/lier-salle-activity.module').then( m => m.LierSalleActivityPageModule)
+  },
+  {
+    path: 'creer-salle',
+    loadChildren: () => import('../creer-salle/creer-salle.module').then( m => m.CreerSallePageModule)
+  },
+  {
+    path: 'tachedesignation',
+    loadChildren: () => import('../tachedesignation/tachedesignation.module').then( m => m.TachedesignationPageModule)
+  },
+  {
+    path: 'creertachesdesignation',
+    loadChildren: () => import('../creertachesdesignation/creertachesdesignation.module').then( m => m.CreertachesdesignationPageModule)
+  },
+
       { path: '**', redirectTo:'accueil',pathMatch:'full'}
 
     
@@ -62,8 +93,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class DashboardPageRoutingModule {}

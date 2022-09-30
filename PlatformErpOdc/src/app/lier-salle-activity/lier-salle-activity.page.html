@@ -21,9 +21,9 @@
 
 <ion-content>
     <div class="container">
-        <!-- Pagination
-        < class="col-sm-6 col-md-4 col-lg-3" *ngFor="let a of accueil |paginate:{itemsPerPage:2, currentPage:a}; let index =index">
-        -->
+       
+        <div class="pag" *ngFor= "let salleactivite of  salleactivites | paginate:{itemsPerPage:6, currentPage:p}; let index =index">
+       
         <div class="card float-left">
             <div class="row ">
                 <div class="col-sm-5">
@@ -32,10 +32,10 @@
                 <div class="col-sm-7">
                     <div class="card-block">
                         <!--           <h4 class="card-title">Small card</h4> -->
-                        <p><b>Titreeeeee</b> <br> <span>type d'activité</span></p>
+                        <p><b>{{salleactivite.titre}}</b> <br> <span>{{salleactivite.type}}</span></p>
 
                         <div class="statutbtn">
-                            <div style="margin-top: 7px; color:#FF7900;"> Statut</div>
+                            <div style="margin-top: 7px; color:#FF7900;">{{salleactivite.status}}</div>
                             <div class="butrad">
                                 <input type="radio" id="" name="" value="" checked>
                                 <label for=""></label>
@@ -47,86 +47,15 @@
 
             </div>
         </div>
-
-        <div class="card float-left">
-            <div class="row ">
-                <div class="col-sm-5">
-                    <img class="img" src="../../assets/odc1.png" alt="">
-                </div>
-                <div class="col-sm-7">
-                    <div class="card-block">
-                        <!--           <h4 class="card-title">Small card</h4> -->
-                        <p><b>Titreeeeee</b> <br> <span>type d'activité</span></p>
-
-                        <div class="statutbtn">
-                            <div style="margin-top: 7px; color:#FF7900;"> Statut</div>
-                            <div class="butrad">
-                                <input type="radio" id="" name="" value="" checked>
-                                <label for=""></label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-        <!-- ////////////////////////////////////////////////// -->
-        <div class="card float-left">
-            <div class="row ">
-                <div class="col-sm-5">
-                    <img class="img" src="../../assets/odc1.png" alt="">
-                </div>
-                <div class="col-sm-7">
-                    <div class="card-block">
-                        <!--           <h4 class="card-title">Small card</h4> -->
-                        <p><b>Titreeeeee</b> <br> <span>type d'activité</span></p>
-
-                        <div class="statutbtn">
-                            <div style="margin-top: 7px; color:#FF7900;"> Statut</div>
-                            <div class="butrad">
-                                <input type="radio" id="" name="" value="" checked>
-                                <label for=""></label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-        <!-- //////////////////////////////////////////////// -->
-        <div class="card float-left">
-            <div class="row ">
-                <div class="col-sm-5">
-                    <img class="img" src="../../assets/odc1.png" alt="">
-                </div>
-                <div class="col-sm-7">
-                    <div class="card-block">
-                        <!--           <h4 class="card-title">Small card</h4> -->
-                        <p><b>Titreeeeee</b> <br> <span>type d'activité</span></p>
-
-                        <div class="statutbtn">
-                            <div style="margin-top: 7px; color:#FF7900;"> Statut</div>
-                            <div class="butrad">
-                                <input type="radio" id="" name="" value="" checked>
-                                <label for=""></label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-        <br>
-        <div class="pagination">
-            <pagination-controls (pageChange)="a=$event" nextLabel="Suivants" previousLabel="Précédents">
-
-            </pagination-controls>
-        </div>
+        
     </div>
-    <div class="button" style="padding:10px;">
+
+    
+    </div>
+    <div class="pagination">
+        <pagination-controls (pageChange)="p=$event" nextLabel="Suivants" previousLabel="Précédents"></pagination-controls>
+    </div>
+    <div class="button">
         <button> Attribuer </button>
     </div>
 </ion-content>

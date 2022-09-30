@@ -12,76 +12,65 @@ export class TiragePage implements OnInit {
   constructor(public modalController: ModalController) { }
   students =[
     {
-        name: 'Sagara',
-        prenom: 'Jean',
-        genre: 'Masculin',
-        email: 'djiguiba@orangemali.com',
-        contact: '+223 8456789'
-    },
+      name: 'Lorem',
+      prenom: 'ipsum',
+      date: new Date(),
+  },
     {
-      name: 'Djiguiba',
-      prenom: 'Barema',
-      genre: 'Masculin',
-      email: 'djiguiba@orangemali.com',
-      contact: '+223 8456789'
+      name: 'Lorem',
+      prenom: 'ipsum',
+      date: new Date(),
   },
   {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  }
-  
+    name: 'Lorem',
+    prenom: 'ipsum',
+    date: new Date(),
+},
+{
+  name: 'Lorem',
+  prenom: 'ipsum',
+  date: new Date(),
+},
+{
+  name: 'Lorem',
+  prenom: 'ipsum',
+  date: new Date(),
+},
+{
+  name: 'Lorem',
+  prenom: 'ipsum',
+  date: new Date(),
+},
+{
+  name: 'Lorem',
+  prenom: 'ipsum',
+  date: new Date(),
+},
+{
+  name: 'Lorem',
+  prenom: 'ipsum',
+  date: new Date(),
+},
+{
+  name: 'Lorem',
+  prenom: 'ipsum',
+  date: new Date(),
+},
+{
+  name: 'Lorem',
+  prenom: 'ipsum',
+  date: new Date(),
+},
+{
+  name: 'Lorem',
+  prenom: 'ipsum',
+  date: new Date(),
+},
+{
+  name: 'Lorem',
+  prenom: 'ipsum',
+  date: new Date(),
+},
   ];
   async ouvrirPopup() {
     const modal = await this.modalController.create({

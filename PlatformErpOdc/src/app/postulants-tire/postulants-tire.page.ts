@@ -22,9 +22,7 @@ export class PostulantsTirePage implements OnInit {
     {nom: "Mr TRAORE", email:"mary@gmail.com"},
    
   ]
- 
-    
-  
+   
 a!:any;
   constructor() { }
 

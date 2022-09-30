@@ -24,15 +24,17 @@
       
       
       
-      
+      <!-- DEBUT PAGINATION -->
       <div class="col-sm-6 col-md-4 col-lg-3" *ngFor=" let a of accueil |paginate:{itemsPerPage:8, currentPage:a}; let index = index">
 
         <div class="card" >
           <img src="assets/images/profile.png" class="card-img-top" alt="...">
+        
           <div class="card-body">
             <h5 class="card-title"> {{a.nom}} </h5>
             <p class="card-text"> {{a.email}} </p>
           </div>
+
         </div>
 
       </div>
@@ -42,6 +44,7 @@
   
   <div class="pagination">
     <pagination-controls (pageChange)="a = $event" nextLabel="Suivants" previousLabel="Précédents">
+      <!-- FIN PAGINATION -->
     </pagination-controls>
   </div>
 </ion-content>

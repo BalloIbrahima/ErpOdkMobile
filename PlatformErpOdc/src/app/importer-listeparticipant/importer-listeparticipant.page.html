@@ -43,8 +43,10 @@
 
         <div class="row">
           <div class="col">
-            <label>Nom du ficher</label>
-            <input type="text" id="inputs">
+            <label>Activité *</label><br>
+            <select name="" id="select">
+              <option value="">Choisissez une activité</option>
+            </select>
           </div>
         </div><br><br>
 
@@ -53,7 +55,7 @@
 
         <div class="row">
           <div class="col">
-            <button type="submit"> <i class="fa-sharp fa-solid fa-download" style="margin-right: 10px;"></i>Importer</button>
+            <button type="submit" (click)="succesImport()"> <i class="fa-sharp fa-solid fa-download" style="margin-right: 10px;"></i>Importer</button>
           </div>
         </div>
       </form>

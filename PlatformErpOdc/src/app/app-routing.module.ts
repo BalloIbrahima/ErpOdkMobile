@@ -3,15 +3,6 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
-    path: '',
-    redirectTo: 'ajouterpersonnel',
-    pathMatch: 'full'
-  },
-  {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
@@ -19,9 +10,6 @@ const routes: Routes = [
     path: 'ajouterpersonnel',
     loadChildren: () => import('./ajouterpersonnel/ajouterpersonnel.module').then( m => m.AjouterpersonnelPageModule)
   },
-
-  
-
   {
     path: 'tirage',
     loadChildren: () => import('./tirage/tirage.module').then( m => m.TiragePageModule)
@@ -30,17 +18,13 @@ const routes: Routes = [
     path: 'importliste',
     loadChildren: () => import('./importliste/importliste.module').then( m => m.ImportlistePageModule)
   },
-{
-  path:'importeparticipantaprenant',
-  loadChildren: () => import('./importer-listeparticipant/importer-listeparticipant.module').then(m => m.ImporterListeparticipantPageModule)
-},
+  {
+    path:'importeparticipantaprenant',
+    loadChildren: () => import('./importer-listeparticipant/importer-listeparticipant.module').then(m => m.ImporterListeparticipantPageModule)
+  },
   {
     path: 'popupdtirage',
     loadChildren: () => import('./popupdtirage/popupdtirage.module').then( m => m.PopupdtiragePageModule)
-  },
-  {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
     path: '',
@@ -48,37 +32,31 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },
-  {
     path: 'detailtirage',
     loadChildren: () => import('./detailtirage/detailtirage.module').then( m => m.DetailtiragePageModule)
-  },
-
-  {
-    path: 'tirage',
-    loadChildren: () => import('./tirage/tirage.module').then( m => m.TiragePageModule)
   },
   {
     path: 'importliste',
     loadChildren: () => import('./importliste/importliste.module').then( m => m.ImportlistePageModule)
   },
-
-
   {
     path:'importlisteparticipant',
     loadChildren: () => import('./importer-listeparticipant/importer-listeparticipant.module').then(m=>m.ImporterListeparticipantPageModule)
   },
-
-
+  {
+    path: 'detail-des-listes',
+    loadChildren: () => import('./detail-des-listes/detail-des-listes.module').then( m => m.DetailDesListesPageModule)
+  },
+  {
+    path: 'detailtirageduneliste',
+    loadChildren: () => import('./detail-tirage-dune-liste/detail-tirage-dune-liste.module').then( m => m.DetailTirageDuneListePageModule)
+  }
 ];
 
-
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+  @NgModule({
+    imports: [
+      RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    ],
+    exports: [RouterModule]
+  })
+  export class AppRoutingModule { }

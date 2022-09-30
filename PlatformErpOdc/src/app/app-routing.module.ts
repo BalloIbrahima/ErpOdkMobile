@@ -12,19 +12,19 @@ const routes: Routes = [
   //   pathMatch: 'full'
   // },
   {
-    path: 'login',
+    path: '',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
- 
-  {
-    path: 'sidebare',
-    loadChildren: () => import('./sidebare/sidebare.module').then( m => m.SidebarePageModule)
 
-  },
   {
     path: 'profil',
     loadChildren: () => import('./profil/profil.module').then( m => m.ProfilPageModule)
   },
+
+
+
+
+
 
 
 ];

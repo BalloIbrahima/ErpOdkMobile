@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { HomePage } from './home.page';
+import { AjouterpersonnelPage } from './ajouterpersonnel.page';
 
-describe('HomePage', () => {
-  let component: HomePage;
-  let fixture: ComponentFixture<HomePage>;
+describe('AjouterpersonnelPage', () => {
+  let component: AjouterpersonnelPage;
+  let fixture: ComponentFixture<AjouterpersonnelPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomePage ],
+      declarations: [ AjouterpersonnelPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(HomePage);
+    fixture = TestBed.createComponent(AjouterpersonnelPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

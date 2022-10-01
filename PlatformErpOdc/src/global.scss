@@ -1,10 +1,3 @@
-@font-face {
-    font-family: myfon;
-    src: url('./assets/font/Poppins-Light.ttf');
-}
-*{
-    font-family: myfon;
-}
 /*
  * App Global CSS
  * ----------------------------------------------------------------------------
@@ -34,6 +27,16 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
+.notif-popup{
+    --ion-backdrop-opacity:0.6;
 
+    .popover-arrow{
+            display: none;
+        }
+
+    .popover-content {
+        width: 100% ;
+        left: 10px;
+    }
+}

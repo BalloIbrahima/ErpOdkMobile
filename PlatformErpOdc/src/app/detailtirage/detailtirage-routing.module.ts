@@ -2,10 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // <<<<<<<< HEAD:PlatformErpOdc/src/app/profil/profil-routing.module.ts
-
-import { ProfilPage } from './profil.page';
+// import { ProfilPage } from './profil.page';
 // ========
-// import { DetailtiragePage } from './detailtirage.page';
+import { DetailtiragePage } from './detailtirage.page';
 // >>>>>>>> af5c9fafd1ba1e5f7f56129c4793584f0bfdb3e8:PlatformErpOdc/src/app/detailtirage/detailtirage-routing.module.ts
 
 const routes: Routes = [
@@ -14,7 +13,7 @@ const routes: Routes = [
 // <<<<<<<< HEAD:PlatformErpOdc/src/app/profil/profil-routing.module.ts
 //     component: ProfilPage
 // ========
-    component: ProfilPage
+    component: DetailtiragePage
 // >>>>>>>> af5c9fafd1ba1e5f7f56129c4793584f0bfdb3e8:PlatformErpOdc/src/app/detailtirage/detailtirage-routing.module.ts
   
 }
@@ -25,8 +24,7 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 // <<<<<<<< HEAD:PlatformErpOdc/src/app/profil/profil-routing.module.ts
-
-export class ProfilPageRoutingModule {}
+// export class ProfilPageRoutingModule {}
 // ========
-// export class DetailtiragePageRoutingModule {}
+export class DetailtiragePageRoutingModule {}
 // >>>>>>>> af5c9fafd1ba1e5f7f56129c4793584f0bfdb3e8:PlatformErpOdc/src/app/detailtirage/detailtirage-routing.module.ts

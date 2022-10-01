@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { ProfilPageModule } from './profil/profil.module';
+import { ProfilPage } from './profil/profil.page';
 
 const routes: Routes = [
   {
@@ -21,7 +23,7 @@ const routes: Routes = [
   },
   {
     path: 'profil',
-    loadChildren: () => import('./profil/profil.module').then( m => m.ProfilPageModule)
+    loadChildren: () => import('./profil/profil.module').then(m => ProfilPageModule)
   },
   {
     path: 'personnels',

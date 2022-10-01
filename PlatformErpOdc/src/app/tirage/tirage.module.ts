@@ -4,18 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ProfilPageRoutingModule } from './profil-routing.module';
+import { TiragePageRoutingModule } from './tirage-routing.module';
 
-import { ProfilPage } from './profil.page';
-
+import { TiragePage } from './tirage.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ProfilPageRoutingModule
+    TiragePageRoutingModule
   ],
-  declarations: [ProfilPage]
+  declarations: [TiragePage]
 })
-export class ProfilPageModule {}
+export class TiragePageModule {}

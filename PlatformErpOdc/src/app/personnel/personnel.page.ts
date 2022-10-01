@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./personnel.page.scss'],
 })
 export class PersonnelPage implements OnInit {
-
+  responsive = true
   accueil = [
     {nom: "Mr Dembele", email:"idrissa@gmail.com"},
     {nom: "Mr SAGARA", email:"jean@gmail.com"},

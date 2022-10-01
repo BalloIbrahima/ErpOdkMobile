@@ -35,7 +35,7 @@
     .side_droite{
       margin-left: 1%;
     }
-
+   
     
 
    
@@ -339,4 +339,26 @@ h5{
 .profil_img{
 clip-path: ellipse(33% 50%);
 width:35px;
+}
+@media screen and (max-width:600px){
+  .AenCours {
+    font-weight: 700;
+    font-size: larger !important;
+    font-family: myfontBlack;
+    font-style: normal;
+    margin-left: 32%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+.titre_inf {
+    font-weight: 700;
+    font-size: larger;
+    font-family: myfontBlack;
+    font-style: normal;
+    padding-top: 10%;
+    text-align: center;
+}
+
 }

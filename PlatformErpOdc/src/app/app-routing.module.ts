@@ -81,6 +81,10 @@ const routes: Routes = [
     path: 'nouvelle-entite',
     loadChildren: () => import('./nouvelle-entite/nouvelle-entite.module').then( m => m.NouvelleEntitePageModule)
   },
+  {
+    path: 'importer-participant',
+    loadChildren: () => import('./importer-listeparticipant/importer-listeparticipant.module').then( m => m.ImporterListeparticipantPageModule)
+  },
 
   
 

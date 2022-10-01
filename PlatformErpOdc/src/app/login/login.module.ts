@@ -16,7 +16,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     FormsModule,
     IonicModule,
     LoginPageRoutingModule,
-    NgxSpinnerModule,
+    NgxSpinnerModule
   ],
   declarations: [LoginPage]
 })

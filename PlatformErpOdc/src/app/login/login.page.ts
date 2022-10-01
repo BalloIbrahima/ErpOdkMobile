@@ -17,13 +17,14 @@ export class LoginPage {
    erreur:String;
    /////
  
-  constructor(private utilisateurService:UtilisateurService,private router:Router,private spinner: NgxSpinnerService) {}
+  constructor(private utilisateurService:UtilisateurService,private router:Router,public spinner: NgxSpinnerService) {}
  
 
   logForm(){
     this.spinner.show();
 
-    this.error=false;
+    try {
+      this.error=false;
     this.erreur=""
     this.utilisateurService.login(this.login,this.password).subscribe(data=>{
       //on vas recupere le message de retour et voir si tout ses bien passe
@@ -36,6 +37,7 @@ export class LoginPage {
           //rediriger vers la page admin
 
           this.router.navigate(['/dashboard'])
+          this.spinner.hide();
 
         // }else if(data.data.role.libellerole=="RESPONSABLE"){
           //rediriger vers la page responsable
@@ -47,10 +49,15 @@ export class LoginPage {
       }else if(data.message=="error"){
         this.error=true;
         this.erreur=data.data
-        this.spinner.hide;
-
+        this.spinner.hide();
       }
     })
+
+    } catch (error) {
+      this.error=true;
+        this.erreur="Erreur liée au serveur !"
+        this.spinner.hide();
+    }
   }
 
 }

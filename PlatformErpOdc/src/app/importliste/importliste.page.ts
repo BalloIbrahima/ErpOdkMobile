@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 // /*importer HttpClient*/
 // import { HttpClient } from '@angular/common/http';
 // /*importer le service*/
@@ -19,25 +19,25 @@ constructor(){}
   succesImport() {
   //   Swal.fire({'Félicitations ...', 'Fichier importer avec succès !', 'success',
   // });
-    Swal.fire({
-      position:'center',
-      title: 'Liste importée avec succès !\nChoisissez une action :',
-      showDenyButton: true,
-      showCancelButton: true,
-      confirmButtonText: 'Voir la liste',
-      denyButtonText: `Faire tirage`,
-      denyButtonColor:'green',
-      cancelButtonText: 'Annuler',
-      cancelButtonColor:'red',
-      heightAuto: false,
-    }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed) {
-        //Swal.fire('Saved!', '', 'success');
-      } else if (result.isDenied) {
-        //Swal.fire('Changes are not saved', '', 'info');
-      }
-    });
+    // Swal.fire({
+    //   position:'center',
+    //   title: 'Liste importée avec succès !\nChoisissez une action :',
+    //   showDenyButton: true,
+    //   showCancelButton: true,
+    //   confirmButtonText: 'Voir la liste',
+    //   denyButtonText: `Faire tirage`,
+    //   denyButtonColor:'green',
+    //   cancelButtonText: 'Annuler',
+    //   cancelButtonColor:'red',
+    //   heightAuto: false,
+    // }).then((result) => {
+    //   /* Read more about isConfirmed, isDenied below */
+    //   if (result.isConfirmed) {
+    //     //Swal.fire('Saved!', '', 'success');
+    //   } else if (result.isDenied) {
+    //     //Swal.fire('Changes are not saved', '', 'info');
+    //   }
+    // });
   }
 
   // formgroup: FormGroup;

@@ -1,3 +1,7 @@
+@font-face {
+    font-family: myfon;
+    src: url('./assets/font/Poppins-Light.ttf');
+}
 /*
  * App Global CSS
  * ----------------------------------------------------------------------------
@@ -39,4 +43,26 @@
         width: 100% ;
         left: 10px;
     }
+}
+ion-title{
+    font-family: myfon;
+    font-size: 26px !important;
+    // text-transform: uppercase !important;
+    text-decoration: underline;
+    text-shadow: 1px 1px 2px #FF7900;
+    color: #FF7900;
+}
+@media screen and (max-width: 600px) {
+    ion-title{
+        font-family: myfon;
+        font-size: 20px !important;
+        // text-transform: uppercase !important;
+        text-decoration: underline;
+        text-shadow: 1px 1px 2px #FF7900;
+        color: #FF7900;
+    }
+    
+}
+ion-content{
+    background-color:#F2EDED !important;
 }

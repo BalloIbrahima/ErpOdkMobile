@@ -57,6 +57,32 @@ const routes: Routes = [
     path: 'nouvelle-entite',
     loadChildren: () => import('./nouvelle-entite/nouvelle-entite.module').then( m => m.NouvelleEntitePageModule)
   },
+  {
+    path: 'tirage',
+    loadChildren: () => import('./tirage/tirage.module').then( m => m.TiragePageModule)
+  },
+  {
+    path: 'detail-tirage',
+    loadChildren: () => import('./detailtirage/detailtirage.module').then( m => m.DetailtiragePageModule)
+  },
+  {
+    path: 'detail-tirage-liste',
+    loadChildren: () => import('./detail-tirage-dune-liste/detail-tirage-dune-liste.module').then( m => m.DetailTirageDuneListePageModule)
+  },
+  {
+    path: 'detail-liste',
+    loadChildren: () => import('./detail-des-listes/detail-des-listes.module').then( m => m.DetailDesListesPageModule)
+  },
+  {
+    path: 'importeliste',
+    loadChildren: () => import('./importliste/importliste.module').then( m => m.ImportlistePageModule)
+  },
+  {
+    path: 'nouvelle-entite',
+    loadChildren: () => import('./nouvelle-entite/nouvelle-entite.module').then( m => m.NouvelleEntitePageModule)
+  },
+
+  
 
 ];
 

@@ -28,8 +28,9 @@
   }
 
   .buttonColor:hover {
-    border: 1px solid #FF7900;
-    color: #FF7900;
+    border: 1px solid #FF7900 !important;
+    color: #FF7900 !important;
+    background-color: #ffff !important;
   }
 
   // Style appliquer au tableau

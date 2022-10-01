@@ -7,6 +7,14 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
+
+    path: 'taches-activite',
+    loadChildren: () => import('./taches-activite/taches-activite.module').then( m => m.TachesActivitePageModule)
+  },
+
+
+
+  {
     path: '',
     redirectTo: 'profil',
     pathMatch: 'full'
@@ -35,7 +43,13 @@ const routes: Routes = [
     path: 'profil',
     loadChildren: () => import('./profil/profil.module').then( m => m.ProfilPageModule)
   },
+  {
 
+    path: 'popup-notification',
+    loadChildren: () => import('./popup-notification/popup-notification.module').then( m => m.PopupNotificationPageModule)
+  },
+
+  
 
 ];
 

@@ -31,3 +31,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
 
+
+.notif-popup{
+    --ion-backdrop-opacity:0.6;
+        
+    .popover-arrow{
+            display: none;   
+        }
+        
+    .popover-content {
+        width: 100% ;
+        left: 10px;
+    }
+}

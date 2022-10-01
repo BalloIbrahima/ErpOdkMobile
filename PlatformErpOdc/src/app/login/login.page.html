@@ -1,9 +1,51 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Log In</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
+  <!-- <form>
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" required></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block">Sign In</ion-button>
+        <a [routerLink]="['/forgot-password']" class="small-text">Forgot Password?</a>
+      </ion-col>
+    </ion-row>
+  </form> -->
 
+  <div class="header">
+    <div class="image">
+      <img src="../../assets/icon/Orange.png" alt="logoooo">
+    </div>
+    <div class="monform">
+      <p> <b>Login</b></p>
+
+      <form>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Entrer votre nom d'utilisateur </label>
+          <input type="email" class="form-control" [(ngModel)]="login" name="login" id="exampleInputEmail1"
+            aria-describedby="emailHelp" placeholder="Identifiant">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Entrer votre Mot de passe</label>
+          <input type="password" class="form-control" [(ngModel)]="password" name="password" id="exampleInputPassword1"
+            placeholder="Mot de passe">
+        </div>
+        <button type="submit" id="btnn" class="btn" (click)="logForm()">Connexion</button>
+      </form>
+    </div>
+
+
+  </div>
 </ion-content>

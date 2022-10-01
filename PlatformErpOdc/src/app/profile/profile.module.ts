@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { SidebarePageRoutingModule } from './sidebare-routing.module';
+import { ProfilePageRoutingModule } from './profile-routing.module';
 
-import { SidebarePage } from './sidebare.page';
+import { ProfilePage } from './profile.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SidebarePageRoutingModule
+    ProfilePageRoutingModule
   ],
-  declarations: [SidebarePage]
+  declarations: [ProfilePage]
 })
-export class SidebarePageModule {}
+export class ProfilePageModule {}

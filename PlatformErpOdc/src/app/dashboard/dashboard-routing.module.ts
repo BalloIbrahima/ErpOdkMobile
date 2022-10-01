@@ -10,17 +10,17 @@ const routes: Routes = [
     children:[
       {
         path: '',
-        redirectTo: 'creer-activite',
+        redirectTo: 'acceuil',
         pathMatch: 'full'
       },
       {
         path: 'home',
         loadChildren: () => import('../home/home.module').then( m => m.HomePageModule)
       },
-      {
-        path: 'sidebare',
-        loadChildren: () => import('../sidebare/sidebare.module').then( m => m.SidebarePageModule)
-      },
+      // {
+      //   path: 'sidebare',
+      //   loadChildren: () => import('../sidebare/sidebare.module').then( m => m.SidebarePageModule)
+      // },
       {
         path: 'accueil',
         loadChildren: () => import('../accueil/accueil.module').then( m => m.AccueilPageModule)

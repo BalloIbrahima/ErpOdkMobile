@@ -142,6 +142,7 @@ i{
   margin-bottom: 10%;
 
 }
+
 .nombre{
 
   margin-top: 10px;
@@ -169,8 +170,10 @@ i{
 }
 
 .img_activite_avenir{
-  border-radius: 50%;
+    clip-path: ellipse(50% 50%);
+//   border-radius: 50%;
   width:30px
+  
 }
 
 .nom_activite{
@@ -189,8 +192,6 @@ i{
   background: #777;
   position:relative;
   color: white;
- 
-  
 
 } 
 
@@ -333,4 +334,9 @@ h5{
 .Date{
   font-size: 10px;
   font-weight: bold;
+}
+
+.profil_img{
+clip-path: ellipse(33% 50%);
+width:35px;
 }

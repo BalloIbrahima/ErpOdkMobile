@@ -16,7 +16,7 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'profil',
+    redirectTo: 'liste-parcipant',
     pathMatch: 'full'
   },
   {
@@ -40,14 +40,25 @@ const routes: Routes = [
     loadChildren: () => import('./accueil/accueil.module').then( m => m.AccueilPageModule)
   },
   {
-    path: 'profil',
-    loadChildren: () => import('./profil/profil.module').then( m => m.ProfilPageModule)
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
 
     path: 'popup-notification',
     loadChildren: () => import('./popup-notification/popup-notification.module').then( m => m.PopupNotificationPageModule)
   },
+  
+  {
+
+    path: 'profil',
+    loadChildren: () => import('./profil/profil.module').then( m => m.ProfilPageModule)
+  },
+  {
+    path: 'liste-parcipant',
+    loadChildren: () => import('./liste-parcipant/liste-parcipant.module').then( m => m.ListeParcipantPageModule)
+  },
+
 
   
 

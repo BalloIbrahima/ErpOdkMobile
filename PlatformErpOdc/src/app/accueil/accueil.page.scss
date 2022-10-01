@@ -1,0 +1,107 @@
+.body{
+  height: 100%;
+  width: 100%;
+}
+.body ion-grid{
+  height: 100%;
+  width: 100%;
+}
+
+
+
+//::::::::::::::after
+ion-grid{
+  padding: 1%;
+  display: grid;
+  grid-template-columns: 28% 68%;
+  column-gap: 4%;
+}
+
+.infos{
+  padding: 5%;
+  background-color: #ffffff;
+  border-radius: 15px;
+  display: flex;
+  flex-direction:column;
+}
+
+.activites{
+  display: grid;
+  grid-template-rows: 57% 38%;
+  row-gap: 5%;
+}
+//::::::::::::::::::::
+.encour{
+  background-color: #ffffff;
+  border-radius: 15px;
+}
+
+.avenir{
+  background-color: #ffffff;
+  border-radius: 15px;
+}
+//::::::::::::::::::::after
+.textInfos{
+  font-weight: bold;
+  margin-bottom: 5%;
+}
+.infoselement{
+  height: 15%;
+  display: grid;
+  padding-top: 4px;
+  grid-template-rows: 50% 50%;
+  padding-bottom: 16px;
+}
+
+.enteteInfos{
+  display: grid;
+  grid-template-columns: 20% auto;
+}
+
+.cercle1{
+  background-color: black;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+.nbre{
+  font-weight: bold;
+  font-size: 20px;
+  justify-content: center;
+}
+
+.attributInfos{
+  border-bottom: 2px solid;
+  font-size: 17px;
+
+}
+
+// :::::::::::::::::::cercle
+.cercle{
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+
+.cercle1{
+  background-color: black;
+}
+.cercle2{
+  background-color: #50BE87;
+}.cercle3{
+  background-color: #4BB4E6;
+}.cercle4{
+  background-color: #FFD200;
+}.cercle5{
+  background-color: #FF9700;
+}
+
+// :::::::::::::::::::::::::fin cercle
+
+.reprting{
+  padding: 9%;
+  background-color: #FF9700;
+  border-radius: 5px;
+  color: #ffffff;
+  font-weight: bold;
+}

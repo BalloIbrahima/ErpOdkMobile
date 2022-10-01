@@ -1,5 +1,5 @@
 {
-  "name": "PlatformErpOdc",
+  "name": "platformerpodc",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
@@ -9,16 +9,19 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "resources": "capacitor-resources -p android,ios"
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "^14.2.3",
     "@angular/common": "^14.0.0",
-    "@angular/core": "^14.0.0",
+    "@angular/core": "^14.2.3",
     "@angular/forms": "^14.0.0",
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
+    "@capacitor/android": "4.3.0",
     "@capacitor/app": "4.0.1",
     "@capacitor/core": "4.3.0",
     "@capacitor/haptics": "4.0.1",
@@ -26,24 +29,35 @@
     "@capacitor/status-bar": "4.0.1",
     "@ionic/angular": "^6.1.9",
     "bootstrap": "^5.2.1",
+<<<<<<< HEAD
+=======
+    "bootstrap-icons": "^1.9.1",
+    "font-awesome": "^4.7.0",
+>>>>>>> 40e00cea23cecdfb28eeff80d14ac44c0de4a819
     "ionicons": "^6.0.3",
+    "jquery": "^3.6.1",
+    "ngx-pagination": "^6.0.2",
     "rxjs": "~6.6.0",
-    "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^14.0.0",
+    "@angular-devkit/build-angular": "^14.2.4",
     "@angular-eslint/builder": "~13.0.1",
     "@angular-eslint/eslint-plugin": "~13.0.1",
     "@angular-eslint/eslint-plugin-template": "~13.0.1",
     "@angular-eslint/template-parser": "~13.0.1",
-    "@angular/cli": "^14.0.0",
     "@angular/compiler": "^14.0.0",
     "@angular/compiler-cli": "^14.0.0",
     "@angular/language-service": "^14.0.0",
     "@capacitor/cli": "4.3.0",
+<<<<<<< HEAD
     "@ionic/angular-toolkit": "^6.0.0",
     "@ionic/lab": "^3.2.13",
+=======
+    "@ionic/angular-toolkit": "^7.0.0",
+    "@ionic/app-scripts": "^3.2.4",
+    "@ionic/lab": "3.2.13",
+>>>>>>> 40e00cea23cecdfb28eeff80d14ac44c0de4a819
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
@@ -63,7 +77,10 @@
     "karma-jasmine-html-reporter": "^1.5.0",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
+    "tslib": "^2.4.0",
     "typescript": "~4.7.3"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "main": "karma.conf.js",
+  "license": "ISC"
 }

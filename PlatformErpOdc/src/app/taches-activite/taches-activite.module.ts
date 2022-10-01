@@ -8,8 +8,7 @@ import { TachesActivitePageRoutingModule } from './taches-activite-routing.modul
 
 import { TachesActivitePage } from './taches-activite.page';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { MatMenuModule } from '@angular/material/menu';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   imports: [
@@ -18,7 +17,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     IonicModule,
     TachesActivitePageRoutingModule,
     NgxPaginationModule,
-    MatMenuModule,
   ],
   declarations: [TachesActivitePage],
 })

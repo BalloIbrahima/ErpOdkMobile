@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { NouvelleEntitePage } from '../nouvelle-entite/nouvelle-entite.page';
+// import { NouvelleEntitePage } from '../nouvelle-entite/nouvelle-entite.page';
 
 @Component({
   selector: 'app-entite',

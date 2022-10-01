@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { NouvelleEntitePageRoutingModule } from './nouvelle-entite-routing.module';
+import { AjouterRolePageRoutingModule } from './ajouter-role-routing.module';
 
-import { NouvelleEntitePage } from './nouvelle-entite.page';
+import { AjouterRolePage } from './ajouter-role.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    NouvelleEntitePageRoutingModule
+    AjouterRolePageRoutingModule
   ],
-  declarations: [NouvelleEntitePage]
+  declarations: [AjouterRolePage]
 })
-export class NouvelleEntitePageModule {}
+export class AjouterRolePageModule {}

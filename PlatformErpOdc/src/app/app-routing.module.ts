@@ -50,14 +50,6 @@ const routes: Routes = [
     loadChildren: () => import('./role/role.module').then( m => m.RolePageModule)
   },
   {
-    path: 'details-entite',
-    loadChildren: () => import('./details-entite/details-entite.module').then( m => m.DetailsEntitePageModule)
-  },
-  {
-    path: 'nouvelle-entite',
-    loadChildren: () => import('./nouvelle-entite/nouvelle-entite.module').then( m => m.NouvelleEntitePageModule)
-  },
-  {
     path: 'tirage',
     loadChildren: () => import('./tirage/tirage.module').then( m => m.TiragePageModule)
   },
@@ -77,14 +69,15 @@ const routes: Routes = [
     path: 'importeliste',
     loadChildren: () => import('./importliste/importliste.module').then( m => m.ImportlistePageModule)
   },
-  {
-    path: 'nouvelle-entite',
-    loadChildren: () => import('./nouvelle-entite/nouvelle-entite.module').then( m => m.NouvelleEntitePageModule)
-  },
+  
   {
     path: 'importer-participant',
     loadChildren: () => import('./importer-listeparticipant/importer-listeparticipant.module').then( m => m.ImporterListeparticipantPageModule)
+  },  {
+    path: 'ajouter-role',
+    loadChildren: () => import('./ajouter-role/ajouter-role.module').then( m => m.AjouterRolePageModule)
   },
+
 
   
 

@@ -42,38 +42,38 @@
         <!-- le reste des contenu de sidebar -->
         <div class="row mt-2 ">
 
-          <ion-item lines="none" routerDirection='root' [routerLinkActiveOptions]={exact:true} routerLink="/accueil"
+          <ion-item (click)="FermerSideBar()" lines="none" routerDirection='root' [routerLinkActiveOptions]={exact:true} routerLink="/accueil"
             routerLinkActive='active-item'>
             <img class="ion-icon Active" src="../assets/icon/icon/accueil une fois active.png" alt="" srcset="">
             <img class="ion-icon Desactive" src="../assets/icon/icon/accueil.png" alt="" srcset=""> &nbsp;&nbsp;&nbsp;
             <ion-label class="lienPage">Accueil</ion-label>
           </ion-item>
-          <ion-item lines="none" routerLink="/activite" routerLinkActive='active-item'>
+          <ion-item (click)="FermerSideBar()" lines="none" routerLink="/activite" routerLinkActive='active-item'>
             <img class="ion-icon Active" src="../assets/icon/icon/activite une fois active.png" alt="" srcset="">
             <img class="ion-icon Desactive" src="../assets/icon/icon/activiter.png" alt="" srcset=""> &nbsp;&nbsp;&nbsp;
             <ion-label class="lienPage">Activité</ion-label>
           </ion-item>
-          <ion-item lines="none" routerLink="/entite" routerLinkActive='active-item'>
+          <ion-item (click)="FermerSideBar()" lines="none" routerLink="/entite" routerLinkActive='active-item'>
             <img class="ion-icon Active" src="../assets/icon/icon/entite une fois toucher.png" alt="" srcset="">
             <img class="ion-icon Desactive" src="../assets/icon/icon/entite.png" alt="" srcset=""> &nbsp;&nbsp;&nbsp;
             <ion-label class="lienPage">Entité</ion-label>
           </ion-item>
-          <ion-item lines="none" routerLink="/personnels" routerLinkActive='active-item'>
+          <ion-item (click)="FermerSideBar()" lines="none" routerLink="/personnels" routerLinkActive='active-item'>
             <img class="ion-icon Active" src="../assets/icon/icon/personnel une fois active.png" alt="" srcset="">
             <img class="ion-icon Desactive" src="../assets/icon/icon/personnel.png" alt="" srcset=""> &nbsp;&nbsp;&nbsp;
             <ion-label class="lienPage">Personnels</ion-label>
           </ion-item>
-          <ion-item lines="none" routerLink="/role" routerLinkActive='active-item'>
+          <ion-item (click)="FermerSideBar()" lines="none" routerLink="/role" routerLinkActive='active-item'>
             <img class="ion-icon Active" src="../assets/icon/icon/role une fois active.png" alt="" srcset="">
             <img class="ion-icon Desactive" src="../assets/icon/icon/role.png" alt="" srcset=""> &nbsp;&nbsp;&nbsp;
             <ion-label class="lienPage">Role</ion-label>
           </ion-item>
-          <ion-item lines="none" routerLink="/salle" routerLinkActive='active-item'>
+          <ion-item (click)="FermerSideBar()"  lines="none" routerLink="/salle" routerLinkActive='active-item'>
             <img class="ion-icon Active" src="../assets/icon/icon/salle une fois toucher.png" alt="" srcset="">
             <img class="ion-icon Desactive" src="../assets/icon/icon/salle.png" alt="" srcset=""> &nbsp;&nbsp;&nbsp;
             <ion-label class="lienPage">Salle</ion-label>
           </ion-item>
-          <ion-item lines="none" routerLink="/detail-liste" routerLinkActive='active-item'>
+          <ion-item (click)="FermerSideBar()" lines="none" routerLink="/detail-liste" routerLinkActive='active-item'>
             <img class="ion-icon Active" src="../assets/icon/icon/tirage une fois active.png" alt="" srcset="">
             <img class="ion-icon Desactive" src="../assets/icon/icon/tirage.png" alt="" srcset=""> &nbsp;&nbsp;&nbsp;
             <ion-label class="lienPage">Tirage</ion-label>

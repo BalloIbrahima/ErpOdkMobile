@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { NouvelleEntitePage } from './nouvelle-entite.page';
+import { AjouterRolePage } from './ajouter-role.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: NouvelleEntitePage
+    component: AjouterRolePage
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class NouvelleEntitePageRoutingModule {}
+export class AjouterRolePageRoutingModule {}

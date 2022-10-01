@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { NouvelleEntitePage } from './nouvelle-entite.page';
+import { AjouterRolePage } from './ajouter-role.page';
 
-describe('NouvelleEntitePage', () => {
-  let component: NouvelleEntitePage;
-  let fixture: ComponentFixture<NouvelleEntitePage>;
+describe('AjouterRolePage', () => {
+  let component: AjouterRolePage;
+  let fixture: ComponentFixture<AjouterRolePage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ NouvelleEntitePage ],
+      declarations: [ AjouterRolePage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(NouvelleEntitePage);
+    fixture = TestBed.createComponent(AjouterRolePage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

@@ -12,15 +12,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccueilPipe } from './accueil.pipe';
 import { DashboardPageRoutingModule } from './dashboard/dashboard-routing.module';
 import { DashboardPageModule } from './dashboard/dashboard.module';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,
-    FormsModule,DashboardPageModule,
+    FormsModule,DashboardPageModule,NgxPaginationModule,BrowserAnimationsModule,
     ReactiveFormsModule],
-
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

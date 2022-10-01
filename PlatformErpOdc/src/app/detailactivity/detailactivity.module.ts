@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { SidebarePageRoutingModule } from './sidebare-routing.module';
+import { DetailactivityPageRoutingModule } from './detailactivity-routing.module';
 
-import { SidebarePage } from './sidebare.page';
+import { DetailactivityPage } from './detailactivity.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SidebarePageRoutingModule
+    DetailactivityPageRoutingModule
   ],
-  declarations: [SidebarePage]
+  declarations: [DetailactivityPage]
 })
-export class SidebarePageModule {}
+export class DetailactivityPageModule {}

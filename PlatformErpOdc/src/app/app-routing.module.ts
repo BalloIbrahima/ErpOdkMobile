@@ -50,13 +50,36 @@ const routes: Routes = [
     loadChildren: () => import('./role/role.module').then( m => m.RolePageModule)
   },
   {
-    path: 'details-entite',
-    loadChildren: () => import('./details-entite/details-entite.module').then( m => m.DetailsEntitePageModule)
+    path: 'tirage',
+    loadChildren: () => import('./tirage/tirage.module').then( m => m.TiragePageModule)
   },
   {
-    path: 'nouvelle-entite',
-    loadChildren: () => import('./nouvelle-entite/nouvelle-entite.module').then( m => m.NouvelleEntitePageModule)
+    path: 'detail-tirage',
+    loadChildren: () => import('./detailtirage/detailtirage.module').then( m => m.DetailtiragePageModule)
   },
+  {
+    path: 'detail-tirage-liste',
+    loadChildren: () => import('./detail-tirage-dune-liste/detail-tirage-dune-liste.module').then( m => m.DetailTirageDuneListePageModule)
+  },
+  {
+    path: 'detail-liste',
+    loadChildren: () => import('./detail-des-listes/detail-des-listes.module').then( m => m.DetailDesListesPageModule)
+  },
+  {
+    path: 'importeliste',
+    loadChildren: () => import('./importliste/importliste.module').then( m => m.ImportlistePageModule)
+  },
+  
+  {
+    path: 'importer-participant',
+    loadChildren: () => import('./importer-listeparticipant/importer-listeparticipant.module').then( m => m.ImporterListeparticipantPageModule)
+  },  {
+    path: 'ajouter-role',
+    loadChildren: () => import('./ajouter-role/ajouter-role.module').then( m => m.AjouterRolePageModule)
+  },
+
+
+  
 
 ];
 

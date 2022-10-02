@@ -1,8 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>personnel</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Personnel</ion-title>
+    <ion-button slot="end" fill="clear">
+      <div style="color: #ff7900;  font-size: 20px">
+        <i class="fa-regular fa-bell"></i>
+      </div>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+  integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <ion-content>
   <div class="row">
@@ -33,7 +44,7 @@
 
 
       <!-- DEBUT PAGINATION -->
-      <div class="col-sm-6 col-md-4 col-lg-3" *ngFor=" let a of accueil">
+      <div class=" col-6 col-sm-3 col-md-4 col-lg-3" *ngFor=" let a of accueil | paginate:{itemsPerPage:8, currentPage:a}; let index = index">
 
         <div class="card" routerLink="/detail-personnel">
           <img src="assets/images/profile.png" class="card-img-top" alt="...">
@@ -49,10 +60,10 @@
     </div>
 
   </div>
-  <!-- |paginate:{itemsPerPage:8, currentPage:a}; let index = index" -->
-  <!--<div class="pagination">
-    <pagination-controls (pageChange)="a = $event" nextLabel="Suivants" previousLabel="Précédents">
-      &lt;!&ndash; FIN PAGINATION &ndash;&gt;
+   
+  <div class="pagination">
+    <pagination-controls (pageChange)="a = $event" nextLabel="Suivants" previousLabel="Précédents" [responsive]="responsive">
+      
     </pagination-controls>
-  </div>-->
+  </div>
 </ion-content>

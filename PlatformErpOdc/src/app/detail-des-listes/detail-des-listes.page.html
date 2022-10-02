@@ -1,73 +1,119 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title style="color: #FF7900;">Détail des listes</ion-title>
-  </ion-toolbar>
+
+    <ion-toolbar>
+
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+
+        <ion-title>Détail des listes</ion-title>
+
+
+        <ion-button slot="end" fill="clear">
+            <div style="color: #ff7900;  font-size: 30px">
+                <i class="fa-regular fa-bell"></i>
+            </div>
+        </ion-button>
+    </ion-toolbar>
+
+
 </ion-header>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
 <ion-content>
-  <div class="container">
-    <div class="left">
-
-        <div class="menuResponsive">
-            <label for="" class="nbrTirages">70 Tirages</label>
-            <label for="" class="nbrListes">15 Listes</label>
-            <label for="" class="nbrTiragesValide">63 Tirages</label>
-        </div>
-
-
-        <div class="searchBar">
-            <div class="InputSearch">
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill=" #FF7900" class="bi bi-search" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                  </svg>
-                <input type="text" name="motCle" id="motCle" placeholder="Recherche liste" > <!-- [(ngModel)]="searchText" -->
-            </div>
-        </div>
-
-        <div class="listeList" >
-            <div class="list"  > <!-- ngFor="let l of listeService.liste |filter:searchText  | paginate: {itemsPerPage:16,currentPage: p}; let id = index" [routerLink]="['/detailsliste', l.id]"  -->
-                <label id="libelleListe">Liste 1</label>
-                <label id="nbrTirageListe" for="">22 tirages</label>
-            </div>
-            
-
-
-      
-        </div>
-      <!--  <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
-
-       <!-- <div class="listvide" ngIf="listeService.liste.length==0">   
-            <label>Aucune liste dans la base de donnée</label> 
-        </div> -->
-
-    </div> 
-
-    <div class="right">
-
-        <div class="nbrTirage">
-            <div class="labelContainer" >
-                <label for="">10</label>
-                <label for="">Tirages</label>
-            </div>
-        </div>
-
-        <diV class="nbrliste">
-            <div class="labelContainer" >
-                <label for="">12</label>
-                <label for="">Listes</label>
+    <div class="row">
+        <div class="col-lg-3 col-12 col-sm-6">
+            <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-start">
+                <button class="btn buttonColor" type="button" routerLink="/tirage">Effectuer Tirage</button>
             </div>
 
-        </diV>
-
-        <div class="nbrTirageValide">
-          <div class="labelContainer" >
-              <label for="">07</label>
-              <label for="">Tirages Validés</label>
-          </div>
         </div>
-
-
-        
+        <div class="col-lg-9 col-12 col-sm-6">
+            <div class="d-grid m-2 gap-2 d-md-flex justify-content-md-end">
+                <button class="btn buttonColor" type="button" routerLink="/importeliste">Importer Liste</button>
+            </div>
+        </div>
     </div>
-</div>
+    <div class="container">
+        <div class="left">
+            <div class="searchBar">
+                <div class="InputSearch">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill=" #FF7900" class="bi bi-search"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                    <input type="text" name="motCle" id="motCle" placeholder="Recherche liste">
+                    <!-- [(ngModel)]="searchText" -->
+                </div>
+            </div>
+
+            <div class="menuResponsive">
+                <label for="" class="nbrTirages">70 Tirages</label>
+                <label for="" class="nbrListes">15 Listes</label>
+                <label for="" class="nbrTiragesValide">63 Tirages</label>
+            </div>
+
+
+            <div class="listeList">
+                <div class="list">
+                    <!-- ngFor="let l of listeService.liste |filter:searchText  | paginate: {itemsPerPage:16,currentPage: p}; let id = index" [routerLink]="['/detailsliste', l.id]"  -->
+                    <label id="libelleListe">Liste 1</label>
+                    <label id="nbrTirageListe" for="">22 tirages</label>
+                </div>
+
+                <div class="list">
+                    <!-- ngFor="let l of listeService.liste |filter:searchText  | paginate: {itemsPerPage:16,currentPage: p}; let id = index" [routerLink]="['/detailsliste', l.id]"  -->
+                    <label id="libelleListe">Liste 1</label>
+                    <label id="nbrTirageListe" for="">22 tirages</label>
+                </div>
+
+                <div class="list">
+                    <!-- ngFor="let l of listeService.liste |filter:searchText  | paginate: {itemsPerPage:16,currentPage: p}; let id = index" [routerLink]="['/detailsliste', l.id]"  -->
+                    <label id="libelleListe">Liste 1</label>
+                    <label id="nbrTirageListe" for="">22 tirages</label>
+                </div>
+            </div>
+
+
+
+            <!--  <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+
+            <!-- <div class="listvide" ngIf="listeService.liste.length==0">   
+                        <label>Aucune liste dans la base de donnée</label> 
+                    </div> -->
+
+        </div>
+
+        <div class="right">
+
+            <div class="nbrTirage">
+                <div class="labelContainer">
+                    <label for="">10</label>
+                    <label for="">Tirages</label>
+                </div>
+            </div>
+
+            <diV class="nbrliste">
+                <div class="labelContainer">
+                    <label for="">12</label>
+                    <label for="">Listes</label>
+                </div>
+
+            </diV>
+
+            <div class="nbrTirageValide">
+                <div class="labelContainer">
+                    <label for="">07</label>
+                    <label for="">Tirages Validés</label>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
 </ion-content>

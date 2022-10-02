@@ -9,6 +9,17 @@ const routes: Routes = [
     redirectTo: 'dashboard',
     pathMatch: 'full'
   },
+  {
+    path: 'ajouter-role',
+    loadChildren: () => import('./ajouter-role/ajouter-role.module').then( m => m.AjouterRolePageModule),
+    // canActivate: [AcceuilGuard] 
+  },
+
+  {
+    path: 'role',
+    loadChildren: () => import('./role/role.module').then( m => m.RolePageModule),
+    // canActivate: [AcceuilGuard] 
+  },
 
   {
     path: 'profil',

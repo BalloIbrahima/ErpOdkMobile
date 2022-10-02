@@ -10,20 +10,24 @@ const routes: Routes = [
     redirectTo: 'dashboard',
     pathMatch: 'full'
   },
-  
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+
   },
-{
+
+  {
     path: 'dashboard',
     loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule),
-    canActivate: [AcceuilGuard] 
-  }
+    // canActivate: [AcceuilGuard] 
+  },
+  {
+    path: 'forgotpassword',
+    loadChildren: () => import('./forgotpassword/forgotpassword.module').then( m => m.ForgotpasswordPageModule)
+  },
 
 
 ];
-
 
 
 @NgModule({
@@ -32,6 +36,7 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
 // import { NgModule } from '@angular/core';
 // import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
@@ -63,5 +68,4 @@ export class AppRoutingModule { }
 //   ],
 //   exports: [RouterModule]
 // })
-
 

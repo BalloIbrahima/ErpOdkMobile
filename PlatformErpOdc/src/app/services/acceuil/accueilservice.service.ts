@@ -21,23 +21,23 @@ export class AccueilserviceService {
   
   urlTOUT="http://localhost:8080/utilisateur/ToutActivite";
 
-  GetToutesActivites(login :String, password:String):Observable<any>{
+  GetToutesActivites(id :number):Observable<any>{
 
-    return this.http.get(`${this.urlTOUT}/${login}/${password}`);
+    return this.http.get(`${this.urlTOUT}/${id}`);
   }
 
   // :::::::::::::::::::::::activites en cours
   acour="http://localhost:8080/admin/activites/encour";
-  GetActiviteEncour(login :String, password:String):Observable<any>{
+  GetActiviteEncour(id:number):Observable<any>{
 
-    return this.http.get(`${this.acour}/${login}/${password}`);
+    return this.http.get(`${this.acour}/${id}`);
   }
 
   // :::::::::::::::::::::::activites à venir :::::::::::::::::
   avenir="http://localhost:8080/admin/activites/avenir";
-  GetActiviteAvenir(login :String, password:String):Observable<any>{
+  GetActiviteAvenir(id:number):Observable<any>{
 
-    return this.http.get(`${this.avenir}/${login}/${password}`);
+    return this.http.get(`${this.avenir}/${id}`);
   }
 
   //;:::::::::::::::::::TOTAL POSTULANT::::::::::::::::

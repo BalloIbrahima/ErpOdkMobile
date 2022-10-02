@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    
 }
 
 ion-content {
@@ -10,31 +11,40 @@ ion-content {
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #FFFF);
     padding: 10px;
 }
 
-.title {
+h1 {
     font-family: 'Poppins', sans-serif;
-    font-size: 25px;
-    font-weight: 500;
+    margin: 2px;
+    font-size: 32px;
+    font-weight: bold;
     text-align: center;
-    margin-top: 5px;
+    padding: 3px 6px;
+    position: absolute;
+    top: 7%;
+    background-color: #FFF;
+    color: #000;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.title ::before {
-    content: "";
-    position: absolute;
-    height: 3px;
-    width: 30px;
+.box {
+    width: 100%;
+    padding: 25px 30px;
+    border-radius: 15px;
+    border: #000 3px solid;
+    margin: 20px auto;
+    
 }
+
 
 .container {
     max-width: 700px;
     width: 100%;
     padding: 25px 30px;
-    border-radius: 5px;
-    background: #000;
+    border-radius: 15px;
+    background: #fff;
     margin: auto;
 }
 
@@ -61,7 +71,7 @@ form .activite-details .input-box {
     padding: 3.25%;
     margin-top: 1px;
     align-items: center;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 
 .activite-details .input-box .details {
@@ -69,11 +79,15 @@ form .activite-details .input-box {
     font-weight: 500;
 }
 
+#details {
+    border-radius: 15px;
+}
+
 .activite-details .input-box input {
     outline: none;
     height: 40px;
     width: 100%;
-    border-radius: 5px;
+    border-radius: 15px;
     border: 1px solid #ccc;
     padding-left: 15px;
     font-size: 16px;
@@ -88,21 +102,23 @@ form .activite-details .input-box {
 
 form .button {
     height: 45px;
-    padding: 5%;
-
+    margin: 45px 0;
+    width: 100%;
+    display: flex;
+    justify-content: end;
 }
 
-input[type=submit] {
-    border-radius: 10px;
-    padding: 11px 24px;
+.but {
+    border-radius: 15px;
+    padding: 8px;
     background-color: #FF7900;
-    color: #FFFF;
+    color: #FFF;
+    border: #FF7900 1px solid;
 }
 
-input[type=reset] {
-    border-radius: 10px;
-    padding: 11px 24px;    background-color: #FF7900;
-    color: #FFFF;
+.but:hover {
+    background: #FFF;
+    color: #FF7900;
 }
 
 form .button .input {
@@ -112,13 +128,16 @@ form .button .input {
     border: none;
     font-size: 18px;
     font-weight: 500;
-    border-radius: 5px;
+    border-radius: 15px;
     letter-spacing: 1px;
-    background: linear-gradient(135deg, #FF7900);
 }
 
 form .button input:hover {
     background: linear-gradient(135deg);
+}
+
+textarea {
+    color: #000;
 }
 
 @media (max-width: 584px) {

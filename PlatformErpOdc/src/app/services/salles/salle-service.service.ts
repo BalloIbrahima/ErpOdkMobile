@@ -79,5 +79,11 @@ ModifSalle(id:number,libelle:String,description:string,
     ToutEntite(): Observable<any>{
         return this.http.get(`http://localhost:8080/admin/getAll/entite`);
       }
+
+      
+
+      SalleDisponible(login:String,password:String): Observable<any>{
+        return this.http.get(`http://localhost:8080/admin/SalleDisponible/${login}/${password}`);
+      }
 }
 

@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccueilPipe } from './accueil.pipe';
 // import { DashboardPageRoutingModule } from './dashboard/dashboard-routing.module';
 import { DashboardPageModule } from './dashboard/dashboard.module';
+// import { NgxPaginationModule } from 'ngx-pagination';
 
 import {HttpClientModule} from '@angular/common/http';
 
@@ -22,7 +23,6 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,
     FormsModule,DashboardPageModule,
     ReactiveFormsModule],
-
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

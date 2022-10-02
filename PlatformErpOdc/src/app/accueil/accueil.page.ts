@@ -42,14 +42,14 @@ console.log(data.data.length)
     });
 
     //::::::::::::::: ::::::::::::::::::Activite en cour ::::::::::::::
-                this.service.GetActiviteEncour(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+                this.service.GetActiviteEncour(this.Utilisateur.id).subscribe(data=>{
                   this.activiteEncours=data.data;
             console.log(data.data)
                 });
 
 
                  //::::::::::::::: ::::::::::::::::::Activite avenir ::::::::::::::
-                 this.service.GetActiviteAvenir(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+                 this.service.GetActiviteAvenir(this.Utilisateur.id).subscribe(data=>{
                   this.activiteAvenir=data.data;
             console.log(data.data)
                 });
@@ -58,7 +58,7 @@ console.log(data.data.length)
 
 
     //TOUTES LES ACTIVITES :::::::::::::::::::::
-    this.service.GetToutesActivites(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+    this.service.GetToutesActivites(this.Utilisateur.id).subscribe(data=>{
       this.touteactivite=data.data;
 console.log(this.touteactivite)
     });

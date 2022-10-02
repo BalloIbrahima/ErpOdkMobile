@@ -37,8 +37,13 @@ const routes: Routes = [
     canActivate: [AcceuilGuard] 
   },
   {
+
     path: 'forgotpassword',
     loadChildren: () => import('./forgotpassword/forgotpassword.module').then( m => m.ForgotpasswordPageModule)
+  },
+{
+    path: 'profil',
+    loadChildren: () => import('./profil/profil.module').then( m => m.ProfilPageModule)
   },
 
 ];

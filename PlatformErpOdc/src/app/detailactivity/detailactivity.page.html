@@ -1,0 +1,127 @@
+<ion-header>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+
+    </ion-toolbar>
+    <div class="row">
+        <div class="col">
+            <ion-title style="color: #FF7900; margin-left: 10px;">Creer une Activité</ion-title>
+        </div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col" style="width: 100%; color:#FF7900; font-size: 30px;"><i class="fa-regular fa-bell"></i></div>
+    </div>
+</ion-header>
+
+<ion-content>
+    <div class="container py-3">
+        <div class="title h1 text-center">Activite AAAAAAA</div>
+        <!-- Card Start -->
+        <div class="card">
+            <div class="row ">
+                <!-- Carousel start -->
+                <div class="col-md-5">
+                    <img class="img" src="../../assets/odc1.png" alt="">
+                </div>
+                <!-- End of carousel -->
+                <div class="col-md-7 px-3">
+                    <div class="card-block px-6">
+                        <table style="font-size:2rem;">
+                            <tr> Creer Par:
+                                <td>fffff </td>
+                            </tr>
+                            <tr> Titre:
+                                <td>fffff </td>
+                            </tr>
+                            <tr> Status:
+                                <td>fffff </td>
+                            </tr>
+                            <tr>Durée:
+                                <td>fffff </td>
+                            </tr>
+                            <tr> Lead:
+                                <td>fffff </td>
+                            </tr>
+                            <tr> Salles:
+                                <td>fffff </td>
+                            </tr>
+                        </table>
+                        <!-- <h4 class="card-title">Horizontal Card with Carousel - Bootstrap 4 </h4>
+                        <p class="card-text">
+                            The Carousel code can be replaced with an img src, no problem. The added CSS brings shadow to the card and some adjustments to the prev/next buttons and the indicators is rounded now. As in Bootstrap 3
+                        </p>
+                        <p class="card-text">Made for usage, commonly searched for. Fork, like and use it. Just move the carousel div above the col containing the text for left alignment of images</p>
+                        <br> -->
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- End of card -->
+        <div class="mesbouton">
+            <div class="1">
+                <button  style="margin-right: 60px;margin-top: 7px;border-raduis:20px;padding: 8px 15px 8px 16px;"> Importer nouvelle liste </button>
+            </div>
+            <div class="1">
+                <button  style="margin-right: 60px;margin-top: 7px;border-raduis:20px;padding: 8px 15px 8px 16px;"> Exporter cette liste </button>
+            </div>
+            <div class="1">
+                <button  style="margin-right: 60px;margin-top: 7px;border-raduis:20px;padding: 8px 15px 8px 16px;">Ajouter participant  </button>
+            </div>
+            <div class="1">
+                <button  style="margin-right: 60px;margin-top: 7px;border-raduis:20px;padding: 8px 15px 8px 16px;">Taches  </button>
+            </div>
+            
+        </div>
+
+    </div>
+    <div class="liste">
+
+        <ion-grid class="ion-margin text-center tailleTexte">
+            <ion-row class="tableEntete ">
+                <ion-col>Nom</ion-col>
+                <ion-col>Prenom</ion-col>
+                <ion-col class="cacherCole">Genre</ion-col>
+                <ion-col>Contact</ion-col>
+                <ion-col class="cacherCole">Email</ion-col>
+                <ion-col>Presence</ion-col>
+            </ion-row>
+            <ion-row *ngFor="let student of students; index as i">
+
+                <ion-col>{{ student.name }}</ion-col>
+                <ion-col>{{ student.prenom }}</ion-col>
+                <ion-col class="cacherCole">{{ student.genre }}</ion-col>
+                <ion-col>{{student.contact}}</ion-col>
+                <ion-col class="cacherCole">{{ student.email }}</ion-col>
+                <ion-col>
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                    <ion-icon name="close-circle-outline"></ion-icon>
+                </ion-col>
+
+            </ion-row>
+            <div class="position-relative">
+                <div class="position-absolute top-0 end-0 mt-4">
+                    <pagination-controls (pageChange)="a = $event" nextLabel="Suivants" previousLabel="Précédents"></pagination-controls>
+                </div>
+            </div>
+            <!-- <div class="pagibottom" style="margin-left: 200px;"></div> -->
+        </ion-grid>
+    </div>
+    <div class="4">
+        <button><a href="#" class="btn btn-primary btn-sm"  style="margin-top: 20px;background-color:#FF7900;">Supprimer</a> </button>
+    </div>
+
+
+
+
+    <br>
+    <br>
+
+</ion-content>

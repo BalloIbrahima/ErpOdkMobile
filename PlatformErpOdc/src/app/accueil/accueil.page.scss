@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: myfontLight;
  
@@ -35,7 +36,7 @@
     .side_droite{
       margin-left: 1%;
     }
-
+   
     
 
    
@@ -142,6 +143,7 @@ i{
   margin-bottom: 10%;
 
 }
+
 .nombre{
 
   margin-top: 10px;
@@ -169,8 +171,10 @@ i{
 }
 
 .img_activite_avenir{
-  border-radius: 50%;
+    clip-path: ellipse(50% 50%);
+//   border-radius: 50%;
   width:30px
+  
 }
 
 .nom_activite{
@@ -189,8 +193,6 @@ i{
   background: #777;
   position:relative;
   color: white;
- 
-  
 
 } 
 
@@ -333,4 +335,31 @@ h5{
 .Date{
   font-size: 10px;
   font-weight: bold;
+}
+
+.profil_img{
+clip-path: ellipse(33% 50%);
+width:35px;
+}
+@media screen and (max-width:600px){
+  .AenCours {
+    font-weight: 700;
+    font-size: larger !important;
+    font-family: myfontBlack;
+    font-style: normal;
+    margin-left: 32%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+.titre_inf {
+    font-weight: 700;
+    font-size: larger;
+    font-family: myfontBlack;
+    font-style: normal;
+    padding-top: 10%;
+    text-align: center;
+}
+
 }

@@ -1,0 +1,41 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Notification</ion-title>
+    <ion-buttons>
+        <ion-button (click)="close()" fill="clear" color="dark">
+            <ion-icon name="close" slot="icon-only"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+     
+      <div class="pag" *ngFor= "let salleactivite of  salleactivites let index =index">
+     
+      <div class="card float-left">
+          <div class="row">
+              <div class="col-5">
+                  <img class="img" src="../../assets/Avatar_girl_face.png" alt="">
+              </div>
+              <div class="col-7">
+                  <div class="card-block">
+                      <h6>{{salleactivite.user}}</h6> 
+
+                      <div class="statutbtn">
+                        <span>a crée </span>
+                          <div class="act-nom">{{salleactivite.activite}}</div>
+                      </div>
+                  </div>
+              </div>
+
+
+          </div>
+      </div>
+      
+  </div>
+
+  
+  </div>
+</ion-content>

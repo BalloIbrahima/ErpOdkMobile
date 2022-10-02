@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>role</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <div class="col-sm-7 mx-auto">
+    <header class="section-header text-center">
+      <span class="h1 d-block">
+        <span>❝</span>
+      </span>
+      <h2>Les Roles</h2>
+    </header>
+  </div> -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="d-grid m-2 gap-2 d-md-flex justify-content-md-end">
+        <button class="btn buttonColor" type="button" routerLink="/ajouter-role">+ &nbsp; Nouveau Role</button>
+      </div>
+    </div>
+  </div>
+  <div id="flex-container" class="testimonials">
+    <div id="left-zone">
+      <ul class="list">
+        <li class="item" *ngFor="let inf of info">
+          <input type="radio" id="{{inf.entite}}" name="basic_carousel" checked />
+          <label class="label_testimonial" class="{{inf.entite}}" for="{{inf.entite}}">{{inf.entite}}</label>
+          <div class="content-test content_testimonial">
+
+            <h1>{{inf.entite}}</h1>
+            <p>{{inf.descrription}}</p>
+            <p class="testimonialFrom">{{inf.status}}</p>
+            <p class="testimonialState"> {{inf.nom}} </p>
+            <br>
+            <p class="testimonialState"><button class="button">Voir+</button></p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div id="right-zone"></div>
+  </div>
+
+</ion-content>

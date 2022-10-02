@@ -30,7 +30,7 @@
         <ion-label id="erreur" *ngIf="error">{{erreur}}</ion-label>
         <button type="submit" id="btnn" class="btn" [disabled]="f.form.invalid">Se connecter</button>
 
-        <a class="lienPass">Mots de passe oublié !</a>
+        <a class="lienPass" routerLink="/forgotpassword" >Mots de passe oublié !</a>
       </form>
     </div>
 

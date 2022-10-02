@@ -8,7 +8,6 @@ import { DashboardPageRoutingModule } from './dashboard-routing.module';
 
 import { DashboardPage } from './dashboard.page';
 import { RouteReuseStrategy } from '@angular/router';
-import { AccueilPipe } from '../accueil.pipe';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -20,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [DashboardPage,AccueilPipe],
+  declarations: [DashboardPage],
   
 })
 export class DashboardPageModule {}

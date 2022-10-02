@@ -16,6 +16,8 @@ export class HomePage {
  
   constructor(private utilisateurService:UtilisateurService,private router:Router) {}
 
+   Utilisateur:any
+
   logForm(){
     this.utilisateurService.login(this.login,this.password).subscribe(data=>{
       //on vas recupere le message de retour et voir si tout ses bien passe

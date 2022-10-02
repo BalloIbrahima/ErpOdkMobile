@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>modifiersalle</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <body>
+    <div class="userbox">
+      <div class="card-heading">
+        <h2 class="title">FORMULAIRE DE MODIFICATION D’UNE SALLE DE ODC</h2>
+      </div>
+      <form>
+        <div class="inputbox">
+            <input type="text" id="name" [(ngModel)]="libelle" name="libelle" placeholder="NOM SALLE">
+        </div>
+        <div class="inputbox">
+          <input type="number" id="etage" [(ngModel)]="etage" name="etage" placeholder="ETAGE">
+        </div>
+        <div class="inputbox">
+          <div class="box">
+            <input type="number" name="nombre" [(ngModel)]="nombre" placeholder="Nombre de place">
+            <!-- <select [(ngModel)]="DISPONIBILITE" name="disponible">
+              <option><span>DISPONIBILITE</span></option>
+              <option>DISPONIBLE</option>
+              <option>INDISPOSIBLE</option>
+            </select> -->
+          </div>
+        </div>
+        <div class="inputbox">
+          <input type="text" name="description" [(ngModel)]="description" placeholder="DESCRIPTION">
+        </div>
+      <div class="button">
+        <div class="button-left"><button>FERMER</button></div>
+        <div class="button-right"><button (click)="ModifSalle()">ENREGISTRER</button></div>
+      </div>
+    
+      
+      
+      
+    </form>
+    </div>
+  </body>
+</ion-content>

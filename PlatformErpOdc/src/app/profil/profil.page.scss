@@ -80,6 +80,7 @@ label{
 .gvNotifications{
     font-family: poppinsBlack;
     font-weight: bold;
+    font-size: 26px;
 }
 .icon_mail {
 
@@ -155,9 +156,31 @@ input#exampleInputNom {
         font-weight: bold;
         margin-bottom: 10%;
         border-radius: 15px;
-        
-        
+               
     }
+    input#exampleInputNom {
+        border-radius: 15px;
+        border: 1px solid black;
+        width: 100%;
+        height: 35px;
+        background: #F8FAFC;
+        box-shadow: none;
+    }
+
+    #user {
+
+        // border-radius: 50%;
+        clip-path: ellipse(50% 50%);
+        width: 100px;
+        height: 100px;
+        margin-left: 30%;
+        margin-bottom: 10%;
+
+    }
+    // .col_right {
+    //     margin-left: 15%;
+    //     // margin-top: 15%;
+    // }
 }
 .bouton:hover{
     background-color: #FF7900;
@@ -213,9 +236,9 @@ input#exampleInputNom {
     background-color: #118023;
   }
   
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
+//   input:focus + .slider {
+//     box-shadow: 0 0 1px #2196F3;
+//   }
   
   input:checked + .slider:before {
     -webkit-transform: translateX(26px);

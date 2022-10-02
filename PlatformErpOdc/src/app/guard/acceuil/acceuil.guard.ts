@@ -10,8 +10,9 @@ export class AcceuilGuard implements CanActivate {
   canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if(localStorage.getItem('utilisateur')!=null){
       return true;
+    }else{
+      this.router.navigate(['/login'])
     }
-    this.router.navigate(['/login'])
   }
   
 }

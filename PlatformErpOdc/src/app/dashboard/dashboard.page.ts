@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +11,7 @@ export class DashboardPage implements OnInit {
 
   img="../assets/avatar.png"
   Utilisateur:any;
-  constructor(private router:Router) { }
+  constructor(private router:Router,private menu: MenuController) { }
 
   ngOnInit() {
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'))
@@ -20,7 +21,9 @@ export class DashboardPage implements OnInit {
     console.log(this.Utilisateur)
   }
 
-
+  FermerSideBar(){
+    this.menu.close()
+  }
 
   deconnecter(){
     localStorage.clear()

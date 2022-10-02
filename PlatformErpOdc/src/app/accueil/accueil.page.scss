@@ -1,3 +1,4 @@
+
 @font-face {
   font-family: myfontLight;
 
@@ -35,11 +36,12 @@ display: none;
   .side_droite{
     margin-left: 1%;
   }
-
-  
-
- 
-}
+  @media screen and (max-width: 512px) {
+    .side_droite{
+      margin-left: 1%;
+    }
+   
+    
 
 @media screen and (max-width: 420px) {
   .AenCours{
@@ -53,14 +55,17 @@ display: none;
   }
 }
 
-
-.side_gauche{
-background-color:white;
-border-radius: 15px;
-// margin: auto;
-height: 100%;
-margin-left: 3%;
-padding: 20px;
+  @media screen and (max-width: 420px) {
+    .AenCours{
+      font-weight:700 ; 
+      font-size: 26Px; 
+      font-family: myfontBlack;
+      font-style: normal;
+     margin-left:20% !important ;
+     margin-bottom: 20px;
+        
+    }
+  }
 
 }
 
@@ -142,6 +147,7 @@ font-size: 19px;
 margin-bottom: 10%;
 
 }
+
 .nombre{
 
 margin-top: 10px;
@@ -169,8 +175,10 @@ font-family:myfontLight ;
 }
 
 .img_activite_avenir{
-border-radius: 50%;
-width:30px
+    clip-path: ellipse(50% 50%);
+//   border-radius: 50%;
+  width:30px
+  
 }
 
 .nom_activite{
@@ -185,12 +193,10 @@ justify-content: space-evenly;
 
 
 .carousel-item{
-height: 15rem;
-background: #777;
-position:relative;
-color: white;
-
-
+  height: 15rem;
+  background: #777;
+  position:relative;
+  color: white;
 
 } 
 
@@ -275,12 +281,12 @@ padding-left:10px ;
 }
 
 .AenCours{
-font-weight:700 ; 
-font-size: 26Px; 
-font-family: myfontBlack;
-font-style: normal;
-margin-left:32% ;
-margin-bottom: 20px;
+  font-weight:700 ; 
+  font-size: 26Px; 
+  font-family: myfontBlack;
+  font-style: normal;
+ margin-left:32% ;
+ margin-bottom: 20px;
 
 
 }
@@ -331,10 +337,34 @@ font-size: 12px;
 font-weight: bold;
 }
 .Date{
-font-size: 10px;
-font-weight: bold;
+  font-size: 10px;
+  font-weight: bold;
 }
 
-// .divAvecbg{
-//   background-repeat: no-repeat;   background-position: center; background-size: cover; border-radius: 10px;
-// }
+.profil_img{
+clip-path: ellipse(33% 50%);
+width:35px;
+}
+@media screen and (max-width:600px){
+  .AenCours {
+    font-weight: 700;
+    font-size: larger !important;
+    font-family: myfontBlack;
+    font-style: normal;
+    margin-left: 32%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+.titre_inf {
+    font-weight: 700;
+    font-size: larger;
+    font-family: myfontBlack;
+    font-style: normal;
+    padding-top: 10%;
+    text-align: center;
+}
+
+}
+}

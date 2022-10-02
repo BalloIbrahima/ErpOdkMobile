@@ -33,27 +33,46 @@
         </div>
     </div>
     <div class="container">
+<<<<<<< HEAD
         <div class="pag" *ngFor= "let ta of  touteactivite | paginate:{itemsPerPage:6, currentPage:p}; let index =index">
+=======
+        <div class="pag" *ngFor= "let allactivite of  allactivites | paginate:{itemsPerPage:6, currentPage:p}; let index =index">
+>>>>>>> 14954ed3ae12d7ae7251fc2fcca5582dfe35e30c
 
         <div class="card float-left">
             <div class="row ">
                 <div class="col-sm-5">
+<<<<<<< HEAD
                     <img class="img" src={{ta.image}} alt="">
+=======
+                    <img class="img" src="../../assets/odc1.png" alt="">
+>>>>>>> 14954ed3ae12d7ae7251fc2fcca5582dfe35e30c
                 </div>
                 <div class="col-sm-7">
                     <div class="card-block">
                        
+<<<<<<< HEAD
                         <p><b>{{ta.nom}}</b> <br> <span>{{ta.typeActivite.libelle}}</span></p>
                         <p>{{ta.description}} </p>
                         <div class="statutbtn">
                             <div style="margin-top: 7px; color:#FF7900;"> </div>
+=======
+                        <p><b>{{allactivite.titre}}</b> <br> <span>{{allactivite.type}}</span></p>
+                        <p>{{allactivite.description}} </p>
+                        <div class="statutbtn">
+                            <div style="margin-top: 7px; color:#FF7900;"> {{allactivite.status}}</div>
+>>>>>>> 14954ed3ae12d7ae7251fc2fcca5582dfe35e30c
                             <div> <a href="#" class="btn btn-primary btn-sm" style="margin-right: 7px;">Voir +</a> </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
         </div>  
+=======
+        </div>
+>>>>>>> 14954ed3ae12d7ae7251fc2fcca5582dfe35e30c
     </div>
     <div class="pagination">
         <pagination-controls (pageChange)="p=$event" nextLabel="Suivants" previousLabel="Précédents"></pagination-controls>

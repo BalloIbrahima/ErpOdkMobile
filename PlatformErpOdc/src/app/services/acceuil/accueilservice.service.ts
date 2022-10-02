@@ -44,7 +44,14 @@ export class AccueilserviceService {
   postActif ="http://localhost:8080/admin/getUsers/active";
   GetPersonnelActivTotal(login :String, password:String):Observable<any>{
 
-    return this.http.get(`${this.postActif}/${login}/${password}`);
+    return this.http.get(`${this.postActif}/${login}/${password}`);}
+
+
+
+  //;:::::::::::::::::::TOTAL POSTULANT::::::::::::::::
+  GetPersonnelTotal():Observable<any>{
+
+    return this.http.get("http://localhost:8080/admin/totalpersonnel");
   }
 
 
@@ -56,9 +63,11 @@ export class AccueilserviceService {
 
 
   //:::::::::::::::Ajout Salle ::::::::::::::::::::
+
   url1="http://localhost:8080/admin/creersalle";
 
   AddSalle(id: number){
     return this.http.get(`${this.url1}/${id}`)
+
   }
 }

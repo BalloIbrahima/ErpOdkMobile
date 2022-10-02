@@ -8,7 +8,6 @@ import { DashboardPageRoutingModule } from './dashboard-routing.module';
 
 import { DashboardPage } from './dashboard.page';
 import { RouteReuseStrategy } from '@angular/router';
-import { AccueilPipe } from '../accueil.pipe';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({

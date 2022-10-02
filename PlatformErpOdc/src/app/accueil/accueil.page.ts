@@ -31,6 +31,7 @@ image = 'https://www.decome-store.fr/27073-thickbox_pbm/mini-voiture-laferrari-p
     console.log(this.Utilisateur.login)
     // ;:::::::::::total acTIVITE ::::::::::::
     this.service.GetActviteTotal(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+    // ;:::::::::::total acTIVITE ::::::::::::
       this.totalactivite=data.data;
 console.log(data)
     });
@@ -62,6 +63,12 @@ console.log(data.data.length)
       this.touteactivite=data.data;
 console.log(this.touteactivite)
     });
+
+    this.service.GetPersonnelTotal().subscribe(data=>{
+      this.totlapostulant=data.data;
+console.log(data)
+    });
+
      //!::::::::::::total perso ::::::::::::
      this.service.GetEntiteTotal().subscribe(data=>{
       this.totalentite=data.data;

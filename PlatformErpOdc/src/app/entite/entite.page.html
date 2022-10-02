@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <ion-content>
 
 
@@ -31,6 +32,41 @@
       
         <button class="nvb">Nouvelle entité</button>
       
+=======
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button ></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Nos entite</ion-title>
+    <ion-button slot="end" fill="clear">
+      <div style="color: #ff7900;  font-size: 20px">
+        <i class="fa-regular fa-bell"></i>
+      </div>
+    </ion-button>
+  </ion-toolbar>
+  <!--   
+  <button (click)="nouvelleent()" class="btnn">Nouvelle-entite</button> -->
+
+</ion-header>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+  integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<ion-content>
+  <!-- <div class="col-sm-7 mx-auto">
+    <header class="section-header text-center">
+      <span class="h1 d-block">
+        <span>❝</span>
+      </span>
+      <h2>Nos Entités</h2>
+    </header>
+  </div> -->
+  <div class="row">
+    <div class="col-12">
+      <div class="d-grid m-2 gap-2 d-md-flex justify-content-md-end">
+        <button class="btn buttonColor" type="button" id="open-modal">+ &nbsp; Nouveau entité</button>
+>>>>>>> 14954ed3ae12d7ae7251fc2fcca5582dfe35e30c
       </div>
 
 
@@ -52,38 +88,77 @@
         
       
     </div>
+<<<<<<< HEAD
   
+=======
+>>>>>>> 14954ed3ae12d7ae7251fc2fcca5582dfe35e30c
   </div>
-  <div class="pat1">
-    <div class="enti">
-      <p class="tit">Orange Digital Kalanso</p>
-      <hr class="h">
-      <div class="descp">Orange Digital Kalanso est une école du code, centre à vocation
-         technologique qui propose des formations sur les métiers du numérique 
-         et des animations.
-      </div>
-      <div class="phot">
-        <img src="assets\image\ht_1.jfif" alt="">
-      </div>
-      <div class="res">
-        <p class="resp">Responsable</p>
-        <p class="nomresp">Mamadou Coulibaly</p>
-      </div>   
+  <div id="flex-container" class="testimonials">
+    <div id="left-zone">
+      <ul class="list item1">
+
+        <li class="item" *ngFor="let inf of info">
+          <input type="radio" id="{{inf.entite}}" name="basic_carousel" checked />
+          <label class="label_testimonial" class="{{inf.entite}}" for="{{inf.entite}}">{{inf.entite}}</label>
+          <div class="content-test content_testimonial">
+            <img width="100"  src={{inf.imag}} alt="">
+            <h1>{{inf.entite}}</h1>
+            <p class="desc">{{inf.descrription}}</p>
+            <p class="testimonialFrom">{{inf.status}}</p>
+            <p class="testimonialState"> {{inf.nom}} </p>
+            <p class="testimonialState"><button class="btn button" routerLink="/details-entite">Voir+</button></p>
+          </div>
+        </li>
+
+      </ul>
     </div>
-    <div class="dur">
-      <p class="atcc">Activités realisées</p>
-      <hr class="hv">
-      <div class="tac">13</div>
-    
-        <p class="atc1">Apprenants Formés</p>
-        <hr class="hv">
-        <div class="tac">12</div>
-     </div>
+    <div id="right-zone"></div>
   </div>
 
 
+<<<<<<< HEAD
 </div>
 
 
 
 </ion-content>
+=======
+  <!-- code permettant d'ajouter une nouvelle encours -->
+
+
+
+  <ion-modal #modal trigger="open-modal">
+    <ng-template>
+      <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-end">
+        <!-- <ion-buttons slot="end">
+          <ion-button (click)="modal.dismiss()">Close</ion-button>
+        </ion-buttons> -->
+      </div>
+
+
+      <div class="container">
+        <h5 class="card-title text-center">Nouvelle entité</h5>
+        <div class="card">
+          <div class="card-body text-start">
+            <form>
+              <div for="exampleFormControlInput1" class="">Nom entité *</div>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Orange digital kalanso">
+              <div for="exampleFormControlInput1" class="">Responsable de l'entité *</div>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Kaou">
+
+              <div for="exampleFormControlTextarea1" class="">Description de l'entité *</div>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <div class="d-grid gap-2 col-6 text-center mx-auto mt-2">
+                <button type="button" class="btn colorbutton2 btn-sm">Enregistrer</button>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+      
+
+    </ng-template>
+  </ion-modal>
+>>>>>>> 14954ed3ae12d7ae7251fc2fcca5582dfe35e30c

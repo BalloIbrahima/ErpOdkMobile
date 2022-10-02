@@ -1,90 +1,48 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { ProfilPageModule } from './profil/profil.module';
-import { ProfilPage } from './profil/profil.page';
+import { AcceuilGuard } from './guard/acceuil/acceuil.guard';
+
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
   },
+
+  {
+    path: 'profil',
+    loadChildren: () => import('./profil/profil.module').then( m => m.ProfilPageModule),
+    // canActivate: [AcceuilGuard] 
+  },
+  {
+    path: 'personnel',
+    loadChildren: () => import('./personnel/personnel.module').then( m => m.PersonnelPageModule),
+    // canActivate: [AcceuilGuard] 
+  },
+
   {
     path: 'accueil',
-    loadChildren: () => import('./accueil/accueil.module').then( m => m.AccueilPageModule)
-  },
-  {
-    path: '',
-    redirectTo: 'accueil',
-    pathMatch: 'full'
+    loadChildren: () => import('./accueil/accueil.module').then( m => m.AccueilPageModule),
+    // canActivate: [AcceuilGuard] 
   },
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
-  {
-    path: 'profil',
-    loadChildren: () => import('./profil/profil.module').then(m => ProfilPageModule)
-  },
-  {
-    path: 'personnels',
-    loadChildren: () => import('./personnel/personnel.module').then( m => m.PersonnelPageModule)
-  },
-  {
-    path: 'nouveau-personnel',
-    loadChildren: () => import('./nouveaupersonnel/nouveaupersonnel.module').then( m => m.NouveaupersonnelPageModule)
-  },
-  {
-    path: 'detail-personnel',
-    loadChildren: () => import('./detailpostulant/detailpostulant.module').then( m => m.DetailpostulantPageModule)
-  },
-  {
-    path: 'entite',
-    loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
-  },
-  {
-    path: 'details-entite',
-    loadChildren: () => import('./details-entite/details-entite.module').then( m => m.DetailsEntitePageModule)
-  },
-  {
-    path: 'role',
-    loadChildren: () => import('./role/role.module').then( m => m.RolePageModule)
-  },
-  {
-    path: 'details-entite',
-    loadChildren: () => import('./details-entite/details-entite.module').then( m => m.DetailsEntitePageModule)
-  },
-  {
-    path: 'nouvelle-entite',
-    loadChildren: () => import('./nouvelle-entite/nouvelle-entite.module').then( m => m.NouvelleEntitePageModule)
-  },
-  {
-    path: 'tirage',
-    loadChildren: () => import('./tirage/tirage.module').then( m => m.TiragePageModule)
-  },
-  {
-    path: 'detail-tirage',
-    loadChildren: () => import('./detailtirage/detailtirage.module').then( m => m.DetailtiragePageModule)
-  },
-  {
-    path: 'detail-tirage-liste',
-    loadChildren: () => import('./detail-tirage-dune-liste/detail-tirage-dune-liste.module').then( m => m.DetailTirageDuneListePageModule)
-  },
-  {
-    path: 'detail-liste',
-    loadChildren: () => import('./detail-des-listes/detail-des-listes.module').then( m => m.DetailDesListesPageModule)
-  },
-  {
-    path: 'importeliste',
-    loadChildren: () => import('./importliste/importliste.module').then( m => m.ImportlistePageModule)
-  },
-  {
-    path: 'nouvelle-entite',
-    loadChildren: () => import('./nouvelle-entite/nouvelle-entite.module').then( m => m.NouvelleEntitePageModule)
-  },
 
-  
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule),
+    canActivate: [AcceuilGuard] 
+  },
+  {
+    path: 'forgotpassword',
+    loadChildren: () => import('./forgotpassword/forgotpassword.module').then( m => m.ForgotpasswordPageModule)
+  },
 
 ];
+
 
 @NgModule({
   imports: [
@@ -93,3 +51,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

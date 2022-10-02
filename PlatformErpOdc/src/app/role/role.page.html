@@ -13,11 +13,11 @@
       <h2>Les Roles</h2>
     </header>
   </div> -->
-  
+
   <div class="row">
     <div class="col-12">
       <div class="d-grid m-2 gap-2 d-md-flex justify-content-md-end">
-        <button class="btn buttonColor" type="button">+ &nbsp; Nouveau Role</button>
+        <button class="btn buttonColor" type="button" routerLink="/ajouter-role">+ &nbsp; Nouveau Role</button>
       </div>
     </div>
   </div>
@@ -25,7 +25,7 @@
     <div id="left-zone">
       <ul class="list">
         <li class="item" *ngFor="let inf of info">
-          <input type="radio" id="{{inf.entite}}" name="basic_carousel" checked/>
+          <input type="radio" id="{{inf.entite}}" name="basic_carousel" checked />
           <label class="label_testimonial" class="{{inf.entite}}" for="{{inf.entite}}">{{inf.entite}}</label>
           <div class="content-test content_testimonial">
 
@@ -41,5 +41,5 @@
     </div>
     <div id="right-zone"></div>
   </div>
-  
+
 </ion-content>

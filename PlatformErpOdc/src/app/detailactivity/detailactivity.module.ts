@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { NouvelleEntitePageRoutingModule } from './nouvelle-entite-routing.module';
+import { DetailactivityPageRoutingModule } from './detailactivity-routing.module';
 
-import { NouvelleEntitePage } from './nouvelle-entite.page';
+import { DetailactivityPage } from './detailactivity.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    NouvelleEntitePageRoutingModule
+    DetailactivityPageRoutingModule
   ],
-  declarations: [NouvelleEntitePage]
+  declarations: [DetailactivityPage]
 })
-export class NouvelleEntitePageModule {}
+export class DetailactivityPageModule {}

@@ -9,13 +9,13 @@
       </ion-button>
     </ion-toolbar>
   </ion-header>
-<ion-content *ngIf="touteactivite.length==0">
+<!-- <ion-content *ngIf="touteactivite.length==0">
   <div  class="container-fluid mere" style="height: 100%;">
     <ion-label class="lblAucune">  Aucune activite 
     </ion-label>
   </div>
-</ion-content>
-<ion-content *ngIf="touteactivite.length!=0">
+</ion-content> -->
+<ion-content >
   <div class="row">
     <div class="col-lg-3 col-12">
       <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-start">
@@ -31,7 +31,7 @@
     </div>
     <div class="col-lg-9 col-12">
       <div class="d-grid m-2 gap-2 d-md-flex justify-content-md-end">
-        <button class="btn buttonColor" type="button" routerLink="/dashboard/creer-activite" >+ &nbsp; Creer Activité</button>
+        <button class="btn buttonColor" type="button" routerLink="/dashboard/ajout-activite" >+ &nbsp; Creer Activité</button>
       </div>
     </div>
   </div>

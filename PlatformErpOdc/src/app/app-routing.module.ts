@@ -16,7 +16,7 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'liste-parcipant',
+    redirectTo: 'mdp-oublie',
     pathMatch: 'full'
   },
   {
@@ -58,6 +58,7 @@ const routes: Routes = [
     path: 'liste-parcipant',
     loadChildren: () => import('./liste-parcipant/liste-parcipant.module').then( m => m.ListeParcipantPageModule)
   },
+  
 
 
   

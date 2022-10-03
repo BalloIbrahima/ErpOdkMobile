@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { TiragePageRoutingModule } from './tirage-routing.module';
 
 import { TiragePage } from './tirage.page';
+import { ClocheComponent } from '../cloche/cloche.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { TiragePage } from './tirage.page';
     IonicModule,
     TiragePageRoutingModule
   ],
-  declarations: [TiragePage]
+  declarations: [TiragePage, ClocheComponent]
 })
 export class TiragePageModule {}

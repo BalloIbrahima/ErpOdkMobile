@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { AllactivityPageRoutingModule } from './allactivity-routing.module';
 
 import { AllactivityPage } from './allactivity.page';
+import { ClocheComponent } from '../cloche/cloche.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { AllactivityPage } from './allactivity.page';
     AllactivityPageRoutingModule,
     NgxPaginationModule
   ],
-  declarations: [AllactivityPage]
+  declarations: [AllactivityPage,ClocheComponent]
 })
 export class AllactivityPageModule {}

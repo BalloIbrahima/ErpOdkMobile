@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { LierSalleActivityPageRoutingModule } from './lier-salle-activity-routing.module';
 
 import { LierSalleActivityPage } from './lier-salle-activity.page';
+import { ClocheComponent } from '../cloche/cloche.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { LierSalleActivityPage } from './lier-salle-activity.page';
     LierSalleActivityPageRoutingModule,
     NgxPaginationModule
   ],
-  declarations: [LierSalleActivityPage]
+  declarations: [LierSalleActivityPage, ClocheComponent]
 })
 export class LierSalleActivityPageModule {}

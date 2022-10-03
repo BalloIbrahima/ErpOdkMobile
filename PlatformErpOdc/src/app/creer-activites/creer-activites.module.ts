@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { CreerActivitesPageRoutingModule } from './creer-activites-routing.module';
 
 import { CreerActivitesPage } from './creer-activites.page';
+import { ClocheComponent } from '../cloche/cloche.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { CreerActivitesPage } from './creer-activites.page';
     IonicModule,
     CreerActivitesPageRoutingModule
   ],
-  declarations: [CreerActivitesPage]
+  declarations: [CreerActivitesPage ,ClocheComponent]
 })
 export class CreerActivitesPageModule {}

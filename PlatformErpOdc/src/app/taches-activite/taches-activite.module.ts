@@ -8,6 +8,7 @@ import { TachesActivitePageRoutingModule } from './taches-activite-routing.modul
 
 import { TachesActivitePage } from './taches-activite.page';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ClocheComponent } from '../cloche/cloche.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     TachesActivitePageRoutingModule,
     NgxPaginationModule,
   ],
-  declarations: [TachesActivitePage],
+  declarations: [TachesActivitePage, ClocheComponent],
 })
 export class TachesActivitePageModule {}

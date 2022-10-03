@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ProfilPageRoutingModule } from './profil-routing.module';
 
 import { ProfilPage } from './profil.page';
+import { ClocheComponent } from '../cloche/cloche.component';
 
 
 @NgModule({
@@ -16,6 +17,6 @@ import { ProfilPage } from './profil.page';
     IonicModule,
     ProfilPageRoutingModule
   ],
-  declarations: [ProfilPage]
+  declarations: [ProfilPage, ClocheComponent]
 })
 export class ProfilPageModule {}

@@ -25,6 +25,10 @@ const routes: Routes = [
         path: 'ajout-entite',
         loadChildren: () => import('../ajout-entite/ajout-entite.module').then( m => m.AjoutEntitePageModule)
       },
+      {
+        path: 'ajout-activite',
+        loadChildren: () => import('../creer-activites/creer-activites.module').then( m => m.CreerActivitesPageModule)
+      },
 
       {
         path: 'allactivity',
@@ -74,6 +78,10 @@ const routes: Routes = [
     {
       path: 'role',
       loadChildren: () => import('../role/role.module').then( m => m.RolePageModule)
+    },
+    {
+      path: 'salle',
+      loadChildren: () => import('../salle/salle.module').then( m => m.SallePageModule)
     },
     {
       path: 'tirage',

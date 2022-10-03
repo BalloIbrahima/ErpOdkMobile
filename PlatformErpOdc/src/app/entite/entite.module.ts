@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { EntitePageRoutingModule } from './entite-routing.module';
 
 import { EntitePage } from './entite.page';
+import { ClocheComponent } from '../cloche/cloche.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { EntitePage } from './entite.page';
     IonicModule,
     EntitePageRoutingModule
   ],
-  declarations: [EntitePage]
+  declarations: [EntitePage, ClocheComponent]
 })
 export class EntitePageModule {}

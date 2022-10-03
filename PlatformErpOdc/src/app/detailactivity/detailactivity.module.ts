@@ -8,13 +8,18 @@ import { DetailactivityPageRoutingModule } from './detailactivity-routing.module
 
 import { DetailactivityPage } from './detailactivity.page';
 
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ClocheComponent } from '../cloche/cloche.component';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DetailactivityPageRoutingModule
+
+    DetailactivityPageRoutingModule,
+    NgxPaginationModule
   ],
-  declarations: [DetailactivityPage]
+  declarations: [DetailactivityPage, ClocheComponent]
 })
 export class DetailactivityPageModule {}

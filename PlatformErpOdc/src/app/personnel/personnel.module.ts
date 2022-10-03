@@ -8,6 +8,7 @@ import { PersonnelPageRoutingModule } from './personnel-routing.module';
 
 import { PersonnelPage } from './personnel.page';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ClocheComponent } from '../cloche/cloche.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     PersonnelPageRoutingModule,
     NgxPaginationModule
   ],
-  declarations: [PersonnelPage]
+  declarations: [PersonnelPage, ClocheComponent]
 })
 export class PersonnelPageModule {}

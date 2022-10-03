@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tachedesignation.page.scss'],
 })
 export class TachedesignationPage implements OnInit {
+  a!:any
   students =[
     {
         name: 'Djiguiba',

@@ -1,8 +1,16 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>details-entite</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Detail entité</ion-title>
+    <ion-button slot="end" fill="clear">
+      <app-cloche></app-cloche>
+
+    </ion-button>
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content>
   <div class="container-fluid">
@@ -73,7 +81,7 @@
      <div class="pagibottom" style="margin-left: 200px;"></div> 
   </ion-grid> -->
 
-  <table class="table table-striped text-center">
+  <table class="table table-striped text-center mx-3">
     <thead>
       <tr>
         <th scope="col">Nom</th>
@@ -99,7 +107,8 @@
   </table>
   <div class="position-relative">
     <div class="position-absolute top-0 end-0 mt-4">
-      <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="responsive" [autoHide]="autoHide"
+      <pagination-controls previousLabel="Prev" nextLabel="Next"  
+      
         (pageChange)=" pages = $event"> </pagination-controls>
     </div>
   </div>

@@ -12,6 +12,7 @@ import { IonicModule } from '@ionic/angular';
 import { ImportlistePageRoutingModule } from './importliste-routing.module';
 
 import { ImportlistePage } from './importliste.page';
+import { ClocheComponent } from '../cloche/cloche.component';
 // >>>>>>>> af5c9fafd1ba1e5f7f56129c4793584f0bfdb3e8:PlatformErpOdc/src/app/importliste/importliste.module.ts
 
 @NgModule({
@@ -30,7 +31,7 @@ import { ImportlistePage } from './importliste.page';
 // ========
 //     ImportlistePageRoutingModule
 //   ],
-  declarations: [ImportlistePage]
+  declarations: [ImportlistePage, ClocheComponent]
 })
 export class ImportlistePageModule {}
 // >>>>>>>> af5c9fafd1ba1e5f7f56129c4793584f0bfdb3e8:PlatformErpOdc/src/app/importliste/importliste.module.ts

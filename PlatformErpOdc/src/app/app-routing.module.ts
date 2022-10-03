@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
@@ -30,10 +31,12 @@ const routes: Routes = [
     loadChildren: () => import('./detailpostulant/detailpostulant.module').then( m => m.DetailpostulantPageModule)
   },
 =======
+=======
+
+>>>>>>> karimSave
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AcceuilGuard } from './guard/acceuil/acceuil.guard';
-
 
 const routes: Routes = [
   {
@@ -41,6 +44,7 @@ const routes: Routes = [
     redirectTo: 'dashboard',
     pathMatch: 'full'
   },
+<<<<<<< HEAD
 
   {
     path: 'profil',
@@ -76,6 +80,8 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 =======
+=======
+>>>>>>> karimSave
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
@@ -90,6 +96,11 @@ export class AppRoutingModule { }
     path: 'forgotpassword',
     loadChildren: () => import('./forgotpassword/forgotpassword.module').then( m => m.ForgotpasswordPageModule)
   },
+  {
+    path: 'forgotpassword1',
+    loadChildren: () => import('./forgetpassword1/forgetpassword1.module').then( m => m.Forgetpassword1PageModule)
+  },
+
 
 ];
 
@@ -101,5 +112,35 @@ export class AppRoutingModule { }
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+// import { NgModule } from '@angular/core';
+// import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+
+// const routes: Routes = [
+//   {
+//     path: 'home',
+//     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+//   },
+//   {
+//     path: '',
+//     redirectTo: 'home',
+//     pathMatch: 'full'
+//   },
+//   {
+//     path: 'login',
+//     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+//   },
+//   {
+//     path: 'activite',
+//     loadChildren: () => import('./activite/activite.module').then( m => m.ActivitePageModule)
+//   },
+
+// ];
+
+// @NgModule({
+//   imports: [
+//     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+//   ],
+//   exports: [RouterModule]
+// })
 
 >>>>>>> karimSave

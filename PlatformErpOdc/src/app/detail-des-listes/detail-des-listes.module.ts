@@ -12,6 +12,7 @@ import { DetailDesListesPageRoutingModule } from '../detail-des-listes/detail-de
 
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DetailDesListesPage } from './detail-des-listes.page';
+import { ClocheComponent } from '../cloche/cloche.component';
 
 @NgModule({
   imports: [
@@ -22,6 +23,6 @@ import { DetailDesListesPage } from './detail-des-listes.page';
     NgxPaginationModule,
     //Ng2SearchPipeModule,
   ],
-  declarations: [DetailDesListesPage]
+  declarations: [DetailDesListesPage, ClocheComponent]
 })
 export class DetailDesListesPageModule {}

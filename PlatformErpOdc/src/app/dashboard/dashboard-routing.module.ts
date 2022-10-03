@@ -10,7 +10,7 @@ const routes: Routes = [
     children:[
       {
         path: '',
-        redirectTo: 'accueil',
+        redirectTo: 'allactivity',
         pathMatch: 'full'
       },
       {

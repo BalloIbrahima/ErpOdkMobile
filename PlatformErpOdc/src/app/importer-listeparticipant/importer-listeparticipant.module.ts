@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ImporterListeparticipantPageRoutingModule } from './importer-listeparticipant-routing.module';
 
 import { ImporterListeparticipantPage } from './importer-listeparticipant.page';
+import { ClocheComponent } from '../cloche/cloche.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { ImporterListeparticipantPage } from './importer-listeparticipant.page';
     IonicModule,
     ImporterListeparticipantPageRoutingModule
   ],
-  declarations: [ImporterListeparticipantPage]
+  declarations: [ImporterListeparticipantPage, ClocheComponent]
 })
 export class ImporterListeparticipantPageModule {}

@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detailactivity.page.scss'],
 })
 export class DetailactivityPage implements OnInit {
+
+  pages!: any;
+  a!: any
   students =[
     {
         name: 'Djiguiba',

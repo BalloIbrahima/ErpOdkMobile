@@ -3,7 +3,9 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": [],
+    "importHelpers": true,
+    "target": "es6",
   },
   "files": [
     "src/main.ts",

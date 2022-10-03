@@ -75,15 +75,19 @@
           <div class="card-body text-start">
             <form>
               <div for="libelleEntite" class="">Nom entité *</div>
-              <input type="text" class="form-control" id="libelleEntite"
+              <input type="text" name="libelleentite" [(ngModel)]="libelleentite" class="form-control" id="libelleEntite"
                 placeholder="Orange digital kalanso">
               <div for="responsableEntite" class="">Responsable de l'entité *</div>
-              <input type="email" class="form-control" id="responsableEntite" placeholder="Kaou">
+              <select class="form-select form-select-sm" name="responsableEntite" [(ngModel)]="responsableEntite">
+                <option selected>--selectionner un responsable</option>
+                <option *ngFor="let user of toutUtilisateur ">{{user}}</option>
+                
+              </select>
               <div for="imageEntite" class="">Image entite *</div>
               <input type="file" (change)="recuperationImage($event)" class="form-control" id="imageEntite" placeholder="selectionner une image">
 
-              <div for="description" class="">Description de l'entité *</div>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <div for="description" class="" >Description de l'entité *</div>
+              <textarea class="form-control" id="description" [(ngModel)]="description" rows="3"></textarea>
               <div class="d-grid gap-2 col-6 text-center mx-auto mt-2">
                 <button type="button" class="btn colorbutton2 btn-sm">Enregistrer</button>
               </div>

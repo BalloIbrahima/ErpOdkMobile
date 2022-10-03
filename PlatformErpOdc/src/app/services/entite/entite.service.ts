@@ -17,11 +17,11 @@ export class EntiteService {
 
   //   return this.http.get(`http://localhost:8080/admin/getAll/entite/${login}/${password}`);
   // }
-  PostEntite(login :String, password:String, file:File, libelleentite :String, description: String):Observable<any>{
+  PostEntite(login :String, password:String, file:File, libelleentite :String, description: String, responsable: String):Observable<any>{
 
     const data:FormData=new FormData();
     const user=[{"login":login,"password":password}]
-    const entite=[{"libelleentite":libelleentite,"description":description}]
+    const entite=[{"libelleentite":libelleentite,"description":description, "utilisateur":responsable}]
 
     data.append('file',file)
     data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));

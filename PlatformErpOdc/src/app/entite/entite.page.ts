@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { AccueilserviceService } from '../services/acceuil/accueilservice.service';
 import { EntiteService } from '../services/entite/entite.service';
 // import { NouvelleEntitePage } from '../nouvelle-entite/nouvelle-entite.page';
 
@@ -17,7 +18,9 @@ export class EntitePage implements OnInit {
   libelleentite: any;
   description:any;
   imageentite:any;
-  constructor(private modalController: ModalController, private entiteService: EntiteService) { }
+  toutUtilisateur:any;
+  responsableEntite:any;
+  constructor(private acceuilService: AccueilserviceService,private modalController: ModalController, private entiteService: EntiteService) { }
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
   info = [
@@ -64,7 +67,12 @@ export class EntitePage implements OnInit {
   //   return await modal.present();
   // }
   ngOnInit() {
-    this.Utilisateur = JSON.parse(localStorage.getItem('utilisateur'));
+    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'))
+    this.acceuilService.GetPersonnelActivTotal(this.Utilisateur.login, this.Utilisateur.password).subscribe(data =>{
+      this.toutUtilisateur = data;
+      
+    })
+    console.log("Les different utilisateur"+this.Utilisateur)
 }
 recuperationImage(event: any) {
 
@@ -72,7 +80,7 @@ recuperationImage(event: any) {
   console.log(this.imageentite)
 }
 postAllEntite(){
-  this.entiteService.PostEntite(this.Utilisateur.login, this.Utilisateur.password,this.imageentite, this.libelleentite,this.description).subscribe(data =>{
+  this.entiteService.PostEntite(this.Utilisateur.login, this.Utilisateur.password,this.imageentite, this.libelleentite,this.description, this.responsableEntite).subscribe(data =>{
 
   })
 }

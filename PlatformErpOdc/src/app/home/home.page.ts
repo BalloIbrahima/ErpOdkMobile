@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
 
 @Component({
@@ -12,9 +13,10 @@ export class HomePage {
    login:String;
    password:String;
    /////
+ 
+  constructor(private utilisateurService:UtilisateurService,private router:Router) {}
 
    Utilisateur:any
-  constructor(private utilisateurService:UtilisateurService) {}
 
   logForm(){
     this.utilisateurService.login(this.login,this.password).subscribe(data=>{
@@ -22,8 +24,22 @@ export class HomePage {
       console.log(data)
 
       if(data.message=="ok"){
-        this.Utilisateur=data.data;
-        console.log(this.Utilisateur)
+        //enregistrement de l'utilisateur dans le local storage
+        localStorage.setItem('utilisateur',data.data)
+        
+        console.log(data.data)
+        if(data.data.role.libellerole=="ADMIN"){
+          //rediriger vers la page admin
+
+          this.router.navigate(['/accueil'])
+
+        }else if(data.data.role.libellerole=="RESPONSABLE"){
+          //rediriger vers la page responsable
+
+        }else{
+          //rediriger vers la page du simple utilisateur
+
+        }
       }else if(data.message=="error"){
         console.log(data.data);
       }

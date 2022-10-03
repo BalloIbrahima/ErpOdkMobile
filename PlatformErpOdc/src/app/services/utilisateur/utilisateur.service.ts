@@ -23,4 +23,19 @@ export class UtilisateurService {
     }
     return this.http.post(`${this.env.api}/utilisateur/login`,utilisateur);
   }
+
+  //methode qui retourne l'ensemble des utilisateurs
+  getAllUsers(){
+
+  }
+
+  //l'esamble des users active
+  getActivesUsers():Observable<any>{
+    return this.http.get(`${this.env.api}/admin/getUsers/active`)
+  }
+
+  //l'esamble des users desactive
+  getDesactivesUsers():Observable<any>{
+    return this.http.get(`${this.env.api}/admin/getUsers/desactive`)
+  }
 }

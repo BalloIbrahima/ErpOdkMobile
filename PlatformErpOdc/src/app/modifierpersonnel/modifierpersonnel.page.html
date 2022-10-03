@@ -23,12 +23,15 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- 
- <ion-content>
- 
-<div class="container">
+
+<ion-content>
+  <div class="container">
+    <!-- <ion-buttons slot="end">
+      <ion-button (click)="modal.dismiss()">Close</ion-button>
+    </ion-buttons> -->
     <form action="#">
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss()"></button>
       <div class="box">
         <h1>Modifier personnel</h1>
             <div class="ajout">
@@ -100,7 +103,7 @@
             </div>
       </div>
       <div class="button">
-        <input class="but" type="submit" value="Annuler">
+        <input class="but" type="submit" (click)="modal.dismiss()" value="Annuler">
         <input class="but" type="submit" value="Modifier">
       </div>
 

@@ -14,6 +14,17 @@ export class AccueilserviceService {
     return this.http.get("http://localhost:8080/utilisateur/totalactivite");
   }
 
+
+
+
+
+  GetAllEntite(login:String,password:String):Observable<any>{
+    return this.http.get(`http://localhost:8080/admin/getAll/entite/${login}/${password}`);
+  }
+
+
+
+
   //;:::::::::::::::::::TOTAL POSTULANT::::::::::::::::
   GetPersonnelTotal():Observable<any>{
 

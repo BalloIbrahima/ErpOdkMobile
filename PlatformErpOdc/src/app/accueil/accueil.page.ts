@@ -11,11 +11,27 @@ export class AccueilPage implements OnInit {
 totalactivite:any;
 totlapostulant:any;
 totalentite:any;
+Utilisateur:any;
+totalEntite:any;
+
 
 
   constructor(private route:ActivatedRoute,private router: Router,private service:AccueilserviceService) { }
 
   ngOnInit() {
+
+
+    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
+    console.log(this.Utilisateur.login)
+
+    this.service.GetAllEntite(this.Utilisateur.login, this.Utilisateur.password).subscribe(data=>{
+
+      this.totalEntite= data.data;
+      console.log(data)
+      
+    });
+
+
     // ;:::::::::::total acTIVITE ::::::::::::
     this.service.GetActviteTotal().subscribe(data=>{
       this.totalactivite=data.data;
@@ -33,6 +49,9 @@ console.log(data)
       this.totalentite=data.data;
 console.log(data)
     });
+
+
+  
   }
   }
 

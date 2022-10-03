@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { TiragePage } from './tirage.page';
+
+
 
 const routes: Routes = [
   {

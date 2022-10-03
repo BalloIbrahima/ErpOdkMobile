@@ -22,6 +22,9 @@ activiteEncours:any;
 activiteAvenir:any;
 participantsTotal:any
 
+participantFeminins:any
+participantEnfants:any
+
 image = 'https://www.decome-store.fr/27073-thickbox_pbm/mini-voiture-laferrari-pour-enfant-50w.jpg'
 @ViewChild(IonSlides) slides: IonSlides;
 
@@ -50,14 +53,14 @@ image = 'https://www.decome-store.fr/27073-thickbox_pbm/mini-voiture-laferrari-p
     });
 
     //::::::::::::::: ::::::::::::::::::Activite en cour ::::::::::::::
-    this.service.GetActiviteEncour(this.Utilisateur.id).subscribe(data=>{
+    this.service.GetActiviteEncour(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
       this.activiteEncours=data.data;
       console.log(data.data)
     });
 
 
     //::::::::::::::: ::::::::::::::::::Activite avenir ::::::::::::::
-    this.service.GetActiviteAvenir(this.Utilisateur.id).subscribe(data=>{
+    this.service.GetActiviteAvenir(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
       this.activiteAvenir=data.data;
       console.log(data.data)
   });
@@ -71,8 +74,18 @@ image = 'https://www.decome-store.fr/27073-thickbox_pbm/mini-voiture-laferrari-p
       console.log(this.touteactivite)
     });
 
-    this.service.GetPersonnelTotal().subscribe(data=>{
+    this.service.GetParticipantTotal(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
       this.totlapostulant=data.data;
+      console.log(data)
+    });
+
+    this.service.participantEnfants(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+      this.participantEnfants=data.data.length;
+      console.log(data)
+    });
+
+    this.service.participantFeminins(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+      this.participantFeminins=data.data.length;
       console.log(data)
     });
 

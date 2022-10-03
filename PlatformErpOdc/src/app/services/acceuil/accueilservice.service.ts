@@ -31,18 +31,22 @@ export class AccueilserviceService {
   }
 
   // :::::::::::::::::::::::activites en cours
-  acour="http://localhost:8080/admin/activites/encour";
-  GetActiviteEncour(id:number):Observable<any>{
+  GetActiviteEncour(login:String, password:String):Observable<any>{
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
 
-    return this.http.get(`${this.acour}/${id}`);
+    return this.http.post(`${this.env.api}/activites/encour`, data);
+    //return this.http.get(`${this.acour}/${id}`);
   }
 
   // :::::::::::::::::::::::activites à venir :::::::::::::::::
-  avenir="http://localhost:8080/admin/activites/avenir";
-  GetActiviteAvenir(id:number):Observable<any>{
+  GetActiviteAvenir(login:String, password:String):Observable<any>{
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
 
-    return this.http.get(`${this.avenir}/${id}`);
-  }
+    return this.http.post(`${this.env.api}/activites/avenir`, data);  }
 
   //;:::::::::::::::::::TOTAL POSTULANT::::::::::::::::
   postActif ="http://localhost:8080/admin/getUsers/active";
@@ -67,6 +71,28 @@ export class AccueilserviceService {
     //return this.http.post(`${this.env.api}/admin/getUsers/active`, data);
 
     return this.http.post(`${this.env.api}/responsable/participants/All`,data);
+  }
+
+  participantFeminins(login :String, password:String):Observable<any>{
+
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+
+    //return this.http.post(`${this.env.api}/admin/getUsers/active`, data);
+
+    return this.http.post(`${this.env.api}/admin/partcipantfeminins`,data);
+  }
+
+  participantEnfants(login :String, password:String):Observable<any>{
+
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+
+    //return this.http.post(`${this.env.api}/admin/getUsers/active`, data);
+
+    return this.http.post(`${this.env.api}/admin/partcipantenfants`,data);
   }
   //;:::::::::::::::::::TOTAL ENTITE::::::::::::::::
   GetEntiteTotal():Observable<any>{

@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route, Router, RouterLink } from '@angular/router';
-import { SalleServiceService } from 'src/app/services/salles/salle-service.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SalleServiceService } from '../services/salles/salle-service.service';
+
 @Component({
-  selector: 'app-modifiersalle',
-  templateUrl: './modifiersalle.page.html',
-  styleUrls: ['./modifiersalle.page.scss'],
+  selector: 'app-modifier-salle',
+  templateUrl: './modifier-salle.page.html',
+  styleUrls: ['./modifier-salle.page.scss'],
 })
-export class ModifiersallePage implements OnInit {
+export class ModifierSallePage implements OnInit {
+
   id:number = 0;
   description:string = "rr";
   etage: string="1 etage";

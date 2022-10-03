@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { DetailactivityPageRoutingModule } from './detailactivity-routing.module';
 
 import { DetailactivityPage } from './detailactivity.page';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DetailactivityPageRoutingModule
+    DetailactivityPageRoutingModule,
+    NgxPaginationModule
   ],
   declarations: [DetailactivityPage]
 })

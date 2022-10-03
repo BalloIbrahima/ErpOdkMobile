@@ -104,22 +104,27 @@
   padding-top:10% ;
 }
 
-i{
+
+.icon1{
+  color: #50BE87;
   font-size: 35px;
 }
-
 .icon2{
   color: #50BE87;
+  font-size: 35px;
 }
 .icon3{
   color: #4BB4E6;
+  font-size: 35px;
 }
 
 .icon4{
   color: #FFD200;
+  font-size: 35px;
 }
 .icon5{
   color: #FF6200;
+  font-size: 35px;
 }
 
 .reporting{
@@ -164,10 +169,11 @@ i{
   margin-right: auto;
 }
 .btn:hover{
-  background-color: #FF6200;
-  color: white;
+  background-color: white !important;
+  color:  #FF6200 !important;
   font-weight: bold;
-  font-family:myfontLight ;
+  font-family: myfontLight;
+  border: 1px solid #FF6200 !important;
 }
 
 .img_activite_avenir{
@@ -278,7 +284,7 @@ h5{
 
 .AenCours{
   font-weight:700 ; 
-  font-size: 26Px; 
+  font-size: 26px; 
   font-family: myfontBlack;
   font-style: normal;
  margin-left:32% ;
@@ -298,31 +304,31 @@ h5{
 
 
 
-.circleblack {
-  height: 35px;
-  width: 35px;
-  border-radius: 50%;
-  background-color: black;
-  margin-bottom: 2px;
-}
+// .circleblack {
+//   height: 35px;
+//   width: 35px;
+//   border-radius: 50%;
+//   background-color: black;
+//   margin-bottom: 2px;
+// }
 
-.circlewhite {
-  height: 35px;
-  width: 35px;
-  border-radius: 50%;
-  border: 2px solid black;
-  background-color: rgb(255, 255, 255);
-  margin-bottom: 2px;
-}
+// .circlewhite {
+//   height: 35px;
+//   width: 35px;
+//   border-radius: 50%;
+//   border: 2px solid black;
+//   background-color: rgb(255, 255, 255);
+//   margin-bottom: 2px;
+// }
 
-.circleorange {
-  height: 35px;
-  width: 35px;
-  border-radius: 50%;
-  background-color: #FF6200;
-  margin-bottom: 2px;
+// .circleorange {
+//   height: 35px;
+//   width: 35px;
+//   border-radius: 50%;
+//   background-color: #FF6200;
+//   margin-bottom: 2px;
 
-}
+// }
 
 .image{
   width: 193px;
@@ -361,5 +367,8 @@ width:35px;
     padding-top: 10%;
     text-align: center;
 }
+
+}
+.buttonColor:hover{
 
 }

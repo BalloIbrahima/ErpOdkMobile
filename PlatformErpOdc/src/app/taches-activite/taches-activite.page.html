@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -8,12 +8,30 @@
           <ion-title class="ion-align-self-start">notification</ion-title>
         </ion-col>
         <ion-col size="1">
-          <ion-title tappable (click)="OpenNotification($event)" class="ion-align-sef-end"><div class="col"><i class="fa-regular fa-bell"></i></div></ion-title>
+          <ion-title  class="ion-align-sef-end"><div class="col"><i class="fa-regular fa-bell"></i></div></ion-title>
         </ion-col>
       </ion-row>
     </ion-grid>
   </ion-toolbar>
+</ion-header> -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Modifier salle</ion-title>
+    <ion-button slot="end" fill="clear">
+      <div tappable (click)="OpenNotification($event)" class="iconCloche">
+        <i class="fa-regular fa-bell"></i>
+      </div>
+    </ion-button>
+  </ion-toolbar>
 </ion-header>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+  integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
 <ion-content>
   <table class="table table-striped text-center">

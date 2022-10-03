@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import {Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ActiviteService } from '../services/activite/activite.service';
 import { SalleServiceService } from '../services/salles/salle-service.service';
 import { TypeActiviteService } from '../services/typeActivite/type-activite.service';
 import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
 
 @Component({
-  selector: 'app-creer-activite',
-  templateUrl: './creer-activite.page.html',
-  styleUrls: ['./creer-activite.page.scss'],
+  selector: 'app-creer-activites',
+  templateUrl: './creer-activites.page.html',
+  styleUrls: ['./creer-activites.page.scss'],
 })
-export class CreerActivitePage implements OnInit {
+export class CreerActivitesPage implements OnInit {
 
+  
   SallesDispo:any;
   Entites:any;
   UsersActives:any;

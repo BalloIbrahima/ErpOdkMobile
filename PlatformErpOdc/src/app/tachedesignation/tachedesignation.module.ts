@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { TachedesignationPageRoutingModule } from './tachedesignation-routing.module';
 
 import { TachedesignationPage } from './tachedesignation.page';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TachedesignationPageRoutingModule
+    TachedesignationPageRoutingModule,
+    NgxPaginationModule
   ],
   declarations: [TachedesignationPage]
 })

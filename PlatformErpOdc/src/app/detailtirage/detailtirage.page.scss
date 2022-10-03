@@ -1,0 +1,120 @@
+// @font-face {
+//   font-family: myfon1;
+//   src: url("../../assets/font/Poppins-Light.ttf");
+// }
+
+
+
+// .tailleTexte{
+//   font-family: myfon1 !important;
+//   font-size: 18px !important;
+// }
+// .tableEntete{
+//   background-color: #FF6200;
+//   color: white;
+//   font-size: 22px;
+//   font-weight: bold;
+// }
+
+// .voir{
+//   background-color: #FF6200;
+//   color: white;
+//   font-weight: bold;
+//   font-size: 20px;
+//   border-radius: 15px;
+// }
+
+
+// ion-row:nth-child(-n+3) {
+
+//   margin-bottom: 1px;
+// }
+// ion-row{
+//   border-bottom: black solid 1px  ;
+// }
+
+// ion-row:nth-child(even) {
+//   background-color: #F3F3F3;
+
+
+// }
+// @media screen and (max-width: 900px) {
+//   .tailleTexte{
+//     font-size: 12px;
+//   }
+// }
+
+
+// @media screen and (max-width: 800px) {
+//     .tailleTexte{
+//       font-size: 8px;
+//     }
+//     .cacherCole{
+//       display: none;
+//     }
+// }
+
+table{
+  margin-top: 50px;
+}
+
+td{
+  font-family: myfon2;
+}
+th{
+  font-family: myfon2;
+  color: #ffff !important;
+    font-weight: 600;
+}
+thead{
+  background-color: #FF7900;
+}
+.voirPlus{
+  background-color: #FF7900;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 15px;
+  color: #ffff;
+}
+@media screen and (max-width: 900px) {
+  .form-select{
+    font-size: medium;
+  }
+  .buttonColor{
+    font-size: medium;
+    text-align: center;
+  }
+  .hideColonneOder{
+    display: none;
+  }
+  th{
+    font-size: medium;
+
+  }
+  td{
+    font-size: small;
+  }
+  .stylePagination{
+    font-size: medium;
+  }
+
+}
+@media screen and (max-width: 450px) {
+  .buttonColor{
+    font-size: small;
+  }
+  .hideColonne{
+    display: none;
+  }
+  th{
+    font-size: medium;
+  }
+  td{
+    font-size: small;
+  }
+  .stylePagination{
+    font-size: small;
+  }
+
+}

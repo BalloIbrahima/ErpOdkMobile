@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
       <ion-buttons slot="start">
           <ion-menu-button></ion-menu-button>
@@ -19,16 +19,16 @@
       </div>
        
   </ion-toolbar>
-</ion-header> 
+</ion-header>  -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- 
+  
  <ion-content>
  
 <div class="container">
     <form action="#">
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <button type="button" class="btn-close"  (click)="modal.dismiss()" data-bs-dismiss="modal" aria-label="Close"></button>
       <div class="box">
         <h1>Modifier personnel</h1>
             <div class="ajout">
@@ -100,7 +100,7 @@
             </div>
       </div>
       <div class="button">
-        <input class="but" type="submit" value="Annuler">
+        <input class="but" type="submit" (click)="modal.dismiss()" value="Annuler">
         <input class="but" type="submit" value="Modifier">
       </div>
 
@@ -108,9 +108,10 @@
     </form>
 </div> 
 </ion-content>
--->
 
 
+
+<!-- 
 <ion-content class="ion-padding">
   <ion-button id="open-modal" expand="block">Open</ion-button>
   <p>{{ message }}</p>
@@ -135,4 +136,4 @@
       </ion-content>
     </ng-template>
   </ion-modal>
-</ion-content>
+</ion-content>  -->

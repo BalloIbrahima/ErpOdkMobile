@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { AccueilserviceService } from '../services/acceuil/accueilservice.service';
 import { EntiteService } from '../services/entite/entite.service';
 // import { NouvelleEntitePage } from '../nouvelle-entite/nouvelle-entite.page';
@@ -16,11 +16,13 @@ export class EntitePage implements OnInit {
   Utilisateur: any;
   donneEntite: any;
   libelleentite: any;
-  description:any;
-  imageentite:any;
-  toutUtilisateur:any;
-  responsableEntite:any;
-  constructor(private acceuilService: AccueilserviceService,private modalController: ModalController, private entiteService: EntiteService) { }
+  description: any;
+  imageentite: any;
+  toutUtilisateur: any;
+  responsableEntite: any;
+  lead: any;
+  donner:any
+  constructor(private alertController: AlertController,private acceuilService: AccueilserviceService, private modalController: ModalController, private entiteService: EntiteService) { }
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
   info = [
@@ -48,41 +50,59 @@ export class EntitePage implements OnInit {
     },
   ];
 
-  t
-  // async nouvelleent() {
-  //   const modal = await this.modalController.create({
-  //     component: NouvelleEntitePage,
-  //     componentProps: {
-  //       // eslint-disable-next-line @typescript-eslint/naming-convention
-  //       model_title: 'Nouvelle entite'
-  //     }
-  //   });
 
-  //   modal.onDidDismiss().then((modelData)=>{
-  //     if (modelData !== null) {
-  //       this.modelData = this.modelData.data;
-  //       console.log('Les donnés du Pop Up sont : ' + modelData.data);
-  //     }
-  //   });
-  //   return await modal.present();
-  // }
   ngOnInit() {
-    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'))
-    this.acceuilService.GetPersonnelActivTotal(this.Utilisateur.login, this.Utilisateur.password).subscribe(data =>{
-      this.toutUtilisateur = data;
+    this.Utilisateur = JSON.parse(localStorage.getItem('utilisateur'));
+    this.acceuilService.GetPersonnelActivTotal(this.Utilisateur.login, this.Utilisateur.password).subscribe(data => {
+      this.toutUtilisateur = data.data;
       
+      console.log(data.data[1].nom)
+
     })
-    console.log("Les different utilisateur"+this.Utilisateur)
-}
-recuperationImage(event: any) {
 
-  this.imageentite = event.target["files"][0];
-  console.log(this.imageentite)
-}
-postAllEntite(){
-  this.entiteService.PostEntite(this.Utilisateur.login, this.Utilisateur.password,this.imageentite, this.libelleentite,this.description, this.responsableEntite).subscribe(data =>{
+  }
+  recuperationImage(event: any) {
 
-  })
-}
+    this.imageentite = event.target["files"][0];
+    console.log(this.imageentite)
+  }
+  // methode permettant de creer une entite
+  postAllEntite() {
+    console.log(this.imageentite+" libelleentite : "+this.libelleentite+"description : "+this.description+"responsable : "+this.responsableEntite)
+    for(let i = 0; i< this.toutUtilisateur.length; i++){
+
+      const array=this.responsableEntite.split(' ')
+
+      if(this.toutUtilisateur[i].prenom==array[0] && this.toutUtilisateur[i].nom==array[1]){   
+        this.lead =this.toutUtilisateur[i]
+      }
+    }
+    this.entiteService.PostEntite(this.Utilisateur.login, this.Utilisateur.password, this.imageentite, this.libelleentite, this.description, this.Utilisateur, this.lead).subscribe(data => {
+      console.log(data);
+      this.donner = data
+    })
+    // this.presentAlert()
+  }
+
+
+  // methode permettant d'afficher le popup
+  // async presentAlert() {
+  //   const alert = await this.alertController.create({
+  //     header: 'Are you sure?',
+  //     cssClass: 'custom-alert',
+  //     buttons: [
+  //       {
+  //         text: 'No',
+  //         cssClass: 'alert-button-cancel',
+  //       },
+  //       {
+  //         text: 'Yes',
+  //         cssClass: 'alert-button-confirm',
+  //       },
+  //     ],
+  //   });
+
+  //   await alert.present();
+  // }
 
 }

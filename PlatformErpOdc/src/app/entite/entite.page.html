@@ -60,7 +60,7 @@
 
 
 
-  <ion-modal #modal trigger="open-modal">
+  <ion-modal #modal trigger="open-modal" backdropDismiss="false">
     <ng-template>
       <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-end">
         <!-- <ion-buttons slot="end">
@@ -75,25 +75,25 @@
           <div class="card-body text-start">
             <form>
               <div for="libelleEntite" class="">Nom entité *</div>
-              <input type="text" name="libelleentite" [(ngModel)]="libelleentite" class="form-control" id="libelleEntite"
-                placeholder="Orange digital kalanso">
+              <input type="text" name="libelleentite" [(ngModel)]="libelleentite" class="form-control"
+                id="libelleEntite" placeholder="Orange digital kalanso">
               <div for="responsableEntite" class="">Responsable de l'entité *</div>
               <select class="form-select form-select-sm" name="responsableEntite" [(ngModel)]="responsableEntite">
                 <option selected>--selectionner un responsable</option>
-                <option *ngFor="let user of toutUtilisateur ">{{user}}</option>
-                
+                <option *ngFor="let user of toutUtilisateur ">{{user.prenom}} {{user.nom}}</option>
+
               </select>
               <div for="imageEntite" class="">Image entite *</div>
-              <input type="file" (change)="recuperationImage($event)" class="form-control" id="imageEntite" placeholder="selectionner une image">
+              <input type="file" (change)="recuperationImage($event)" class="form-control" id="imageEntite"
+                placeholder="selectionner une image">
 
-              <div for="description" class="" >Description de l'entité *</div>
-              <textarea class="form-control" id="description" [(ngModel)]="description" rows="3"></textarea>
+              <div for="description" class="">Description de l'entité *</div>
+              <textarea class="form-control" id="description" name="description" [(ngModel)]="description"
+                rows="3"></textarea>
               <div class="d-grid gap-2 col-6 text-center mx-auto mt-2">
-                <button type="button" class="btn colorbutton2 btn-sm">Enregistrer</button>
+                <button type="button" class="btn colorbutton2 btn-sm" id="open-modal1" (click)="postAllEntite()">Enregistrer</button>
               </div>
-
             </form>
-
           </div>
         </div>
       </div>
@@ -101,3 +101,18 @@
 
     </ng-template>
   </ion-modal>
+<!-- 
+  <ion-modal #modal trigger="open-modal1">
+    <ng-template>
+      <div class="container">
+        
+        <div class="card">
+          <div class="card-body text-start" *ngIf="data.message == OK">
+            <h5 class="card-title text-center">ENTITE CREER AVEC SUCCES</h5>
+          </div>
+          <div class="card-body text-start" *ngIf="data.message != OK">
+            <h5 class="card-title text-center">ERREUR LORS DE CREATION DE L'ENTITE</h5>
+          </div>
+        </div>
+    </ng-template>
+  </ion-modal> -->

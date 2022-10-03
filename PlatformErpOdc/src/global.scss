@@ -58,10 +58,7 @@ ion-popover {
         --border-radius: 15px;
     
   }
-  
-  ion-popover::part(backdrop) {
-    --background-color: rgb(0, 0, 0);
-  }
+
 @media screen and (max-width: 600px) {
     ion-title{
         font-family: myfon;

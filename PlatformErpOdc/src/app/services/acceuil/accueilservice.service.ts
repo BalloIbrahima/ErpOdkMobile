@@ -36,7 +36,7 @@ export class AccueilserviceService {
     const user=[{"login":login,"password":password}]
     data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
 
-    return this.http.post(`${this.env.api}/activites/encour`, data);
+    return this.http.post(`${this.env.api}/admin/activites/encour`, data);
     //return this.http.get(`${this.acour}/${id}`);
   }
 
@@ -46,10 +46,10 @@ export class AccueilserviceService {
     const user=[{"login":login,"password":password}]
     data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
 
-    return this.http.post(`${this.env.api}/activites/avenir`, data);  }
+    return this.http.post(`${this.env.api}/admin/activites/avenir`, data);  }
 
   //;:::::::::::::::::::TOTAL POSTULANT::::::::::::::::
-  postActif ="http://localhost:8080/admin/getUsers/active";
+
   GetPersonnelActivTotal(login :String, password:String):Observable<any>{
 
     const data:FormData=new FormData();

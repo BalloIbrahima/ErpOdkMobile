@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: myfontLight;
 
@@ -36,12 +35,11 @@ display: none;
   .side_droite{
     margin-left: 1%;
   }
-  @media screen and (max-width: 512px) {
-    .side_droite{
-      margin-left: 1%;
-    }
-   
-  }
+
+  
+
+ 
+}
 
 @media screen and (max-width: 420px) {
   .AenCours{
@@ -55,17 +53,14 @@ display: none;
   }
 }
 
-  @media screen and (max-width: 420px) {
-    .AenCours{
-      font-weight:700 ; 
-      font-size: 26Px; 
-      font-family: myfontBlack;
-      font-style: normal;
-     margin-left:20% !important ;
-     margin-bottom: 20px;
-        
-    }
-  }
+
+.side_gauche{
+background-color:white;
+border-radius: 15px;
+// margin: auto;
+height: 100%;
+margin-left: 3%;
+padding: 20px;
 
 }
 
@@ -108,27 +103,22 @@ font-style: normal;
 padding-top:10% ;
 }
 
-
-.icon1{
-  color: #50BE87;
-  font-size: 35px;
+i{
+font-size: 35px;
 }
+
 .icon2{
-  color: #50BE87;
-  font-size: 35px;
+color: #50BE87;
 }
 .icon3{
-  color: #4BB4E6;
-  font-size: 35px;
+color: #4BB4E6;
 }
 
 .icon4{
-  color: #FFD200;
-  font-size: 35px;
+color: #FFD200;
 }
 .icon5{
-  color: #FF6200;
-  font-size: 35px;
+color: #FF6200;
 }
 
 .reporting{
@@ -173,18 +163,15 @@ margin-left: auto;
 margin-right: auto;
 }
 .btn:hover{
-  background-color: white !important;
-  color:  #FF6200 !important;
-  font-weight: bold;
-  font-family: myfontLight;
-  border: 1px solid #FF6200 !important;
+background-color: #FF6200;
+color: white;
+font-weight: bold;
+font-family:myfontLight ;
 }
 
 .img_activite_avenir{
-    clip-path: ellipse(50% 50%);
-//   border-radius: 50%;
-  width:30px
-  
+border-radius: 50%;
+width:30px
 }
 
 .nom_activite{
@@ -199,10 +186,12 @@ justify-content: space-evenly;
 
 
 .carousel-item{
-  height: 15rem;
-  background: #777;
-  position:relative;
-  color: white;
+height: 15rem;
+background: #777;
+position:relative;
+color: white;
+
+
 
 } 
 
@@ -287,12 +276,12 @@ padding-left:10px ;
 }
 
 .AenCours{
-  font-weight:700 ; 
-  font-size: 26px; 
-  font-family: myfontBlack;
-  font-style: normal;
- margin-left:32% ;
- margin-bottom: 20px;
+font-weight:700 ; 
+font-size: 26Px; 
+font-family: myfontBlack;
+font-style: normal;
+margin-left:32% ;
+margin-bottom: 20px;
 
 
 }
@@ -308,31 +297,31 @@ font-family: myfontBlack;
 
 
 
-// .circleblack {
-//   height: 35px;
-//   width: 35px;
-//   border-radius: 50%;
-//   background-color: black;
-//   margin-bottom: 2px;
-// }
+.circleblack {
+height: 35px;
+width: 35px;
+border-radius: 50%;
+background-color: black;
+margin-bottom: 2px;
+}
 
-// .circlewhite {
-//   height: 35px;
-//   width: 35px;
-//   border-radius: 50%;
-//   border: 2px solid black;
-//   background-color: rgb(255, 255, 255);
-//   margin-bottom: 2px;
-// }
+.circlewhite {
+height: 35px;
+width: 35px;
+border-radius: 50%;
+border: 2px solid black;
+background-color: rgb(255, 255, 255);
+margin-bottom: 2px;
+}
 
-// .circleorange {
-//   height: 35px;
-//   width: 35px;
-//   border-radius: 50%;
-//   background-color: #FF6200;
-//   margin-bottom: 2px;
+.circleorange {
+height: 35px;
+width: 35px;
+border-radius: 50%;
+background-color: #FF6200;
+margin-bottom: 2px;
 
-// }
+}
 
 .image{
 width: 193px;
@@ -343,40 +332,10 @@ font-size: 12px;
 font-weight: bold;
 }
 .Date{
-  font-size: 10px;
-  font-weight: bold;
+font-size: 10px;
+font-weight: bold;
 }
 
-.profil_img{
-clip-path: ellipse(33% 50%);
-width:35px;
-}
-@media screen and (max-width:600px){
-  .AenCours {
-    font-weight: 700;
-    font-size: larger !important;
-    font-family: myfontBlack;
-    font-style: normal;
-    margin-left: 32%;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  .titre_inf {
-      font-weight: 700;
-      font-size: larger;
-      font-family: myfontBlack;
-      font-style: normal;
-      padding-top: 10%;
-      text-align: center;
-  }
-
-}
-
-.lblAucune{
-  display: flex;
-    justify-content: center;
-    font-size: 25px;
-    position: relative;
-    top: 50%;
-
-}
+// .divAvecbg{
+//   background-repeat: no-repeat;   background-position: center; background-size: cover; border-radius: 10px;
+// }

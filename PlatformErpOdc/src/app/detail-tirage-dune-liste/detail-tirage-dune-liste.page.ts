@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class DetailTirageDuneListePage implements OnInit {
 
   p: number=1;
+  searchText:any;
 
   students =[
     {

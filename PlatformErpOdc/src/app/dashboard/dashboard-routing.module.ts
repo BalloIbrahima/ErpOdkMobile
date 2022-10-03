@@ -10,9 +10,18 @@ const routes: Routes = [
     children:[
       {
         path: '',
-        redirectTo: 'allactivity',
+        redirectTo: 'accueil',
         pathMatch: 'full'
       },
+      {
+        path: 'profil',
+        loadChildren: () => import('../profil/profil.module').then( m => m.ProfilPageModule)
+      },
+      {
+        path: 'salle',
+        loadChildren: () => import('../salle/salle.module').then( m => m.SallePageModule)
+      },
+  
       {
         path: 'home',
         loadChildren: () => import('../home/home.module').then( m => m.HomePageModule)
@@ -104,10 +113,10 @@ const routes: Routes = [
       path: 'ajouter-role',
       loadChildren: () => import('../ajouter-role/ajouter-role.module').then( m => m.AjouterRolePageModule)
     },
-    {
-      path: 'activite',
-      loadChildren: () => import('../allactivity/allactivity.module').then( m => m.AllactivityPageModule)
-    },
+    // {
+    //   path: 'allactivity',
+    //   loadChildren: () => import('../allactivity/allactivity.module').then( m => m.AllactivityPageModule)
+    // },
 
 
       { path: '**', redirectTo:'accueil',pathMatch:'full'}

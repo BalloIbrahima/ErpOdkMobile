@@ -30,8 +30,16 @@
                 "output": "./svg"
               }
             ],
-            "styles": ["src/theme/variables.scss", "src/global.scss"],
-            "scripts": [],
+
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/theme/variables.scss",
+              "src/global.scss"
+            ],
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/jquery/dist/jquery.min.js"
+            ],
             "aot": false,
             "vendorChunk": true,
             "extractLicenses": false,
@@ -159,4 +167,5 @@
       "styleext": "scss"
     }
   }
+  
 }

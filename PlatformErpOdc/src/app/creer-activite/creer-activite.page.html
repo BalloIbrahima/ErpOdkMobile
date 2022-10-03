@@ -1,0 +1,89 @@
+<ion-header>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <div class="row">
+            <div class="col">
+                <ion-title style="color: #FF7900;margin-top:7px; margin-left: 10px;">Creer une Activité</ion-title>
+            </div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col" style="width: 100%; color:#FF7900; font-size: 30px;"><i class="fa-regular fa-bell"></i></div>
+        </div>
+    </ion-toolbar>
+   
+</ion-header>
+
+<ion-content>
+    <div class="container">
+        <form action="#">
+            <div class="box">
+                <h1>Nouvelle Activité</h1>
+                <div class="activite-details">
+                    <div class="input-box">
+                        <span class="details">Entité *</span>
+                        <select name="typeentite" class="select" required>
+                        <option value="">Choisisez une entité</option>
+                    </select>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Responsable de l'activité *</span>
+                        <select name="activiteattribuer" class="select" required>
+                        <option value="">Choisisez une personne</option>
+                    </select>
+                    </div>
+                    <div class="input-box ">
+                        <span class="details">Type d'activité *</span>
+                        <select name="typeactivite" class="select" required>
+                        <option value="">Choisisez le type de l'activité</option>
+                    </select>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Le nom du lead de l'activité *</span>
+                        <select name="choixlead" class="select" required>
+                        <option value="">Choisisez un lead</option>
+                    </select>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Ajouter image *</span>
+                        <input type="file" placeholder="Logo.jpg" id="logo" name="logo" accept="image/png, image/jpeg, image/jpg" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Date debut *</span>
+                        <input type="datetime-local" placeholder="Choisisez la date de debut" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Donner un nom à l'activité *</span>
+                        <input type="text" placeholder="Nom de l'activité" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Date fin *</span>
+                        <input type="datetime-local" placeholder="Choisisez la date de fin" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details"> Description</span>
+
+                        <textarea name="details" id="details" rows="3" cols="28" placeholder="Donner une description de l'activité"></textarea>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Salle dedié à l'activité</span>
+                        <select name="tchoixsalle" class="select">
+                        <option value="">Choisisez parmis les salles dispo</option>
+                    </select>
+                    </div>
+                </div>
+            </div>
+            <div class="button">
+                
+                <input class="but" type="submit" value="Créer l'activté">
+            </div>
+        </form>
+
+    </div>
+
+</ion-content>

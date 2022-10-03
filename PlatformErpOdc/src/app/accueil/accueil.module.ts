@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { AccueilPageRoutingModule } from './accueil-routing.module';
 
 import { AccueilPage } from './accueil.page';
+import { ClocheComponent } from '../cloche/cloche.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { AccueilPage } from './accueil.page';
     IonicModule,
     AccueilPageRoutingModule
   ],
-  declarations: [AccueilPage]
+  declarations: [AccueilPage, ClocheComponent]
 })
 export class AccueilPageModule {}

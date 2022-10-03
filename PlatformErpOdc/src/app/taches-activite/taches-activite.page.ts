@@ -74,14 +74,5 @@ export class TachesActivitePage implements OnInit {
   ngOnInit() {
     
   }
-  async OpenNotification(id){
-    // this.router.navigate((['tabs',"message",id]));
-    const popover = await this.popoverCtrl.create({
-      component:PopupNotificationPage,
-      event:id,
-      cssClass:"notif-popup"
-    });
-    await popover.present()
-}
-
+  
 }

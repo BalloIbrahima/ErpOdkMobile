@@ -8,6 +8,7 @@ import { DetailsEntitePageRoutingModule } from './details-entite-routing.module'
 
 import { DetailsEntitePage } from './details-entite.page';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ClocheComponent } from '../cloche/cloche.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     DetailsEntitePageRoutingModule,
     NgxPaginationModule
   ],
-  declarations: [DetailsEntitePage]
+  declarations: [DetailsEntitePage, ClocheComponent]
 })
 export class DetailsEntitePageModule {}

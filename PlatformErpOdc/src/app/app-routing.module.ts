@@ -1,8 +1,7 @@
+
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AcceuilGuard } from './guard/acceuil/acceuil.guard';
-import { ProfilPageModule } from './profil/profil.module';
-import { ProfilPage } from './profil/profil.page';
 
 const routes: Routes = [
   {
@@ -18,25 +17,20 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule),
-    // canActivate: [AcceuilGuard] 
+    canActivate: [AcceuilGuard] 
   },
   {
-
     path: 'forgotpassword',
     loadChildren: () => import('./forgotpassword/forgotpassword.module').then( m => m.ForgotpasswordPageModule)
   },
   {
-    path: 'creer-activites',
-    loadChildren: () => import('./creer-activites/creer-activites.module').then( m => m.CreerActivitesPageModule)
+    path: 'forgotpassword1',
+    loadChildren: () => import('./forgetpassword1/forgetpassword1.module').then( m => m.Forgetpassword1PageModule)
   },
-  {
-    path: 'modifier-salle',
-    loadChildren: () => import('./modifier-salle/modifier-salle.module').then( m => m.ModifierSallePageModule)
-  }
-
 
 
 ];
+
 
 @NgModule({
   imports: [
@@ -45,3 +39,34 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+// import { NgModule } from '@angular/core';
+// import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+
+// const routes: Routes = [
+//   {
+//     path: 'home',
+//     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+//   },
+//   {
+//     path: '',
+//     redirectTo: 'home',
+//     pathMatch: 'full'
+//   },
+//   {
+//     path: 'login',
+//     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+//   },
+//   {
+//     path: 'activite',
+//     loadChildren: () => import('./activite/activite.module').then( m => m.ActivitePageModule)
+//   },
+
+// ];
+
+// @NgModule({
+//   imports: [
+//     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+//   ],
+//   exports: [RouterModule]
+// })
+

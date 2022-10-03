@@ -18,12 +18,22 @@ ion-content {
 
 h1 {
     font-family: 'Poppins', sans-serif;
+<<<<<<< HEAD
+<<<<<<< HEAD:PlatformErpOdc/src/app/creer-activite/creer-activite.page.scss
     margin: 2px;
+=======
+    margin: 15px;
+>>>>>>> ecdf15815f04f572f8ef42c088fb51d14b144ad0:PlatformErpOdc/src/app/ajouterpersonnel/ajouterpersonnel.page.scss
+=======
+    margin: 2px;
+>>>>>>> 3d64af74cafa8cd86ffd8b06febef39fbb4a7ed6
     font-size: 32px;
     font-weight: bold;
     text-align: center;
     padding: 3px 6px;
     position: absolute;
+<<<<<<< HEAD
+<<<<<<< HEAD:PlatformErpOdc/src/app/creer-activite/creer-activite.page.scss
     top: 7%;
     background-color: #FFF;
     color: #000;
@@ -38,6 +48,33 @@ h1 {
     border: #000 3px solid;
     margin: 20px auto;
     
+=======
+    top: 10%;
+=======
+    top: 7%;
+>>>>>>> 3d64af74cafa8cd86ffd8b06febef39fbb4a7ed6
+    background-color: #FFF;
+    color: #000;
+    left: 50%;
+    transform: translate(-50%, -50%);
+>>>>>>> ecdf15815f04f572f8ef42c088fb51d14b144ad0:PlatformErpOdc/src/app/ajouterpersonnel/ajouterpersonnel.page.scss
+}
+
+.box {
+    width: 100%;
+    padding: 25px 30px;
+    border-radius: 15px;
+<<<<<<< HEAD
+    background: #fff;
+<<<<<<< HEAD:PlatformErpOdc/src/app/creer-activite/creer-activite.page.scss
+    margin: auto;
+=======
+    // border: #000 3px solid;
+=======
+    border: #000 3px solid;
+>>>>>>> 3d64af74cafa8cd86ffd8b06febef39fbb4a7ed6
+    margin: 20px auto;
+    
 }
 
 
@@ -46,8 +83,14 @@ h1 {
     width: 100%;
     padding: 25px 30px;
     border-radius: 15px;
+<<<<<<< HEAD
+    border: #000 3px solid;
+    margin: 20px auto;
+>>>>>>> ecdf15815f04f572f8ef42c088fb51d14b144ad0:PlatformErpOdc/src/app/ajouterpersonnel/ajouterpersonnel.page.scss
+=======
     background: #fff;
     margin: auto;
+>>>>>>> 3d64af74cafa8cd86ffd8b06febef39fbb4a7ed6
 }
 
 input {
@@ -86,7 +129,15 @@ form .ajout .input-box {
     border-radius: 15px;
 }
 
+<<<<<<< HEAD
+<<<<<<< HEAD:PlatformErpOdc/src/app/creer-activite/creer-activite.page.scss
 .activite-details .input-box input {
+=======
+.ajout .input-box input {
+>>>>>>> ecdf15815f04f572f8ef42c088fb51d14b144ad0:PlatformErpOdc/src/app/ajouterpersonnel/ajouterpersonnel.page.scss
+=======
+.activite-details .input-box input {
+>>>>>>> 3d64af74cafa8cd86ffd8b06febef39fbb4a7ed6
     outline: none;
     height: 40px;
     width: 100%;
@@ -154,7 +205,16 @@ textarea {
         margin-bottom: 15px;
         width: 100%;
     }
+<<<<<<< HEAD
+<<<<<<< HEAD:PlatformErpOdc/src/app/creer-activite/creer-activite.page.scss
     .container form .activite-details {
+=======
+    .container form .ajout {
+        max-height: 300px;
+>>>>>>> ecdf15815f04f572f8ef42c088fb51d14b144ad0:PlatformErpOdc/src/app/ajouterpersonnel/ajouterpersonnel.page.scss
+=======
+    .container form .activite-details {
+>>>>>>> 3d64af74cafa8cd86ffd8b06febef39fbb4a7ed6
         overflow-y: scroll;
     }
     h1 {
@@ -164,10 +224,15 @@ textarea {
     .ajout::-webkit-scrollbar {
         width: 0;
     }
+<<<<<<< HEAD
+<<<<<<< HEAD:PlatformErpOdc/src/app/creer-activite/creer-activite.page.scss
+=======
+>>>>>>> 3d64af74cafa8cd86ffd8b06febef39fbb4a7ed6
 
     form .button {
         padding: 5%;
         width: 100%;
+<<<<<<< HEAD
     }
     
     .title{
@@ -189,4 +254,36 @@ textarea {
         color: #FFFF;
         width: 100%;
     }
+=======
+}
+@media (max-width: 584px) {
+    h1{
+        top: 9%;
+        left: 45%;
+    }
+    
+>>>>>>> ecdf15815f04f572f8ef42c088fb51d14b144ad0:PlatformErpOdc/src/app/ajouterpersonnel/ajouterpersonnel.page.scss
+=======
+    }
+    
+    .title{
+        margin-top: 5%;
+    }
+    input[type=submit] {
+        border-radius: 10px;
+        padding: 7px 10px;
+        background-color: #FF7900;
+        color: #FFFF;
+        margin-bottom: 3%;
+        width: 100%;
+    }
+    
+    input[type=reset] {
+        border-radius: 5px;
+        padding: 7px 10px;
+        background-color: #FF7900;
+        color: #FFFF;
+        width: 100%;
+    }
+>>>>>>> 3d64af74cafa8cd86ffd8b06febef39fbb4a7ed6
 }

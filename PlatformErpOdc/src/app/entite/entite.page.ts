@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { EntiteService } from '../services/entite/entite.service';
 // import { NouvelleEntitePage } from '../nouvelle-entite/nouvelle-entite.page';
 
 @Component({
@@ -10,7 +11,13 @@ import { ModalController } from '@ionic/angular';
 
 export class EntitePage implements OnInit {
   modelData: any;
-  constructor(private modalController: ModalController) { }
+
+  Utilisateur: any;
+  donneEntite: any;
+  libelleentite: any;
+  description:any;
+  imageentite:any;
+  constructor(private modalController: ModalController, private entiteService: EntiteService) { }
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
   info = [
@@ -38,6 +45,7 @@ export class EntitePage implements OnInit {
     },
   ];
 
+  t
   // async nouvelleent() {
   //   const modal = await this.modalController.create({
   //     component: NouvelleEntitePage,
@@ -56,6 +64,17 @@ export class EntitePage implements OnInit {
   //   return await modal.present();
   // }
   ngOnInit() {
-  }
+    this.Utilisateur = JSON.parse(localStorage.getItem('utilisateur'));
+}
+recuperationImage(event: any) {
+
+  this.imageentite = event.target["files"][0];
+  console.log(this.imageentite)
+}
+postAllEntite(){
+  this.entiteService.PostEntite(this.Utilisateur.login, this.Utilisateur.password,this.imageentite, this.libelleentite,this.description).subscribe(data =>{
+
+  })
+}
 
 }

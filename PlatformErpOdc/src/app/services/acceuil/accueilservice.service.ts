@@ -1,28 +1,33 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class AccueilserviceService {
+  env=environment;
 
-  constructor(private http:HttpClient) { }
+  constructor(public http:HttpClient) { }
 
-  url="http://localhost:8080/utilisateur/totalactivite";
+  
+  GetActviteTotal(login:String, password:String):Observable<any>{
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
 
-  GetActviteTotal(login :String, password:String):Observable<any>{
-
-    return this.http.get(`${this.url}/${login}/${password}`);
+    return this.http.post(`${this.env.api}/utilisateur/totalactivite`, data);
   }
 
   //toutes les activites ::::::::::::
 
-  
-  urlTOUT="http://localhost:8080/utilisateur/ToutActivite";
+  GetToutesActivites(login:String, password:String):Observable<any>{
 
-  GetToutesActivites(id :number):Observable<any>{
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
 
-    return this.http.get(`${this.urlTOUT}/${id}`);
+    return this.http.post(`${this.env.api}/utilisateur/totalactivite`, data);
   }
 
   // :::::::::::::::::::::::activites en cours
@@ -43,17 +48,26 @@ export class AccueilserviceService {
   postActif ="http://localhost:8080/admin/getUsers/active";
   GetPersonnelActivTotal(login :String, password:String):Observable<any>{
 
-    return this.http.get(`${this.postActif}/${login}/${password}`);}
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+
+    return this.http.post(`${this.env.api}/admin/getUsers/active`, data);
+  }
 
 
 
   //;:::::::::::::::::::TOTAL POSTULANT::::::::::::::::
-  GetPersonnelTotal():Observable<any>{
+  GetParticipantTotal(login :String, password:String):Observable<any>{
 
-    return this.http.get("http://localhost:8080/admin/totalpersonnel");
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+
+    //return this.http.post(`${this.env.api}/admin/getUsers/active`, data);
+
+    return this.http.post(`${this.env.api}/responsable/participants/All`,data);
   }
-
-
   //;:::::::::::::::::::TOTAL ENTITE::::::::::::::::
   GetEntiteTotal():Observable<any>{
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { EntiteService } from '../services/entite/entite.service';
 // import { NouvelleEntitePage } from '../nouvelle-entite/nouvelle-entite.page';
 
 @Component({
@@ -10,8 +11,8 @@ import { ModalController } from '@ionic/angular';
 
 export class EntitePage implements OnInit {
   modelData: any;
-  constructor(private modalController: ModalController) { }
-
+  constructor(private modalController: ModalController, private entiteService:EntiteService) { }
+  longueur:any
   // eslint-disable-next-line @typescript-eslint/member-ordering
   info = [
     {
@@ -38,6 +39,8 @@ export class EntitePage implements OnInit {
     },
   ];
 
+  
+
   // async nouvelleent() {
   //   const modal = await this.modalController.create({
   //     component: NouvelleEntitePage,
@@ -55,7 +58,18 @@ export class EntitePage implements OnInit {
   //   });
   //   return await modal.present();
   // }
+  Utilisateur:any;
+  entites:any;
   ngOnInit() {
+    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
+
+    this.entiteService.getAllEntites(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+      if(data.message=='ok'){
+        this.entites=data
+        this.longueur=data.data.length
+        console.log(data.data.length)
+      }
+    })
   }
 
 }

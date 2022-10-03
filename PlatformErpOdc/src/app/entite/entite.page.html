@@ -47,19 +47,25 @@
       
     </div>
   </div>
-  <div id="flex-container" class="testimonials">
+  <div *ngIf="longueur==0" id="flex-container" class="testimonials">
+    <div class="container-fluid mere" style="height: 100%;">
+      <ion-label class="lblAucune">  Aucune activite 
+      </ion-label>
+    </div>
+  </div>
+  <div *ngIf="longueur!=0" id="flex-container" class="testimonials">
     <div id="left-zone">
       <ul class="list item1">
 
-        <li class="item" *ngFor="let inf of info">
+        <li class="item" *ngFor="let inf of entites">
           <input type="radio" id="{{inf.entite}}" name="basic_carousel" checked />
           <label class="label_testimonial" class="{{inf.entite}}" for="{{inf.entite}}">{{inf.entite}}</label>
           <div class="content-test content_testimonial">
-            <img width="100"  src={{inf.imag}} alt="">
-            <h1>{{inf.entite}}</h1>
-            <p class="desc">{{inf.descrription}}</p>
-            <p class="testimonialFrom hideInfo">{{inf.status}}</p>
-            <p class="testimonialState hideInfo"> {{inf.nom}} </p>
+            <img width="100"  src={{inf.image}} alt="">
+            <h1>{{inf.libelleentite}</h1>
+            <p class="desc">{{inf.description}}</p>
+            <p class="testimonialFrom hideInfo">Gerant</p>
+            <p class="testimonialState hideInfo">{{inf.gerant.prenom}} {{inf.gerant.nom}} </p>
             <p class="testimonialState"><button class="btn button" routerLink="/dashboard/details-entite">Voir+</button></p>
           </div>
         </li>

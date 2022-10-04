@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Detail tirages</ion-title>
+    <ion-button slot="end" fill="clear">
+      <app-cloche></app-cloche>
+
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    
+      <div class="searchBar">
+        <div class="InputSearch">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill=" #FF7900" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+              </svg>
+            <input type="text" name="motCle" id="motCle" placeholder="Recherche liste" > <!-- [(ngModel)]="searchText" -->
+        </div>
+      
+    </div>
+
+   
+    <table class="table table-striped text-center">
+      <thead>
+        <tr>
+          <th scope="col">N°</th>
+          <th scope="col">Libelle</th>
+          <th scope="col" class="hideColonne hideColonneOder">Date</th>
+          <th scope="col">Nombre postulant tiré</th>
+          <th scope="col" class="hideColonne hideColonneOder">Etat</th>
+          <th scope="col" class="hideColonne">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let table of students | paginate: { itemsPerPage: 10, currentPage: p}">
+          <td> {{table.numero}} </td>
+          <td> {{table.libelle}} </td>
+          <td class="hideColonne hideColonneOder"> {{table.date}} </td>
+          <td> {{table.nbr}} </td>
+          <td class="hideColonne hideColonneOder"> {{table.etat}} </td>
+          <td class="hideColonne"> <span class="voirPlus">voir <ion-icon name="add-outline"></ion-icon></span> </td>
+        </tr>
+        <pagination-controls (pageChange)=" p = $event"> </pagination-controls>
+      </tbody>
+  
+    </table>
+  </div>
+</ion-content>

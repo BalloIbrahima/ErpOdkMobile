@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SalleServiceService {
+  env=environment;
 
   constructor(private http:HttpClient) { }
 
@@ -75,17 +77,25 @@ ModifSalle(id:number,libelle:String,description:string,
      
     }
       return this.http.post(`http://localhost:8080/admin/create/entite`,entite);
-    }
+  }
 
-    // tout entite ::::::::::::::::::::
-    ToutEntite(): Observable<any>{
-        return this.http.get(`http://localhost:8080/admin/getAll/entite`);
-      }
 
-      
+  getSalleDisponible(login:String,password:String): Observable<any>{
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
 
-      SalleDisponible(login:String,password:String): Observable<any>{
-        return this.http.get(`http://localhost:8080/admin/SalleDisponible/${login}/${password}`);
-      }
+    return this.http.post(`${this.env.api}/admin/SalleDisponible`, data);
+    //return this.http.get(`http://localhost:8080/admin/SalleDisponible/${login}/${password}`);
+  }
+
+  getSallesIndispo(login:String, password:String):Observable<any>{
+
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+
+    return this.http.post(`${this.env.api}/admin/SalleInDisponiblee`, data);
+  }
 }
 

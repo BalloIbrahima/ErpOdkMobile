@@ -13,6 +13,7 @@ export class AllactivityPage implements OnInit {
   p:number = 1;
   touteactivite:any;
   Utilisateur:any;
+  longueur:any;
   constructor(private route:ActivatedRoute,private router: Router,private service:ActiviteService) { }
   allactivites=[
     {
@@ -68,7 +69,9 @@ export class AllactivityPage implements OnInit {
 
     this.service.GetTtActivite(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
       this.touteactivite=data.data;
-      console.log(data.data)
+      this.longueur=data.data.length
+
+      console.log(data)
     });
   }
 

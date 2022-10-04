@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActiviteService } from '../services/activite/activite.service';
+import { EntiteService } from '../services/entite/entite.service';
 import { SalleServiceService } from '../services/salles/salle-service.service';
 import { TypeActiviteService } from '../services/typeActivite/type-activite.service';
 import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
@@ -49,19 +50,18 @@ export class CreerActivitesPage implements OnInit {
   fg:FormGroup;
   constructor(private router:Router, private salleService:SalleServiceService,private userService:UtilisateurService,private typeActiviteService:TypeActiviteService,
     private activiteService:ActiviteService, private http:HttpClient,
-    private formB:FormBuilder) { }
-
+    private formB:FormBuilder,private entiteService:EntiteService) { }
+ 
   ngOnInit() {
-    
-    
+    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'))
 
-     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) 
      console.log("recuperation de l'utilisateur "+this.Utilisateur)
-    this.ActiviteChange()
-    this.salleService.getAllDispo().subscribe(data=>{
-      
-        this.SallesDispo=data
-        console.log(data)
+
+      this.ActiviteChange()
+     
+      this.salleService.getSalleDisponible(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+        this.SallesDispo=data.data
+        console.log("recuperation salles "+data.message)
       
     })
 
@@ -73,7 +73,7 @@ export class CreerActivitesPage implements OnInit {
       }
     })
 
-    this.userService.getActivesUsers().subscribe(data=>{
+    this.userService.getActivesUsers(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
       if(data.message=='ok'){
         this.UsersActives=data.data
         console.log(this.UsersActives)
@@ -82,7 +82,7 @@ export class CreerActivitesPage implements OnInit {
     })
 
    
-    this.salleService.ToutEntite().subscribe(data=>{
+    this.entiteService.getAllEntites(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
       if(data.message=='ok'){
         this.Entites=data.data
         console.log(this.Entites)

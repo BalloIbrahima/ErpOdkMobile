@@ -47,19 +47,25 @@ etage: string,nombre: number, userid:any): Observable<any>{
   
 // //::::::::::Modif de salle :::::::::::::::::::::::
 
-ModifSalle(id:number,libelle:String,description:string,
-  etage: string,nombre: number, disponibilite:any): Observable<any>{
+ModifSalle(login:String,password:String,id:number,libelle:String,description:string,
+  etage: string,nombre: number, userid:any): Observable<any>{
   
-    var salle={
-      "id":id,
-      "libelle":libelle,
-      'description':description,
-      "etage":etage,
-      "nombreplace":nombre,
-      "disponibilite":disponibilite
+    const data:FormData=new FormData();
+  const user=[{"login":login,"password":password}]
 
-    }
-    return this.http.put(`${this.env.api}/salle/modifiersalle/{id}`,salle);
+    var salle=[{ 
+      "id":id,
+    "libelle":libelle,
+    'description':description,
+    "etage":etage,
+    "nombreplace":nombre
+  }]
+
+  data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+  data.append('salle', JSON.stringify(salle).slice(1,JSON.stringify(salle).lastIndexOf(']')));
+
+    
+    return this.http.post(`${this.env.api}/salle/modifiersalle/{id}`,salle);
   }
 
   //recuperer salles disponibles

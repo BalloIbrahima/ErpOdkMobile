@@ -24,6 +24,14 @@ display: none;
 .side_droite{
   margin-left: 3%;
 }
+ion-button:hover{
+    background-color: #FF7900;
+    border-radius: 15px;
+}
+
+
+
+
 
 @media screen and (max-width: 990px) {
   .side_droite{
@@ -347,4 +355,8 @@ font-weight: bold;
     position: relative;
     top: 50%;
 
+}
+.fa-plus-circle:before {
+ 
+  color: white;
 }

@@ -17,7 +17,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule),
-    canActivate: [AcceuilGuard] 
+    canActivate: [AcceuilGuard]
   },
   {
     path: 'forgotpassword',
@@ -31,6 +31,7 @@ const routes: Routes = [
     path: 'liste-parti',
     loadChildren: () => import('./forgetpassword1/forgetpassword1.module').then( m => m.Forgetpassword1PageModule)
   },
+
 
 
 

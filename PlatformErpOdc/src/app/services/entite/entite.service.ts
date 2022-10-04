@@ -15,10 +15,15 @@ export class EntiteService {
   getAllEntites(login:String, password:String):Observable<any>{
 
     const data:FormData=new FormData();
-    const user=[{"login":login,"password":password}]
+    const user=[
+      {
+        "login":login,
+        "password":password
+      }]
+      
     data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
 
-    return this.http.post(`${this.env.api}/admin/getAll/entite`, data);
+    return this.http.post(`${this.env.api}/entite/getAll/entite`, data);
   }
 
   PostEntite(login :String, password:String, file:File, libelleentite :String, description: String, utilisateur: any, gerant: any):Observable<any>{
@@ -31,6 +36,6 @@ export class EntiteService {
     data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
     data.append('entite', JSON.stringify(entite).slice(1,JSON.stringify(entite).lastIndexOf(']')));
 
-    return this.http.post(`${this.env.api}/admin/create/entite`, data);
+    return this.http.post(`${this.env.api}/entite/create/entite`, data);
   }
 }

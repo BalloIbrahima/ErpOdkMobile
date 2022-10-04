@@ -51,6 +51,17 @@ export class AccueilserviceService {
 
 
 
+
+
+
+
+  GetAllEntite(login:String,password:String):Observable<any>{
+    return this.http.get(`http://localhost:8080/admin/getAll/entite/${login}/${password}`);
+  }
+
+
+
+
   //;:::::::::::::::::::TOTAL POSTULANT::::::::::::::::
   GetParticipantTotal(login :String, password:String):Observable<any>{
 
@@ -85,18 +96,5 @@ export class AccueilserviceService {
     return this.http.post(`${this.env.api}/admin/partcipantenfants`,data);
   }
   //;:::::::::::::::::::TOTAL ENTITE::::::::::::::::
-  GetEntiteTotal():Observable<any>{
 
-    return this.http.get("http://localhost:8080/admin/totalentite");
-  }
-
-
-  //:::::::::::::::Ajout Salle ::::::::::::::::::::
-
-  url1="http://localhost:8080/admin/creersalle";
-
-  AddSalle(id: number){
-    return this.http.get(`${this.url1}/${id}`)
-
-  }
 }

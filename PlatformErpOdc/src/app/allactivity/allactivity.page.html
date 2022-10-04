@@ -3,20 +3,21 @@
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-title>Activité</ion-title>
+      <ion-title>Activités</ion-title>
       <ion-button slot="end" fill="clear">
         <app-cloche></app-cloche>
       </ion-button>
     </ion-toolbar>
   </ion-header>
-<ion-content *ngIf="longueur==0">
+<!-- <ion-content *ngIf="longueur==0">
   <div  class="container-fluid mere" style="height: 100%;">
     <ion-label class="lblAucune">  
       Aucune activite 
     </ion-label>
   </div>
-</ion-content>
-<ion-content *ngIf="longueur!=0" >
+  *ngIf="longueur!=0"
+</ion-content> -->
+<ion-content  >
   <div class="row">
     <div class="col-lg-3 col-12">
       <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-start">
@@ -32,7 +33,7 @@
     </div>
     <div class="col-lg-9 col-12">
       <div class="d-grid m-2 gap-2 d-md-flex justify-content-md-end">
-        <button class="btn buttonColor" type="button" routerLink="/dashboard/ajout-activite" >+ &nbsp; Creer Activité</button>
+        <button class="btn buttonColor" type="button" routerLink="/dashboard/creer-activites" >+ &nbsp; Creer Activité</button>
       </div>
     </div>
   </div>
@@ -62,7 +63,7 @@
                         <p>{{ta.description}} </p>
                         <div class="statutbtn">
                             <div style="margin-top: 7px; color:#FF7900;"> </div>
-                            <div> <a href="#" class="btn btn-primary btn-sm" style="margin-right: 7px;">Voir +</a> </div>
+                            <div> <a href="#" class="btn btn-primary btn-sm" style="margin-right: 7px;" [routerLink]="['/detailactivite', ta.id]">Voir +</a> </div>
                         </div>
                     </div>
                 </div>

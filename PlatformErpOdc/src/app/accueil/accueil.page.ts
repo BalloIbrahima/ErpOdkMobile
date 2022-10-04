@@ -4,6 +4,7 @@ import { AccueilserviceService } from '../services/acceuil/accueilservice.servic
 import { ActivatedRoute, Route, Router, RouterLink } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
+import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
 
 
 @Component({
@@ -28,22 +29,22 @@ participantEnfants:any
 image = 'https://www.decome-store.fr/27073-thickbox_pbm/mini-voiture-laferrari-pour-enfant-50w.jpg'
 @ViewChild(IonSlides) slides: IonSlides;
 
-  constructor(private route:ActivatedRoute,private router: Router,private service:AccueilserviceService) { }
+  constructor(private route:ActivatedRoute,private router: Router,private service:AccueilserviceService,private userService:UtilisateurService) { }
 
   ngOnInit() {
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
       console.log(this.Utilisateur.login)
       // ;:::::::::::total acTIVITE ::::::::::::
-      this.service.GetActviteTotal(this.Utilisateur.login,this.Utilisateur.password ).subscribe(data=>{
+      this.service.GetActviteTotal(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
       // ;:::::::::::total acTIVITE ::::::::::::
             this.totalactivite=data.data;
-      console.log(data)
+            console.log(data)
     });
 
     //!::::::::::::total perso ::::::::::::
-    this.service.GetPersonnelActivTotal(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+    this.userService.getActivesUsers(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
       this.personneActive=data.data.length;
-    console.log(data.data.length)
+    console.log(data.data)
     });
 
     //!::::::::::::total perso ::::::::::::
@@ -89,11 +90,7 @@ image = 'https://www.decome-store.fr/27073-thickbox_pbm/mini-voiture-laferrari-p
       console.log(data)
     });
 
-     //!::::::::::::total perso ::::::::::::
-     this.service.GetEntiteTotal().subscribe(data=>{
-      this.totalentite=data.data;
-      console.log(data)
-    });
+     
   }
 
   slideOpts = {

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { AccueilserviceService } from '../services/acceuil/accueilservice.service';
+
 import { EntiteService } from '../services/entite/entite.service';
+import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
 // import { NouvelleEntitePage } from '../nouvelle-entite/nouvelle-entite.page';
 
 @Component({
@@ -13,6 +15,10 @@ import { EntiteService } from '../services/entite/entite.service';
 export class EntitePage implements OnInit {
   modelData: any;
 
+  constructor(private alertController: AlertController,private modalController: ModalController, private entiteService:EntiteService,private acceuilService: AccueilserviceService,private userService: UtilisateurService) { }
+
+  longueur:any
+
   Utilisateur: any;
   donneEntite: any;
   libelleentite: any;
@@ -22,7 +28,6 @@ export class EntitePage implements OnInit {
   responsableEntite: any;
   lead: any;
   donner:any
-  constructor(private alertController: AlertController,private acceuilService: AccueilserviceService, private modalController: ModalController, private entiteService: EntiteService) { }
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
   info = [
@@ -51,21 +56,34 @@ export class EntitePage implements OnInit {
   ];
 
 
+  entites:any;
   ngOnInit() {
-    this.Utilisateur = JSON.parse(localStorage.getItem('utilisateur'));
-    this.acceuilService.GetPersonnelActivTotal(this.Utilisateur.login, this.Utilisateur.password).subscribe(data => {
+    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
+
+    this.entiteService.getAllEntites(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+      if(data.message=='ok'){
+        this.entites=data.data
+        this.longueur=data.data.length
+        console.log(data.data)
+      }
+    })
+
+    this.userService.getActivesUsers(this.Utilisateur.login, this.Utilisateur.password).subscribe(data => {
       this.toutUtilisateur = data.data;
       
       console.log(data.data[1].nom)
 
     })
-
   }
+
+ 
   recuperationImage(event: any) {
 
     this.imageentite = event.target["files"][0];
     console.log(this.imageentite)
   }
+
+  
   // methode permettant de creer une entite
   postAllEntite() {
     console.log(this.imageentite+" libelleentite : "+this.libelleentite+"description : "+this.description+"responsable : "+this.responsableEntite)

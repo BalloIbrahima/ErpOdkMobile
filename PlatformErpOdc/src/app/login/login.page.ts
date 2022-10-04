@@ -26,14 +26,14 @@ export class LoginPage {
 
     try {
       this.error=false;
-    this.erreur=""
-    this.utilisateurService.login(this.login,this.password).subscribe(data=>{
+      this.erreur=""
+      this.utilisateurService.login(this.login,this.password).subscribe(data=>{
       //on vas recupere le message de retour et voir si tout ses bien passe
 
       if(data.message=="ok"){
         //enregistrement de l'utilisateur dans le local storage
         localStorage.setItem('utilisateur',JSON.stringify(data.data))
-        
+          
         // if(data.data.role.libellerole=="ADMIN"){
           //rediriger vers la page admin
 

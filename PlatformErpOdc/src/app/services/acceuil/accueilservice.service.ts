@@ -48,16 +48,6 @@ export class AccueilserviceService {
 
     return this.http.post(`${this.env.api}/admin/activites/avenir`, data);  }
 
-  //;:::::::::::::::::::TOTAL POSTULANT::::::::::::::::
-
-  GetPersonnelActivTotal(login :String, password:String):Observable<any>{
-
-    const data:FormData=new FormData();
-    const user=[{"login":login,"password":password}]
-    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
-
-    return this.http.post(`${this.env.api}/admin/getUsers/active`, data);
-  }
 
 
 
@@ -95,18 +85,5 @@ export class AccueilserviceService {
     return this.http.post(`${this.env.api}/admin/partcipantenfants`,data);
   }
   //;:::::::::::::::::::TOTAL ENTITE::::::::::::::::
-  GetEntiteTotal():Observable<any>{
 
-    return this.http.get("http://localhost:8080/admin/totalentite");
-  }
-
-
-  //:::::::::::::::Ajout Salle ::::::::::::::::::::
-
-  url1="http://localhost:8080/admin/creersalle";
-
-  AddSalle(id: number){
-    return this.http.get(`${this.url1}/${id}`)
-
-  }
 }

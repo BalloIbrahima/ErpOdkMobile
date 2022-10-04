@@ -30,13 +30,23 @@ export class UtilisateurService {
   }
 
   //methode qui retourne l'ensemble des utilisateurs
-  getAllUsers(){
+  getAllUsers(login :String, password:String):Observable<any>{
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
 
+    return this.http.post(`${this.env.api}/admin/getUsers/all`, data);  
+  
   }
 
   //l'esamble des users active
-  getActivesUsers():Observable<any>{
-    return this.http.get(`${this.env.api}/admin/getUsers/active`)
+  getActivesUsers(login :String, password:String):Observable<any>{
+   
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+
+    return this.http.post(`${this.env.api}/admin/getUsers/active`, data);  
   }
 
   //l'esamble des users desactive

@@ -15,6 +15,7 @@ export class DashboardPage implements OnInit {
 
   ngOnInit() {
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'))
+    
     if(this.Utilisateur.image!=null){
       this.img=this.Utilisateur.image
     }

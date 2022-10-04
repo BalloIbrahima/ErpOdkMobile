@@ -16,10 +16,14 @@ export class ActiviteService {
     const data:FormData=new FormData();
     data.append('file',file);
     data.append('data',activite);
-
     console.log(activite)
     return this.http.post(`${this.env.api}/utilisateur/activite/new/${idUser}/${idSalle}/${idType}`,data);
   }
+
+
+
+
+
 
   // :::::::::::::::toute les activites ::::::::::::::::
   GetTtActivite(login:String,password:String):Observable<any>{

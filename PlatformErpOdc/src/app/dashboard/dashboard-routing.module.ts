@@ -14,6 +14,15 @@ const routes: Routes = [
         pathMatch: 'full'
       },
       {
+        path: 'profil',
+        loadChildren: () => import('../profil/profil.module').then( m => m.ProfilPageModule)
+      },
+      {
+        path: 'salle',
+        loadChildren: () => import('../salle/salle.module').then( m => m.SallePageModule)
+      },
+  
+      {
         path: 'home',
         loadChildren: () => import('../home/home.module').then( m => m.HomePageModule)
       },
@@ -26,7 +35,7 @@ const routes: Routes = [
         loadChildren: () => import('../ajout-entite/ajout-entite.module').then( m => m.AjoutEntitePageModule)
       },
       {
-        path: 'ajout-activite',
+        path: 'creer-activites',
         loadChildren: () => import('../creer-activites/creer-activites.module').then( m => m.CreerActivitesPageModule)
       },
 
@@ -50,6 +59,10 @@ const routes: Routes = [
       {
         path: 'creer-salle',
         loadChildren: () => import('../creer-salle/creer-salle.module').then( m => m.CreerSallePageModule)
+      },
+      {
+        path: 'modifiersalle/:id',
+        loadChildren: () => import('../modifier-salle/modifier-salle.module').then( m => m.ModifierSallePageModule)
       },
       {
         path: 'tachedesignation',
@@ -116,6 +129,10 @@ const routes: Routes = [
     {
       path: 'ajouter-role',
       loadChildren: () => import('../ajouter-role/ajouter-role.module').then( m => m.AjouterRolePageModule)
+    },
+    {
+      path: 'taches-activite',
+      loadChildren: () => import('../taches-activite/taches-activite.module').then( m => m.TachesActivitePageModule)
     },
     {
       path: 'activite',

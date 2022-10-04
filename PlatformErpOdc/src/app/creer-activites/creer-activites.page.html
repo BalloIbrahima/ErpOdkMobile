@@ -14,66 +14,67 @@
 
   <ion-content>
     <div class="container">
-        <form [formGroup]="fg" (ngSubmit)=" CreerActivite()">
+        <form >
             <div class="box">
                 <h1>Nouvelle Activité</h1>
                 <div class="activite-details">
                     <div class="input-box">
                         <span class="details">Entité *</span>
-                        <select name="typeentite" class="select" formControlName="libelleentite" required>
+                        <select name="typeentite"  [ngModel]="typeentite" class="select" required>
+                            <option *ngFor=" let e of Entites" > {{e.libelleentite}}</option>
                         <option *ngFor=" let e of Entites" > {{e.libelleentite}}</option>
                     </select>
                     </div>
                     <div class="input-box">
-                        <span class="details">Responsable de l'activité *</span>
-                        <select name="responsables" formControlName="leadNomPrenom" class="select" required>
-                        <option  *ngFor=" let l of lead">{{l.leadNomPrenom}}</option>
-                    </select>
+                        <span class="details">Nom Activité *</span>
+                        <input type="text" [ngModel]="nomActivite"  name="nomActivite" placeholder="Nom de l'activité" required>
                     </div>
+                   
                     <div class="input-box ">
-                        <span class="details">Type d'activité *</span>
-                        <select name="typeActivite" formControlName="libelle" class="select" required>
-                        <option *ngFor=" let act of TypeActivite">{{act.libelle}}</option>
+                        <span class="details">Type Activité *</span>
+                        <select name="typeActivite"  [ngModel]="typeActivite" class="select" required>
+                         <option  >Choisisez le type de l'activité</option>
+                        <option *ngFor=" let act of TypeActivites">{{act.libelle}}</option>
                     </select>
                     </div>
                     <div class="input-box">
-                        <span class="details">Le nom du lead de l'activité *</span>
-                        <select name="lead" formControlName="lead" class="select" required>
+                        <span class="details">Lead Activité *</span>
+                        <select name="lead" [ngModel]="lead" class="select" required>
                         <option value="">Choisisez un lead</option>
+                        <option *ngFor="let u of UsersActives "> {{u.nom}} {{u.prenom}}</option>
                     </select>
                     </div>
-                    <div class="input-box">
-                        <span class="details">Ajouter image *</span>
-                        <input type="file" placeholder="Logo.jpg" id="logo" name="file" formControlName="file" accept="image/png, image/jpeg, image/jpg" 
-                        (change)="selectFile($event)"
-                        required/>
-                    </div>
+                  
                     <div class="input-box">
                         <span class="details">Date debut *</span>
-                        <input name="datedebut"  formControlName="dateDebut" type="datetime-local" placeholder="Choisisez la date de debut" required/>
+                        <input name="datedebut" [ngModel]="datedebut" type="datetime-local" placeholder="Choisisez la date de debut" required/>
                     </div>
-                    <div class="input-box">
-                        <span class="details">Donner un nom à l'activité *</span>
-                        <input type="text" name="nom" formControlName="nom"  placeholder="Nom de l'activité" required>
-                    </div>
+                  
                     <div class="input-box">
                         <span class="details">Date fin *</span>
-                        <input type="datetime-local"  name="dateFin" formControlName="dateFin" placeholder="Choisisez la date de fin" required/>
+                        <input type="datetime-local"  name="dateFin" [ngModel]="dateFin" placeholder="Choisisez la date de fin" required/>
                     </div>
+
                     <div class="input-box">
-                        <span class="details"> Description</span>
-                        <textarea name="description" formControlName="description" id="details" rows="3" cols="28" placeholder="Donner une description de l'activité"></textarea>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Salle dedié à l'activité</span>
-                        <select name="salles" formControlName="salles" class="select">
+                        <span class="details">Salle </span>
+                        <select name="salles" [ngModel]="salles" class="select">
                         <option *ngFor="let s of SallesDispo">{{s.libelle}}</option>
                     </select>
                     </div>
+                    <div class="input-box">
+                        <span class="details">Ajouter image  *</span>
+                        <input type="file" [ngModel]="image" placeholder="Logo.jpg" id="logo" name="file" accept="image/png, image/jpeg, image/jpg" 
+                        (change)="selectFile($event)"
+                        required/>
+                    </div>
+                    <div class="input-box" style="justify-content:center ;">
+                        <span class="details"> Description</span>
+                        <textarea name="description" [ngModel]="description"  id="details" rows="5" cols="28" placeholder="Donner une description de l'activité"></textarea>
+                    </div>
+                    
                 </div>
             </div>
             <div class="button">
-                <button type="submit">Save </button>
                 <input class="but" type="submit" value="Créer l'activté">
             </div>
         </form>

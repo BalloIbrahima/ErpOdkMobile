@@ -118,6 +118,10 @@ const routes: Routes = [
       loadChildren: () => import('../ajouter-role/ajouter-role.module').then( m => m.AjouterRolePageModule)
     },
     {
+      path: 'taches-activite',
+      loadChildren: () => import('../taches-activite/taches-activite.module').then( m => m.TachesActivitePageModule)
+    },
+    {
       path: 'activite',
       loadChildren: () => import('../allactivity/allactivity.module').then( m => m.AllactivityPageModule)
     },

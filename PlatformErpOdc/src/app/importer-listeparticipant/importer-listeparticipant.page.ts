@@ -44,6 +44,7 @@ export class ImporterListeparticipantPage implements OnInit {
     // this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) 
     this.liste.GetTtActivite(this.Utilisateur.login, this.Utilisateur.password).subscribe(chemin=>{
       this.listeactivite = chemin.data
+      console.log("afficher tous "+chemin)
     })
   }
 

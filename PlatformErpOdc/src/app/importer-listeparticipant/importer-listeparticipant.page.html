@@ -41,6 +41,7 @@
             <label>Activité *</label><br>
             <select name="" id="select">
               <option value="">Choisissez une activité</option>
+              <option *ngFor="let lact of listeactivite">{{lact.nom}}</option>
             </select>
           </div>
         </div><br><br>

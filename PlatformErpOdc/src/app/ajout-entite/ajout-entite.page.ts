@@ -19,12 +19,12 @@ export class AjoutEntitePage implements OnInit {
   }
 
  
-  AjoutEntite(){
-    this.service.ajoutEntite(this.description,this.libelleentite).subscribe(data=>{
-      console.log(data)
+  // AjoutEntite(){
+  //   this.service.ajoutEntite(this.description,this.libelleentite).subscribe(data=>{
+  //     console.log(data)
 
-    });
-  }
+  //   });
+  // }
 
   ToutEntite(){
     this.entiteService.getAllEntites(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{

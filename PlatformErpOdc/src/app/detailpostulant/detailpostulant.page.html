@@ -65,8 +65,8 @@
   <div class="buttom">
     <div class="button1">
 
-      <input class="but1" type="reset" value="MODIFIER" id="open-modal" expand="block" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
-      
+      <!-- <input class="but1" type="reset" value="MODIFIER" id="open-modal" expand="block" data-bs-toggle="modal" data-bs-target="#staticBackdrop" > -->
+      <button class="btn buttonColor"  class="but1" id="open-modal" type="button">+ &nbsp; Modifier</button>
        <!-- <input class="but1" type="submit" value="SUPPRIMER" (click)="SupprimerPersonnel()"> -->
       <input class="but1" type="submit" value="SUPPRIMER" (click)="DeletePersonnel()">
 
@@ -123,7 +123,7 @@
     
 <div class="container">
   <form action="#">
-    <button type="button" class="btn-close"  (click)="modal.dismiss()" data-bs-dismiss="modal" aria-label="Close"></button>
+    <button type="button" class="btn-close"  (click)="cancel()" data-bs-dismiss="modal" aria-label="Close"></button>
     <div class="box">
       <h1>Modifier personnel</h1>
           <div class="ajout">
@@ -247,7 +247,7 @@
 
 
 
-  <ion-modal #modal trigger="open-modal">
+  <!-- <ion-modal #modal trigger="open-modal">
     <ng-template>
       <div class="container">
         <h5 class="card-title text-center"> Création de role et attribution des droits </h5>
@@ -266,9 +266,9 @@
                     <div class="input-box">
                       <span class="details">Email *</span>
                       <div class="mail">
-                        <input type="text" placeholder="loremipsun" id="inp">
+                        <input type="text" placeholder="loremipsun" id="inp"> -->
                         <!-- <span class="input-group-text" aria-label="fin de mail">@orangemali.com</span> -->
-                        <div style="width: 270px;">
+                        <!-- <div style="width: 270px;">
                           <select name="tchoixsalle" class="mailmodel">
                             <option value="">@orangefablab.com</option>
                             <option value="">@orangemali.com</option>
@@ -354,6 +354,6 @@
         </div>
       </div>
     </ng-template>
-  </ion-modal>
+  </ion-modal> -->
 
 </ion-content>

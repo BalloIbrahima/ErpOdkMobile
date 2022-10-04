@@ -14,65 +14,66 @@
 
   <ion-content>
     <div class="container">
-        <form action="#">
+        <form [formGroup]="fg" (ngSubmit)=" CreerActivite()">
             <div class="box">
                 <h1>Nouvelle Activité</h1>
                 <div class="activite-details">
                     <div class="input-box">
                         <span class="details">Entité *</span>
-                        <select name="typeentite" class="select" required>
-                        <option value="">Choisisez une entité</option>
+                        <select name="typeentite" class="select" formControlName="libelleentite" required>
+                        <option *ngFor=" let e of Entites" > {{e.libelleentite}}</option>
                     </select>
                     </div>
                     <div class="input-box">
                         <span class="details">Responsable de l'activité *</span>
-                        <select name="activiteattribuer" class="select" required>
-                        <option value="">Choisisez une personne</option>
+                        <select name="responsables" formControlName="leadNomPrenom" class="select" required>
+                        <option  *ngFor=" let l of lead">{{l.leadNomPrenom}}</option>
                     </select>
                     </div>
                     <div class="input-box ">
                         <span class="details">Type d'activité *</span>
-                        <select name="typeactivite" class="select" required>
-                        <option value="">Choisisez le type de l'activité</option>
+                        <select name="typeActivite" formControlName="libelle" class="select" required>
+                        <option *ngFor=" let act of TypeActivite">{{act.libelle}}</option>
                     </select>
                     </div>
                     <div class="input-box">
                         <span class="details">Le nom du lead de l'activité *</span>
-                        <select name="choixlead" class="select" required>
+                        <select name="lead" formControlName="lead" class="select" required>
                         <option value="">Choisisez un lead</option>
                     </select>
                     </div>
                     <div class="input-box">
                         <span class="details">Ajouter image *</span>
-                        <input type="file" placeholder="Logo.jpg" id="logo" name="logo" accept="image/png, image/jpeg, image/jpg" required>
+                        <input type="file" placeholder="Logo.jpg" id="logo" name="file" formControlName="file" accept="image/png, image/jpeg, image/jpg" 
+                        (change)="selectFile($event)"
+                        required/>
                     </div>
                     <div class="input-box">
                         <span class="details">Date debut *</span>
-                        <input type="datetime-local" placeholder="Choisisez la date de debut" required>
+                        <input name="datedebut"  formControlName="dateDebut" type="datetime-local" placeholder="Choisisez la date de debut" required/>
                     </div>
                     <div class="input-box">
                         <span class="details">Donner un nom à l'activité *</span>
-                        <input type="text" placeholder="Nom de l'activité" required>
+                        <input type="text" name="nom" formControlName="nom"  placeholder="Nom de l'activité" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Date fin *</span>
-                        <input type="datetime-local" placeholder="Choisisez la date de fin" required>
+                        <input type="datetime-local"  name="dateFin" formControlName="dateFin" placeholder="Choisisez la date de fin" required/>
                     </div>
                     <div class="input-box">
                         <span class="details"> Description</span>
-
-                        <textarea name="details" id="details" rows="3" cols="28" placeholder="Donner une description de l'activité"></textarea>
+                        <textarea name="description" formControlName="description" id="details" rows="3" cols="28" placeholder="Donner une description de l'activité"></textarea>
                     </div>
                     <div class="input-box">
                         <span class="details">Salle dedié à l'activité</span>
-                        <select name="tchoixsalle" class="select">
-                        <option value="">Choisisez parmis les salles dispo</option>
+                        <select name="salles" formControlName="salles" class="select">
+                        <option *ngFor="let s of SallesDispo">{{s.libelle}}</option>
                     </select>
                     </div>
                 </div>
             </div>
             <div class="button">
-                
+                <button type="submit">Save </button>
                 <input class="but" type="submit" value="Créer l'activté">
             </div>
         </form>

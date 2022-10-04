@@ -1,3 +1,5 @@
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActiviteService } from '../services/activite/activite.service';
@@ -18,6 +20,8 @@ export class CreerActivitesPage implements OnInit {
   UsersActives:any;
   TypeActivite:any;
 
+
+  typeentite:any;
   nomActivite:any;
   duree:any;
 
@@ -42,18 +46,23 @@ export class CreerActivitesPage implements OnInit {
   dateFin:Date;
 
   Utilisateur:any;
-  constructor(private router:Router, private salleService:SalleServiceService,private userService:UtilisateurService,private typeActiviteService:TypeActiviteService,private activiteService:ActiviteService) { }
+  fg:FormGroup;
+  constructor(private router:Router, private salleService:SalleServiceService,private userService:UtilisateurService,private typeActiviteService:TypeActiviteService,
+    private activiteService:ActiviteService, private http:HttpClient,
+    private formB:FormBuilder) { }
 
   ngOnInit() {
-     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) 
-     console.log(this.Utilisateur)
+    
+    
 
+     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) 
+     console.log("recuperation de l'utilisateur "+this.Utilisateur)
     this.ActiviteChange()
     this.salleService.getAllDispo().subscribe(data=>{
-      if(data.message=='ok'){
-        this.SallesDispo=data.data
+      
+        this.SallesDispo=data
         console.log(data)
-      }
+      
     })
 
     this.typeActiviteService.getListe().subscribe(data=>{
@@ -80,6 +89,37 @@ export class CreerActivitesPage implements OnInit {
 
       }
     })
+
+    this.fg=this.formB.group({
+      typeentite:['',Validators.required],
+      responsables:['',Validators.required],
+
+      typeActivite:['',Validators.required],
+
+      file:['',Validators.required],
+
+      dateDebut:['',Validators.required],
+
+      nom:['',Validators.required],
+
+      dateFin:['',Validators.required],
+
+      description:['',Validators.required],
+      salles:['',Validators.required],
+
+      libelleentite:['',Validators.required],
+
+
+      leadNomPrenom :['',Validators.required],
+
+
+      libelle :['',Validators.required],
+      lead :['',Validators.required],
+
+
+    })
+
+
   }
 
 
@@ -103,7 +143,6 @@ export class CreerActivitesPage implements OnInit {
     }
 
     //recuperation de l'id du lead
-     //recuperation de l'id du type
      for(let i=0 ; i<this.UsersActives.length; i++){
       console.log(this.leadNomPrenom)
       const array=this.leadNomPrenom.split(' ')
@@ -114,23 +153,18 @@ export class CreerActivitesPage implements OnInit {
     }
 
     //creation de l'activite
-    
     var activite={
       "nom":this.nomActivite,
-      "duree":this.duree,
       "dateDebut":this.datedebut,
       "dateFin":this.dateFin,
-      "lieu":"aa",
       "description":"zz",
       "leader":this.lead,
       "utilisateurs":[this.lead]
     }
 
-
-
-
     this.activiteService.Creer(this.Utilisateur.id,idSalle,idType,this.fichier,activite).subscribe(data=>{
       console.log(data)
+      this.fg.reset();
     })
   }
 
@@ -158,7 +192,7 @@ export class CreerActivitesPage implements OnInit {
   selectFile(e:any){
     //verification si une photo a été choisie ou pas
     if(!e.target.files[0] || e.target.files[0].length==0){
-      this.message="Vous devez choisir un fichier execel !";
+      this.message="Vous devez choisir une image !";
       this.erreur=true;
       return;
     }

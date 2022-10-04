@@ -35,7 +35,7 @@ const routes: Routes = [
         loadChildren: () => import('../ajout-entite/ajout-entite.module').then( m => m.AjoutEntitePageModule)
       },
       {
-        path: 'ajout-activite',
+        path: 'creer-activites',
         loadChildren: () => import('../creer-activites/creer-activites.module').then( m => m.CreerActivitesPageModule)
       },
 

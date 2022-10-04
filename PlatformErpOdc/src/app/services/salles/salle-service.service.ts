@@ -21,8 +21,7 @@ getSalleParId(id:Number):Observable<any>{
 //::::::::::ajout de salle :::::::::::::::::::::::
 
 ajoutSalle(login:String,password:String,libelle:String,description:string,
-etage: string,
-nombre: number,userid:any): Observable<any>{
+etage: string,nombre: number, userid:any): Observable<any>{
 
   const data:FormData=new FormData();
   const user=[{"login":login,"password":password}]
@@ -48,44 +47,56 @@ nombre: number,userid:any): Observable<any>{
   
 // //::::::::::Modif de salle :::::::::::::::::::::::
 
-// ModifSalle(id:number,libelle:String,description:string,
-//   etage: string,
-//   nombre: number, disponibilite:any): Observable<any>{
-    
+ModifSalle(id:number,libelle:String,description:string,
+  etage: string,nombre: number, disponibilite:any): Observable<any>{
+  
+    var salle={
+      "id":id,
+      "libelle":libelle,
+      'description':description,
+      "etage":etage,
+      "nombreplace":nombre,
+      "disponibilite":disponibilite
+
+    }
+    return this.http.put(`${this.env.api}/salle/modifiersalle/{id}`,salle);
+  }
+
+  //recuperer salles disponibles
+    //recuperer salles 
+
+//   getAllDispo(login:String,password:String):Observable<object>{
+
+//   const data:FormData=new FormData();
+  
+//   const user=[{"login":login,"password":password}]
+  
+//     data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+
+//     return this.http.get(`${this.env.api}/salle/SalleDisponible`)
 
 
-//     var salle={
-//       "id":id,
-//       "libelle":libelle,
-//       'description':description,
-//       "etage":etage,
-//       "nombreplace":nombre,
-//       "disponibilite":disponibilite
-//     }
-//     return this.http.put(`http://localhost:8080/admin/modifiersalle/4`,salle);
-//   }
+// //   recupererSalles():Observable<any>{
+// //     return this.http.get(`http://localhost:8080/admin/salle/all`)
+// //   }
 
-//   ////
+// //   //recuperer salles disponibles
+// //   getAllDispo():Observable<any>{
+// //     return this.http.get(`http://localhost:8080/admin/getSalles/disponible`)
 
-//   recupererSalles():Observable<any>{
-//     return this.http.get(`http://localhost:8080/admin/salle/all`)
-//   }
+// //   }
+// //   //:::::::::ajout entite ::::::::::::::::
 
-//   //recuperer salles disponibles
-//   getAllDispo():Observable<any>{
-//     return this.http.get(`http://localhost:8080/admin/getSalles/disponible`)
+// //   ajoutEntite(description:String,libelleentite:String): Observable<any>{
 
-//   }
-//   //:::::::::ajout entite ::::::::::::::::
-
-//   ajoutEntite(description:String,libelleentite:String): Observable<any>{
-
-//     var entite={
-//       "description":description,
-//       'libelleentite':libelleentite,
+// //     var entite={
+// //       "description":description,
+// //       'libelleentite':libelleentite,
      
-//     }
-//       return this.http.post(`http://localhost:8080/admin/create/entite`,entite);
+// //     }
+// //       return this.http.post(`http://localhost:8080/admin/create/entite`,entite);
+// //   }
+
 //   }
 
 
@@ -106,5 +117,7 @@ nombre: number,userid:any): Observable<any>{
 
     return this.http.post(`${this.env.api}/salle/SalleInDisponible`, data);
   }
+
+
 }
 

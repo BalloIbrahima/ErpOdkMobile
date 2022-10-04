@@ -12,6 +12,7 @@ export class SallePage implements OnInit {
   sallesDipo:any;
   sallesDipoLength:any;
   sallesIndispoLength:any
+  url="/modifier-salle"
 
   sallesIndispo:any;
   Utilisateur:any;
@@ -20,7 +21,10 @@ export class SallePage implements OnInit {
   ngOnInit() {
 
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
+
      //!::::::::::::total perso ::::::::::::
+
+
      this.salleService.getSalleDisponible(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
       this.sallesDipo=data.data;
       this.sallesDipoLength=data.data.length
@@ -32,6 +36,9 @@ export class SallePage implements OnInit {
       this.sallesIndispoLength=data.data.length
       console.log(data.data)
     });
+
+
+
   }
 
 }

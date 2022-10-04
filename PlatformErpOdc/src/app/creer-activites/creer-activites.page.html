@@ -20,9 +20,11 @@
                 <div class="activite-details">
                     <div class="input-box">
                         <span class="details">Entité *</span>
-                        <select name="typeentite"  [ngModel]="typeentite" class="select" required>
-                            <option *ngFor=" let e of Entites" > {{e.libelleentite}}</option>
-                        <option *ngFor=" let e of Entites" > {{e.libelleentite}}</option>
+
+                        <select name="typeentite" [ngModel]="typeentite"  class="select" required>
+                        <option >Choisisez une entité</option>
+                        <option *ngFor="let entite of Entites" >{{entite.libelleentite  }}</option>
+
                     </select>
                     </div>
                     <div class="input-box">
@@ -31,17 +33,20 @@
                     </div>
                    
                     <div class="input-box ">
-                        <span class="details">Type Activité *</span>
-                        <select name="typeActivite"  [ngModel]="typeActivite" class="select" required>
-                         <option  >Choisisez le type de l'activité</option>
-                        <option *ngFor=" let act of TypeActivites">{{act.libelle}}</option>
+
+                        <span class="details">Type d'activité *</span>
+                        <select name="typeactivite" [ngModel]="typeActivite" class="select" required>
+                        <option value="">Choisisez le type de l'activité</option>
+                        <option *ngFor="let type of TypesActivites" >{{type.libelle}}</option>
+
                     </select>
                     </div>
                     <div class="input-box">
                         <span class="details">Lead Activité *</span>
                         <select name="lead" [ngModel]="lead" class="select" required>
                         <option value="">Choisisez un lead</option>
-                        <option *ngFor="let u of UsersActives "> {{u.nom}} {{u.prenom}}</option>
+                        <option *ngFor="let user of PersonnelsActives" >{{user.nom}} {{user.prenom}}</option>
+
                     </select>
                     </div>
                   
@@ -58,13 +63,13 @@
                     <div class="input-box">
                         <span class="details">Salle </span>
                         <select name="salles" [ngModel]="salles" class="select">
-                        <option *ngFor="let s of SallesDispo">{{s.libelle}}</option>
-                    </select>
+                        <option *ngFor="let s of SallesDisponibles">{{s.libelle}}</option>
+                        </select>
                     </div>
                     <div class="input-box">
                         <span class="details">Ajouter image  *</span>
                         <input type="file" [ngModel]="image" placeholder="Logo.jpg" id="logo" name="file" accept="image/png, image/jpeg, image/jpg" 
-                        (change)="selectFile($event)"
+                        
                         required/>
                     </div>
                     <div class="input-box" style="justify-content:center ;">

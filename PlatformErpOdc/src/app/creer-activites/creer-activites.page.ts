@@ -17,12 +17,12 @@ export class CreerActivitesPage implements OnInit {
 
  //////////variables qui recuperent les data
  
-  SallesDispo:any;
-  Entites:any;
-  UsersActives:any;
-  TypeActivites:any;
+ Entites:any;
+ TypesActivites:any;
+ SallesDisponibles:any;
+ PersonnelsActives:any;
 //////////variables name et ngmodel
-typeActivite
+ typeActivite
   typeentite:any;
   nomActivite:any;
   duree:any;
@@ -32,7 +32,9 @@ typeActivite
   typeactivite:String;
   libellesalle:String;
   leadNomPrenom:String;
-  salles
+  salles:any;
+  description:any;
+  image:any;
 
 
 
@@ -46,11 +48,6 @@ typeActivite
   Salle:any;
   Type:any;
   lead:any;
-
-
-
-  
-
   Utilisateur:any;
   constructor(private router:Router, private salleService:SalleServiceService,private userService:UtilisateurService,private typeActiviteService:TypeActiviteService,
     private activiteService:ActiviteService, private http:HttpClient,
@@ -61,26 +58,30 @@ typeActivite
 
      console.log("recuperation de l'utilisateur "+this.Utilisateur)
 
-      this.salleService.getSalleDisponible(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
-        this.SallesDispo=data.data
-        console.log(this.SallesDispo)
-      
-    })
+      this.salleService.getSalleDisponible(this.Utilisateur.login,this.Utilisateur.password).subscribe(r=>{
+        this.SallesDisponibles=r.data
+        console.log(this.SallesDisponibles)
+      })
 
-    this.typeActiviteService.getListe().subscribe(r=>{
+    this.typeActiviteService.getListe(this.Utilisateur.login,this.Utilisateur.password).subscribe(r=>{
       if(r.message=='ok'){
-        this.TypeActivites=r.data
-        console.log(this.TypeActivites)
+        this.TypesActivites=r.data
+        console.log(this.TypesActivites)
 
       }
     })
 
-    this.userService.getActivesUsers(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
-      if(data.message=='ok'){
-        this.UsersActives=data.data
-        console.log(this.UsersActives)
+    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) ;
 
-      }
+    this.entiteService.getAllEntites(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour=>{
+      this.Entites=retour.data
+      console.log(this.Entites)
+    })
+
+
+    this.userService.getActivesUsers(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour=>{
+      this.PersonnelsActives=retour.data
+      console.log(this.PersonnelsActives)
     })
 
    
@@ -94,6 +95,7 @@ typeActivite
 
 
 
+
   }
 
 
@@ -103,26 +105,26 @@ typeActivite
     var idSalle=0;
     var idType=0;
     //recuperation de l'id dela salle
-    for(let i=0 ; i<this.SallesDispo.length; i++){
-      if(this.SallesDispo[i].libelle==this.libellesalle){
-        idSalle=this.SallesDispo[i].id
+    for(let i=0 ; i<this.SallesDisponibles.length; i++){
+      if(this.SallesDisponibles[i].libelle==this.libellesalle){
+        idSalle=this.SallesDisponibles[i].id
       }
     }
 
     //recuperation de l'id du type
-    for(let i=0 ; i<this.TypeActivites.length; i++){
-      if(this.TypeActivites[i].libelle==this.typeactivite){
-        idSalle=this.TypeActivites[i].id
+    for(let i=0 ; i<this.TypesActivites.length; i++){
+      if(this.TypesActivites[i].libelle==this.typeactivite){
+        idSalle=this.TypesActivites[i].id
       }
     }
 
     //recuperation de l'id du lead
-     for(let i=0 ; i<this.UsersActives.length; i++){
+     for(let i=0 ; i<this.PersonnelsActives.length; i++){
       console.log(this.leadNomPrenom)
       const array=this.leadNomPrenom.split(' ')
 
-      if(this.UsersActives[i].prenom==array[0] && this.UsersActives[i].nom==array[1]){   
-        this.lead=this.UsersActives[i]
+      if(this.PersonnelsActives[i].prenom==array[0] && this.PersonnelsActives[i].nom==array[1]){   
+        this.lead=this.PersonnelsActives[i]
       }
     }
 
@@ -161,35 +163,5 @@ typeActivite
   // }
 
 
-  //fichier selection
-  selectFile(e:any) {
-    //verification si une photo a été choisie ou pas
-    if(!e.target.files[0] || e.target.files[0].length==0){
-      this.message="Vous devez choisir une image !";
-      this.erreur=true;
-      return;
-    }
-
-    //verification du type de fichier choisi pour recaler si ce n'est pas une photo
-    var typeFichier=e.target.files[0].type;
-    if(typeFichier.match(/image\/*/)==null){
-      this.message="Seul les images sont suportées";
-  
-      return;
-
-    }
-
-
-
-    if(e.target.files){
-      var reader= new FileReader();
-      reader.readAsDataURL(e.target.files[0]);
-      reader.onload=(event:any)=>{
-        this.message="";
-        //this.fichier=event.target.result;
-        this.fichier=e.target['files'][0];
-      }
-    }
-  }
-
 }
+  

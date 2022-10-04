@@ -43,6 +43,11 @@ const routes: Routes = [
         path: 'allactivity',
         loadChildren: () => import('../allactivity/allactivity.module').then( m => m.AllactivityPageModule)
       },
+
+      {
+        path: 'detailactivite:/id',
+        loadChildren: () => import('../detailactivity/detailactivity.module').then( m => m.DetailactivityPageModule)
+      },
       {
         path: 'detailactivity',
         loadChildren: () => import('../detailactivity/detailactivity.module').then( m => m.DetailactivityPageModule)

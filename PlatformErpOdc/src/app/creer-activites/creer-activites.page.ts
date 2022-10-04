@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActiviteService } from '../services/activite/activite.service';
+import { EntiteService } from '../services/entite/entite.service';
 import { SalleServiceService } from '../services/salles/salle-service.service';
 import { TypeActiviteService } from '../services/typeActivite/type-activite.service';
 import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
@@ -42,7 +43,7 @@ export class CreerActivitesPage implements OnInit {
   dateFin:Date;
 
   Utilisateur:any;
-  constructor(private router:Router, private salleService:SalleServiceService,private userService:UtilisateurService,private typeActiviteService:TypeActiviteService,private activiteService:ActiviteService) { }
+  constructor(private router:Router, private salleService:SalleServiceService,private userService:UtilisateurService,private typeActiviteService:TypeActiviteService,private activiteService:ActiviteService,private entiteService:EntiteService) { }
 
   ngOnInit() {
      this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) 
@@ -64,7 +65,7 @@ export class CreerActivitesPage implements OnInit {
       }
     })
 
-    this.userService.getActivesUsers().subscribe(data=>{
+    this.userService.getActivesUsers(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
       if(data.message=='ok'){
         this.UsersActives=data.data
         console.log(this.UsersActives)
@@ -73,7 +74,7 @@ export class CreerActivitesPage implements OnInit {
     })
 
    
-    this.salleService.ToutEntite().subscribe(data=>{
+    this.entiteService.getAllEntites(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
       if(data.message=='ok'){
         this.Entites=data.data
         console.log(this.Entites)

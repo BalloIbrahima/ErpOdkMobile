@@ -21,7 +21,9 @@
                     <div class="input-box">
                         <span class="details">Entité *</span>
                         <select name="typeentite" class="select" required>
-                        <option value="">Choisisez une entité</option>
+                        <option >Choisisez une entité</option>
+                        <option *ngFor="let entite of Entites" >{{entite.libelleentite  }}</option>
+
                     </select>
                     </div>
                     <div class="input-box">
@@ -34,12 +36,16 @@
                         <span class="details">Type d'activité *</span>
                         <select name="typeactivite" class="select" required>
                         <option value="">Choisisez le type de l'activité</option>
+                        <option *ngFor="let type of TypesActivites" >{{type.libelle}}</option>
+
                     </select>
                     </div>
                     <div class="input-box">
                         <span class="details">Le nom du lead de l'activité *</span>
                         <select name="choixlead" class="select" required>
                         <option value="">Choisisez un lead</option>
+                        <option *ngFor="let user of PersonnelsActives" >{{user.nom}} {{user.prenom}}</option>
+
                     </select>
                     </div>
                     <div class="input-box">

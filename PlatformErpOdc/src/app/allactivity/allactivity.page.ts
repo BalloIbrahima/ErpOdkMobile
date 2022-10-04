@@ -14,52 +14,9 @@ export class AllactivityPage implements OnInit {
   touteactivite:any;
   Utilisateur:any;
   longueur:any;
-  constructor(private route:ActivatedRoute,private router: Router,private service:ActiviteService) { }
-  allactivites=[
-    {
-      titre:"Python",
-      type:"Formation",
-      description:"La formation est de 6 mois au sein de ODC Mali La formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC Mali",
-      status:"En cours"
-    },
-    {
-      titre:"Python",
-      type:"Formation",
-      description:"La formation est de 6 mois au sein de ODC Mali La formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC Mali",
-      status:"En cours"
-    },
-    {
-      titre:"Python",
-      type:"Formation",
-      description:"La formation est de 6 mois au sein de ODC Mali La formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC Mali",
-     status:"En cours"
-    },
-    {
-      titre:"Python",
-      type:"Formation",
-      description:"La formation est de 6 mois au sein de ODC Mali La formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC Mali",
-      status:"En cours"
-    },
-    {
-      titre:"Python",
-      type:"Formation",
-      description:"La formation est de 6 mois au sein de ODC Mali La formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC Mali",
-     status:"En cours"
-    },
-    {
-      titre:"Python",
-      type:"Formation",
-      description:"La formation est de 6 mois au sein de ODC Mali La formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC Mali",
-      status:"En cours"
-    },
-    {
-      titre:"Python",
-      type:"Formation",
-      description:"La formation est de 6 mois au sein de ODC Mali La formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC MaliLa formation est de 6 mois au sein de ODC Mali",
-      status:"En cours"
-    }
 
-  ]
+  constructor(private route:ActivatedRoute,private router: Router,private service:ActiviteService) { }
+ 
 
   ngOnInit() {
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));

@@ -12,4 +12,8 @@ export class NouveaupersonnelPage implements OnInit {
   ngOnInit() {
   }
 
+  CreateUser(){
+    
+  }
+
 }

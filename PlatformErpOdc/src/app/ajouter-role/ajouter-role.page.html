@@ -1,0 +1,889 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Ajouter rôle</ion-title>
+    <ion-button slot="end" fill="clear">
+      <app-cloche></app-cloche>
+
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+
+<!-- code html permettant d'ajouer une nouvelle role -->
+<ion-content>
+
+  <div class="container">
+    <h5 class="card-title text-center"> Création de role et attribution des droits </h5>
+    <div class="card">
+      <div class="card-body text-start">
+        <form>
+          <div class="row">
+            <div class="col">
+              <div for="exampleFormControlInput1" class="">Libelle role *</div>
+              <input type="email" class="form-control" id="exampleFormControlInput1"
+                placeholder="Orange digital kalanso">
+            </div>
+          </div>
+          <div class="row">
+
+
+
+            <div class="col">
+              <div class="notification"> Créer activité
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Afficher activité
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Mettre à jour activité
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Supprimer activité
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Créer apprénant/participant
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ion-item-divider>
+            <ion-label>Premier droit</ion-label>
+          </ion-item-divider>
+          <div class="row">
+            <div class="col">
+              <div class="notification"> Afficher apprénant/participant
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Mettre à jour apprénant/participant
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Supprimer apprénant/participant
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Créer Designation
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Mettre à jour Designation
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+          <ion-item-divider>
+            <ion-label>Deuxieme Droit</ion-label>
+          </ion-item-divider>
+          <div class="row">
+            <div class="col">
+              <div class="notification"> Lire Designation
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Supprimer Designation
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Créer entité
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Lire entité
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Mettre à jour entité
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+          <ion-item-divider>
+            <ion-label>Troixieme Droit</ion-label>
+          </ion-item-divider>
+          <div class="row">
+            <div class="col">
+              <div class="notification"> Supprimer entité
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Créer état
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Lire état
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Mettre à jour état
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Supprimer état
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+          <ion-item-divider>
+            <ion-label>4 eme droit</ion-label>
+          </ion-item-divider>
+          <div class="row">
+            <div class="col">
+              <div class="notification"> Créer formatEmail
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Lire formatEmail
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Mettre à jour formatEmail
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Supprimer formatEmail
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Créer un intervenant externe
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+          <ion-item-divider>
+            <ion-label>5 eme droit</ion-label>
+          </ion-item-divider>
+          <div class="row">
+
+
+
+            <div class="col">
+              <div class="notification"> Lire un intervenant externe
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Mettre un intervenant externe
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Supprimer un intervenant externe
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Créer une liste postulant
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Lire une liste postulant
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ion-item-divider>
+            <ion-label>6 eme Droit</ion-label>
+          </ion-item-divider>
+          <div class="row">
+            <div class="col">
+              <div class="notification"> Mettre à jour une liste postulant
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Supprimer une liste postulant
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Créer postulant
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Lire postulant
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Mettre à jour postulant
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+          <ion-item-divider>
+            <ion-label>6 eme Droit</ion-label>
+          </ion-item-divider>
+          <div class="row">
+            <div class="col">
+              <div class="notification"> Supprimer postulant
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Créer presence
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Lire presence
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Mettre à jour presence
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Supprimer presence
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <ion-item-divider>
+            <ion-label>7 eme division</ion-label>
+          </ion-item-divider>
+          <div class="row">
+            <div class="col">
+              <div class="notification"> Créer role
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Lire role
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Mettre à jour role
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Supprimer role
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Créer salle
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ion-item-divider>
+            <ion-label>7 eme division</ion-label>
+          </ion-item-divider>
+          <div class="row">
+            <div class="col">
+              <div class="notification"> Lire salle
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Mettre à jour salle
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Supprimer salle
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Créer tache
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Lire tache
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ion-item-divider>
+            <ion-label>7 eme division</ion-label>
+          </ion-item-divider>
+          <div class="row">
+            <div class="col">
+              <div class="notification"> Mettre tache
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Supprimer tache
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Créer tirage
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Lire tirage
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Mettre à jour tirage
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ion-item-divider>
+            <ion-label>7 eme division</ion-label>
+          </ion-item-divider>
+          <div class="row">
+            <div class="col">
+              <div class="notification"> Supprimer tirage
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Créer utilisateur
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Lire utilisateur
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Mettre à jour utilisateur
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Supprimer utilisateur
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ion-item-divider>
+            <ion-label>7 eme division</ion-label>
+          </ion-item-divider>
+          <div class="row">
+            <div class="col">
+              <div class="notification"> Créer type activité
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Lire type activité
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Mettre à jour type activité
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="notification"> Supprimer type activité
+                <div class="row iconLabel">
+                  <div class="col"> <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="col icon_mail">par mail </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-grid gap-2 col-6 text-center mx-auto mt-2">
+            <button type="button" class="btn colorbutton2 btn-sm">Enregistrer</button>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,14 +1,36 @@
+
+
+
+<ion-router-outlet id="main"></ion-router-outlet>
+
 <ion-app>
-  <ion-split-pane contentId="main" when="lg" >
+  <ion-split-pane contentId="main" when="m">
     <!--  the side menu  -->
-    <ion-menu contentId="main">
+
+    
+    <!-- the main content -->
+   <ion-router-outlet id="main"></ion-router-outlet>
+  </ion-split-pane>
+
+  
+</ion-app>
+
+<!--  -->
+
+
+
+
+<!-- <ion-app>
+  <ion-split-pane contentId="main" when="lg" > -->
+    <!--  the side menu  -->
+    <!-- <ion-menu contentId="main"> -->
       <!-- <ion-header>
         <ion-toolbar>
           <ion-title>Menu</ion-title>
         </ion-toolbar>
       </ion-header> -->
 
-      <ion-content>
+      <!-- <ion-content> -->
 
         
         
@@ -46,15 +68,15 @@
           
         </ion-item>
          -->
-         <div class="container-fluid contenuSecondaire  ">
+         <!-- <div class="container-fluid contenuSecondaire  ">
           <div class="contenuQuadrature">
             <ul class="nav flex-column">
-              <!-- code contenant l'icon de l'entreprise  -->
-               <div class="iconEntreprise">
+               code contenant l'icon de l'entreprise  -->
+               <!-- <div class="iconEntreprise">
                  <img src="../../assets/icon/Orange.png" width="200" height="100" alt="" srcset="">
-               </div>
+               </div> -->
                 <!-- code contentant l'image  de l'utilisateur -->
-               <div class="blockImage">
+               <!-- <div class="blockImage">
                  <img src="../../assets/icon/1.jpg" class="imageUtilisateur" alt="image pour l'accueil"><br><br>
                  <span class="titleUtilisateur">Fatoumata Kalogua</span>
                </div>
@@ -93,14 +115,14 @@
                </div>
              </ul>
            </div>
-         </div>
-        
+         </div> -->
+       
            <!-- <app-modifier-personnel class="ion-page"></app-modifier-personnel> -->
-      </ion-content>
-    </ion-menu>
+      <!-- </ion-content>
+    </ion-menu> -->
   
     <!-- the main content -->
-   <ion-router-outlet id="main"></ion-router-outlet>
+   <!-- <ion-router-outlet id="main"></ion-router-outlet>
   </ion-split-pane>
   
-</ion-app>
+</ion-app> -->

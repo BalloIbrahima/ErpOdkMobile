@@ -1,447 +1,366 @@
-
-
- <ion-header>
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title class="title_page ion-text-uppercase">Accueil</ion-title>
+    <ion-title>Accueil</ion-title>
+    <ion-button slot="end" fill="clear">
+      <app-cloche></app-cloche>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
-
-<ion-content [fullscreen]="false">
-
-  <ion-grid>
-    <ion-col size="" style=" float: right;">
-   
+<div *ngIf="totalactivite==0" class="container-fluid mere" style="height: 100%;">
+  <ion-label class="lblAucune">  Aucune activite 
+  </ion-label>
+</div>
 
 
-
-
-      <ion-row class="mere"> 
-
-
-         <ion-col sizeSm="6" sizeLg="6" sizeXs="12">
-
-
-              <div class="carte_home">
-                    <div>
-                        <p class="text_t_activite">Total activité réalisé</p>
-                    </div>
-                      
-                    <div>
-                        <p class="chiffre_t_activite">320</p>
-                    </div>
-                        
-                    <div >
-                 
-                      <button type="button" class="btn btnActivite">
-                        <!-- slot pour spécifier la position de l'icone -->
-                                Ajouter Activité
-                        </button>
-                      
-                    </div>
-              </div> 
-              
-              
-              </ion-col >
+  <div   *ngIf="totalactivite!=0" class="container-fluid mere" style="height: 100%;">
 
 
 
-            <ion-col sizeSm="3" sizeLm="3" sizeXs="6" >
-                  
-              <div class="carte_home">
-                <div>
-                    <p class="text_t_postulant">Total postulants</p>
-                </div>
-                  
-                <div>
-                    <p class="chiffre_t_postulant">320</p>
-                </div>
-                    
-                <div >
-                    <p class="text_postulant">Postulants</p>                   
-                </div>
-          </div> 
+    <div class="row gy-3 my-3">
 
-            </ion-col>
+      <div class="col- col-sm-10 col-md-10 col-lg-3 col-xl-3 col-xxl-3 side_gauche">
+
+        <div class="col side">
+
+      
+
+          <div class="col">
 
 
-
-         <ion-col sizeSm="3" sizeLm="3" sizeXs="6">
-
-                  
-              <div class="carte_home">
-                    <div>
-                        <p class="text_t_postulant">Total postulants</p>
-                    </div>
-                      
-                    <div>
-                        <p class="chiffre_t_postulant">320</p>
-                    </div>
-                        
-                    <div >
-                        <p class="text_postulant">Postulants</p>                   
-                    </div>
-              </div> 
-
-
-         </ion-col>
-
-
-      </ion-row>
-
-   
-
-   <div class="cont">       
-      <div class="container">
-        <div class="card">
-          <div class="card-header">
-            <img src="../../assets/felicitation.png"  alt="rover" />
-          </div>
-          <div class="card-body">
-            <span class="tag-teal ">En-cours</span>
-            <h4>
-             FELICITATION
-            </h4>
-            <p>
-              Formation sur l’Intelligence Artificielle ! Pour vous inscrire,
-               cliquez sur le lien suivant : https://msurvey.orange.com/odk_formation_ia 
-             
-            </p>
-            <div class="user">
-              <img src="../../assets/dg.png" alt="user" />
-              <div class="user-info">
-                <h5>Toure Oussmane</h5>
-                <small>16 septembre</small>
-              </div>
+            <div class="titre_inf">
+              Statistiques
             </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header">
-            <img src="../../assets/intelligence.jpg" alt="ballons" />
-          </div>
-          <div class="card-body">
-            <span class="tag-teal ">En-cours</span>
-            <h4>
-               INTELLIGENCE
-            </h4>
-            <p>
-              Formation sur l’Intelligence Artificielle ! Pour vous inscrire,
-               cliquez sur le lien suivant : https://msurvey.orange.com/odk_formation_ia 
-
-            </p>
-            <div class="user">
-              <img src="../../assets/inconnu.png" alt="user" />
-              <div class="user-info">
-                <h5>Abdramane Keita</h5>
-                <small>10 septembre 2022</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header">
-            <img src="../../assets/rokiatou.png" alt="city" />
-          </div>
-          <div class="card-body">
-            <span class="tag-teal ">en-cours</span>
-            <h4>
-             CITATION
-            </h4>
-            <p>
-              Formation sur l’Intelligence Artificielle ! Pour vous inscrire, 
-              cliquez sur le lien suivant : https://msurvey.orange.com/odk_formation_ia 
-        
-            </p>
-            <div class="user">
-              <img src="../../assets/karim.jpg" height="10%" alt="user" />
-              <div class="user-info">
-                <h5>Karim Diawara</h5>
-                <small>15 Septembre 2022</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-  </div>
 
 
 
+             <div class="col" style="margin-top: 5%;">
 
 
-
-
-
-
-
-  <ion-row class="mere" > 
-
-
-    <ion-col sizeSm="9" sizeLg="9" sizeXs="12">
-
-
-         <div class="carte_home2">
-              
               <div class="col">
-                        
-                    <div class="row">
-
-                      <div class="col" style="margin-top:3%;">
-                        <p>Activité à vénir</p>
-                        <span style="background-color: white;"></span>
-                      </div>
-
-                      <div class="col">
-                        <p></p>
-                      </div>                      
-
-                    </div>
-
-                    <div class="ligne" >
-   
-                    </div>
-                    
-                    
-
-
-
-                    <div class="row" >
-                    
-                      <div class="col">
-                        <img src="../../assets/intelligence.jpg" alt="" height="60%" width="60%" >
-                      </div>
-                    
-
-                        <div class="col">
-                            <p>Formation </p>
-                            <p>Intelligence Artificiels</p>
-                        </div>
-
-
-                        <div class="col">
-                          <p>Responsable </p>
-                          <span>Kaloga Nene</span>
-                        </div>
-                        
-                  </div>
-               
-                 
-                 
-
-
-
-                  <div class="ligne" >
-   
-                   </div>
-                    <div class="row" >
-                  
-                    <div class="col">
-                      <img src="../../assets/intelligence.jpg" alt="" height="60%" width="60%" >
-                    </div>
-                  
-
-                      <div class="col">
-                          <p>Formation </p>
-                          <p>Intelligence Artificiels</p>
-                      </div>
-
-
-                      <div class="col">
-                        <p>Responsable </p>
-                        <span>Kaloga Nene</span>
-                      </div>
-                      
-                </div>
-              
-
-
-
-
-
-
-
-
-
-                <div class="ligne" >
-   
-                </div>
-                
-                
-
-
 
                 <div class="row" >
-                
-                  <div class="col">
-                    <img src="../../assets/felicitation.png" alt="" height="50%" width="60%" >
-                  </div>
-                
+  
+                  <div class="col"><i class="bi bi-activity icon1"></i></div>
+                  <div class="col nombre" >{{totalactivite}}</div>
+  
+                </div>
+  
+                <div class="col text_info">
+                  Activités réalisées
+                </div>
 
-                    <div class="col">
-                        <p>Formation </p>
-                        <p>Intelligence Artificiels</p>
-                    </div>
-
-
-                    <div class="col">
-                      <p>Responsable </p>
-                      <span>Kaloga Nene</span>
-                    </div>
-                    
               </div>
+
+
+
+              <div class="col">
+
+                <div class="row" >
+  
+                  <div class="col"><i class="bi bi-people-fill icon2"></i></div>
+                  <div class="col nombre" >{{personneActive}}</div>
+  
+                </div>
+  
+                <div class="col text_info">
+                  Personnels actifs
+                </div>
+
+              </div>
+
+
+
+
+
+
+              <div class="col">
+
+                <div class="row" >
+  
+                  <div class="col"> <i class="fa fa-users icon3" aria-hidden="true"></i></div>
+                  <div class="col nombre" >{{participantsTotal}}</div>
+  
+                </div>
+  
+                <div class="col text_info">
+                  Participants Totals
+                </div>
+
+              </div>
+
+
+
+
+
+              <div class="col">
+
+                <div class="row" >
+  
+                  <div class="col"><i class="fa fa-female icon4" aria-hidden="true"></i></div>
+                  <div class="col nombre" >{{participantFeminins}}</div>
+  
+                </div>
+  
+                <div class="col text_info">
+                  Participants feminins
+                </div>
+
+              </div>
+
+
+
+
+
+              <div class="col">
+
+                <div class="row" >
+  
+                  <div class="col"><i class="fa fa-child icon5" aria-hidden="true"></i></div>
+                  <div class="col nombre" >{{participantEnfants}}</div>
+  
+                </div>
+  
+                <div class="col text_info">
+                  Participants enfants
+                </div>
+
+              </div>
+
+
+             </div>
+           
+          </div>
+
+
+
+
+        <div class="col reporting">
+          <button type="button" class="btn buttonColor">Reporting</button>
+        </div>
+
+
+
+        </div>
+      </div>
                 
-              </div>              
-            
-         </div> 
+      <div class="col- col-sm-10 col-md-10 col-lg-8 col-xl-8 col-xxl-8 side_droite">
 
 
 
+        <div class="col activite">
 
 
-         
-        
-    </ion-col >
+          <span class="AenCours">Activités en cours</span>
 
 
 
-    <ion-col sizeSm="3" sizeLm="3" sizeXs="12">
-          
-      
-             
-        
-        
-          <div class="carte_home2">
+          <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+
+            <div class="carousel-inner">
+
+              <div class="carousel-item active" data-bs-interval="1000" *ngFor="let activiteEncour of activiteEncours">
+                <img src={{activiteEncour.image}}  class="d-block w-100" alt="...">
 
            
 
-        
-         
+                  <div class="carousel-caption d-none d-md-block">
+                    
+                    <h5 class="nom_activite">{{activiteEncour.nom}}</h5>
+                    <span class="encours_ticket">{{activiteEncour.dateDebut}}</span> <span class="encours_ticket"> -- Salle Kalanso</span><br>
+                  <img src="../../assets/A (2).jpg" class="img_activite_avenir" alt="" srcset="">BALLO Ibrahima
+                  
+                </div>
+              </div>
+              <!-- <div class="carousel-item" data-bs-interval="2000">
+                <img src="../../assets/A (1).jpg"  class="d-block w-100" alt="...">
 
+                <a href="#">
+                  
+                <div class="carousel-caption d-none d-md-block">
+
+                  <h5 class="nom_activite">Nom activité</h5>
+                  <span class="encours_ticket">2020-04-23</span> <span class="encours_ticket"> -- Salle Kalanso</span><br>
+                <img src="../../assets/A (2).jpg" class="img_activite_avenir" alt="" srcset=""> BALLO Ibrahima
+                
+                </div>
+               
+              </a>
+
+              </div> -->
+              <!-- <div class="carousel-item"data-bs-interval="3000">
+                <img src="../../assets/A (1).jpg"  class="d-block w-100" alt="...">
+
+                <a href="#">
+
+                  <div class="carousel-caption d-none d-md-block">
+
+                    <h5 class="nom_activite">Nom activité</h5>
+                     <span class="encours_ticket">2020-04-23</span> <span class="encours_ticket"> -- Salle Kalanso</span><br>
+                   <img src="../../assets/A (2).jpg" class="img_activite_avenir" alt="" srcset="">BALLO Ibrahima
+                       </div>
+                </a>
+             
+              
+                  </div> -->
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div> 
 
 
-    </ion-col>
 
-
- </ion-row>
-
-
-
-
-
-      
-
-
-
-     <!-- 
-      <ion-row>
-
-      </ion-row>
-
- 
-
-      <ion-row>
-
-      </ion-row>
-
-    -->
-
-    </ion-col>
-
-
-
-    
-  </ion-grid>
-
-  
-
-
-
-
-
-
-
-
-  <div class="container">
-    <h1>Salles <span>Orange</span> Digital Center </h1>
    
-      <ul class="timeline">
-       
-          <li class="timeline">
-            <div class="icon done"></div>
-            <details class="panel">
-              <summary>Salle Etage 1</summary>
-              <p><strong>Etat:</strong>            
-                    <button type="submit" id="btnn" class="btn btn-primary">Disponible</button>
-                              <br><br>
-                <strong>Description:</strong>
-                Salle de formation pour Orange Digital Kalanso
-                composée de 40 Chaises,17 Tables deux Toilettes,
-            </details>
-          </li>
-       
-          <li class="timeline">
-            <div class="icon done"></div>
-            <details class="panel">
-              <summary>Salle Etage 2 </summary>
-              <p><strong>Etat:</strong>            
-                <button type="submit" id="btnn" class="btn btn-primary">Disponible</button>
-                          <br><br>
-            <strong>Description:</strong>
-            Salle de formation pour Orange Digital Kalanso
-            composée de 40 Chaises,17 Tables deux Toilettes,
-                      </details>
-          </li>
-       
-          <li class="timeline">
-            <div class="icon working"></div>
-            <details class="panel">
-              <summary>Salle Etage 3</summary>
-              <p><strong>Etat:</strong>            
-                <button type="submit" id="btnn" class="btn btn-primary">Disponible</button>
-                          <br><br>
-            <strong>Description:</strong>
-            Salle de formation pour Orange Digital Kalanso
-            composée de 40 Chaises,17 Tables deux Toilettes,
-                      </details>
-          </li>
-       
-          <li class="timeline">
-            <div class="icon"></div>
-            <details class="panel">
-              <summary> Salle Etage 4</summary>
-              <p><strong>Etat:</strong>            
-                <button type="submit" id="btnn" class="btn btn-primary">Disponible</button>
-                          <br><br>
-            <strong>Description:</strong>
-            Salle de formation pour Orange Digital Kalanso
-            composée de 40 Chaises,17 Tables deux Toilettes,
-                      </details>
-          </li>
-       
-          <li class="timeline">
-            <div class="icon"></div>
-            <details class="panel">
-              <summary>Salle Etage 1</summary>
-              <p><strong>Etat:</strong>            
-                <button type="submit" id="btnn" class="btn btn-primary">Disponible</button>
-                          <br><br>
-            <strong>Description:</strong>
-            Salle de formation pour Orange Digital Kalanso
-            composée de 40 Chaises,17 Tables deux Toilettes,
-                      </details>
-          </li>
-       
-         
-       
-      </ul>
+    
+
+
+
+     
+
+        </div>
+
+        <div class="col activite" style="margin-top: 3%; padding-right: 11px;  background-color:white; border-radius: 15px;">
+        
+     
+
+          <span class="AenCours"> Activités à venir</span>
+
+          <div class="row" >
+
+            <!-- <div class="col">
+              <div class="col align-self-center ">
+                <span class="titleButton">Ajouter une activité</span> +
+              </div>
+            </div> -->
+
+            <div class="col m-1">
+              <button type="button" class="btnPlus buttonColor " style=" height: 95%; width: 70%; margin-left:10px; margin-top: 7px; border-radius: 15px;  background-color: #FF6200; " routerLink="/dashboard/ajout-activite"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+              </div>
+
+        
+
+              <div class="col m-2 image row"   
+              *ngFor="let aa of activiteAvenir"  
+              
+              style=" background-repeat: no-repeat;   background-position: center; background-size: cover; border-radius: 10px;"
+              >
+              
+                <img src="{{aa.image}} " style="height:100%; width: 100%; object-fit: cover;" alt="">
+                <!-- <div
+                                 [style.background-image]="'url(' + aa.image + ')'"
+
+
+               [ngStyle]="{'background-image': 'url(' + aa.image + ')'}"
+
+
+                style=" background-repeat: no-repeat;background-position: center; background-size: cover; border-radius: 10px;">
+                  hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh -->
+<!-- [ngStyle]="{backgroundImage:'url(./images/rose.png)'} -->
+<!-- [ngStyle]="{ 'background': 'url(' + bg_image + ')' }" -->
+
+                <!-- </div> -->
+
+                   <div class="col align-self-end"
+                    style="background: rgba(250, 220, 220, 0.74);
+                    height: 75px;
+                    width: 60% !important;
+                    margin-top: -50%;
+                    border-radius: 15px;">
+                    <span class="nomActivite">
+                      {{aa.nom}}
+                    </span>
+      
+                    <br>
+                    <span class="Date">
+                      Status
+                    </span>
+      
+                    <br>
+                    <img src="" style="border-radius: 50%; width:30px" alt="" srcset=""> <span
+                      class="nomLead" style="font-size:10px ;"> {{aa.createur.nom}}</span>
+                  </div>
+  
+            </div>
+
+
+
+            <!-- <div class="col m-2 image row" style="background-image: url('../../assets/A (1).jpg'); background-repeat: no-repeat;   background-position: center; background-size: cover; border-radius: 10px;">
+
+              <div class="col align-self-end"
+           style="background: rgba(250, 220, 220, 0.74); height: 75px; width: 153px; margin: 5px; border-radius: 15px;">
+           <span class="nomActivite">
+             Nom Activité
+           </span>
+
+           <br>
+           <span class="Date">
+             Status
+           </span> -->
+
+           <!-- <br>
+           <img src="../../assets/icon/1.jpg" style="border-radius: 50%; width:30px" alt="" srcset=""> <span
+             class="nomLead" style="font-size:10px ;">  BALLO Ibrahima</span>
+         </div> -->
+
+       <!-- </div> -->
+
+
+
+
+<!-- 
+       <div class="col m-2 image row" style="background-image: url('../../assets/A (1).jpg'); background-repeat: no-repeat;   background-position: center; background-size: cover; border-radius: 10px; ">
+
+        <div class="col align-self-end"
+     style="background: rgba(250, 220, 220, 0.74); height: 75px; width: 153px; margin: 5px; border-radius: 15px;">
+     <span class="nomActivite">
+       Nom Activité
+     </span>
+
+     <br>
+     <span class="Date">
+       Status
+     </span>
+
+     <br>
+     <img src="../../assets/icon/1.jpg" style="border-radius: 50%; width:30px" alt="" srcset=""> <span
+       class="nomLead" style="font-size:10px ;">  BALLO Ibrahima</span>
+   </div>
+
+ </div> -->
+
+
+
+
+
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
 
 
-
-</ion-content> 
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

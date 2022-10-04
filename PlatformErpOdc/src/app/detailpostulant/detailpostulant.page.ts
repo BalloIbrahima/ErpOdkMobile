@@ -59,22 +59,22 @@ export class DetailpostulantPage implements OnInit {
       });
     }
 
-  async ModifierPersonnel() {
-    const modal = await this.modalController.create({
-      component: ModifierpersonnelPage,
-      componentProps: {
-        'model_title': "Modification personnel"
-      }
-    });
+  // async ModifierPersonnel() {
+  //   const modal = await this.modalController.create({
+  //     component: ModifierpersonnelPage,
+  //     componentProps: {
+  //       'model_title': "Modification personnel"
+  //     }
+  //   });
     
-    modal.onDidDismiss().then((modelData)=>{
-      if (modelData !== null) {
-        this.modelData = this.modelData.data;
-        console.log('Les donnés du Pop Up sont : ' + modelData.data);
-      }
-    });
-    return await modal.present();
-  }
+  //   modal.onDidDismiss().then((modelData)=>{
+  //     if (modelData !== null) {
+  //       this.modelData = this.modelData.data;
+  //       console.log('Les donnés du Pop Up sont : ' + modelData.data);
+  //     }
+  //   });
+  //   return await modal.present();
+  // }
 
 
 

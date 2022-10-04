@@ -50,6 +50,16 @@ label{
   padding: 8px 80px 8px 0px;
   border-radius: 5px;
 }
+#inputs:invalid{
+  animation: shake .3s;
+}
+@keyframes shake {
+  25% { transform: translateX(4px);}
+  50% { transform: translateX(-4px);}
+  75% { transform: translateX(4px);}
+  
+}
+
 
 /*select*/
 

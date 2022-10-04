@@ -35,9 +35,10 @@
                 <i class="fa-solid fa-file-circle-plus" id="iconeImport"></i>
                 <input
                   type="file"
-                  name="nbredepostulants"
+                  name="files"
                   id="import"
                   class="form-control"
+                  (change)="televerser($event)"
                 />
               </div>
             </div>
@@ -45,8 +46,8 @@
 
             <div class="row">
               <div class="col">
-                <label>Nombre *</label>
-                <input type="number" id="inputs" />
+                <label>Nom *</label>
+                <input type="text" id="inputs" [(ngModel)]="name" [ngModelOptions]="{standalone: true}"/>
               </div>
             </div>
             <br /><br />
@@ -54,7 +55,7 @@
             <div class="row">
               <div class="col">
                 <button
-                  type="submit" (click)="succesImport()" class="swalmodel">
+                  type="submit" (click)="importerList()" class="swalmodel">
                   <i class="fa-sharp fa-solid fa-download" style="margin-right: 10px"></i>Importer
                 </button>
               </div>

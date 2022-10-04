@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { DetailpostulantPageRoutingModule } from './detailpostulant-routing.module';
 
 import { DetailpostulantPage } from './detailpostulant.page';
+import { ClocheComponent } from '../cloche/cloche.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { DetailpostulantPage } from './detailpostulant.page';
     IonicModule,
     DetailpostulantPageRoutingModule
   ],
-  declarations: [DetailpostulantPage]
+  declarations: [DetailpostulantPage, ClocheComponent]
 })
 export class DetailpostulantPageModule {}

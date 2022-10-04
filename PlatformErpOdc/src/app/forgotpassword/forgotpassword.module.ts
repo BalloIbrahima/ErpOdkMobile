@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ForgotpasswordPageRoutingModule } from './forgotpassword-routing.module';
 
 import { ForgotpasswordPage } from './forgotpassword.page';
+import { ClocheComponent } from '../cloche/cloche.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { ForgotpasswordPage } from './forgotpassword.page';
     IonicModule,
     ForgotpasswordPageRoutingModule
   ],
-  declarations: [ForgotpasswordPage]
+  declarations: [ForgotpasswordPage, ClocheComponent]
 })
 export class ForgotpasswordPageModule {}

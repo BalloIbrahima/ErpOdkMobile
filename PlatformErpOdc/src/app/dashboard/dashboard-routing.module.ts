@@ -10,7 +10,7 @@ const routes: Routes = [
     children:[
       {
         path: '',
-        redirectTo: 'detailactivity',
+        redirectTo: 'accueil',
         pathMatch: 'full'
       },
       {
@@ -25,10 +25,14 @@ const routes: Routes = [
         path: 'ajout-entite',
         loadChildren: () => import('../ajout-entite/ajout-entite.module').then( m => m.AjoutEntitePageModule)
       },
+      {
+        path: 'ajout-activite',
+        loadChildren: () => import('../creer-activites/creer-activites.module').then( m => m.CreerActivitesPageModule)
+      },
 
       {
         path: 'allactivity',
-        loadChildren: () => import('..//allactivity/allactivity.module').then( m => m.AllactivityPageModule)
+        loadChildren: () => import('../allactivity/allactivity.module').then( m => m.AllactivityPageModule)
       },
       {
         path: 'detailactivity',
@@ -38,106 +42,81 @@ const routes: Routes = [
         path: 'lier-salle-activity',
         loadChildren: () => import('../lier-salle-activity/lier-salle-activity.module').then( m => m.LierSalleActivityPageModule)
       },
-        
       {
-        path: 'personnels',
-        loadChildren: () => import('../personnel/personnel.module').then( m => m.PersonnelPageModule)
+        path: 'creer-salle',
+        loadChildren: () => import('../creer-salle/creer-salle.module').then( m => m.CreerSallePageModule)
       },
       {
-        path: 'nouveau-personnel',
-        loadChildren: () => import('../nouveaupersonnel/nouveaupersonnel.module').then( m => m.NouveaupersonnelPageModule)
+        path: 'tachedesignation',
+        loadChildren: () => import('../tachedesignation/tachedesignation.module').then( m => m.TachedesignationPageModule)
       },
       {
-        path: 'detail-personnel',
-        loadChildren: () => import('../detailpostulant/detailpostulant.module').then( m => m.DetailpostulantPageModule)
-      },
-      {
-        path: 'entite',
-        loadChildren: () => import('../entite/entite.module').then( m => m.EntitePageModule)
-      },
-      {
-        path: 'details-entite',
-        loadChildren: () => import('../details-entite/details-entite.module').then( m => m.DetailsEntitePageModule)
-      },
-      {
-        path: 'role',
-        loadChildren: () => import('../role/role.module').then( m => m.RolePageModule)
-      },
-      {
-        path: 'tirage',
-        loadChildren: () => import('../tirage/tirage.module').then( m => m.TiragePageModule)
-      },
-      {
-        path: 'detail-tirage',
-        loadChildren: () => import('../detailtirage/detailtirage.module').then( m => m.DetailtiragePageModule)
-      },
-      {
-        path: 'detail-tirage-liste',
-        loadChildren: () => import('../detail-tirage-dune-liste/detail-tirage-dune-liste.module').then( m => m.DetailTirageDuneListePageModule)
-      },
-      {
-        path: 'detail-liste',
-        loadChildren: () => import('../detail-des-listes/detail-des-listes.module').then( m => m.DetailDesListesPageModule)
-      },
-      {
-        path: 'importeliste',
-        loadChildren: () => import('../importliste/importliste.module').then( m => m.ImportlistePageModule)
+        path: 'creertachesdesignation',
+        loadChildren: () => import('../creertachesdesignation/creertachesdesignation.module').then( m => m.CreertachesdesignationPageModule)
       },
       
-      {
-        path: 'importer-participant',
-        loadChildren: () => import('../importer-listeparticipant/importer-listeparticipant.module').then( m => m.ImporterListeparticipantPageModule)
-      },
-      {
-        path: 'ajouter-role',
-        loadChildren: () => import('../ajouter-role/ajouter-role.module').then( m => m.AjouterRolePageModule)
-      },
-      {
-        path: 'activite',
-        loadChildren: () => import('../allactivity/allactivity.module').then( m => m.AllactivityPageModule)
-      },
+    {
+      path: 'personnels',
+      loadChildren: () => import('../personnel/personnel.module').then( m => m.PersonnelPageModule)
+    },
+    {
+      path: 'nouveau-personnel',
+      loadChildren: () => import('../nouveaupersonnel/nouveaupersonnel.module').then( m => m.NouveaupersonnelPageModule)
+    },
+    {
+      path: 'detail-personnel',
+      loadChildren: () => import('../detailpostulant/detailpostulant.module').then( m => m.DetailpostulantPageModule)
+    },
+    {
+      path: 'entite',
+      loadChildren: () => import('../entite/entite.module').then( m => m.EntitePageModule)
+    },
+    {
+      path: 'details-entite',
+      loadChildren: () => import('../details-entite/details-entite.module').then( m => m.DetailsEntitePageModule)
+    },
+    {
+      path: 'role',
+      loadChildren: () => import('../role/role.module').then( m => m.RolePageModule)
+    },
+    {
+      path: 'salle',
+      loadChildren: () => import('../salle/salle.module').then( m => m.SallePageModule)
+    },
+    {
+      path: 'tirage',
+      loadChildren: () => import('../tirage/tirage.module').then( m => m.TiragePageModule)
+    },
+    {
+      path: 'detail-tirage',
+      loadChildren: () => import('../detailtirage/detailtirage.module').then( m => m.DetailtiragePageModule)
+    },
+    {
+      path: 'detail-tirage-liste',
+      loadChildren: () => import('../detail-tirage-dune-liste/detail-tirage-dune-liste.module').then( m => m.DetailTirageDuneListePageModule)
+    },
+    {
+      path: 'detail-liste',
+      loadChildren: () => import('../detail-des-listes/detail-des-listes.module').then( m => m.DetailDesListesPageModule)
+    },
+    {
+      path: 'importeliste',
+      loadChildren: () => import('../importliste/importliste.module').then( m => m.ImportlistePageModule)
+    },
+    
+    {
+      path: 'importer-participant',
+      loadChildren: () => import('../importer-listeparticipant/importer-listeparticipant.module').then( m => m.ImporterListeparticipantPageModule)
+    },
+    {
+      path: 'ajouter-role',
+      loadChildren: () => import('../ajouter-role/ajouter-role.module').then( m => m.AjouterRolePageModule)
+    },
+    {
+      path: 'activite',
+      loadChildren: () => import('../allactivity/allactivity.module').then( m => m.AllactivityPageModule)
+    },
 
-      
-      {
-        path: 'ajouter-role',
-        loadChildren: () => import('../ajouter-role/ajouter-role.module').then( m => m.AjouterRolePageModule),
-        // canActivate: [AcceuilGuard] 
-      },
-    
-      {
-        path: 'role',
-        loadChildren: () => import('../role/role.module').then( m => m.RolePageModule),
-        // canActivate: [AcceuilGuard] 
-      },
-      {
-        path: 'salle',
-        loadChildren: () => import('../salle/salle.module').then( m => m.SallePageModule),
-        // canActivate: [AcceuilGuard] 
-      },
-      {
-        path: 'profil',
-        loadChildren: () => import('../profil/profil.module').then( m => m.ProfilPageModule),
-        // canActivate: [AcceuilGuard] 
-      },
-      {
-        path: 'personnel',
-        loadChildren: () => import('../personnel/personnel.module').then( m => m.PersonnelPageModule),
-        // canActivate: [AcceuilGuard] 
-      },
-    
-      {
-        path: 'accueil',
-        loadChildren: () => import('../accueil/accueil.module').then( m => m.AccueilPageModule),
-        // canActivate: [AcceuilGuard] 
-      },
-      {
-          path: 'profil',
-          loadChildren: () => import('../profil/profil.module').then( m => m.ProfilPageModule)
-        },
-        {
-          path: 'salle',
-          loadChildren: () => import('../salle/salle.module').then( m => m.SallePageModule)
-        },
 
       { path: '**', redirectTo:'accueil',pathMatch:'full'}
 

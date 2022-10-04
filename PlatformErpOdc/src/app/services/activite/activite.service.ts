@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,4 +21,17 @@ export class ActiviteService {
     return this.http.post(`${this.env.api}/utilisateur/activite/new/${idUser}/${idSalle}/${idType}`,data);
   }
 
+  // :::::::::::::::toute les activites ::::::::::::::::
+  GetTtActivite(login:String,password:String):Observable<any>{
+
+    return this.http.get(`http://localhost:8080/utilisateur/allactivite/${login}/${password}`);
+  }
+
+  //recuperer les entites pour la select liste lors de la creation d'activite
+  entite="http://localhost:8080/admin/getAll/entite";
+  
+  GetAllEntite(login:String,password:String):Observable<any>{
+
+    return this.http.get(`http://localhost:8080/admin/getAll/entite/${login}/${password}`);
+  }
 }

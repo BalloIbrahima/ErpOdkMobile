@@ -24,6 +24,11 @@ export class UtilisateurService {
     return this.http.post(`${this.env.api}/utilisateur/login`,utilisateur);
   }
 
+  //methode pour la creation d'un utilisateur
+  CreateUser(User:any,login:String,password:String){
+    return this.http.post(`${this.env.api}/create/user/${login}/${password}`,User)
+  }
+
   //methode qui retourne l'ensemble des utilisateurs
   getAllUsers(){
 

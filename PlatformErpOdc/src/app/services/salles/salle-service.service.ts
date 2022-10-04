@@ -14,68 +14,79 @@ export class SalleServiceService {
 // :::::::::Recupere salle par id
 
 getSalleParId(id:Number):Observable<any>{
-  return this.http.get(`http://localhost:8080/admin/getSalle/${id}`)
+  return this.http.get(`http://localhost:8080/salle/getSalle/${id}`)
 }
 
   
 //::::::::::ajout de salle :::::::::::::::::::::::
 
-ajoutSalle(id:number,libelle:String,description:string,
+ajoutSalle(login:String,password:String,libelle:String,description:string,
 etage: string,
-nombre: number): Observable<any>{
+nombre: number,userid:any): Observable<any>{
 
-  var salle={
+  const data:FormData=new FormData();
+  const user=[{"login":login,"password":password}]
+  
+
+  const salle=[{
     "libelle":libelle,
     'description':description,
     "etage":etage,
     "nombreplace":nombre,
-    "disponibilite":true
-  }
-  return this.http.post(`http://localhost:8080/admin/creersalle/${id}`,salle);
+    "disponibilite":true,
+    "utilisateur":userid
+  }]
+
+  data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+  data.append('salle', JSON.stringify(salle).slice(1,JSON.stringify(salle).lastIndexOf(']')));
+
+  return this.http.post(`${this.env.api}/salle/creersalle/`,data);
 }
 
 
 
   
-//::::::::::Modif de salle :::::::::::::::::::::::
+// //::::::::::Modif de salle :::::::::::::::::::::::
 
-ModifSalle(id:number,libelle:String,description:string,
-  etage: string,
-  nombre: number, disponibilite:any): Observable<any>{
-  
-    var salle={
-      "id":id,
-      "libelle":libelle,
-      'description':description,
-      "etage":etage,
-      "nombreplace":nombre,
-      "disponibilite":disponibilite
-    }
-    return this.http.put(`http://localhost:8080/admin/modifiersalle/4`,salle);
-  }
+// ModifSalle(id:number,libelle:String,description:string,
+//   etage: string,
+//   nombre: number, disponibilite:any): Observable<any>{
+    
 
-  ////
 
-  recupererSalles():Observable<any>{
-    return this.http.get(`http://localhost:8080/admin/salle/all`)
-  }
+//     var salle={
+//       "id":id,
+//       "libelle":libelle,
+//       'description':description,
+//       "etage":etage,
+//       "nombreplace":nombre,
+//       "disponibilite":disponibilite
+//     }
+//     return this.http.put(`http://localhost:8080/admin/modifiersalle/4`,salle);
+//   }
 
-  //recuperer salles disponibles
-  getAllDispo():Observable<any>{
-    return this.http.get(`http://localhost:8080/admin//getSalles/disponible`)
+//   ////
 
-  }
-  //:::::::::ajout entite ::::::::::::::::
+//   recupererSalles():Observable<any>{
+//     return this.http.get(`http://localhost:8080/admin/salle/all`)
+//   }
 
-  ajoutEntite(description:String,libelleentite:String): Observable<any>{
+//   //recuperer salles disponibles
+//   getAllDispo():Observable<any>{
+//     return this.http.get(`http://localhost:8080/admin/getSalles/disponible`)
 
-    var entite={
-      "description":description,
-      'libelleentite':libelleentite,
+//   }
+//   //:::::::::ajout entite ::::::::::::::::
+
+//   ajoutEntite(description:String,libelleentite:String): Observable<any>{
+
+//     var entite={
+//       "description":description,
+//       'libelleentite':libelleentite,
      
-    }
-      return this.http.post(`http://localhost:8080/admin/create/entite`,entite);
-  }
+//     }
+//       return this.http.post(`http://localhost:8080/admin/create/entite`,entite);
+//   }
 
 
   getSalleDisponible(login:String,password:String): Observable<any>{
@@ -83,7 +94,7 @@ ModifSalle(id:number,libelle:String,description:string,
     const user=[{"login":login,"password":password}]
     data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
 
-    return this.http.post(`${this.env.api}/admin/SalleDisponible`, data);
+    return this.http.post(`${this.env.api}/salle/SalleDisponible`, data);
     //return this.http.get(`http://localhost:8080/admin/SalleDisponible/${login}/${password}`);
   }
 
@@ -93,7 +104,7 @@ ModifSalle(id:number,libelle:String,description:string,
     const user=[{"login":login,"password":password}]
     data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
 
-    return this.http.post(`${this.env.api}/admin/SalleInDisponiblee`, data);
+    return this.http.post(`${this.env.api}/salle/SalleInDisponible`, data);
   }
 }
 

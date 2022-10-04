@@ -104,22 +104,31 @@ h1 {
     transform: translate(-50%, -50%);
 }
 
-
+.modal-wrapper {
+    transform: translate3d(0px, 40px, 0px);
+    opacity: 0.01;
+    height: 38rem;
+    overflow-y: scroll;
+    scrollbar-color: rebeccapurple green;
+    scrollbar-width: thin;
+    width: 45rem;
+  }
 .container {
    
-    //  max-width: 900px;
-    width: 100%;
-    padding: 25px 30px;
+    max-width: 900px;
+    // width: 100%;
+    padding: -1px 30px;
     border-radius: 15px;
     background: #fff;
     // border: #000 3px solid;
-    margin: 20px auto;
+    // margin: 20px auto;
+    height: 33rem;
 }
 ion-modal{
    
     --border-radius: 15px;
     --width: 48em;
-    --height: 44em;
+    --height: 39em;
   }
 
 .box {
@@ -213,6 +222,7 @@ form .button {
     width: 100%;
     display: flex;
     justify-content: end;
+    margin-right: 10rem;
 }
 
 .but {

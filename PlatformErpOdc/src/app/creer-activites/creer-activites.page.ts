@@ -162,7 +162,7 @@ export class CreerActivitesPage implements OnInit {
     
 
     
-    this.activiteService.Creer(this.Utilisateur.login,this.Utilisateur.password,idSalle,idType,this.fichier,activite).subscribe(data=>{
+    this.activiteService.Creer(this.Utilisateur.login,this.Utilisateur.password,idSalle,idType,this.fichier).subscribe(data=>{
       console.log(data)
       this.presentAlert()
     })

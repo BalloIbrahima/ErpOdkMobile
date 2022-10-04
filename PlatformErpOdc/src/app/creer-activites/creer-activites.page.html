@@ -21,30 +21,28 @@
                     <div class="input-box">
                         <span class="details">Entité *</span>
 
-                        <select name="typeentite" [ngModel]="typeentite"  class="select" required>
+                        <select name="typeentite" [(ngModel)]="typeentite"  class="select" required>
                         <option >Choisisez une entité</option>
                         <option *ngFor="let entite of Entites" >{{entite.libelleentite  }}</option>
 
                     </select>
                     </div>
-                    <div class="input-box">
-                        <span class="details">Nom Activité *</span>
-                        <input type="text" [ngModel]="nomActivite"  name="nomActivite" placeholder="Nom de l'activité" required>
+                    <div class="input-box"> 
+                        <span class="details">Titre Activité *</span>
+                        <input type="text" [(ngModel)]="nomActivite"  name="nomActivite" placeholder="Nom de l'activité" required>
                     </div>
                    
                     <div class="input-box ">
-
                         <span class="details">Type d'activité *</span>
-                        <select name="typeactivite" [ngModel]="typeActivite" class="select" required>
-                        <option value="">Choisisez le type de l'activité</option>
+                        <select name="typeactivite" [(ngModel)]="typeactivite" class="select" required>
+                        <option value="">Type de l'activité</option>
                         <option *ngFor="let type of TypesActivites" >{{type.libelle}}</option>
-
                     </select>
                     </div>
                     <div class="input-box">
                         <span class="details">Lead Activité *</span>
-                        <select name="lead" [ngModel]="lead" class="select" required>
-                        <option value="">Choisisez un lead</option>
+                        <select name="leadNomPrenom" [(ngModel)]="leadNomPrenom" class="select" required>
+                        <option>Choisisez un lead</option>
                         <option *ngFor="let user of PersonnelsActives" >{{user.nom}} {{user.prenom}}</option>
 
                     </select>
@@ -52,35 +50,35 @@
                   
                     <div class="input-box">
                         <span class="details">Date debut *</span>
-                        <input name="datedebut" [ngModel]="datedebut" type="datetime-local" placeholder="Choisisez la date de debut" required/>
+                        <input name="datedebut" [(ngModel)]="datedebut" type="datetime-local" placeholder="Choisisez la date de debut" required/>
                     </div>
                   
                     <div class="input-box">
                         <span class="details">Date fin *</span>
-                        <input type="datetime-local"  name="dateFin" [ngModel]="dateFin" placeholder="Choisisez la date de fin" required/>
+                        <input type="datetime-local"  name="dateFin" [(ngModel)]="dateFin" placeholder="Choisisez la date de fin" required/>
                     </div>
 
                     <div class="input-box">
                         <span class="details">Salle </span>
-                        <select name="salles" [ngModel]="salles" class="select">
+                        <select name="libellesalle" [(ngModel)]="libellesalle" class="select">
                         <option *ngFor="let s of SallesDisponibles">{{s.libelle}}</option>
                         </select>
                     </div>
                     <div class="input-box">
                         <span class="details">Ajouter image  *</span>
-                        <input type="file" [ngModel]="image" placeholder="Logo.jpg" id="logo" name="file" accept="image/png, image/jpeg, image/jpg" 
+                        <input type="file" [(ngModel)]="image" placeholder="Logo.jpg" id="logo" name="file" (change)="selectFile($event)" accept="image/png, image/jpeg, image/jpg" 
                         
                         required/>
                     </div>
-                    <div class="input-box" style="justify-content:center ;">
+                    <div class="input-box" >
                         <span class="details"> Description</span>
-                        <textarea name="description" [ngModel]="description"  id="details" rows="5" cols="28" placeholder="Donner une description de l'activité"></textarea>
+                        <textarea name="description" [(ngModel)]="description"  id="details" rows="5" cols="28" placeholder="Donner une description de l'activité"></textarea>
                     </div>
                     
                 </div>
             </div>
             <div class="button">
-                <input class="but" type="submit" value="Créer l'activté">
+                <input class="but" type="submit"  (click)="CreerActivite()" value="Enregistrer">
             </div>
         </form>
 

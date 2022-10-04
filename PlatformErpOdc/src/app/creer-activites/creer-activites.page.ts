@@ -1,3 +1,4 @@
+import { AlertController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -51,7 +52,8 @@ export class CreerActivitesPage implements OnInit {
   Utilisateur:any;
   constructor(private router:Router, private salleService:SalleServiceService,private userService:UtilisateurService,private typeActiviteService:TypeActiviteService,
     private activiteService:ActiviteService, private http:HttpClient,
-   private entiteService:EntiteService) { }
+   private entiteService:EntiteService,
+   private alertController : AlertController) { }
  
   ngOnInit() {
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'))
@@ -98,7 +100,26 @@ export class CreerActivitesPage implements OnInit {
 
   }
 
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Validé!!!',
+      subHeader: 'Activité créée avec Succès!!',
 
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+  async notpresent() {
+    const alert = await this.alertController.create({
+      header: 'Activité non créée!!!',
+      subHeader: 'veuillez réessayer!!',
+
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
 
   CreerActivite(){
     
@@ -111,17 +132,18 @@ export class CreerActivitesPage implements OnInit {
       }
     }
 
-    //recuperation de l'id du type
+  
+    //recuperation de l'id du type de l'activite
     for(let i=0 ; i<this.TypesActivites.length; i++){
       if(this.TypesActivites[i].libelle==this.typeactivite){
-        idSalle=this.TypesActivites[i].id
+        idType=this.TypesActivites[i].id
       }
     }
 
     //recuperation de l'id du lead
      for(let i=0 ; i<this.PersonnelsActives.length; i++){
       console.log(this.leadNomPrenom)
-      const array=this.leadNomPrenom.split(' ')
+      const array=this.leadNomPrenom.split(" ")
 
       if(this.PersonnelsActives[i].prenom==array[0] && this.PersonnelsActives[i].nom==array[1]){   
         this.lead=this.PersonnelsActives[i]
@@ -129,20 +151,51 @@ export class CreerActivitesPage implements OnInit {
     }
 
     //creation de l'activite
-    var activite={
+    var activite=[{
       "nom":this.nomActivite,
       "dateDebut":this.datedebut,
       "dateFin":this.dateFin,
-      "description":"descrip",
+      "description":this.description,
       "leader":this.lead,
       "utilisateurs":[this.lead]
-    }
+    }]
+    
 
-    this.activiteService.Creer(this.Utilisateur.id,idSalle,idType,this.fichier,activite).subscribe(data=>{
+    
+    this.activiteService.Creer(this.Utilisateur.login,this.Utilisateur.password,idSalle,idType,this.fichier,activite).subscribe(data=>{
       console.log(data)
+      this.presentAlert()
     })
   }
 
+            //fichier selection
+            selectFile(e:any){
+              //verification si une photo a été choisie ou pas
+              if(!e.target.files[0] || e.target.files[0].length==0){
+                this.message="Vous devez choisir un fichier execel !";
+                this.erreur=true;
+                return;
+              }
+
+              //verification du type de fichier choisi pour recaler si ce n'est pas une photo
+              var typeFichier=e.target.files[0].type;
+              
+
+
+
+              if(e.target.files){
+                var reader= new FileReader();
+                reader.readAsDataURL(e.target.files[0]);
+                reader.onload=(event:any)=>{
+                  this.message="";
+                  //this.fichier=event.target.result;
+                  this.fichier=e.target['files'][0];
+                }
+              }
+            }
+
+
+  
 
   ////
   // ActiviteChange(){

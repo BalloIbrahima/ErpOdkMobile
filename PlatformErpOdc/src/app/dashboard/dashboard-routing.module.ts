@@ -45,11 +45,7 @@ const routes: Routes = [
       },
 
       {
-        path: 'detailactivite:/id',
-        loadChildren: () => import('../detailactivity/detailactivity.module').then( m => m.DetailactivityPageModule)
-      },
-      {
-        path: 'detailactivity',
+        path: 'detailactivite/:id',
         loadChildren: () => import('../detailactivity/detailactivity.module').then( m => m.DetailactivityPageModule)
       },
       {

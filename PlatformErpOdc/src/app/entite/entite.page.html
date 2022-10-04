@@ -1,0 +1,123 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Entité</ion-title>
+    <ion-button slot="end" fill="clear">
+      <app-cloche></app-cloche>
+
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <!-- <div class="col-sm-7 mx-auto">
+    <header class="section-header text-center">
+      <span class="h1 d-block">
+        <span>❝</span>
+      </span>
+      <h2>Nos Entités</h2>
+    </header>
+  </div> -->
+  <div class="row">
+    <div class="col-12">
+      <div class="d-grid m-2 gap-2 d-md-flex justify-content-md-end">
+        <button class="btn buttonColor" type="button" id="open-modal">+ &nbsp; Nouveau entité</button>
+      </div>
+    </div>
+  </div>
+  <div class="cat">
+    <div class="box">
+    </div>
+  </div>
+  <div *ngIf="longueur==0" id="flex-container" class="testimonials">
+    <div class="container-fluid mere" style="height: 100%;">
+      <ion-label class="lblAucune">  Aucune entite 
+      </ion-label>
+    </div>
+  </div>
+  <div *ngIf="longueur!=0" id="flex-container" class="testimonials">
+    <div id="left-zone">
+      <ul class="list item1">
+
+        <li class="item" *ngFor="let inf of entites">
+          <input type="radio" id="{{inf.libelleentite}}" name="basic_carousel" checked />
+          <label class="label_testimonial" class="{{inf.libelleentite}}" for="{{inf.libelleentite}}">{{inf.libelleentite}}</label>
+          <div class="content-test content_testimonial">
+            <img width="100"  src={{inf.image}} alt="">
+            <h1>{{inf.libelleentite}}</h1>
+            <p class="desc">{{inf.description}}</p>
+            <p class="testimonialFrom hideInfo">Gerant</p>
+            <p class="testimonialState hideInfo">{{inf.gerant.prenom}} {{inf.gerant.nom}} </p>
+            <p class="testimonialState"><button class="btn button" routerLink="/dashboard/details-entite">Voir+</button></p>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+    <div id="right-zone"></div>
+  </div>
+
+
+  <!-- code permettant d'ajouter une nouvelle encours -->
+
+
+
+  <ion-modal #modal trigger="open-modal" backdropDismiss="false">
+    <ng-template>
+      <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-end">
+        <!-- <ion-buttons slot="end">
+          <ion-button (click)="modal.dismiss()">Close</ion-button>
+        </ion-buttons> -->
+      </div>
+
+
+      <div class="container">
+        <h5 class="card-title text-center">Nouvelle entité</h5>
+        <div class="card">
+          <div class="card-body text-start">
+            <form>
+              <div for="libelleEntite" class="">Nom entité *</div>
+              <input type="text" name="libelleentite" [(ngModel)]="libelleentite" class="form-control"
+                id="libelleEntite" placeholder="Orange digital kalanso">
+              <div for="responsableEntite" class="">Responsable de l'entité *</div>
+              <select class="form-select form-select-sm" name="responsableEntite" [(ngModel)]="responsableEntite">
+                <option selected>--selectionner un responsable</option>
+                <option *ngFor="let user of toutUtilisateur ">{{user.prenom}} {{user.nom}}</option>
+
+              </select>
+              <div for="imageEntite" class="">Image entite *</div>
+              <input type="file" (change)="recuperationImage($event)" class="form-control" id="imageEntite"
+                placeholder="selectionner une image">
+
+              <div for="description" class="">Description de l'entité *</div>
+              <textarea class="form-control" id="description" name="description" [(ngModel)]="description"
+                rows="3"></textarea>
+              <div class="d-grid gap-2 col-6 text-center mx-auto mt-2">
+                <button type="button" class="btn colorbutton2 btn-sm" id="open-modal1" (click)="postAllEntite()">Enregistrer</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+    </ng-template>
+  </ion-modal>
+<!-- 
+  <ion-modal #modal trigger="open-modal1">
+    <ng-template>
+      <div class="container">
+        
+        <div class="card">
+          <div class="card-body text-start" *ngIf="data.message == OK">
+            <h5 class="card-title text-center">ENTITE CREER AVEC SUCCES</h5>
+          </div>
+          <div class="card-body text-start" *ngIf="data.message != OK">
+            <h5 class="card-title text-center">ERREUR LORS DE CREATION DE L'ENTITE</h5>
+          </div>
+        </div>
+    </ng-template>
+  </ion-modal> -->

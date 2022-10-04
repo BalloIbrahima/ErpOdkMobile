@@ -1,0 +1,123 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Créer tache</ion-title>
+    <ion-button slot="end" fill="clear">
+      <app-cloche></app-cloche>
+
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="titres" style="display: flex;
+  justify-content: space-around;font-size: 2rem; font-weight: 200px;">
+    <div style="color: #FF7900;" >
+<b>      Creer une Tache
+</b>    </div>
+    <div  style="color: #FF7900;">
+<b>      Creer une Désignation
+</b>    </div>
+  </div>
+    <div class="mescontainers">
+      <div class="container">
+        <div class="col">
+          <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6" class="principal1">
+
+                <!-- <div class="col" style="color: #FF7900;" class="title"> </div><br> -->
+
+            <form action=" ">
+              <div class="row">
+                <div class="col">
+                  <label>Nom(Designation)  *</label><br>
+                  <select name="" id="select">
+                    <option value="">Choisir</option>
+                  </select>
+                </div>
+              </div><br>
+
+              <div class="row">
+                <div class="col">
+                  <label>Date de debut  *</label>
+                  <input type="date" id="inputs">
+                </div>
+              </div><br>
+              <div class="row">
+                <div class="col">
+                  <label>Date de fin  *</label>
+                  <input type="date" id="inputs">
+                </div>
+              </div><br>
+              <div class="row">
+                <div class="col">
+                  <label>Statut  *</label>
+                  <input type="text" id="inputs">
+                </div>
+              </div><br>
+              <div class="row">
+                <div class="col">
+                  <label>Lieu</label><br>
+                  <select name="" id="select">
+                    <option value="">choisir</option>
+                    <option value="">Salle1</option>
+                    <option value="">Salle1</option>
+
+                  </select>
+                </div>
+              </div><br>
+
+              <div class="row">
+                <div class="col">
+                  <button> Enregistrer </button>
+
+                </div>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /////////////////////////////////deuxieme form -->
+      <div class="container" id="form2">
+        <div class="col">
+          <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6" class="principal2">
+            <form action=" ">
+              <div class="row">
+                <div class="col">
+                  <label>Nom Designation</label>
+                  <input type="text" id="inputs" style="border: raduis 10px;">
+                </div>
+              </div><br>
+              <div class="row">
+                <div class="col">
+                  <label>Etat </label><br>
+                  <select name="" id="select">
+                    <option value="">Choisissez</option>
+                    <option value="">Actif</option>
+                    <option value="">actif</option>
+                  </select>
+                </div>
+              </div><br>
+             
+
+             
+
+              <div class="row">
+                <div class="col">
+                  <button> Enregistrer </button>
+
+                </div>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</ion-content>
+
+   

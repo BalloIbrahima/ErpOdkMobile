@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Ajouter personnel</ion-title>
+    <ion-button slot="end" fill="clear">
+      <app-cloche></app-cloche>
+
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <div class="container">
+    <form action="#">
+      <div class="box">
+        <h1>Nouveau personnel</h1>
+        <div class="ajout">
+          <div class="input-box">
+            <span class="details">Nom *</span>
+            <input type="text" placeholder="Nom du personnel">
+          </div>
+          <div class="input-box">
+            <span class="details">Mail *</span>
+            <div class="mail">
+              <input type="text" placeholder="loremipsun" id="inp">
+              <!-- <span class="input-group-text" aria-label="fin de mail">@orangemali.com</span> -->
+              <div style="width: 270px;">
+                <select name="tchoixsalle" class="mailmodel">
+                  <option value="">@orangefablab.com</option>
+                  <option value="">@orangemali.com</option>
+                  <option value="">@orangedigitalcenter.com</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="input-box">
+            <span class="details">Prénom *</span>
+            <input type="text" placeholder="Prénom du personnel">
+          </div>
+          <div class="input-box">
+            <span class="details">Date de naissance *</span>
+            <input type="date" placeholder="La date de naissance">
+          </div>
+          <div class="input-box">
+            <span class="details">Numéro *</span>
+            <input type="text" placeholder="Numéro du personnel">
+          </div>
+
+          <div class="input-box">
+            <span class="details">Ajouter image *</span>
+            <input type="file" class="form-control" placeholder="Logo.jpg" id="logo" name="logo"
+              accept="image/png, image/jpeg, image/jpg">
+          </div>
+
+          <div class="input-box">
+            <span class="details">Entité *</span>
+            <select name="tchoixsalle" class="select">
+              <option value="">Orange Digital Kalanso</option>
+              <option value="">Orange FabLab</option>
+            </select>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Role *</span>
+            <select name="tchoixsalle" class="select">
+              <option value="">User</option>
+              <option value="">Admin</option>
+            </select>
+          </div>
+
+          
+        </div>
+      </div>
+      <div class="button">
+        <input class="but" type="submit" value="Ajouter personnel">
+      </div>
+
+    </form>
+  </div>
+
+</ion-content>

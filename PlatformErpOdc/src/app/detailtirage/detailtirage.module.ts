@@ -8,6 +8,7 @@ import { DetailtiragePageRoutingModule } from './detailtirage-routing.module';
 import {NgxPaginationModule} from 'ngx-pagination';
 
 import { DetailtiragePage } from './detailtirage.page';
+import { ClocheComponent } from '../cloche/cloche.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,6 @@ import { DetailtiragePage } from './detailtirage.page';
     NgxPaginationModule
 
   ],
-  declarations: [DetailtiragePage]
+  declarations: [DetailtiragePage, ClocheComponent]
 })
 export class DetailtiragePageModule {}

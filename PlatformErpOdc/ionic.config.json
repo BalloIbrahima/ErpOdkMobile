@@ -1,7 +1,8 @@
 {
-  "name": "PlatformErpOdc",
+  "name": "ERP ODC",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }

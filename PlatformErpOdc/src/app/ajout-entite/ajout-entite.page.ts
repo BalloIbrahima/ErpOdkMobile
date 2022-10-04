@@ -22,10 +22,10 @@ export class AjoutEntitePage implements OnInit {
     });
 }
 
-ToutEntite(){
-  this.service.ToutEntite().subscribe(data=>{
-    console.log(data)
-  }
-);
-}
+// ToutEntite(){
+//   this.service.ToutEntite().subscribe(data=>{
+//     console.log(data)
+//   }
+// );
+// }
 }

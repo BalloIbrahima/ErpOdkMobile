@@ -40,7 +40,7 @@ nombre: number,userid:any): Observable<any>{
   data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
   data.append('salle', JSON.stringify(salle).slice(1,JSON.stringify(salle).lastIndexOf(']')));
 
-  return this.http.post(`${this.env.api}/salle/creersalle/`,user);
+  return this.http.post(`${this.env.api}/salle/creersalle/`,data);
 }
 
 

@@ -37,17 +37,19 @@ export class RoleService {
     return this.http.post(`${this.env.api}/admin/role/getAll`,data)
 
   }
-   //::::::::::::::::::Retour de la liste des formatMail dans nouvelle personnel interne
-   getListeFormatMail(login:String, password:String):Observable<any>{
-    const data:FormData=new FormData();
-    const user=[
-      {
-        "login":login,
-        "password":password
-      }]
-      
-    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
 
-    return this.http.post(`${this.env.api}/formatemail/getAll`,data)
-  }
+
+    //::::::::::::::::::Retour de la liste des formatMail dans nouvelle personnel interne
+    getListeFormatMail(login:String, password:String):Observable<any>{
+      const data:FormData=new FormData();
+      const user=[
+        {
+          "login":login,
+          "password":password
+        }]
+        
+      data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+  
+      return this.http.post(`${this.env.api}/formatemail/getAll`,data)
+    }
 }

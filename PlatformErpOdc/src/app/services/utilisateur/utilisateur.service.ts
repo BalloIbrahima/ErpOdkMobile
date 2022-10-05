@@ -25,29 +25,57 @@ export class UtilisateurService {
   }
 
   //methode pour la creation d'un utilisateur
-  CreateUser(User:any,login:String,password:String,
-    nom:String,prenom:String,email:string,entiteid:String,roleid:String){
-    const data:FormData=new FormData();
+  CreateUser(login:String,password:String,
+    nom:String,prenom:String,email:string,Genre: any,file:any,entiteid:any,roleid:any): Observable<any>{
+
+    const data1:FormData=new FormData();
     const user=[{"login":login,"password":password}]
 
-    const utilisateur=[{
+    const data=[{
       "nom":nom,
-      'email':email,
       "prenom":prenom,
-      "genre":true,
+      'email':email,
+      "genre":Genre,
       "active":true,
       "notif":true,
-      "login":login,
-      "password":password,
-      "mon_entite_id":entiteid,
-      "role_id":roleid
+      //"login":login,
+      //"password":password,
+      "monEntite":entiteid,
+      "role":roleid
     }]
 
-    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
-    data.append('utilisateur', JSON.stringify(utilisateur).slice(1,JSON.stringify(utilisateur).lastIndexOf(']')));
+    console.log(data)
 
-    return this.http.post(`${this.env.api}/create/user/${login}/${password}`,data)
+    data1.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+    data1.append('data', JSON.stringify(data).slice(1,JSON.stringify(data).lastIndexOf(']')));
+    data1.append('file',file)
+    return this.http.post(`${this.env.api}/admin/create/user`,data1)
   }
+
+  //methode pour la creation d'un intervenat externe
+  CreateUserExterne(login:String,password:String,
+    email:string,Genre: any,nom:String,prenom:String,numero:number,roleid:any): Observable<any>{
+
+    const data1:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+
+    const data=[{
+      'email':email,
+      "genre":Genre,
+      "nom":nom,
+      "prenom":prenom,
+      "numero":numero,
+      "role":roleid
+    }]
+
+    console.log(data)
+
+    data1.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+    data1.append('data', JSON.stringify(data).slice(1,JSON.stringify(data).lastIndexOf(']')));
+    return this.http.post(`${this.env.api}/admin/create/intervenant`,data1)
+  }
+
+
 
   //methode qui retourne l'ensemble des utilisateurs
   getAllUsers(login :String, password:String):Observable<any>{

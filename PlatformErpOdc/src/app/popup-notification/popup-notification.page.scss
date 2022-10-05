@@ -42,8 +42,16 @@ margin-bottom: 20px;
 // Activité
 .act-nom{
     font-size:18px ;
-    font-weight: 400 ;
-    color:#FF7900;
+    span{
+        color:#FF7900;
+        font-size: 20px;
+    }
+    
+}
+
+//nom de l'utlisateur
+h6{
+    font-size: larger;
 }
 
 
@@ -66,9 +74,11 @@ margin-bottom: 20px;
 
 
 @media (max-width: 584px) {
-    .container {          height:60%;
+    .container {          
+        height:60%;
         display: grid;
         grid-template-columns: 100%;
+        
     }
     .img {
         max-width: 100%;
@@ -79,4 +89,16 @@ margin-bottom: 20px;
         width: auto;
         height: 60%;
     }
+    h6{
+        font-size: 13px;
+    }
+    .act-nom{
+        font-size:13px ;
+        span{
+            color:#FF7900;
+            font-size: 15px;
+        }
+        
+    }
+
 }

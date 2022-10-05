@@ -13,26 +13,6 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
-
-  {
-
-    path: 'detailpostulant',
-    loadChildren: () => import('./detailpostulant/detailpostulant.module').then( m => m.DetailpostulantPageModule)
-  },
-
-  // {
-  //   path: 'sidebare',
-  //   loadChildren: () => import('./sidebare/sidebare.module').then( m => m.SidebarePageModule)
-  // },
-  {
-    path: 'accueil',
-    loadChildren: () => import('./accueil/accueil.module').then( m => m.AccueilPageModule)
-  },
- 
-  {
-    path: 'modifierpersonnel',
-    loadChildren: () => import('./modifierpersonnel/modifierpersonnel.module').then( m => m.ModifierpersonnelPageModule)
-  },
   {
     path: 'dashboard',
     loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule),
@@ -42,6 +22,7 @@ const routes: Routes = [
     path: 'forgotpassword',
     loadChildren: () => import('./forgotpassword/forgotpassword.module').then( m => m.ForgotpasswordPageModule)
   },
+  
   {
     path: 'forgotpassword1',
     loadChildren: () => import('./forgetpassword1/forgetpassword1.module').then( m => m.Forgetpassword1PageModule)
@@ -55,8 +36,6 @@ const routes: Routes = [
 
 
 ];
-
-
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
@@ -64,6 +43,9 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
+
 // import { NgModule } from '@angular/core';
 // import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -94,4 +76,6 @@ export class AppRoutingModule { }
 //   ],
 //   exports: [RouterModule]
 // })
+
+
 

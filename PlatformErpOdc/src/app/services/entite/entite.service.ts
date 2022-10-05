@@ -32,6 +32,9 @@ export class EntiteService {
     const user=[{"login":login,"password":password}]
     const entite=[{"libelleentite":libelleentite,"description":description, "createur":utilisateur, "gerant":gerant}]
 
+    console.log(user)
+    console.log(entite)
+
     data.append('file',file)
     data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
     data.append('entite', JSON.stringify(entite).slice(1,JSON.stringify(entite).lastIndexOf(']')));

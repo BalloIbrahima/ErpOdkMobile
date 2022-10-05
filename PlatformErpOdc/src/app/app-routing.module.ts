@@ -5,27 +5,6 @@ import { AcceuilGuard } from './guard/acceuil/acceuil.guard';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  // {
-  //   path: '',
-  //   redirectTo: 'home',
-  //   pathMatch: 'full'
-  // },
-  
-  // {
-  //   path:"modifier-personnel",
-  //   component:ModifierPersonnelComponent
-  // },
-
-  // {
-  //   path: '',
-  //   redirectTo: 'detailpostulant',
-
-  // },
-
-  {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full'
@@ -67,9 +46,17 @@ const routes: Routes = [
     path: 'forgotpassword1',
     loadChildren: () => import('./forgetpassword1/forgetpassword1.module').then( m => m.Forgetpassword1PageModule)
   },
+  {
+    path: 'reporting',
+    loadChildren: () => import('./reporting/reporting.module').then( m => m.ReportingPageModule)
+  },
+
+
 
 
 ];
+
+
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
@@ -77,9 +64,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
-
-
 // import { NgModule } from '@angular/core';
 // import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -110,5 +94,4 @@ export class AppRoutingModule { }
 //   ],
 //   exports: [RouterModule]
 // })
-
 

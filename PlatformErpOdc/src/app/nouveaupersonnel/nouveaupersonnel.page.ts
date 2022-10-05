@@ -37,7 +37,7 @@ export class NouveaupersonnelPage implements OnInit {
       }
     })
 
-    this.roleservice.getListeRole(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+    this.roleservice.getAllRole(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
       if(data.message=="ok"){
         this.Roles=data.data
         console.log(this.Roles)

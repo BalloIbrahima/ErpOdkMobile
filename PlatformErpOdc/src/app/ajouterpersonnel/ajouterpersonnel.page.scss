@@ -4,6 +4,7 @@
     src: url('../../assets/font/Poppins-Light.ttf');
 }
 * {
+    // font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -35,13 +36,18 @@ ion-content {
 
 h1 {
     font-family: 'Poppins', sans-serif;
+
+    margin: 2px;
+
     margin: 15px;
-    font-size: 2rem;
+    margin: 2px;
+    font-size: 32px;
     font-weight: bold;
     text-align: center;
     padding: 3px 6px;
     position: absolute;
-    top: 9%;
+
+    top: 7%;
     background-color: #FFF;
     color: #FF7900;
     left: 50%;
@@ -57,19 +63,26 @@ h1 {
     background: #fff;
     // border: #000 3px solid;
     margin: 20px auto;
+
+
+    top: 10%;
+
+    top: 7%;
+    background-color: #FFF;
+    color: #000;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-.box {
+
+.container {
+    /* max-width: 700px;
     width: 100%;
-    padding: 50px 30px;
+    padding: 25px 30px;
     border-radius: 15px;
+
     border: #000 3px solid;
-    margin: 20px auto;
-}
-.mail{
-    position: relative;
-}
-#inp{
-    border-radius: 15px 0px 0px 15px;
+    margin: 20px auto;*/
+
 }
 .mailmodel{
     color: #000;
@@ -126,7 +139,11 @@ form .ajout .input-box {
     border-radius: 15px;
 }
 
-.ajout .input-box input {
+// .activite-details .input-box input {
+
+//     .ajout .input-box input {
+
+.activite-details .input-box input {
     outline: none;
     height: 40px;
     width: 100%;
@@ -201,73 +218,81 @@ textarea {
     .container {
         max-width: 100%;
     }
+
     form .ajout .input-box {
         margin-bottom: 15px;
         width: 100%;
     }
-    .container form .ajout {
-        max-height: 300px;
-        overflow-y: scroll;
+
+    .container form .activite-details {
+
+        .container form .ajout {
+            max-height: 300px;
+
+            .container form .activite-details {
+                overflow-y: scroll;
+            }
+
+            h1 {
+                width: max-content;
+                font-size: 18px;
+            }
+
+            .ajout::-webkit-scrollbar {
+                width: 0;
+            }
+
+
+            form .button {
+                padding: 5%;
+                width: 100%;
+            }
+
+            .title {
+                margin-top: 5%;
+            }
+
+            input[type=submit] {
+                border-radius: 10px;
+                padding: 7px 10px;
+                background-color: #FF7900;
+                color: #FFFF;
+                margin-bottom: 3%;
+                width: 100%;
+            }
+
+            input[type=reset] {
+                border-radius: 5px;
+                padding: 7px 10px;
+                background-color: #FF7900;
+                color: #FFFF;
+                width: 100%;
+            }
+
+        }
+
+        .title {
+            margin-top: 5%;
+        }
+
+        input[type=submit] {
+            border-radius: 10px;
+            padding: 7px 10px;
+            background-color: #FF7900;
+            color: #FFFF;
+            margin-bottom: 3%;
+            width: 100%;
+        }
+
+        input[type=reset] {
+            border-radius: 5px;
+            padding: 7px 10px;
+            background-color: #FF7900;
+            color: #FFFF;
+            width: 100%;
+        }
     }
-    h1 {
-        width: max-content;
-        font-size: 18px;
-    }
-    .ajout::-webkit-scrollbar {
-        width: 0;
-    }
-}
-@media (max-width: 390px) {
-    .mailmodel span{
-        font-size: 12px;
-    }
-    h1{
-        font-size: 20px;
-        padding-right: 2rem;
-    }
-}
-@media (max-width: 316px) {
-    .select{
-        font-size: 15px;
-    }
-    .firsttitle{
-        margin-left: none;
-        font-size: 1rem;
-    }
-    ion-title{
-        margin-left: 1em;
-    }
-    .col i{
-        margin-right: 1em;
-        margin-bottom: 1em;
-        font-size: 20px;
-    }
-   .buttom{
-    height: 25px;
-    margin: 30px 0;
-   }
-   .but{
-    font-size: 13px;
-   }
-    .details{
-        font-size: 14px;
-    }
-    .mailmodel span{
-        font-size: 10px;
-    }
-    h1{
-        font-size: 16px;
-        padding-right: 2rem;
-        top: 8%;
-    }
-    .box{
-        padding: 6px;
-        border: #000 1px solid;
-    }
-    .container{
-        padding: 4%;
-    }
-    .ajout .input-box input {
-        font-size: 12px;
-    }
+
+    //     }
+    // }
 }

@@ -25,8 +25,28 @@ export class UtilisateurService {
   }
 
   //methode pour la creation d'un utilisateur
-  CreateUser(User:any,login:String,password:String){
-    return this.http.post(`${this.env.api}/create/user/${login}/${password}`,User)
+  CreateUser(User:any,login:String,password:String,
+    nom:String,prenom:String,email:string,entiteid:String,roleid:String){
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+
+    const utilisateur=[{
+      "nom":nom,
+      'email':email,
+      "prenom":prenom,
+      "genre":true,
+      "active":true,
+      "notif":true,
+      "login":login,
+      "password":password,
+      "mon_entite_id":entiteid,
+      "role_id":roleid
+    }]
+
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+    data.append('utilisateur', JSON.stringify(utilisateur).slice(1,JSON.stringify(utilisateur).lastIndexOf(']')));
+
+    return this.http.post(`${this.env.api}/create/user/${login}/${password}`,data)
   }
 
   //methode qui retourne l'ensemble des utilisateurs

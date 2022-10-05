@@ -14,6 +14,14 @@ export class NouveaupersonnelPage implements OnInit {
   Utilisateur:any;
   Roles:any;
   formatMail:any;
+  nom:any;
+  prenom:any;
+  email:any;
+  genre:any;
+  image:any;
+  entite:any;
+  role:any;
+
 
   constructor(private entiteService:EntiteService,private roleservice:RoleService,private userService:UtilisateurService) { }
 
@@ -47,7 +55,10 @@ export class NouveaupersonnelPage implements OnInit {
   }
 
   CreateUser(){
-    
+   
+    this.userService.CreateUser(this.Utilisateur.login,this.Utilisateur.password ,this.nom,this.email,this.prenom,this.entite,this.image,this.role).subscribe(retour=>{
+      console.log(retour)
+    })
   }
 
 }

@@ -28,4 +28,6 @@ export class DetailentiteService {
       // data.append('id' , JSON.stringify(identite).slice(1,JSON.stringify(identite).lastIndexOf(']')));
       return this.http.post(`${this.env.api}/entite/get/entite/${id}`, data);
   }
+
+  
 }

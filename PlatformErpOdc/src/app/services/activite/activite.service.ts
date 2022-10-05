@@ -23,8 +23,12 @@ export class ActiviteService {
 
   // :::::::::::::::toute les activites ::::::::::::::::
   GetTtActivite(login:String,password:String):Observable<any>{
+    
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
 
-    return this.http.get(`http://localhost:8080/utilisateur/allactivite/${login}/${password}`);
+    return this.http.post(`${this.env.api}/utilisateur/allactivite`,data);
   }
 
   //recuperer les entites pour la select liste lors de la creation d'activite

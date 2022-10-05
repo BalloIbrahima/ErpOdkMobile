@@ -10,13 +10,13 @@
   </ion-toolbar>
 </ion-header>
 
-<div *ngIf="totalactivite==0" class="container-fluid mere" style="height: 100%;">
+<!-- <div *ngIf="totalactivite==0" class="container-fluid mere" style="height: 100%;">
   <ion-label class="lblAucune">  Aucune activite 
   </ion-label>
-</div>
+</div> -->
 
 
-  <div *ngIf="totalactivite!=0" class="container-fluid mere" style="height: 100%;">
+  <div class="container-fluid mere" style="height: 100%;">
 
 
 
@@ -82,7 +82,7 @@
                 <div class="row" >
   
                   <div class="col"> <i class="fa fa-users icon3" aria-hidden="true"></i></div>
-                  <div class="col nombre" >03</div>
+                  <div class="col nombre" >{{participantsTotal}}</div>
   
                 </div>
   
@@ -101,7 +101,7 @@
                 <div class="row" >
   
                   <div class="col"><i class="fa fa-female icon4" aria-hidden="true"></i></div>
-                  <div class="col nombre" >120</div>
+                  <div class="col nombre" >{{participantFeminins}}</div>
   
                 </div>
   
@@ -120,7 +120,7 @@
                 <div class="row" >
   
                   <div class="col"><i class="fa fa-child icon5" aria-hidden="true"></i></div>
-                  <div class="col nombre" >120</div>
+                  <div class="col nombre" >{{participantEnfants}}</div>
   
                 </div>
   

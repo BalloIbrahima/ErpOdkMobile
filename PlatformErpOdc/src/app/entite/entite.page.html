@@ -32,9 +32,9 @@
     <div class="box">
     </div>
   </div>
-  <div *ngIf="longueur==0" id="flex-container" class="testimonials">
+  <div *ngIf="longueur ==0" id="flex-container" class="testimonials">
     <div class="container-fluid mere" style="height: 100%;">
-      <ion-label class="lblAucune">  Aucune entite 
+      <ion-label class="lblAucune"> Aucune entite
       </ion-label>
     </div>
   </div>
@@ -44,14 +44,16 @@
 
         <li class="item" *ngFor="let inf of entites">
           <input type="radio" id="{{inf.libelleentite}}" name="basic_carousel" checked />
-          <label class="label_testimonial" class="{{inf.libelleentite}}" for="{{inf.libelleentite}}">{{inf.libelleentite}}</label>
+          <label class="label_testimonial" class="{{inf.libelleentite}}"
+            for="{{inf.libelleentite}}">{{inf.libelleentite}}</label>
           <div class="content-test content_testimonial">
-            <img width="100"  src={{inf.image}} alt="">
+            <img width="100" src={{inf.image}} alt="">
             <h1>{{inf.libelleentite}}</h1>
             <p class="desc">{{inf.description}}</p>
             <p class="testimonialFrom hideInfo">Gerant</p>
             <p class="testimonialState hideInfo">{{inf.gerant.prenom}} {{inf.gerant.nom}} </p>
-            <p class="testimonialState"><button class="btn button" routerLink="/dashboard/details-entite">Voir+</button></p>
+            <p class="testimonialState"><button class="btn button" routerLink="/dashboard/details-entite">Voir+</button>
+            </p>
           </div>
         </li>
 
@@ -66,18 +68,32 @@
 
 
   <ion-modal #modal trigger="open-modal" backdropDismiss="false">
+
     <ng-template>
       <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-end">
         <!-- <ion-buttons slot="end">
           <ion-button (click)="modal.dismiss()">Close</ion-button>
         </ion-buttons> -->
       </div>
-
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Nouvelle entité</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="modal.dismiss()">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
 
       <div class="container">
-        <h5 class="card-title text-center">Nouvelle entité</h5>
+        <!-- <h5 class="card-title text-center">Nouvelle entité</h5> -->
         <div class="card">
           <div class="card-body text-start">
+            <div class="alert alert-success mb-3" role="alert" *ngIf="alertTrue">
+              L'entite Creer avec succes
+            </div>
+            <div class="alert alert-danger mb-3" role="alert" *ngIf="alertFalse">
+              ERREUR LORS DE CREATION DE L'ENTITE
+            </div>
             <form>
               <div for="libelleEntite" class="">Nom entité *</div>
               <input type="text" name="libelleentite" [(ngModel)]="libelleentite" class="form-control"
@@ -95,8 +111,10 @@
               <div for="description" class="">Description de l'entité *</div>
               <textarea class="form-control" id="description" name="description" [(ngModel)]="description"
                 rows="3"></textarea>
+                
               <div class="d-grid gap-2 col-6 text-center mx-auto mt-2">
-                <button type="button" class="btn colorbutton2 btn-sm" id="open-modal1" (click)="postAllEntite()">Enregistrer</button>
+                <button type="button" class="btn colorbutton2 btn-sm" id="open-modal1"
+                  (click)="postAllEntite()">Enregistrer</button>
               </div>
             </form>
           </div>
@@ -106,7 +124,7 @@
 
     </ng-template>
   </ion-modal>
-<!-- 
+  <!-- 
   <ion-modal #modal trigger="open-modal1">
     <ng-template>
       <div class="container">

@@ -77,7 +77,7 @@ const routes: Routes = [
       loadChildren: () => import('../entite/entite.module').then( m => m.EntitePageModule)
     },
     {
-      path: 'details-entite',
+      path: 'details-entite/:id',
       loadChildren: () => import('../details-entite/details-entite.module').then( m => m.DetailsEntitePageModule)
     },
     {
@@ -101,7 +101,7 @@ const routes: Routes = [
       loadChildren: () => import('../detail-tirage-dune-liste/detail-tirage-dune-liste.module').then( m => m.DetailTirageDuneListePageModule)
     },
     {
-      path: 'detail-liste',
+      path: 'detail-liste/:id',
       loadChildren: () => import('../detail-des-listes/detail-des-listes.module').then( m => m.DetailDesListesPageModule)
     },
     {

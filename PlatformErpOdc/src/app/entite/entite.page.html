@@ -32,13 +32,13 @@
     <div class="box">
     </div>
   </div>
-  <div *ngIf="longueur==0" id="flex-container" class="testimonials">
+  <div *ngIf="longueur===0" id="flex-container" class="testimonials">
     <div class="container-fluid mere" style="height: 100%;">
       <ion-label class="lblAucune">  Aucune entite 
       </ion-label>
     </div>
   </div>
-  <div *ngIf="longueur!=0" id="flex-container" class="testimonials">
+  <div *ngIf="longueur!==0" id="flex-container" class="testimonials">
     <div id="left-zone">
       <ul class="list item1">
 
@@ -51,7 +51,7 @@
             <p class="desc">{{inf.description}}</p>
             <p class="testimonialFrom hideInfo">Gerant</p>
             <p class="testimonialState hideInfo">{{inf.gerant.prenom}} {{inf.gerant.nom}} </p>
-            <p class="testimonialState"><button class="btn button" routerLink="/dashboard/details-entite">Voir+</button></p>
+            <p class="testimonialState"><button class="btn button" (click)="RedirigerEntite(inf.id)" >Voir+</button></p>
           </div>
         </li>
 

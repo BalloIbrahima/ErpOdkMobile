@@ -30,9 +30,11 @@
               <!-- <span class="input-group-text" aria-label="fin de mail">@orangemali.com</span> -->
               <div style="width: 270px;">
                 <select name="tchoixsalle" class="mailmodel">
-                  <option value="">@orangefablab.com</option>
+                  <option >--Choisisez un domaine--</option>
+                  <option *ngFor="let domaine of formatMail" >{{domaine.libelle}}</option>
+                  <!-- <option value="">@orangefablab.com</option>
                   <option value="">@orangemali.com</option>
-                  <option value="">@orangedigitalcenter.com</option>
+                  <option value="">@orangedigitalcenter.com</option> -->
                 </select>
               </div>
             </div>
@@ -46,15 +48,17 @@
             <input type="date" placeholder="La date de naissance">
           </div>
           <div class="input-box">
-            <span class="details">Numéro *</span>
-            <input type="text" placeholder="Numéro du personnel">
+            <span class="details">Telephone *</span>
+            <input type="text" placeholder="Numéro de telephone">
           </div>
 
           <div class="input-box">
             <span class="details">Entité *</span>
             <select name="tchoixsalle" class="select">
-              <option value="">Orange Digital Kalanso</option>
-              <option value="">Orange FabLab</option>
+              <option >--Choisisez une entité--</option>
+              <option *ngFor="let entite of Entites" >{{entite.libelleentite}}</option>
+              <!-- <option value="">Orange Digital Kalanso</option>
+              <option value="">Orange FabLab</option> -->
             </select>
           </div>
           
@@ -67,8 +71,8 @@
           <div class="input-box">
             <span class="details">Role *</span>
             <select name="tchoixsalle" class="select">
-              <option value="">User</option>
-              <option value="">Admin</option>
+              <option value="">--Choisisez un role--</option>
+              <option *ngFor="let role of Roles" >{{role.libellerole}}</option>
             </select>
           </div>
 

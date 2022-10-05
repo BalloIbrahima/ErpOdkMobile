@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EntiteService } from '../services/entite/entite.service';
+import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
 
 @Component({
   selector: 'app-ajouterpersonnel',
@@ -11,7 +12,7 @@ export class AjouterpersonnelPage implements OnInit {
   Entites:any;
   Utilisateur:any;
 
-  constructor(private entiteService:EntiteService) { }
+  constructor(private entiteService:EntiteService,private userService:UtilisateurService) { }
 
   ngOnInit() {
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) 

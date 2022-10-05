@@ -45,11 +45,7 @@ const routes: Routes = [
       },
 
       {
-        path: 'detailactivite:/id',
-        loadChildren: () => import('../detailactivity/detailactivity.module').then( m => m.DetailactivityPageModule)
-      },
-      {
-        path: 'detailactivity',
+        path: 'detailactivite/:id',
         loadChildren: () => import('../detailactivity/detailactivity.module').then( m => m.DetailactivityPageModule)
       },
       {
@@ -82,6 +78,10 @@ const routes: Routes = [
       loadChildren: () => import('../nouveaupersonnel/nouveaupersonnel.module').then( m => m.NouveaupersonnelPageModule)
     },
     {
+      path: 'ajouter-personnel-externe',
+      loadChildren: () => import('../ajouterpersonnel/ajouterpersonnel.module').then( m => m.AjouterpersonnelPageModule)
+    },
+    {
       path: 'detail-personnel',
       loadChildren: () => import('../detailpostulant/detailpostulant.module').then( m => m.DetailpostulantPageModule)
     },
@@ -101,6 +101,7 @@ const routes: Routes = [
       path: 'salle',
       loadChildren: () => import('../salle/salle.module').then( m => m.SallePageModule)
     },
+  
     {
       path: 'tirage',
       loadChildren: () => import('../tirage/tirage.module').then( m => m.TiragePageModule)

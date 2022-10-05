@@ -1,9 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouteReuseStrategy } from '@angular/router';
-
+import { RouteReuseStrategy, RouterModule } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -18,12 +16,16 @@ import {HttpClientModule} from '@angular/common/http';
 import { ClocheComponent } from './cloche/cloche.component';
 import { PopupNotificationPage } from './popup-notification/popup-notification.page';
 
+//import { ModifierpersonnelPageModule } from './modifierpersonnel/modifierpersonnel.module';
+// import { ModifierPersonnelComponent } from './modifier-personnel/modifier-personnel.component';
+// import { ComponentTestComponent } from './component-test/component-test.component';
 
 @NgModule({
   declarations: [AppComponent,PopupNotificationPage],
-  // imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  // imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],   //ComponentTestComponent  ModifierPersonnelComponent
 
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,
+  imports: [FormsModule, RouterModule.forRoot([]), IonicModule.forRoot({}),
+    BrowserModule, AppRoutingModule,HttpClientModule,
     FormsModule,DashboardPageModule,NgxPaginationModule,BrowserAnimationsModule,
     ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
@@ -32,3 +34,4 @@ import { PopupNotificationPage } from './popup-notification/popup-notification.p
 
 })
 export class AppModule { }
+

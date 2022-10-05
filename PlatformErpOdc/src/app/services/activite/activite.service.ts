@@ -12,15 +12,28 @@ export class ActiviteService {
 
   constructor(public http:HttpClient) { }
 
-  Creer(idUser:Number,idSalle:Number,idType:Number,file:any,activite:any){
+  Creer(login:string,password:string,idSalle:Number,idType:Number,file:any,activite:any){
     const data:FormData=new FormData();
+   
+    const user=[{"login":login,"password":password}]
     data.append('file',file);
-    data.append('data',activite);
+    //data.append('data',activite);
     console.log(activite)
-    return this.http.post(`${this.env.api}/utilisateur/activite/new/${idUser}/${idSalle}/${idType}`,data);
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+    data.append('data', JSON.stringify(activite).slice(1,JSON.stringify(activite).lastIndexOf(']')));
+    return this.http.post(`${this.env.api}/utilisateur/activite/new/${idSalle}/${idType}`,data);
   }
 
 
+    GetActiviteStatut(login:string,password:string,idActivite:Number):Observable<any>{
+      const data:FormData=new FormData();
+      const user=[{"login":login,"password":password}]
+
+      data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+
+      return this.http.post(`${this.env.api}/admin/statut/activite/${idActivite}`,data);
+
+    }
 
 
 
@@ -42,4 +55,13 @@ export class ActiviteService {
 
     return this.http.get(`http://localhost:8080/admin/getAll/entite/${login}/${password}`);
   }
+
+  getactivitybyId(login:String,password:String, idactivite:number):Observable<any>{
+
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+    return this.http.post(`${this.env.api}/utilisateur/activite/${idactivite}`,data);
+  }
+
 }

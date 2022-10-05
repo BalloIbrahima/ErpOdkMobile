@@ -40,52 +40,109 @@
 
 <ion-content>
 
-<div class="container">
-  <div class="col">
-    <div class="row">
-      <div class="col-sm-12 col-md-6 col-lg-6" class="principal">
+  <div class="container">
+    <!-- <div class="col"  class="title">Tirage </div><br> -->
 
-          <div class="col"  class="title">Tirage </div><br>
+    <!-- <div class="alert alert-warning">
+      Tirage 
+     </div> -->
 
-      <form action=" ">
-        <div class="row">
-          <div class="col">
-            <label>Nom du tirage</label>
-            <input type="text" id="inputs">
-          </div>
-        </div><br>
-        <div class="row">
-          <div class="col">
-            <label>Nom du tirage</label><br>
-            <select name="" id="select">
-              <option value="">Choisissez</option>
-            </select>
-          </div>
-        </div><br>
-        <div class="row">
-          <div class="col">
-            <label>Liste à tirée</label><br>
-            <select name="" id="select">
-              <option value="">Choisissez</option>
-            </select>
-          </div>
-        </div><br>
+    <div class="row" >
+                
+        <div class="col- col-sm- col-md-6 col-lg-6 col-xl-6" >
 
-        <div class="row">
-          <div class="col">
-            <label>Nombre</label>
-            <input type="number" id="inputs">
-          </div>
-        </div><br>
+            <img src="../../assets/images/tirag.gif"   alt="">
 
-        <div class="row">
-          <div class="col">
-            <button (click)="ouvrirPopup()"> Trier </button>
-            <strong *ngIf="modelData">{{modelData}}</strong>
-          </div>
-        </div>
-      </form>
-      </div>
+         </div>
+
+             <div class="col- col-sm- col-md-6 col-lg-6 col-xl-6">
+
+             
+
+          <form action=" ">
+            <!-- <div class="row">
+              <div class="col">
+                <label>Nom du tirage</label>
+                <input type="text" id="inputs">
+              </div>
+            </div><br> -->
+
+
+            
+            <div class="input mb-3">
+              <label for="inputs" class="form-label">Nom du tirage *</label>
+              <input id="inputs"  name="nomTirage" type="text"  class="form-control" id="inputs" required>
+            </div>
+
+            <!-- <div class="row">
+              <div class="col">
+                <label>Activité</label><br>
+                <select name="" id="select">
+                  <option value="">Choisissez</option>
+                </select>
+              </div>
+            </div><br> -->
+
+
+            <div class="input mb-3">
+              <label for="select" class="form-label">Activité *</label>
+              <select  id="select" class="form-select" aria-label="Default select example">
+                  <option selected >Choisisez une activité</option>
+                  <option>aaa</option>
+                                    
+                </select>
+            </div>
+
+
+
+            <!-- <div class="row">
+              <div class="col">
+                <label>Liste à tirée</label><br>
+                <select name="" id="select">
+                  <option value="">Choisissez</option>
+                </select>
+              </div>
+            </div><br> -->
+
+
+            <div class="input mb-3">
+              <label for="select" class="form-label">Liste à tirée *</label>
+              <select  id="select" class="form-select" aria-label="Default select example">
+                  <option selected >Choisisez une liste</option>
+                  <option>aaa</option>
+                                    
+                </select>
+            </div>
+
+            <!-- <div class="row">
+              <div class="col">
+                <label>Nombre</label>
+                <input type="number" id="inputs" pattern="[1,9]*" min="1" >
+              </div>
+            </div><br> -->
+
+            
+            <div class="input mb-3">
+              <label for="inputs" class="form-label">Nombre *</label>
+              <input  id="inputs"  name="nombrePlace" type="number"  class="form-control" id="inputs" required>
+            </div>
+
+
+
+            <!-- <div class="row">
+              <div class="col">
+                <button (click)="ouvrirPopup()"> Trier </button>
+                <strong *ngIf="modelData">{{modelData}}</strong>
+              </div>
+            </div> -->
+            
+            
+            <button type="button" class="btn btn-outline-dark bouton">Trier</button>
+
+
+          </form>
+             </div>
+
+
     </div>
-  </div>
 </div>

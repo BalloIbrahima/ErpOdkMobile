@@ -42,28 +42,26 @@
             </div>
 
             <div class="menuResponsive">
-                <label for="" class="nbrTirages">70 Tirages</label>
-                <label for="" class="nbrListes">15 Listes</label>
-                <label for="" class="nbrTiragesValide">63 Tirages</label>
+                <label for="" class="nbrTirages">{{totaltirage}} Tirages</label>
+                <label for="" class="nbrListes">{{nbrliste}} Listes</label>
+                <label for="" class="nbrTiragesValide">{{nbreTirageValides}} Tirages Validés</label>
             </div>
 
 
             <div class="listeList">
                 <div class="list" *ngFor="let l of totallist " >
-                   <label id="libelleListe">{{l.libelle}}</label>
+                   <label id="libelleListe" (click)="goDetailTirage(l.id)">{{l.libelle}}</label>
                    <label id="nbrTirageListe" for="">{{l.tirages.length}} tirages</label>
+                   <label for="">{{l.dateimport}}</label>
                 </div>
             </div>
 
 
-
+            
             <!--  <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
 
              <!-- ngFor="let l of listeService.liste |filter:searchText  | paginate: {itemsPerPage:16,currentPage: p}; let id = index" [routerLink]="['/detailsliste', l.id]"  -->
                     
-            <!-- <div class="listvide" ngIf="listeService.liste.length==0">   
-                        <label>Aucune liste dans la base de donnée</label> 
-                    </div> -->
 
         </div>
 

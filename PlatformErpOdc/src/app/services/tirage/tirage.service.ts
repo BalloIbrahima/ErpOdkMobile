@@ -29,7 +29,7 @@ getTirageById(login:String,password:String,id:number):Observable<any>{
   return this.http.post(`${this.env.api}​/utilisateur​/tirageById​/${id}`,data);
 }
 
-//tous les tirages
+//tous les tirages  
 
 GetTotalTirage(login:String,password:String):Observable<any>{
   const data:FormData=new FormData();

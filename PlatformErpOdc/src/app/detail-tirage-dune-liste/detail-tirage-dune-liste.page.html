@@ -33,12 +33,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let table of totaltirage | paginate: { itemsPerPage: 10, currentPage: p}">
-          <td> {{table.id}} </td>
-          <td> {{table.libelle}} </td>
-          <td class="hideColonne hideColonneOder"> {{table.date}} </td>
-          <td> {{table.nbr}} </td>
-          <td class="hideColonne hideColonneOder"> {{table.etat}} </td>
+        <tr *ngFor="let trg of listparid | paginate: { itemsPerPage: 10, currentPage: p}">
+          <td> {{trg.id}}</td>
+          <td> {{trg.libelle}}</td>
+          <td class="hideColonne hideColonneOder"> {{trg.date}} </td>
+          <td> {{trg.nbr}} </td>
+          <td class="hideColonne hideColonneOder"> {{trg.valider}} </td>
           <td class="hideColonne"> <span class="voirPlus">voir <ion-icon name="add-outline"></ion-icon></span> </td>
         </tr>
         <pagination-controls (pageChange)=" p = $event"> </pagination-controls>

@@ -33,8 +33,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let table of students | paginate: { itemsPerPage: 10, currentPage: p}">
-          <td> {{table.numero}} </td>
+        <tr *ngFor="let table of totaltirage | paginate: { itemsPerPage: 10, currentPage: p}">
+          <td> {{table.id}} </td>
           <td> {{table.libelle}} </td>
           <td class="hideColonne hideColonneOder"> {{table.date}} </td>
           <td> {{table.nbr}} </td>

@@ -14,7 +14,7 @@ export class SalleServiceService {
 // :::::::::Recupere salle par id
 
 getSalleParId(id:Number):Observable<any>{
-  return this.http.get(`http://localhost:8080/salle/getSalle/${id}`)
+  return this.http.get(`${this.env.api}/salle/getSalle/${id}`)
 }
 
   

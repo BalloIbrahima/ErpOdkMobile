@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { ListeService } from '../services/listes/liste.service';
 
 @Component({
   selector: 'app-popupdtirage',
@@ -9,10 +10,11 @@ import { ModalController } from '@ionic/angular';
 export class PopupdtiragePage implements OnInit {
   a : number=1;
   
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController,private listeService:ListeService) { }
   @Input() valider: boolean;
   @Input() donnee_tableau: string;
   ngOnInit() {
+    
 
   }
 

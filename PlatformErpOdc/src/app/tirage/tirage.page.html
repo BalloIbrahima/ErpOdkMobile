@@ -51,22 +51,24 @@
         <div class="row">
           <div class="col">
             <label>Nom du tirage</label>
-            <input type="text" id="inputs">
+            <input [(ngModel)]="libelletirage" name="libelletirage" type="text" id="inputs">
           </div>
         </div><br>
         <div class="row">
           <div class="col">
-            <label>Activité</label><br>
-            <select name="" id="select">
+            <label>Nom de l'activité</label><br>
+            <select [(ngModel)]="idactivite" name="nomactivite" id="select">
               <option value="">Choisissez</option>
+              <option *ngFor="let type of nom" >{{type.nom}}</option>
             </select>
           </div>
         </div><br>
         <div class="row">
           <div class="col">
             <label>Liste à tirée</label><br>
-            <select name="" id="select">
+            <select [(ngModel)]="libelleListe" name="libelleListe" id="select">
               <option value="">Choisissez</option>
+              <option *ngFor="let liste of listes">{{liste.libelle}}</option>
             </select>
           </div>
         </div><br>
@@ -74,13 +76,13 @@
         <div class="row">
           <div class="col">
             <label>Nombre</label>
-            <input type="number" id="inputs" pattern="[1,9]*" min="1" >
+            <input  [(ngModel)]="nombre" name="nombre" type="number" id="inputs">
           </div>
         </div><br>
 
         <div class="row">
           <div class="col">
-            <button (click)="ouvrirPopup()"> Trier </button>
+            <button (click)="FaireTirage()"> Trier </button>
             <strong *ngIf="modelData">{{modelData}}</strong>
           </div>
         </div>

@@ -7,12 +7,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+<<<<<<< HEAD
     font-family: myfon;
 }
 
 .firsttitle{
     text-transform: uppercase;
     font-size: 2rem;
+=======
+    font-family: 'Poppins', sans-serif;
+
+>>>>>>> 2e6096553f0bda943150bd78616abf03de928590
 }
 
 .mail{
@@ -35,13 +40,28 @@ ion-content {
 
 h1 {
     font-family: 'Poppins', sans-serif;
+<<<<<<< HEAD
     margin: 15px;
     font-size: 2rem;
+=======
+
+    margin: 2px;
+
+    margin: 15px;
+
+    margin: 2px;
+    font-size: 32px;
+>>>>>>> 2e6096553f0bda943150bd78616abf03de928590
     font-weight: bold;
     text-align: center;
     padding: 3px 6px;
     position: absolute;
+<<<<<<< HEAD
     top: 9%;
+=======
+
+    top: 7%;
+>>>>>>> 2e6096553f0bda943150bd78616abf03de928590
     background-color: #FFF;
     color: #FF7900;
     left: 50%;
@@ -57,13 +77,35 @@ h1 {
     background: #fff;
     // border: #000 3px solid;
     margin: 20px auto;
+<<<<<<< HEAD
+=======
+
+
+    top: 10%;
+
+    top: 7%;
+    background-color: #FFF;
+    color: #000;
+    left: 50%;
+    transform: translate(-50%, -50%);
+>>>>>>> 2e6096553f0bda943150bd78616abf03de928590
 }
 .box {
     width: 100%;
     padding: 50px 30px;
     border-radius: 15px;
+<<<<<<< HEAD
     border: #000 3px solid;
     margin: 20px auto;
+=======
+
+    background: #fff;
+    // border: #000 3px solid;
+
+    border: #000 3px solid;
+    margin: 20px auto;
+
+>>>>>>> 2e6096553f0bda943150bd78616abf03de928590
 }
 
 .mail{
@@ -78,6 +120,7 @@ h1 {
     outline: none;
     height: 40px;
     width: 100%;
+<<<<<<< HEAD
     border-radius: 0px 15px 15px 0px;
     border: 1px solid #ccc;
     font-size: 12px;
@@ -88,6 +131,16 @@ h1 {
     width: 100%;
     padding: 3.25%;
     align-items: center;
+=======
+    padding: 25px 30px;
+    border-radius: 15px;
+
+    border: #000 3px solid;
+    margin: 20px auto;
+
+    background: #fff;
+    margin: auto;
+>>>>>>> 2e6096553f0bda943150bd78616abf03de928590
 }
 
 input {
@@ -127,7 +180,15 @@ form .ajout .input-box {
     border-radius: 15px;
 }
 
+<<<<<<< HEAD
 .ajout .input-box input {
+=======
+// .activite-details .input-box input {
+
+//     .ajout .input-box input {
+
+.activite-details .input-box input {
+>>>>>>> 2e6096553f0bda943150bd78616abf03de928590
     outline: none;
     height: 40px;
     width: 100%;
@@ -202,10 +263,12 @@ textarea {
     .container {
         max-width: 100%;
     }
+
     form .ajout .input-box {
         margin-bottom: 15px;
         width: 100%;
     }
+<<<<<<< HEAD
     .container form .ajout {
         max-height: 300px;
         overflow-y: scroll;
@@ -272,3 +335,78 @@ textarea {
         font-size: 12px;
     }
 }
+=======
+
+    .container form .activite-details {
+
+        .container form .ajout {
+            max-height: 300px;
+
+            .container form .activite-details {
+                overflow-y: scroll;
+            }
+
+            h1 {
+                width: max-content;
+                font-size: 18px;
+            }
+
+            .ajout::-webkit-scrollbar {
+                width: 0;
+            }
+
+
+            form .button {
+                padding: 5%;
+                width: 100%;
+            }
+
+            .title {
+                margin-top: 5%;
+            }
+
+            input[type=submit] {
+                border-radius: 10px;
+                padding: 7px 10px;
+                background-color: #FF7900;
+                color: #FFFF;
+                margin-bottom: 3%;
+                width: 100%;
+            }
+
+            input[type=reset] {
+                border-radius: 5px;
+                padding: 7px 10px;
+                background-color: #FF7900;
+                color: #FFFF;
+                width: 100%;
+            }
+
+        }
+
+        .title {
+            margin-top: 5%;
+        }
+
+        input[type=submit] {
+            border-radius: 10px;
+            padding: 7px 10px;
+            background-color: #FF7900;
+            color: #FFFF;
+            margin-bottom: 3%;
+            width: 100%;
+        }
+
+        input[type=reset] {
+            border-radius: 5px;
+            padding: 7px 10px;
+            background-color: #FF7900;
+            color: #FFFF;
+            width: 100%;
+        }
+    }
+
+    //     }
+    // }
+}
+>>>>>>> 2e6096553f0bda943150bd78616abf03de928590

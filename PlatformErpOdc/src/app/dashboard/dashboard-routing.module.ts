@@ -43,9 +43,14 @@ const routes: Routes = [
         path: 'allactivity',
         loadChildren: () => import('../allactivity/allactivity.module').then( m => m.AllactivityPageModule)
       },
+<<<<<<< HEAD
 
       {
         path: 'detailactivite/:id',
+=======
+      {
+        path: 'detailactivity',
+>>>>>>> 2e6096553f0bda943150bd78616abf03de928590
         loadChildren: () => import('../detailactivity/detailactivity.module').then( m => m.DetailactivityPageModule)
       },
       {

@@ -6,25 +6,35 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class ListeService {
-  env=environment;
-  constructor(private http:HttpClient) { }
-  // :::::::::::::::toute les listes::::::::::::::::
-  GetAllListe(login:String,password:String):Observable<any>{
-    
-    const data:FormData=new FormData();
-    const user=[{"login":login,"password":password}]
-    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+export class ListeImportService {
 
-    return this.http.post(`${this.env.api}/utilisateur/AllListePost`,data);
-  }
   
-  public importerListePostulant(libelle : String, file:any, login : String, password : String) {
+  env=environment;
+
+  constructor(public http:HttpClient) { }
+
+  getAllListes(login:String, password:String):Observable<any>{
+
+    const data:FormData=new FormData();
+    const user=[
+      {
+        "login":login,
+        "password":password
+      }]
+      
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+
+    return this.http.post(`${this.env.api}/entite/getAll/entite`, data);
+  }
+
+  CreateListe(login :String, password:String,  libelle :String,file:File,):Observable<any>{
+
     const data:FormData=new FormData();
     const user=[{"login":login,"password":password}]
-    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
-    data.append('file',file);
 
-    return this.http.post(`${this.env.api}/responsable/listpostulant/new/${libelle}`,data);
+    data.append('file',file)
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+
+    return this.http.post(`${this.env.api}/responsable/listpostulant/new/${libelle}`, data);
   }
 }

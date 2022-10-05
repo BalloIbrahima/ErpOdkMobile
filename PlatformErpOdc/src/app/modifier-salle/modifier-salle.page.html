@@ -21,20 +21,20 @@
 
               <div class="input mb-3">
                   <label for="inputs" class="form-label">Nom *</label>
-                  <input  id="inputs" name="nom" type="text"  class="form-control" id="inputs"  required>
+                  <input  id="inputs" [(ngModel)]="libelle" name="nom" type="text"  class="form-control" id="inputs"  required>
                 </div> 
                 <!-- [(ngModel)]="nom"  -->
 
                 <div class="input mb-3">
                   <label for="inputs" class="form-label">Niveau *</label>
-                  <input id="inputs"  name="niveau" type="text"  class="form-control" id="inputs" required>
+                  <input id="inputs" [(ngModel)]="etage" name="niveau" type="text"  [value]="etage"   class="form-control" id="inputs" required>
                 </div>
                 <!-- [(ngModel)]="niveau" -->
 
              
                 <div class="input mb-3">
                   <label for="inputs" class="form-label">Nombre de place *</label>
-                  <input  id="inputs"  name="nombrePlace" type="number"  class="form-control" id="inputs" required>
+                  <input  id="inputs" [(ngModel)]="nombre" name="nombrePlace" type="number" [value]="nombre"  class="form-control" id="inputs" required>
                 </div>
                 <!-- [(ngModel)]="nombrePlace" -->
 
@@ -42,7 +42,7 @@
                   <label for="inputs" class="form-label">Entité *</label>
                    <select  id="inputs" class="form-select" aria-label="Default select example">
                        <option selected >Choisisez une entité</option>
-                      <option ></option>
+                      <option *ngFor="let entite of entites" >{{entite.libelleentite}}</option>
                       <!-- *ngFor="let entite of Entites" >{{entite.libelleentite  }}    -->
                     </select>
                    </div>
@@ -64,11 +64,6 @@
 
            
 
-
-
-              
-
-
               </div>
     
     
@@ -76,7 +71,7 @@
 
                   <label for="descriptiontextarea">Description</label>
                   <div class="form-floating" style="height: 100%;">
-                               <textarea class="form-control" placeholder="Description" id="descriptiontextarea"></textarea>
+                               <textarea class="form-control" placeholder="Description" [(ngModel)]="description" name="description" id="descriptiontextarea">{{description}}</textarea>
                     </div>
     
               </div>
@@ -85,7 +80,7 @@
                 
 
 
-                      <button type="button"  class="btn btn-primary bouton">Enregistrer</button>
+                      <button type="button"  class="btn btn-primary bouton" (click)="ModifSalle()" >Modifier</button>
                       <!-- (click)="CreerSalle()" -->
 
                   

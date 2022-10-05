@@ -14,9 +14,8 @@ import { UtilisateurService } from '../services/utilisateur/utilisateur.service'
 
 export class EntitePage implements OnInit {
   modelData: any;
-
-  constructor(private alertController: AlertController,private modalController: ModalController, private entiteService:EntiteService,private acceuilService: AccueilserviceService,private userService: UtilisateurService) { }
-
+  alertTrue: boolean = false;
+  alertFalse: boolean = false;
   longueur:any
 
   Utilisateur: any;
@@ -28,6 +27,9 @@ export class EntitePage implements OnInit {
   responsableEntite: any;
   lead: any;
   donner:any
+  constructor(private alertController: AlertController,private modalController: ModalController, private entiteService:EntiteService,private acceuilService: AccueilserviceService,private userService: UtilisateurService) { }
+
+
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
   info = [
@@ -96,9 +98,18 @@ export class EntitePage implements OnInit {
       }
     }
     this.entiteService.PostEntite(this.Utilisateur.login, this.Utilisateur.password, this.imageentite, this.libelleentite, this.description, this.Utilisateur, this.lead).subscribe(data => {
-      console.log(data);
+      console.log(data.message);
       this.donner = data
+      if(this.donner.message == 'ok'){
+        this.alertTrue = true
+        this.alertFalse = false
+      }else{
+        this.alertTrue = false
+        this.alertFalse = true
+      }
     })
+    
+    
     // this.presentAlert()
   }
 

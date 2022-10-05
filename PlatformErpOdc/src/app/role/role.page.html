@@ -25,23 +25,23 @@
   <div class="row">
     <div class="col-12">
       <div class="d-grid m-2 gap-2 d-md-flex justify-content-md-end">
-        <button class="btn buttonColor" type="button" routerLink="/ajouter-role">+ &nbsp; Nouveau Role</button>
+        <button class="btn buttonColor" type="button" routerLink="/dashboard/ajouter-role">+ &nbsp; Nouveau Role</button>
       </div>
     </div>
   </div>
   <div id="flex-container" class="testimonials">
     <div id="left-zone">
       <ul class="list">
-        <li class="item" *ngFor="let inf of info">
-          <input type="radio" id="{{inf.entite}}" name="basic_carousel" checked />
-          <label class="label_testimonial" class="{{inf.entite}}" for="{{inf.entite}}">{{inf.entite}}</label>
+        <li class="item" *ngFor="let inf of TousLesRole; let i = index">
+          <input type="radio" id="{{i}}" name="basic_carousel" checked />
+          <label class="label_testimonial" class="{{i}}" for="{{i}}">{{inf.libellerole}} </label>
           <div class="content-test content_testimonial">
 
-            <h1>{{inf.entite}}</h1>
+            <!-- <h1>{{inf.entite}}</h1>
             <p>{{inf.descrription}}</p>
             <p class="testimonialFrom">{{inf.status}}</p>
             <p class="testimonialState"> {{inf.nom}} </p>
-            <br>
+            <br> -->
             <p class="testimonialState"><button class="button">Voir+</button></p>
           </div>
         </li>

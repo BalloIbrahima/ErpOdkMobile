@@ -32,17 +32,20 @@
       <ion-label slot="start" style="color: black;" class="taille1">Prenom:</ion-label>
       <ion-label slot="" style="color: black;" class="taille2">Idissa</ion-label>
     </ion-item>
-    <ion-item lines="none">
+    <!-- <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Date de naissance:</ion-label>
       <ion-label slot="" style="color: black;" class="taille2">12/12/1999</ion-label>
-    </ion-item>
+
+ [(ngModel)]="name"
+
+    </ion-item> -->
     <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Lieu de naissance:</ion-label>
-      <ion-label slot="" style="color: black;" class="taille2">12/12/1999</ion-label>
+      <ion-label slot="" style="color: black;" class="taille2">Bamako</ion-label>
     </ion-item>
     <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Genre:</ion-label>
-      <ion-label slot="" style="color: black;" class="taille2">Masculin</ion-label>
+      <ion-label slot="" style="color: black;" class="taille2" >Masculin</ion-label>
     </ion-item>
     <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Contact:</ion-label>
@@ -62,16 +65,24 @@
     </ion-item>
   </ion-list>
 
-  <!-- <div class="buttom">
+  <div class="buttom">
     <div class="button1">
-      <input class="but1" type="reset" value="MODIFIER" (click)="ModifierPersonnel()" data-bs-toggle="modal"
-        data-bs-target="#staticBackdrop">
-      <input class="but1" type="submit" value="SUPPRIMER" (click)="SupprimerPersonnel()">
+
+      <!-- <input class="but1" type="reset" value="MODIFIER" id="open-modal" expand="block" data-bs-toggle="modal" data-bs-target="#staticBackdrop" > -->
+      <button class="btn buttonColor"  class="but1" id="open-modal" type="button">+ &nbsp; Modifier</button>
+      <!-- <ion-button  class="btn buttonColor"  class="but1" id="open-modal" (click)="confirm()" [strong]="true">Confirm</ion-button> -->
+       <!-- <input class="but1" type="submit" value="SUPPRIMER" (click)="SupprimerPersonnel()"> -->
+      <input class="but1" type="submit" value="SUPPRIMER" (click)="DeletePersonnel()">
+
+      <!-- <input class="but1" type="reset" value="MODIFIER" (click)="ModifierPersonnel()" data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"> -->
+      
     </div>
     <div class="button2">
-      <input class="but2" type="submit" value="DESACTIVER" (click)="DesactiverPersonnel()">
+      <!-- <input class="but2" type="submit" value="DESACTIVER" (click)="DesactiverPersonnel()"> -->
+      <input class="but2" type="submit" value="DESACTIVER" (click)="DPersonnel()">
     </div>
-  </div> -->
+  </div> 
   <div class="row">
     <!-- <div class="col-lg-3 col-12">
       <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-start">
@@ -95,7 +106,153 @@
       </div>
     </div>
   </div>
-  <ion-modal #modal trigger="open-modal">
+
+  <!-- <div>
+    <p>{{ message }}</p>
+  </div> -->
+ 
+
+  <!-- (click)="ModifierPersonnel()" -->
+  
+  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <!-- <ion-header class="ion-padding">
+        <ion-toolbar>
+        
+          <ion-title>Modification du personnel</ion-title>
+          
+        </ion-toolbar>
+      </ion-header> -->
+
+    
+<div class="container">
+  <form action="#">
+    
+    <div class="box">
+      <button type="button" class="btn-close"  (click)="cancel()" data-bs-dismiss="modal" aria-label="Close"></button>
+      <h1>Modifier personnel</h1>
+          <div class="ajout">
+              <div class="input-box">
+                  <span class="details">Nom *</span>
+                  <input type="text" placeholder="Nom du personnel">
+              </div>
+              <div class="input-box">
+                <span class="details">Email *</span>
+                <div class="mail">
+                  <input type="text" placeholder="loremipsun" id="inp">
+                  <div style="width: 270px;">
+                  <select name="tchoixsalle" class="mailmodel">
+                    <option >--Choisisez un domaine--</option>
+                    <option *ngFor="let domaine of formatMailperonnel" >{{domaine.libelle}}</option>
+                    <!-- formatMail
+                    <option value="">@orangefablab.com</option>
+                    <option value="">@orangemali.com</option>
+                    <option value="">@orangedigitalcenter.com</option> -->
+                  </select>
+                </div>
+                </div>
+              </div>
+              <div class="input-box">
+                <span class="details">Prénom *</span>
+                <input type="text" placeholder="Prénom du personnel">
+              </div>
+              
+              <div class="input-box">
+                <span class="details">Telephone *</span>
+                <input type="text" placeholder="Numéro de telephone">
+              </div>
+              <div class="input-box">
+                <span class="details">Lieu de naissance *</span>
+                <select name="tchoixsalle" class="select">
+                  <option value="">Bamako</option>
+                  <option value="">Sikasso</option>
+                  <option value="">Segou</option>
+                  <option value="">Mopti</option>
+                  <option value="">Kayes</option>
+                  <option value="">Koulikoro</option>
+                  <option value="">Gao</option>
+                  <option value="">Kidal</option>
+                </select>
+             </div>
+              <div class="input-box">
+                  <span class="details">Entité *</span>
+                  <select name="tchoixsalle" class="select">
+                    <option >--Choisisez une entité--</option>
+                    <option *ngFor="let entite of Entites" >{{entite.libelleentite}}</option>
+                  </select>
+              </div>
+              <div class="input-box">
+                <span class="details">Genre *</span>
+                Masculin
+                  <!-- {{ message }} -->
+                <!-- <select name="tchoixsalle" class="select">
+                    <option >--Votre genre--</option>
+                    <option *ngFor="let alluser of AllUser" >{{alluser.genre}}</option>
+                </select> -->
+            </div>
+            <div class="input-box">
+              <span class="details">Rôle *</span>
+              <select name="tchoixsalle" class="select">
+                <option value="">--Choisisez un role--</option>
+                <option *ngFor="let role of Roles" >{{role.libellerole}}</option>
+              </select>
+          </div>
+          </div>
+    </div>
+    <div class="button">
+      <ion-buttons slot="start">
+        <ion-button (click)="cancel()" class="but">Annuler</ion-button>
+      </ion-buttons>
+      <!-- <input class="but" type="submit" (click)="modal.dismiss()" value="Annuler"> -->
+      <ion-buttons slot="end">
+        <ion-button (click)="confirmP()" [strong]="true" class="but">Modifier</ion-button>
+      </ion-buttons>
+    </div>
+
+    
+  </form>
+</div> 
+        <!-- <ion-item>
+          <ion-label position="stacked">Enter your name</ion-label>
+          <ion-input type="text" placeholder="Your name"></ion-input>
+        </ion-item> -->
+    </ng-template>
+  </ion-modal>
+
+
+
+
+<!-- 
+<ion-content class="ion-padding">
+  <ion-button id="open-modal" expand="block">Open</ion-button>
+  <p>{{ message }}</p>
+  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+          </ion-buttons>
+          <ion-title>Welcome</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item>
+          <ion-label position="stacked">Enter your name</ion-label>
+          <ion-input type="text" placeholder="Your name" [(ngModel)]="name"></ion-input>
+        </ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>   -->
+
+
+
+
+  <!-- <ion-modal #modal trigger="open-modal">
     <ng-template>
       <div class="container">
         <h5 class="card-title text-center"> Création de role et attribution des droits </h5>
@@ -114,9 +271,9 @@
                     <div class="input-box">
                       <span class="details">Email *</span>
                       <div class="mail">
-                        <input type="text" placeholder="loremipsun" id="inp">
+                        <input type="text" placeholder="loremipsun" id="inp"> -->
                         <!-- <span class="input-group-text" aria-label="fin de mail">@orangemali.com</span> -->
-                        <div style="width: 270px;">
+                        <!-- <div style="width: 270px;">
                           <select name="tchoixsalle" class="mailmodel">
                             <option value="">@orangefablab.com</option>
                             <option value="">@orangemali.com</option>
@@ -202,7 +359,6 @@
         </div>
       </div>
     </ng-template>
-  </ion-modal>
-
+  </ion-modal> -->
 
 </ion-content>

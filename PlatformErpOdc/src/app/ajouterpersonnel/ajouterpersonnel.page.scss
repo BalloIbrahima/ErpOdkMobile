@@ -1,3 +1,8 @@
+
+@font-face {
+    font-family: myfon;
+    src: url('../../assets/font/Poppins-Light.ttf');
+}
 * {
     margin: 0;
     padding: 0;
@@ -6,6 +11,15 @@
 
 }
 
+.mail{
+    display: flex;
+    flex-direction: row;
+    color: #000;
+    background-color: #f8fafc;
+}
+ion-title{
+    color: #FF7900;
+}
 
 ion-content {
     display: flex;
@@ -31,7 +45,7 @@ h1 {
 
     top: 7%;
     background-color: #FFF;
-    color: #000;
+    color: #FF7900;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -53,7 +67,8 @@ h1 {
     transform: translate(-50%, -50%);
 }
 
-.box {
+.container {
+    max-width: 900px;
     width: 100%;
     padding: 25px 30px;
     border-radius: 15px;
@@ -65,12 +80,9 @@ h1 {
     margin: 20px auto;
 
 }
-
-
-.container {
-    max-width: 700px;
+.box {
     width: 100%;
-    padding: 25px 30px;
+    padding: 50px 30px;
     border-radius: 15px;
 
     border: #000 3px solid;
@@ -91,6 +103,7 @@ input {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin: 20px 0 12px 0;
 }
 
 form .ajout .input-box {
@@ -127,7 +140,7 @@ form .ajout .input-box {
     border-radius: 15px;
     border: 1px solid #ccc;
     padding-left: 15px;
-    font-size: 16px;
+    font-size: 14px;
     border-bottom-width: 2px;
     transition: all 0, 3s ease;
 }
@@ -151,6 +164,7 @@ form .button {
     background-color: #FF7900;
     color: #FFF;
     border: #FF7900 1px solid;
+    margin-right: 30px;
 }
 
 .but:hover {
@@ -167,6 +181,7 @@ form .button .input {
     font-weight: 500;
     border-radius: 15px;
     letter-spacing: 1px;
+   
 }
 
 form .button input:hover {
@@ -177,12 +192,21 @@ textarea {
     color: #000;
 }
 
+@media (max-width: 1010px) {
+    .mailmodel span{
+        font-size: 12px;
+    }
+    h1{
+        font-size: 25px;
+    }
+}
+
 @media (max-width: 584px) {
+    h1{
+        top: 11%;
+    }
     .container {
         max-width: 100%;
-        height: 100%;
-        background: #FFFF;
-        padding: 5% 7%;
     }
 
     form .ajout .input-box {

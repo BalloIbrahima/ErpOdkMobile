@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { ActiviteService } from '../services/activite/activite.service';
 
 @Component({
   selector: 'app-importer-listeparticipant',
@@ -8,7 +10,10 @@ import Swal from 'sweetalert2';
 })
 export class ImporterListeparticipantPage implements OnInit {
 
-  constructor() { }
+  listeactivite:any;
+   Utilisateur:any;
+
+  constructor( private liste:ActiviteService, private chemin: Router) { }
   succesImport() {
     //   Swal.fire({'Félicitations ...', 'Fichier importer avec succès !', 'success',
     // });
@@ -34,6 +39,13 @@ export class ImporterListeparticipantPage implements OnInit {
     }
 
   ngOnInit() {
+    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) 
+     console.log(this.Utilisateur)
+    // this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) 
+    this.liste.GetTtActivite(this.Utilisateur.login, this.Utilisateur.password).subscribe(chemin=>{
+      this.listeactivite = chemin.data
+      console.log("afficher tous "+chemin)
+    })
   }
 
 }

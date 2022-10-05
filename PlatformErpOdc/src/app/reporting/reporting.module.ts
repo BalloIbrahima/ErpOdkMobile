@@ -7,14 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { ReportingPageRoutingModule } from './reporting-routing.module';
 
 import { ReportingPage } from './reporting.page';
+import {MatTabsModule} from '@angular/material/tabs';
+import { ClocheComponent } from '../cloche/cloche.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    MatTabsModule,
     ReportingPageRoutingModule
   ],
-  declarations: [ReportingPage]
+  declarations: [ReportingPage,ClocheComponent]
 })
 export class ReportingPageModule {}

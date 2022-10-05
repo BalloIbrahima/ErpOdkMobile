@@ -14,18 +14,24 @@
         <div class="col">
             <ion-title style="color: #FF7900;margin-top: 7px; margin-left: 10px;">Liste des Taches</ion-title>
         </div>
-        
     </div>
-    <div>
-      <button routerLink="/dashboard/creertachesdesignation">
-     Ajouter une Tache</button>
-  </div>
   </ion-toolbar>
   
  
 </ion-header>
 
 <ion-content>
+   <!-- <div>
+        <button routerLink="/dashboard/creertachesdesignation">
+            Ajouter une Tache
+        </button>
+   </div> -->
+
+    <div class=" d-grid d-md-flex gap-2 justify-content-md-end bbtn"  routerLink="/dashboard/creertachesdesignation">
+        <button type="button" class="btn bouton"> 
+            Ajouter une Tâche
+        </button>
+  </div>
   <div class="liste">
 
     <ion-grid class="ion-margin text-center tailleTexte">

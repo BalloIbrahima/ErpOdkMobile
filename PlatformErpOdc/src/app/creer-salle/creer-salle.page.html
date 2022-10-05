@@ -23,26 +23,44 @@
                         <div class="row">
                             <div class="col">
                                 <label>Nom *</label>
-                                <input type="text" id="inputs" required>
+                                <input [(ngModel)]="nom" name="nom" type="text" id="inputs" required>
                             </div>
                         </div><br>
                         <div class="row">
                             <div class="col">
                                 <label>Niveau *</label>
-                                <input type="text" id="inputs" required>
+                                <input [(ngModel)]="niveau" name="niveau" type="text" id="inputs" required>
                             </div>
                         </div><br>
+
                         <div class="row">
                             <div class="col">
+                                <label>Nombre de place *</label>
+                                <input [(ngModel)]="nombrePlace" name="nombrePlace" type="number" id="inputs" required>
+                            </div>
+                        </div><br>
+
+                        <div class="row">
+                            <div class="col">
+                                
                                 <label>Entité *</label>
-                                <input type="text" id="inputs" required>
+                                    <select id="inputs" [(ngModel)]="entiteNom"  name="entiteNom" class="select" required>
+                                        <option >Choisisez une entité</option>
+                                        <option *ngFor="let entite of Entites" >{{entite.libelleentite  }}</option>
+                                    </select>
                             </div>
                         </div><br>
 
+                        <div class="row">
+                            <div class="col">
+                                <label>Description *</label>
+                                <textarea [(ngModel)]="description" name="description" type="text" id="inputs" required></textarea>
+                            </div>
+                        </div><br>
 
                         <div class="row">
                             <div class="col">
-                                <button> Enregistrer </button>
+                                <button (click)="CreerSalle()" > Enregistrer </button>
 
                             </div>
                         </div>

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
+import { AccueilserviceService } from '../services/acceuil/accueilservice.service';
+
+import { EntiteService } from '../services/entite/entite.service';
+import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
 // import { NouvelleEntitePage } from '../nouvelle-entite/nouvelle-entite.page';
 
 @Component({
@@ -10,7 +14,20 @@ import { ModalController } from '@ionic/angular';
 
 export class EntitePage implements OnInit {
   modelData: any;
-  constructor(private modalController: ModalController) { }
+
+  constructor(private alertController: AlertController,private modalController: ModalController, private entiteService:EntiteService,private acceuilService: AccueilserviceService,private userService: UtilisateurService) { }
+
+  longueur:any
+
+  Utilisateur: any;
+  donneEntite: any;
+  libelleentite: any;
+  description: any;
+  imageentite: any;
+  toutUtilisateur: any;
+  responsableEntite: any;
+  lead: any;
+  donner:any
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
   info = [
@@ -38,24 +55,72 @@ export class EntitePage implements OnInit {
     },
   ];
 
-  // async nouvelleent() {
-  //   const modal = await this.modalController.create({
-  //     component: NouvelleEntitePage,
-  //     componentProps: {
-  //       // eslint-disable-next-line @typescript-eslint/naming-convention
-  //       model_title: 'Nouvelle entite'
-  //     }
+
+  entites:any;
+  ngOnInit() {
+    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
+
+    this.entiteService.getAllEntites(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+      if(data.message=='ok'){
+        this.entites=data.data
+        this.longueur=data.data.length
+        console.log(data.data)
+      }
+    })
+
+    this.userService.getActivesUsers(this.Utilisateur.login, this.Utilisateur.password).subscribe(data => {
+      this.toutUtilisateur = data.data;
+      
+      console.log(data.data[1].nom)
+
+    })
+  }
+
+ 
+  recuperationImage(event: any) {
+
+    this.imageentite = event.target["files"][0];
+    console.log(this.imageentite)
+  }
+
+  
+  // methode permettant de creer une entite
+  postAllEntite() {
+    console.log(this.imageentite+" libelleentite : "+this.libelleentite+"description : "+this.description+"responsable : "+this.responsableEntite)
+    for(let i = 0; i< this.toutUtilisateur.length; i++){
+
+      const array=this.responsableEntite.split(' ')
+
+      if(this.toutUtilisateur[i].prenom==array[0] && this.toutUtilisateur[i].nom==array[1]){   
+        this.lead =this.toutUtilisateur[i]
+      }
+    }
+    this.entiteService.PostEntite(this.Utilisateur.login, this.Utilisateur.password, this.imageentite, this.libelleentite, this.description, this.Utilisateur, this.lead).subscribe(data => {
+      console.log(data);
+      this.donner = data
+    })
+    // this.presentAlert()
+  }
+
+
+  // methode permettant d'afficher le popup
+  // async presentAlert() {
+  //   const alert = await this.alertController.create({
+  //     header: 'Are you sure?',
+  //     cssClass: 'custom-alert',
+  //     buttons: [
+  //       {
+  //         text: 'No',
+  //         cssClass: 'alert-button-cancel',
+  //       },
+  //       {
+  //         text: 'Yes',
+  //         cssClass: 'alert-button-confirm',
+  //       },
+  //     ],
   //   });
 
-  //   modal.onDidDismiss().then((modelData)=>{
-  //     if (modelData !== null) {
-  //       this.modelData = this.modelData.data;
-  //       console.log('Les donnés du Pop Up sont : ' + modelData.data);
-  //     }
-  //   });
-  //   return await modal.present();
+  //   await alert.present();
   // }
-  ngOnInit() {
-  }
 
 }

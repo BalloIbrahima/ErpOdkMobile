@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PopoverController } from '@ionic/angular';
 
 @Component({
   selector: 'app-popup-notification',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PopupNotificationPage implements OnInit {
   p:number = 1;
-  constructor() { }
+  constructor(private popoverCtrl:PopoverController) { }
   salleactivites=[
     {
       user:"Fatoumata Kalogo",
@@ -35,7 +36,7 @@ export class PopupNotificationPage implements OnInit {
     },
   ]
   close(){
-
+    this.popoverCtrl.dismiss()
   }
 
   ngOnInit() {

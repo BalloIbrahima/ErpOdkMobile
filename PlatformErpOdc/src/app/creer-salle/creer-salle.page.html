@@ -18,12 +18,12 @@
             <i class="fa fa-ban" aria-hidden="true"></i>
           </div> -->
 
-          <div class="alert alert-danger" role="alert">
-            <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>  Erreur survenu l'or de la création de la salle
+          <div class="alert alert-danger" role="alert" *ngIf="alertFalse">
+            <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>  Erreur survenue l'or de la création de la salle
           </div>
 
-          <div class="alert alert-success" role="alert">
-            <i class="fa fa-check-circle-o" aria-hidden="true" style="color: green;"></i>  Salle créé avec succès.
+          <div class="alert alert-success" role="alert" *ngIf="alertTrue">
+            <i class="fa fa-check-circle-o" aria-hidden="true" style="color: green;"></i>  Salle créée avec succès.
             
           </div>
      

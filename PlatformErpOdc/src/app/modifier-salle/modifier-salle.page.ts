@@ -24,6 +24,10 @@ export class ModifierSallePage implements OnInit {
   salle:any;
   entites:any;
 
+  
+  alertTrue: boolean = false;
+  alertFalse: boolean = false;
+
   constructor(private route:ActivatedRoute,private router: Router,private service: SalleServiceService, private serviceEntite: EntiteService) { }
 
   ngOnInit() {
@@ -65,6 +69,14 @@ export class ModifierSallePage implements OnInit {
   ModifSalle(){
     this.service.ModifSalle(this.Utilisateur.login, this.Utilisateur.password,this.id, this.libelle,this.description, this.etage, this.nombre,this.Utilisateur).subscribe(retour=>{
       this.salle=retour.data
+
+      if(retour.message == 'ok'){
+        this.alertTrue = true
+        this.alertFalse = false
+      }else{
+        this.alertTrue = false
+        this.alertFalse = true
+      }
       console.log(retour)
         })
 

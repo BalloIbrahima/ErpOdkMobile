@@ -15,6 +15,15 @@
 <ion-content>
   <div class="container">
       <form >
+        <div class="alert alert-danger" role="alert" *ngIf="alertFalse">
+          <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>  Erreur survenue l'or de la modification de la salle
+        </div>
+
+        <div class="alert alert-success" role="alert" *ngIf="alertTrue">
+          <i class="fa fa-check-circle-o" aria-hidden="true" style="color: green;"></i>  Salle modifié avec succès.
+          
+        </div>
+
         <div class="row" style="margin-top: 3%;" >
          
              <div class="col- col-sm- col-md-6 col-lg-6 col-xl-6" >

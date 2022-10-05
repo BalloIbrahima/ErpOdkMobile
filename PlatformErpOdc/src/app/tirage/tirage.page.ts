@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { PopupdtiragePage } from '../popupdtirage/popupdtirage.page';
 import { ActiviteService } from '../services/activite/activite.service';
 import { ListeService } from '../services/listes/liste.service';
@@ -27,25 +27,35 @@ export class TiragePage implements OnInit {
   
 
 
-  constructor(private tirageService: TirageService,public modalController: ModalController,private listeService:ListeService,private activiteService:ActiviteService,private userService:UtilisateurService) { }
+  constructor(private tirageService: TirageService,public modalController: ModalController,private listeService:ListeService,private activiteService:ActiviteService,private userService:UtilisateurService,private alertController: AlertController) { }
  
-  async ouvrirPopup() {
+  async ouvrirPopup(data) {
     const modal = await this.modalController.create({
       component: PopupdtiragePage,
       componentProps: {
-        'valider': true,
-        'donnee_tableau': this.listes
+        'data': data,
+        
       },
       backdropDismiss: false
     });
     modal.onDidDismiss().then((modelData)=>{
       if (modelData !== null) {
         this.modelData = this.modelData.data;
-        console.log('Les donnés du Pop Up sont : ' + modelData.data);
+        console.log('Les données du Pop Up sont : ' + modelData.data);
       }
     });
     return await modal.present();
   }
+  async popupExist() {
+    const alert = await this.alertController.create({
+      header: 'Desolé',
+      subHeader: 'Ce tirage existe déjà',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
 
   ngOnInit() {
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) ;
@@ -69,8 +79,14 @@ export class TiragePage implements OnInit {
     }
 
     this.tirageService.doTirage(this.Utilisateur.login, this.Utilisateur.password,this.libelleListe,this.activiteSelect.id,this.nombre,this.libelletirage).subscribe(retour=>{
-      console.log(retour)
-      this.ouvrirPopup()
+      if(retour.message=='ok'){
+        console.log(retour)
+        this.ouvrirPopup(retour.data)
+        console.log(retour.data)
+      }else{
+        this.popupExist()
+      }
+      
     })
     
   }

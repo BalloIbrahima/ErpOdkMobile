@@ -17,10 +17,11 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {HttpClientModule} from '@angular/common/http';
 import { ClocheComponent } from './cloche/cloche.component';
 import { PopupNotificationPage } from './popup-notification/popup-notification.page';
+import { PopupdtiragePage } from './popupdtirage/popupdtirage.page';
 
 
 @NgModule({
-  declarations: [AppComponent,PopupNotificationPage],
+  declarations: [AppComponent,PopupNotificationPage,PopupdtiragePage],
   // imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
 
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,

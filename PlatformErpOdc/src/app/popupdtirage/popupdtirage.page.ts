@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { Observable } from 'rxjs';
 import { ListeService } from '../services/listes/liste.service';
 
 @Component({
@@ -9,12 +10,18 @@ import { ListeService } from '../services/listes/liste.service';
 })
 export class PopupdtiragePage implements OnInit {
   a : number=1;
-  
+  date = new Date();
   constructor(private modalController: ModalController,private listeService:ListeService) { }
   @Input() valider: boolean;
-  @Input() donnee_tableau: string;
+  @Input() nom: string;
+  @Input() prenom: string;
+
+  data;
   ngOnInit() {
-    
+
+    console.log(this.data)
+
+
 
   }
 

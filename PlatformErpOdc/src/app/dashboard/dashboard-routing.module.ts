@@ -119,7 +119,7 @@ const routes: Routes = [
       loadChildren: () => import('../detail-tirage-dune-liste/detail-tirage-dune-liste.module').then( m => m.DetailTirageDuneListePageModule)
     },
     {
-      path: 'detail-liste/:id',
+      path: 'detail-liste',
       loadChildren: () => import('../detail-des-listes/detail-des-listes.module').then( m => m.DetailDesListesPageModule)
     },
     {

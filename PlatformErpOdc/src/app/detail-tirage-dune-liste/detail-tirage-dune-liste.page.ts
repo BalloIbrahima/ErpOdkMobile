@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TirageService } from '../services/tirage/tirage.service';
 
 @Component({
   selector: 'app-detail-tirage-dune-liste',
@@ -8,90 +9,27 @@ import { Component, OnInit } from '@angular/core';
 export class DetailTirageDuneListePage implements OnInit {
 
   p: number=1;
-
-  students =[
-    {
-      
-      numero:'1',  
-      libelle: 'Kadidia',
-      date: '2022-12-12',
-        nbr: '20',
-        etat:'valide'
-       
-    },
-    {
-      numero:'2',
-      libelle: 'Kanoute',
-      date: '2022-12-12',
-        nbr: '20',
-        etat:'valide'
-  },
-  {
-    numero:'3',
-
-    libelle: 'Kanoute',
-      date: '2022-12-12',
-        nbr: '20',
-        etat:'valide'
-  },
-  {
-    numero:'4',
-
-    libelle: 'Kanoute',
-    date: '2022-12-12',
-      nbr: '20',
-      etat:'valide'
-  },
-  {
-    numero:'5',
-
-    libelle: 'Lah',
-      date: '2022-12-12',
-        nbr: '20',
-        etat:'valide'
-  },
-  {
-    numero:'6',
-
-    libelle: 'Kanoute',
-    date: '2022-12-12',
-      nbr: '20',
-      etat:'valide'
-  },
-  {
-    numero:'7',
-
-    libelle: 'Kanoute',
-    date: '2022-12-12',
-      nbr: '20',
-      etat:'valide'
-  },
-  {
-    numero:'8',
-    libelle: 'Kanoute',
-    date: '2022-12-12',
-      nbr: '20',
-      etat:'valide'
-  },
-  {
-    numero:'9',
-    libelle: 'Kanoute',
-    date: '2022-12-12',
-      nbr: '20',
-      etat:'valide'
-  },
-  {
-    numero:'10',
-    libelle: 'Kanoute',
-      date: '2022-12-12',
-        nbr: '20',
-        etat:'valide'
-  }
-
-  ];
-  constructor() { }
+  searchText:any;
+  totaltirage:any
+  Utilisateur:any;
+  constructor(public service: TirageService) { }
 
   ngOnInit() {
+
+    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
+      console.log(this.Utilisateur.login)
+
+      this.service.GetTotalTirage(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+        this.totaltirage=data.data;
+        console.log(data)
+        console.log(data.data.length)
+      });
+
+      
   }
+
+  
+ 
+
 
 }

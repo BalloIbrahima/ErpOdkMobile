@@ -9,6 +9,9 @@ import { SalleServiceService } from '../services/salles/salle-service.service';
 })
 export class ModifierSallePage implements OnInit {
 
+
+  Utilisateur:any;
+
   id:number = 0;
   description:string = "rr";
   etage: string="1 etage";
@@ -17,10 +20,15 @@ export class ModifierSallePage implements OnInit {
   disponibilite:string;
 
   salle:any;
+
   constructor(private route:ActivatedRoute,private router: Router,private service: SalleServiceService) { }
 
   ngOnInit() {
-    const id=this.route.snapshot.params['id']
+
+    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) ;
+
+
+    const id =this.route.snapshot.params['id']
     console.log(id)
 
     this.service.getSalleParId(id).subscribe(data=>{
@@ -34,6 +42,11 @@ export class ModifierSallePage implements OnInit {
         this.nombre=this.salle.nombreplace
 
       }
+    })
+
+    this.service.ModifSalle(this.Utilisateur.login, this.Utilisateur.password,this.id, this.libelle,this.description, this.etage, this.nombre,this.Utilisateur).subscribe(retour=>{
+  this.salle=retour.data
+  console.log(retour)
     })
   }
 

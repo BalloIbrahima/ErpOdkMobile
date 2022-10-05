@@ -12,12 +12,11 @@
 </ion-header>
 
 <ion-content>
-  <div class="titres" style="display: flex;
-  justify-content: space-around;font-size: 2rem; font-weight: 200px;">
-    <div style="color: #FF7900;" >
-<b>      Creer une Tache
+  <div class="titres">
+    <div class="titres_couleur">
+<b>      Creer une Tâche
 </b>    </div>
-    <div  style="color: #FF7900;">
+    <div class="titres_couleur">
 <b>      Creer une Désignation
 </b>    </div>
   </div>
@@ -29,7 +28,7 @@
 
                 <!-- <div class="col" style="color: #FF7900;" class="title"> </div><br> -->
 
-            <form action=" ">
+            <form>
               <div class="row">
                 <div class="col">
                   <label>Nom(Designation)  *</label><br>
@@ -40,26 +39,26 @@
               </div><br>
 
               <div class="row">
-                <div class="col">
-                  <label>Date de debut  *</label>
-                  <input type="date" id="inputs">
+                <div class="col input mb-3">
+                  <label class="form-label">Date de debut  *</label>
+                  <input type="date" id="inputs" class="form-control" >
                 </div>
               </div><br>
               <div class="row">
-                <div class="col">
-                  <label>Date de fin  *</label>
-                  <input type="date" id="inputs">
+                <div class="col input mb-3">
+                  <label class="form-label">Date de fin  *</label>
+                  <input type="date" id="inputs" class="form-control">
                 </div>
               </div><br>
               <div class="row">
-                <div class="col">
-                  <label>Statut  *</label>
-                  <input type="text" id="inputs">
+                <div class="col input mb-3">
+                  <label class="form-label">Statut  *</label>
+                  <input type="text" id="inputs" class="form-control">
                 </div>
               </div><br>
               <div class="row">
-                <div class="col">
-                  <label>Lieu</label><br>
+                <div class="col input mb-3">
+                  <label class="form-label">Lieu</label><br>
                   <select name="" id="select">
                     <option value="">choisir</option>
                     <option value="">Salle1</option>
@@ -87,14 +86,14 @@
             <div class="col-sm-12 col-md-6 col-lg-6" class="principal2">
             <form action=" ">
               <div class="row">
-                <div class="col">
-                  <label>Nom Designation</label>
-                  <input type="text" id="inputs" style="border: raduis 10px;">
+                <div class="col input mb-3">
+                  <label class="form-label">Nom Désignation</label>
+                  <input type="text" id="inputs" class="form-control" style="border: raduis 10px;">
                 </div>
               </div><br>
               <div class="row">
-                <div class="col">
-                  <label>Etat </label><br>
+                <div class="col input mb-3">
+                  <label class="form-label">Etat </label><br>
                   <select name="" id="select">
                     <option value="">Choisissez</option>
                     <option value="">Actif</option>

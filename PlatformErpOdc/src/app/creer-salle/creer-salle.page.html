@@ -14,10 +14,26 @@
 <ion-content>
     <div class="container">
         <form >
-          <div class="row" >
-           
-               <div class="col- col-sm- col-md-6 col-lg-6 col-xl-6" >
+          <!-- <div style="background-color: #FFD1C9; height: 45px; width: 80%; margin-left: auto; margin-right: auto;">
+            <i class="fa fa-ban" aria-hidden="true"></i>
+          </div> -->
 
+          <div class="alert alert-danger" role="alert" *ngIf="alertFalse">
+            <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>  Erreur survenue l'or de la création de la salle
+          </div>
+
+          <div class="alert alert-success" role="alert" *ngIf="alertTrue">
+            <i class="fa fa-check-circle-o" aria-hidden="true" style="color: green;"></i>  Salle créée avec succès.
+            
+          </div>
+     
+ 
+     
+       
+          <div class="row" >
+                
+               <div class="col- col-sm- col-md-6 col-lg-6 col-xl-6" >
+                    
                 <div class="input mb-3">
                     <label for="inputs" class="form-label">Nom *</label>
                     <input  id="inputs"  [(ngModel)]="nom" name="nom" type="text"  class="form-control" id="inputs"  required>

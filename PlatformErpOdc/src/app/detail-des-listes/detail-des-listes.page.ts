@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class DetailDesListesPage implements OnInit {
 
-  
+  p: number=1;
   totallist:any;
   Utilisateur:any;
   nbrliste:number=0;

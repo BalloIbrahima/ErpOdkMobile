@@ -35,7 +35,8 @@ export class DetailTirageDuneListePage implements OnInit {
     this.services.GetListeParId(this.Utilisateur.login,this.Utilisateur.password,this.id).subscribe(data=>{
       this.listparid=data.data.tirages;
       console.log(this.listparid.id);
-      console.log("mentor "+this.listparid.tirages);
+      console.log(this.listparid.tirages);
+    
     })
 
   }

@@ -49,12 +49,13 @@
 
 
             <div class="listeList">
-                <div class="list" *ngFor="let l of totallist " >
+                <div class="list" *ngFor="let l of totallist | paginate: { itemsPerPage: 10, currentPage: p}" >
                    <label id="libelleListe" (click)="goDetailTirage(l.id)">{{l.libelle}}</label>
                    <label id="nbrTirageListe" for="">{{l.tirages.length}} tirages</label>
-                   <label for="">{{l.dateimport}}</label>
+                   <label for="">{{l.dateimport | date: "dd MMMM yyyy à hh:mm"}}</label>
                 </div>
             </div>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
 
             

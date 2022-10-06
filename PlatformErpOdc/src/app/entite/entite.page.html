@@ -38,7 +38,7 @@
       </ion-label>
     </div>
   </div>
-  <div *ngIf="longueur!==0" id="flex-container" class="testimonials">
+  <!-- <div *ngIf="longueur!==0" id="flex-container" class="testimonials">
     <div id="left-zone">
       <ul class="list item1">
 
@@ -52,14 +52,14 @@
             <p class="desc">{{inf.description}}</p>
             <p class="testimonialFrom hideInfo">Gerant</p>
             <p class="testimonialState hideInfo">{{inf.gerant.prenom}} {{inf.gerant.nom}} </p>
-            <p class="testimonialState"><button class="btn button" (click)="RedirigerEntite(inf.id)" >Voir+</button></p>
+            <p class="testimonialState"><button class="btn button" (click)="RedirigerEntite(inf.id)">Voir+</button></p>
           </div>
         </li>
 
       </ul>
     </div>
     <div id="right-zone"></div>
-  </div>
+  </div> -->
 
 
   <!-- code permettant d'ajouter une nouvelle encours -->
@@ -89,7 +89,7 @@
         <!-- <button type="button" class="btn-close"  (click)="modal.dismiss()" data-bs-dismiss="modal" aria-label="Close"></button> -->
         <h5 class="card-title text-center">Nouvelle entité</h5>
         <div class="card">
-         
+
           <div class="card-body text-start">
             <div class="alert alert-success mb-3" role="alert" *ngIf="alertTrue">
               L'entite Creer avec succes
@@ -114,7 +114,7 @@
               <div for="description" class="">Description de l'entité *</div>
               <textarea class="form-control" id="description" name="description" [(ngModel)]="description"
                 rows="3"></textarea>
-                
+
               <div class="d-grid gap-2 col-6 text-center mx-auto mt-2">
                 <button type="button" class="btn colorbutton2 btn-sm" id="open-modal1"
                   (click)="postAllEntite()">Enregistrer</button>
@@ -142,3 +142,71 @@
         </div>
     </ng-template>
   </ion-modal> -->
+
+  <div class="wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-4 col-6" *ngFor="let inf of entites">
+          <div class="card mx-30">
+            <img src={{inf.image}} class="card-img-top" alt="...">
+            <div class="card-body">
+                <h4 class="card-title">{{inf.libelleentite}}</h4>
+                <h6 class="card-title">
+                  Responsable <br>{{inf.gerant.prenom}} {{inf.gerant.nom}}</h6>
+              <h6>
+                </h6>
+              <p class="card-text" [innerHTML]="inf.description | slice:0:80"></p>
+              <div class="socials">
+                <a (click)="RedirigerEntite(inf.id)"><img src="../../assets/icon/voir.png" alt="" srcset=""></a>
+                <a href="#"><img src="../../assets/icon/modifier-le-fichier.png" alt="" srcset=""></a>
+                <a href="#"><img src="../../assets/icon/supprimer.png" alt="" srcset=""></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- <div class="col-md-6 col-lg-4">
+          <div class="card mx-30">
+            <img src="https://i.postimg.cc/mgKqKwcf/2.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">
+                Martha David</h5>
+              <h6>
+                UI / UX Designer</h6>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse amet repellat, eaque aliquid similique
+                eius alias facilis quisquam, ipsa dolor.</p>
+              <div class="socials">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-youtube"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-dribbble"></i></a>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <!-- <div class="col-md-6 col-lg-4">
+          <div class="card mx-30">
+            <img src="https://i.postimg.cc/Y9zsGBdM/3.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">
+                Laura Chedd</h5>
+              <h6>
+                Full-Stack Developer</h6>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse amet repellat, eaque aliquid similique
+                eius alias facilis quisquam, ipsa dolor.</p>
+              <div class="socials">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-youtube"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-dribbble"></i></a>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+</ion-content>

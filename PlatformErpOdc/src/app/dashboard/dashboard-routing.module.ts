@@ -93,10 +93,10 @@ const routes: Routes = [
       path: 'entite',
       loadChildren: () => import('../entite/entite.module').then( m => m.EntitePageModule)
     },
-    {
-      path: 'details-entite/:id',
-      loadChildren: () => import('../details-entite/details-entite.module').then( m => m.DetailsEntitePageModule)
-    },
+    // {
+    //   path: 'details-entite/:id',
+    //   loadChildren: () => import('../details-entite/details-entite.module').then( m => m.DetailsEntitePageModule)
+    // },
     {
       path: 'role',
       loadChildren: () => import('../role/role.module').then( m => m.RolePageModule)

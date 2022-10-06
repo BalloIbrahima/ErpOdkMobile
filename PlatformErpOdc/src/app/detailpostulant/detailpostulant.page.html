@@ -71,26 +71,7 @@
     </ion-item>
   </ion-list>
 
-  <div class="buttom">
-    <div class="button1">
-
-      <!-- <input class="but1" type="reset" value="MODIFIER" id="open-modal" expand="block" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
-      <ion-button  class="btn buttonColor"  class="but1" id="open-modal" (click)="confirm()" [strong]="true">Confirm</ion-button> 
-      -->
-      <!-- <button class="btn buttonColor"  class="but1"  type="button"  (click)="UpdateUser()">+ &nbsp; Modifier</button> -->
-        <!-- <input class="but1" type="submit" value="SUPPRIMER" (click)="SupprimerPersonnel()">  -->
-        <button class="btn buttonColor"  class="but1"  type="button"  id="open-modal">+ &nbsp; Modifier</button> 
-      <input class="but1" type="submit" value="SUPPRIMER" (click)="DeletePersonnel()">
-
-      <!-- <input class="but1" type="reset" value="MODIFIER" (click)="ModifierPersonnel()" data-bs-toggle="modal"
-        data-bs-target="#staticBackdrop"> -->
-      
-    </div>
-    <div class="button2">
-      <!-- <input class="but2" type="submit" value="DESACTIVER" (click)="DesactiverPersonnel()"> -->
-      <input class="but2" type="submit" value="DESACTIVER" (click)="DPersonnel()">
-    </div>
-  </div> 
+  
   <div class="row">
     <!-- <div class="col-lg-3 col-12">
       <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-start">
@@ -108,9 +89,9 @@
     </div> -->
     <div class="col-lg-9 col-12">
       <div class="d-grid m-2 gap-2 d-md-flex justify-content-md-center">
-        <button class="btn buttonColor" type="button">+ &nbsp; Modifier</button>
-        <button class="btn buttonColor" type="button">+ &nbsp; Supprimer</button>
-        <button class="btn buttonColor" type="button">+ &nbsp; Desactiver</button>
+        <button class="btn buttonColor" type="button" id="open-modal">+ &nbsp; Modifier</button>
+        <button class="btn buttonColor" type="button" (click)="DeletePersonnel()">+ &nbsp; Supprimer</button>
+        <button class="btn buttonColor" type="button" (click)="DPersonnel()">+ &nbsp; Desactiver</button>
       </div>
     </div>
   </div>

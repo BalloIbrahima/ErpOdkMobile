@@ -31,14 +31,27 @@ export class SallePage implements OnInit {
       console.log(data.data)
     });
 
+   
     this.salleService.getSallesIndispo(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
       this.sallesIndispo=data.data;
-      this.sallesIndispoLength=data.data.length
+      this.sallesIndispoLength = data.data.length
       console.log(data.data)
     });
 
 
+ 
 
   }
+
+
+  // deleteSalle(id:any){
+
+  //   this.salleService.deleteSalle(this.Utilisateur.login,this.Utilisateur.password,id ).subscribe(
+  //     retour=>{
+  //     console.log(retour)
+  //   }
+
+  //   )
+  // }
 
 }

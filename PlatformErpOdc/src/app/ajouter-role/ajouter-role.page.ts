@@ -123,5 +123,12 @@ export class AjouterRolePage implements OnInit {
     // }
 
   }
+  postRole(){
+    console.log(this.createEntite)
+    console.log(this.updateEntite)
+    console.log(this.readEntite)
+    console.log(this.deleteEntite)
+    console.log(this.libelleRole)
+  }
 
 }

@@ -7,7 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: EntitePage
-  }
+  },{
+    path: 'details-entite/:id',
+    loadChildren: () => import('../details-entite/details-entite.module').then( m => m.DetailsEntitePageModule)
+  },
 ];
 
 @NgModule({

@@ -41,4 +41,23 @@ export class EntiteService {
 
     return this.http.post(`${this.env.api}/entite/create/entite`, data);
   }
+  //Methode permettant de retoujrner le nombre d'activiter realiser activites/entite/{identite}
+  gettAllActiviterParEntite(login :String, password:String,identite:any):Observable<any>{
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+    return this.http.post(`${this.env.api}/admin/activites/entite/${identite}`,data)
+  }
+  getAllPersonnelParEntite(login :String, password:String,identite:any):Observable<any>{
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+    return this.http.post(`${this.env.api}/admin/entitepersonnels/${identite}`,data)
+  }
+  getAllAprenantParEntite(login :String, password:String,identite:any):Observable<any>{
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+    return this.http.post(`${this.env.api}/admin/entiteapprenantss/${identite}`,data)
+  }
 }

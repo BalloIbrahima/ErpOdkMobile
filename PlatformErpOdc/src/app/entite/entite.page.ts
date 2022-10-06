@@ -75,6 +75,19 @@ export class EntitePage implements OnInit {
     })
   }
 
+  //Methode permettant de recuperer les entite
+
+  getAllEntite(){
+    this.entiteService.getAllEntites(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+      if(data.message=='ok'){
+        this.entites=data.data
+        this.longueur=data.data.length
+        console.log("nos entites "+data.data)
+      }
+    })
+
+  }
+
  
   recuperationImage(event: any) {
 
@@ -84,11 +97,16 @@ export class EntitePage implements OnInit {
 //Redirection voir +
 
 RedirigerEntite(id:number){
-  return this.router.navigate(['/dashboard/details-entite',id]);
+  return this.router.navigate(['/dashboard/entite/details-entite',id]);
   
 }
   
   // methode permettant de creer une entite
+  alet(): void {
+    setTimeout(() => {
+        this.getAllEntite();
+    }, 1000);
+  }
   postAllEntite() {
     this.alertTrue = false
     this.alertFalse = false
@@ -113,7 +131,7 @@ RedirigerEntite(id:number){
         this.alertFalse = true
       }
     })
-    
+      this.alet();
     // this.presentAlert()
   }
 

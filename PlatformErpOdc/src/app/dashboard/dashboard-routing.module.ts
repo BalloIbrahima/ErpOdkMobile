@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ReportingParticipantPageModule } from '../reporting-participant/reporting-participant.module';
 import { DashboardPage } from './dashboard.page';
 
 
@@ -12,6 +13,11 @@ const routes: Routes = [
         path: '',
         redirectTo: 'accueil',
         pathMatch: 'full'
+      },
+      
+      {
+        path: 'reporting-participant',
+        loadChildren: () => import('../reporting-participant/reporting-participant.module').then( m => m.ReportingParticipantPageModule)
       },
       {
         path: 'profil',

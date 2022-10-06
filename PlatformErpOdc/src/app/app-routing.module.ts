@@ -26,7 +26,19 @@ const routes: Routes = [
   {
     path: 'forgotpassword1',
     loadChildren: () => import('./forgetpassword1/forgetpassword1.module').then( m => m.Forgetpassword1PageModule)
+  },  {
+    path: 'reportingfiltreact',
+    loadChildren: () => import('./reportingfiltreact/reportingfiltreact.module').then( m => m.ReportingfiltreactPageModule)
   },
+  {
+    path: 'reportingfiltrepart',
+    loadChildren: () => import('./reportingfiltrepart/reportingfiltrepart.module').then( m => m.ReportingfiltrepartPageModule)
+  },
+  {
+    path: 'reporting-participant',
+    loadChildren: () => import('./reporting-participant/reporting-participant.module').then( m => m.ReportingParticipantPageModule)
+  },
+
 
 
 ];

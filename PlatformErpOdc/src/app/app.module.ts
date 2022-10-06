@@ -20,6 +20,7 @@ import { PopupNotificationPage } from './popup-notification/popup-notification.p
 // import { ModifierPersonnelComponent } from './modifier-personnel/modifier-personnel.component';
 // import { ComponentTestComponent } from './component-test/component-test.component';
 
+
 @NgModule({
   declarations: [AppComponent,PopupNotificationPage],
   // imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],   //ComponentTestComponent  ModifierPersonnelComponent

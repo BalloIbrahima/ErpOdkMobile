@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { DetailDesListesPage } from '../detail-des-listes/detail-des-listes.page';
 import { SalleServiceService } from '../services/salles/salle-service.service';
 import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
 
@@ -13,21 +15,31 @@ export class SallePage implements OnInit {
   sallesDipoLength:any;
   sallesIndispoLength:any
   url="/modifier-salle"
+  // deleteSalleParId:number;
 
   sallesIndispo:any;
   Utilisateur:any;
+  id: number;
   constructor(private userService:UtilisateurService,private salleService:SalleServiceService) { }
+
+
+
 
   ngOnInit() {
 
+    // this.id =+this.route.snapshot.params['id']
+    
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
 
      //!::::::::::::total perso ::::::::::::
 
+    this.callSalle()
+  }
 
-     this.salleService.getSalleDisponible(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+  callSalle(){
+    this.salleService.getSalleDisponible(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
       this.sallesDipo=data.data;
-      this.sallesDipoLength=data.data.length
+      this.sallesDipoLength = data.data.length
       console.log(data.data)
     });
 
@@ -37,8 +49,15 @@ export class SallePage implements OnInit {
       console.log(data.data)
     });
 
+  }
 
+  deleteSalleId(idSalle:number){
 
+    this.salleService.deleteSalle(this.Utilisateur.login,this.Utilisateur.password,idSalle).subscribe(data=>{
+      if(data.message=="ok"){
+        this.callSalle()
+      }
+    });
   }
 
 }

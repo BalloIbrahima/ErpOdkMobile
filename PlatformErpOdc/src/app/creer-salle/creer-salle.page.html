@@ -13,7 +13,7 @@
  
 <ion-content>
     <div class="container">
-        <form >
+        <form #f="ngForm">
           <!-- <div style="background-color: #FFD1C9; height: 45px; width: 80%; margin-left: auto; margin-right: auto;">
             <i class="fa fa-ban" aria-hidden="true"></i>
           </div> -->
@@ -36,22 +36,22 @@
                     
                 <div class="input mb-3">
                     <label for="inputs" class="form-label">Nom *</label>
-                    <input  id="inputs"  [(ngModel)]="nom" name="nom" type="text"  class="form-control" id="inputs"  required>
+                    <input  id="inputs"  [(ngModel)]="nom" name="nom" type="text"  class="form-control" id="inputs" ngModel required>
                   </div>
 
 
                   <div class="input mb-3">
                     <label for="inputs" class="form-label">Niveau *</label>
-                    <input id="inputs" [(ngModel)]="niveau" name="niveau" type="text"  class="form-control" id="inputs" required>
+                    <input id="inputs" [(ngModel)]="niveau" name="niveau" type="number"  class="form-control" id="inputs" min="0" max="4" ngModel required>
                   </div>
 
 
                
                   <div class="input mb-3">
                     <label for="inputs" class="form-label">Nombre de place *</label>
-                    <input  id="inputs" [(ngModel)]="nombrePlace" name="nombrePlace" type="number"  class="form-control" id="inputs" required>
+                    <input  id="inputs" [(ngModel)]="nombrePlace" name="nombrePlace" type="number"  class="form-control" id="inputs" min="1" max="100" ngModel required>
                   </div>
-
+<!-- 
                   <div class="input mb-3">
                     <label for="inputs" class="form-label">Entité *</label>
                      <select  id="inputs" class="form-select" aria-label="Default select example">
@@ -59,7 +59,7 @@
                         <option *ngFor="let entite of Entites" >{{entite.libelleentite  }}</option>
                                           
                       </select>
-                     </div>
+                     </div> -->
 
                     
 
@@ -89,8 +89,13 @@
                 <div class="col- col-sm- col-md-6 col-lg-6 col-xl-6" >
 
                     <label for="descriptiontextarea">Description</label>
+<<<<<<< HEAD
                     <div class="form-floating" style="height: 100%;">
                                  <textarea class="form-control"  [(ngModel)]="description" name="description" placeholder="Description" id="descriptiontextarea"></textarea>
+=======
+                    <div class="form-floating" style="height: 95%;">
+                                <textarea class="form-control"  [(ngModel)]="description" name="description" placeholder="Description" id="descriptiontextarea"></textarea>
+>>>>>>> e6a211024d3589259dabb049703620e6b1d223ae
                       </div>
       
                 </div>
@@ -99,7 +104,7 @@
                   
 
 
-                        <button type="button" (click)="CreerSalle()" class="btn btn-primary bouton">Enregistrer</button>
+                        <button type="button" (click)="CreerSalle()" class="btn bouton" [disabled]="f.form.invalid">Enregistrer</button>
 
 
                     

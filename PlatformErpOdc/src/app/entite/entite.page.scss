@@ -204,6 +204,10 @@ input:checked~.content-test {
   margin-top: 10px !important;
 }
 
+button:hover {
+  background-color: rgba(247, 28, 28, 0.979);
+}
+
 /* If the screen size is 480px or less */
 @media (max-width: 480px) {
   .content_testimonial .picto {

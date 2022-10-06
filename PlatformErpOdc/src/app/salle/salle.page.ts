@@ -44,14 +44,14 @@ export class SallePage implements OnInit {
   }
 
 
-  deleteSalle(id:any){
+  // deleteSalle(id:any){
 
-    this.salleService.deleteSalle(this.Utilisateur.login,this.Utilisateur.password,id ).subscribe(
-      retour=>{
-      console.log(retour)
-    }
+  //   this.salleService.deleteSalle(this.Utilisateur.login,this.Utilisateur.password,id ).subscribe(
+  //     retour=>{
+  //     console.log(retour)
+  //   }
 
-    )
-  }
+  //   )
+  // }
 
 }

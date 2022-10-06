@@ -19,23 +19,26 @@ export class DetailactivityPage implements OnInit {
   salles:any
   leadnom:any
   leadprenom:any
+  image:any;
 
   aaa:any
   constructor(private activiteservice:ActiviteService, private route:ActivatedRoute) { }
 
 
   ngOnInit() {
+
     const idactivite=this.route.snapshot.params['id']
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'))
     //console.log(idactivite)
     console.log("recuperation de l'utilisateur "+this.Utilisateur)
     this.activiteservice.getactivitybyId(this.Utilisateur.login,this.Utilisateur.password,idactivite).subscribe(r=>{
       this.activite=r.data;
-      console.log(r);
+      console.log(r.data);
       this.nom=this.activite.nom
       this.salles=this.activite.salle.libelle
-      this.leadnom=this.activite.leader.nom
-      this.leadprenom=this.activite.leader.prenom
+      this.leadnom=this.activite.lead.nom
+      this.leadprenom=this.activite.lead.prenom
+      this.image=this.activite.image
 
 
     })

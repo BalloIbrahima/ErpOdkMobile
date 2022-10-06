@@ -410,7 +410,7 @@ ion-button {
   background: #FFFFFF;
   box-shadow: 0px 6px 4px 6px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
-  margin-bottom: 100px !important;
+  margin-bottom: 10px !important;
 }
 
 .container {
@@ -468,9 +468,10 @@ body {
   background-color: #f4b927;
  }
  .wrapper {
- padding-top: 120px;
+ padding-top: 10px;
  }
  .card-img-top {
+  height: 200px;
  box-shadow: 0 5px 10px rgba(0,0,0,0.5);
  }
  .card-body{
@@ -489,26 +490,27 @@ body {
  }
  
  .socials a {
- width: 40px;
- height: 40px;
+ width: 10%;
+ height: 10%;
  display: inline-block;
- border-radius: 50%;
- margin: 0 5px;
+ cursor: pointer;
+ 
+ margin: 0 10px;
  }
  .socials a i {
  color: #fff;
  padding: 12px 0;
  }    
  
- .socials a:nth-child(1) {
- background: #3b5998;
- }.socials a:nth-child(2) {
- background: #ff0000;
- }.socials a:nth-child(3) {
- background: #007bb5;
- }.socials a:nth-child(4) {
- background: #ea4c89;
- }
+//  .socials a:nth-child(1) {
+//  background: #3b5998;
+//  }.socials a:nth-child(2) {
+//  background: #ff0000;
+//  }.socials a:nth-child(3) {
+//  background: #007bb5;
+//  }.socials a:nth-child(4) {
+//  background: #ea4c89;
+//  }
  
  @media (max-width: 800px){
      .mx-30{

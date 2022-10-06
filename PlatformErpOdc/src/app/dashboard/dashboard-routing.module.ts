@@ -93,10 +93,10 @@ const routes: Routes = [
       path: 'entite',
       loadChildren: () => import('../entite/entite.module').then( m => m.EntitePageModule)
     },
-    {
-      path: 'details-entite/:id',
-      loadChildren: () => import('../details-entite/details-entite.module').then( m => m.DetailsEntitePageModule)
-    },
+    // {
+    //   path: 'details-entite/:id',
+    //   loadChildren: () => import('../details-entite/details-entite.module').then( m => m.DetailsEntitePageModule)
+    // },
     {
       path: 'role',
       loadChildren: () => import('../role/role.module').then( m => m.RolePageModule)
@@ -119,7 +119,7 @@ const routes: Routes = [
       loadChildren: () => import('../detail-tirage-dune-liste/detail-tirage-dune-liste.module').then( m => m.DetailTirageDuneListePageModule)
     },
     {
-      path: 'detail-liste/:id',
+      path: 'detail-liste',
       loadChildren: () => import('../detail-des-listes/detail-des-listes.module').then( m => m.DetailDesListesPageModule)
     },
     {

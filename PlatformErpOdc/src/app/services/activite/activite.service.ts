@@ -21,7 +21,7 @@ export class ActiviteService {
     console.log(activite)
     data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
     data.append('data', JSON.stringify(activite).slice(1,JSON.stringify(activite).lastIndexOf(']')));
-    return this.http.post(`${this.env.api}/utilisateur/activite/new/${idSalle}/${idType}`,data);
+    return this.http.post(`${this.env.api}/utilisateur/activite/new`,data);
   }
 
 

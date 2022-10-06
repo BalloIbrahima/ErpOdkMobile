@@ -21,6 +21,8 @@ export class CreerSallePage implements OnInit {
 
   niveau:any;
   EntiteSelectioner:any;
+  alertTrue = false;
+  alertFalse = false;
 
   constructor(private salleService:SalleServiceService,private entiteService:EntiteService,private typeActiviteService:TypeActiviteService,private userService:UtilisateurService) { }
 
@@ -44,6 +46,14 @@ export class CreerSallePage implements OnInit {
 
     this.salleService.ajoutSalle(this.Utilisateur.login,this.Utilisateur.password,this.nom,this.description,this.niveau,this.nombrePlace,this.Utilisateur).subscribe(retour=>{
       console.log(retour)
+
+      if(retour.message == 'ok'){
+        this.alertTrue = true
+        this.alertFalse = false
+      }else{
+        this.alertTrue = false
+        this.alertFalse = true
+      }
     })
 
   }

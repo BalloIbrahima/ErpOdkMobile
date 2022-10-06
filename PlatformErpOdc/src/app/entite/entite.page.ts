@@ -65,13 +65,8 @@ export class EntitePage implements OnInit {
   ngOnInit() {
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
     console.log("recuperantion l'utilisateur"+this.Utilisateur)
-    this.entiteService.getAllEntites(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
-      if(data.message=='ok'){
-        this.entites=data.data
-        this.longueur=data.data.length
-        console.log("nos entites "+data.data)
-      }
-    })
+    this.allEntite();
+
     this.userService.getActivesUsers(this.Utilisateur.login, this.Utilisateur.password).subscribe(data => {
       this.toutUtilisateur = data.data;
       
@@ -102,7 +97,7 @@ export class EntitePage implements OnInit {
 //Redirection voir +
 
 RedirigerEntite(id:number){
-  return this.router.navigate(['/dashboard/details-entite',id]);
+  return this.router.navigate(['/dashboard/entite/details-entite',id]);
   
 }
   
@@ -113,6 +108,8 @@ RedirigerEntite(id:number){
     }, 1000);
   }
   postAllEntite() {
+    this.alertTrue = false
+    this.alertFalse = false
     console.log(this.imageentite+" libelleentite : "+this.libelleentite+"description : "+this.description+"responsable : "+this.responsableEntite)
     for(let i = 0; i< this.toutUtilisateur.length; i++){
 
@@ -122,8 +119,9 @@ RedirigerEntite(id:number){
         this.lead =this.toutUtilisateur[i]
       }
     }
+
     this.entiteService.PostEntite(this.Utilisateur.login, this.Utilisateur.password, this.imageentite, this.libelleentite, this.description, this.Utilisateur, this.lead).subscribe(data => {
-      console.log(data.message);
+      console.log(data);
       this.donner = data
       if(this.donner.message == 'ok'){
         this.alertTrue = true
@@ -138,6 +136,18 @@ RedirigerEntite(id:number){
   }
 
 
+
+  allEntite(){
+    console.log("zzzz")
+    this.entiteService.getAllEntites(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+      if(data.message=='ok'){
+        this.entites=data.data
+        this.longueur=data.data.length
+        console.log("nos entites "+data.data)
+      }
+    })
+    
+  }
   // methode permettant d'afficher le popup
   // async presentAlert() {
   //   const alert = await this.alertController.create({

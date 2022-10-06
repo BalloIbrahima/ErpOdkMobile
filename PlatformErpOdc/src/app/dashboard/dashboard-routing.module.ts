@@ -143,7 +143,10 @@ const routes: Routes = [
       path: 'activite',
       loadChildren: () => import('../allactivity/allactivity.module').then( m => m.AllactivityPageModule)
     },
-
+    {
+      path: 'modifier-salle',
+      loadChildren: () => import('../modifier-salle/modifier-salle.module').then( m => m.ModifierSallePageModule)
+    },
 
       { path: '**', redirectTo:'accueil',pathMatch:'full'}
 

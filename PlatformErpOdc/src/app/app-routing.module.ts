@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AcceuilGuard } from './guard/acceuil/acceuil.guard';
@@ -26,11 +25,7 @@ const routes: Routes = [
   {
     path: 'forgotpassword1',
     loadChildren: () => import('./forgetpassword1/forgetpassword1.module').then( m => m.Forgetpassword1PageModule)
-  },
-  {
-    path: 'reporting',
-    loadChildren: () => import('./reporting/reporting.module').then( m => m.ReportingPageModule)
-  },
+  }
 
 
 

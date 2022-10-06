@@ -27,7 +27,7 @@ export class SallePage implements OnInit {
 
      this.salleService.getSalleDisponible(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
       this.sallesDipo=data.data;
-      this.sallesDipoLength=data.data.length
+      this.sallesDipoLength = data.data.length
       console.log(data.data)
     });
 

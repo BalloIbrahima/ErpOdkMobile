@@ -18,7 +18,7 @@ export class TiragePage implements OnInit {
   Utilisateur:any;
   modelData: any;
 
-
+  libelletirage:any;
   idactivite:any;
   libelleListe:any;
   activiteSelect: any;

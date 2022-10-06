@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, ModalController } from '@ionic/angular';
+import { AlertController, ModalController, ToastController } from '@ionic/angular';
+import Swal from 'sweetalert2';
 import { PopupdtiragePage } from '../popupdtirage/popupdtirage.page';
 import { ActiviteService } from '../services/activite/activite.service';
 import { ListeService } from '../services/listes/liste.service';
 import { TirageService } from '../services/tirage/tirage.service';
-import { TypeActiviteService } from '../services/typeActivite/type-activite.service';
 import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
 
 @Component({
@@ -27,7 +27,7 @@ export class TiragePage implements OnInit {
   
 
 
-  constructor(private tirageService: TirageService,public modalController: ModalController,private listeService:ListeService,private activiteService:ActiviteService,private userService:UtilisateurService,private alertController: AlertController) { }
+  constructor(private tirageService: TirageService,public modalController: ModalController,private listeService:ListeService,private activiteService:ActiviteService,private toastCtrl: ToastController) { }
  
   async ouvrirPopup(data) {
     const modal = await this.modalController.create({
@@ -47,13 +47,22 @@ export class TiragePage implements OnInit {
     return await modal.present();
   }
   async popupExist() {
-    const alert = await this.alertController.create({
-      header: 'Desolé',
-      subHeader: 'Ce tirage existe déjà',
-      buttons: ['OK'],
-    });
+    Swal.fire({
+      title:'Desolé',
+      text:'Ce tirage existe déjà',
+      icon:'error',
+      heightAuto: false
+  });
 
-    await alert.present();
+  }
+ 
+  popupDepasse() {
+      Swal.fire({
+        title:'Desolé',
+        text:'Le nombre entré est superieur au nombre de postulant sur la liste',
+        icon:'error',
+        heightAuto: false
+    });
   }
 
 
@@ -84,7 +93,14 @@ export class TiragePage implements OnInit {
         this.ouvrirPopup(retour.data)
         console.log(retour.data)
       }else{
-        this.popupExist()
+        if(retour.message=="error"){
+          console.log(retour)
+          this.popupExist()
+        }
+        else{
+          this.popupDepasse()
+        }
+        
       }
       
     })

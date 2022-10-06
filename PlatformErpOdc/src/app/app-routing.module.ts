@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'forgotpassword1',
     loadChildren: () => import('./forgetpassword1/forgetpassword1.module').then( m => m.Forgetpassword1PageModule)
   },
+  {
+    path: 'popupdtirage/:id',
+    loadChildren: () => import('./popup-notification/popup-notification-routing.module').then( m => m.PopupNotificationPageRoutingModule)
+  },
 
 
 

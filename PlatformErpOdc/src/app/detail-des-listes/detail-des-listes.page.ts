@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./detail-des-listes.page.scss'],
 })
 export class DetailDesListesPage implements OnInit {
-
   p: number=1;
   totallist:any;
   Utilisateur:any;

@@ -1,18 +1,37 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Liste de tache</ion-title>
-    <ion-button slot="end" fill="clear">
-      <app-cloche></app-cloche>
 
-    </ion-button>
+
+<ion-header>
+ 
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-button slot="end" fill="clear">
+        <app-cloche></app-cloche>
+  
+      </ion-button>
+      <div class="row">
+        <div class="col">
+            <ion-title style="color: #FF7900;margin-top: 7px; margin-left: 10px;">Liste des Taches</ion-title>
+        </div>
+    </div>
   </ion-toolbar>
+  
+ 
 </ion-header>
 
-
 <ion-content>
+   <!-- <div>
+        <button routerLink="/dashboard/creertachesdesignation">
+            Ajouter une Tache
+        </button>
+   </div> -->
+
+    <div class=" d-grid d-md-flex gap-2 justify-content-md-end bbtn"  routerLink="/dashboard/creertachesdesignation">
+        <button type="button" class="btn bouton"> 
+            Ajouter une Tâche
+        </button>
+  </div>
   <div class="liste">
 
     <ion-grid class="ion-margin text-center tailleTexte">

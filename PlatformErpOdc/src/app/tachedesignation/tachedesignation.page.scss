@@ -1,3 +1,4 @@
+
 ////////////////////////////////:Tableau
 // @font-face {
 //     font-family: myfon1;
@@ -49,12 +50,12 @@ ion-row {
 ion-row:nth-child(even) {
     background-color: #F3F3F3;
 }
- /*button*/
+
  button{
     color: white;
     margin-top: auto;
     background: #FF7900;
-    height: 40px;
+    height: 35px;
     border-radius: 5px;
     cursor: pointer;
     font-weight: 900;
@@ -63,8 +64,15 @@ ion-row:nth-child(even) {
      border: 2px solid #FF7900;
      padding: 0px 100px 0px 0px;
      margin-left: 50px;
-    
+
     padding: 0;
     border-radius: 20px;
-  
+
+  }
+
+  .bouton {
+    box-shadow: none;
+    margin-right: 4%;
+    margin-top: 2%;
+    width: 20%;
   }

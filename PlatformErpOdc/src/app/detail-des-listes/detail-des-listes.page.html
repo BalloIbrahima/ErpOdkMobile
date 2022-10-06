@@ -9,7 +9,7 @@
 
       </ion-button>
     </ion-toolbar>
-  </ion-header>
+</ion-header>
  
   
 
@@ -49,23 +49,20 @@
 
 
             <div class="listeList">
-                <div class="list" *ngFor="let l of totallist | paginate: { itemsPerPage: 10, currentPage: p}" >
-                   <label id="libelleListe" (click)="goDetailTirage(l.id)">{{l.libelle}}</label>
-                   <label id="nbrTirageListe" for="">{{l.tirages.length}} tirages</label>
-                   <label for="">{{l.dateimport | date: "dd MMMM yyyy à hh:mm"}}</label>
+                <div id="list" class="col" *ngFor="let l of totallist " >
+                    <div class="row">
+                        <img src="../../assets/listetof1.png" alt="" style="width: 100px ;" >
+                    </div>
+                    <div class="row">
+                        <label id="libelleListe">{{l.libelle}}</label>
+                        <label id="nbrTirageListe" for="">{{l.tirages.length}} tirages</label>
+                    </div>
                 </div>
             </div>
             <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
-
-            
-            <!--  <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
-
-             <!-- ngFor="let l of listeService.liste |filter:searchText  | paginate: {itemsPerPage:16,currentPage: p}; let id = index" [routerLink]="['/detailsliste', l.id]"  -->
-                    
-
         </div>
-
+    
         <div class="right">
 
             <div class="nbrTirage">
@@ -89,9 +86,8 @@
                     <label for="">Tirages Validés</label>
                 </div>
             </div>
-
-
-
         </div>
+
     </div>
+
 </ion-content>

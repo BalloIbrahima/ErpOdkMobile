@@ -1,4 +1,6 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { ActiviteService } from '../services/activite/activite.service';
 
 @Component({
   selector: 'app-detailactivity',
@@ -9,6 +11,50 @@ export class DetailactivityPage implements OnInit {
 
   pages!: any;
   a!: any
+  activite:any;
+  Utilisateur:any;
+  nom:any
+
+  Status:any
+  salles:any
+  leadnom:any
+  leadprenom:any
+  image:any;
+
+  aaa:any
+  constructor(private activiteservice:ActiviteService, private route:ActivatedRoute) { }
+
+  id:any;
+
+  ngOnInit() {
+
+    const idactivite=this.route.snapshot.params['id']
+    this.id=idactivite
+    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'))
+    //console.log(idactivite)
+    console.log("recuperation de l'utilisateur "+this.Utilisateur)
+    this.activiteservice.getactivitybyId(this.Utilisateur.login,this.Utilisateur.password,idactivite).subscribe(r=>{
+      this.activite=r.data;
+      console.log(r.data);
+      this.nom=this.activite.nom
+      this.salles=this.activite.salle.libelle
+      this.leadnom=this.activite.lead.nom
+      this.leadprenom=this.activite.lead.prenom
+      this.image=this.activite.image
+
+
+    })
+
+    this.activiteservice.GetActiviteStatut(this.Utilisateur.login,this.Utilisateur.password,idactivite).subscribe(r=>{
+      console.log(r)
+      this.Status=r.message;
+    })
+
+    
+
+  }
+
+
   students =[
     {
         name: 'Djiguiba',
@@ -82,10 +128,9 @@ export class DetailactivityPage implements OnInit {
   }
   
   ];
-
-  constructor() { }
+   
+  
+   
  
-  ngOnInit() {
-  }
 
 }

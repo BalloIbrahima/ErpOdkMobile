@@ -167,16 +167,16 @@
 
             <div class="carousel-inner">
 
-              <div class="carousel-item active" data-bs-interval="1000" *ngFor="let activiteEncour of activiteEncours">
-                <img src={{activiteEncour.image}}  class="d-block w-100" alt="...">
+              <div class="carousel-item active" data-bs-interval="2000" *ngFor="let activiteEncour of activiteEncours; let i=index">
+                <img *ngIf="i<3" src={{activiteEncour.image}}  class="d-block w-100" alt="...">
 
            
 
-                  <div class="carousel-caption d-none d-md-block">
+                  <div *ngIf="i<3" class="carousel-caption d-none d-md-block">
                     
                     <h5 class="nom_activite">{{activiteEncour.nom}}</h5>
-                    <span class="encours_ticket">{{activiteEncour.dateDebut}}</span> <span class="encours_ticket"> -- Salle Kalanso</span><br>
-                  <img src="../../assets/A (2).jpg" class="img_activite_avenir" alt="" srcset="">BALLO Ibrahima
+                    <span class="encours_ticket">{{activiteEncour.dateDebut | date }}</span> <span class="encours_ticket"> -- {{activiteEncour.salle.libelle}}</span><br>
+                  <img src="../../assets/A (2).jpg" class="img_activite_avenir" alt="" srcset="">{{activiteEncour.createur.nom}} {{activiteEncour.createur.prenom}}
                   
                 </div>
               </div>
@@ -249,18 +249,18 @@
             </div> -->
 
             <div class="col m-1">
-              <button type="button" class="btnPlus buttonColor " style=" height: 95%; width: 70%; margin-left:10px; margin-top: 7px; border-radius: 15px;  background-color: #FF6200; " routerLink="/dashboard/ajout-activite"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+              <button routerLink="/dashboard/creer-activites" type="button" class="btnPlus buttonColor " style=" height: 95%; width: 70%; margin-left:10px; margin-top: 7px; border-radius: 15px;  background-color: #FF6200; " ><i class="fa fa-plus-circle" style="color:#ffffff;" aria-hidden="true"></i></button>
               </div>
 
         
 
-              <div class="col m-2 image row"   
-              *ngFor="let aa of activiteAvenir"  
+              <div class="col m-2 image row"  
+                *ngFor="let aa of activiteAvenir ; let i=index "  
+                
+                style=" background-repeat: no-repeat;   background-position: center; background-size: cover; border-radius: 10px;"
+                >
               
-              style=" background-repeat: no-repeat;   background-position: center; background-size: cover; border-radius: 10px;"
-              >
-              
-                <img src="{{aa.image}} " style="height:100%; width: 100%; object-fit: cover;" alt="">
+                <img *ngIf="i<3" src="{{aa.image}} " style="height:100%; width: 100%; object-fit: cover;" alt="">
                 <!-- <div
                                  [style.background-image]="'url(' + aa.image + ')'"
 
@@ -275,7 +275,7 @@
 
                 <!-- </div> -->
 
-                   <div class="col align-self-end"
+                   <div *ngIf="i<3" class="col align-self-end"
                     style="background: rgba(250, 220, 220, 0.74);
                     height: 75px;
                     width: 60% !important;
@@ -292,7 +292,7 @@
       
                     <br>
                     <img src="" style="border-radius: 50%; width:30px" alt="" srcset=""> <span
-                      class="nomLead" style="font-size:10px ;"> {{aa.createur.nom}}</span>
+                      class="nomLead" style="font-size:10px ;"> {{aa.createur.nom}} {{aa.createur.prenom}}</span>
                   </div>
   
             </div>

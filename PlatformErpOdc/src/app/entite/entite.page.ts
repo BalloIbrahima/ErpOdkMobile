@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import{ Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { AccueilserviceService } from '../services/acceuil/accueilservice.service';
 
 import { EntiteService } from '../services/entite/entite.service';
 import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
+import { ActivatedRoute, Router } from '@angular/router';
 // import { NouvelleEntitePage } from '../nouvelle-entite/nouvelle-entite.page';
 
 @Component({
@@ -14,8 +15,11 @@ import { UtilisateurService } from '../services/utilisateur/utilisateur.service'
 
 export class EntitePage implements OnInit {
   modelData: any;
+  alertTrue: boolean = false;
+  alertFalse: boolean = false;
 
-  constructor(private alertController: AlertController,private modalController: ModalController, private entiteService:EntiteService,private acceuilService: AccueilserviceService,private userService: UtilisateurService) { }
+  constructor(private alertController: AlertController,private modalController: ModalController, private entiteService:EntiteService,private acceuilService: AccueilserviceService,
+    private userService: UtilisateurService, private router: Router, private route:ActivatedRoute) { }
 
   longueur:any
 
@@ -28,6 +32,7 @@ export class EntitePage implements OnInit {
   responsableEntite: any;
   lead: any;
   donner:any
+
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
   info = [
@@ -59,14 +64,8 @@ export class EntitePage implements OnInit {
   entites:any;
   ngOnInit() {
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
-
-    this.entiteService.getAllEntites(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
-      if(data.message=='ok'){
-        this.entites=data.data
-        this.longueur=data.data.length
-        console.log(data.data)
-      }
-    })
+    console.log("recuperantion l'utilisateur"+this.Utilisateur)
+    this.allEntite();
 
     this.userService.getActivesUsers(this.Utilisateur.login, this.Utilisateur.password).subscribe(data => {
       this.toutUtilisateur = data.data;
@@ -76,16 +75,41 @@ export class EntitePage implements OnInit {
     })
   }
 
+  //Methode permettant de recuperer les entite
+
+  getAllEntite(){
+    this.entiteService.getAllEntites(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+      if(data.message=='ok'){
+        this.entites=data.data
+        this.longueur=data.data.length
+        console.log("nos entites "+data.data)
+      }
+    })
+
+  }
+
  
   recuperationImage(event: any) {
 
     this.imageentite = event.target["files"][0];
     console.log(this.imageentite)
   }
+//Redirection voir +
 
+RedirigerEntite(id:number){
+  return this.router.navigate(['/dashboard/entite/details-entite',id]);
+  
+}
   
   // methode permettant de creer une entite
+  alet(): void {
+    setTimeout(() => {
+        this.getAllEntite();
+    }, 1000);
+  }
   postAllEntite() {
+    this.alertTrue = false
+    this.alertFalse = false
     console.log(this.imageentite+" libelleentite : "+this.libelleentite+"description : "+this.description+"responsable : "+this.responsableEntite)
     for(let i = 0; i< this.toutUtilisateur.length; i++){
 
@@ -95,14 +119,35 @@ export class EntitePage implements OnInit {
         this.lead =this.toutUtilisateur[i]
       }
     }
+
     this.entiteService.PostEntite(this.Utilisateur.login, this.Utilisateur.password, this.imageentite, this.libelleentite, this.description, this.Utilisateur, this.lead).subscribe(data => {
       console.log(data);
       this.donner = data
+      if(this.donner.message == 'ok'){
+        this.alertTrue = true
+        this.alertFalse = false
+      }else{
+        this.alertTrue = false
+        this.alertFalse = true
+      }
     })
+      this.alet();
     // this.presentAlert()
   }
 
 
+
+  allEntite(){
+    console.log("zzzz")
+    this.entiteService.getAllEntites(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+      if(data.message=='ok'){
+        this.entites=data.data
+        this.longueur=data.data.length
+        console.log("nos entites "+data.data)
+      }
+    })
+    
+  }
   // methode permettant d'afficher le popup
   // async presentAlert() {
   //   const alert = await this.alertController.create({

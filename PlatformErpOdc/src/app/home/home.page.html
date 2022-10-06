@@ -1,0 +1,74 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-item lines="none" color="background-color: #FF6200;" style="background-color: #FF6200;">
+        <ion-title slot="start" style="color: white;">Home</ion-title>
+        <ion-button slot="end"><ion-icon name="close-outline"></ion-icon></ion-button>
+      </ion-item>
+    </ion-toolbar>
+  </ion-header>
+  
+    <ion-content>
+          
+        <ion-button id="open-modal" expand="block">Open Card Modal</ion-button>
+<ion-modal #modal trigger="open-modal">
+    <ng-template>
+      <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-end">
+        <ion-buttons slot="end">
+          <ion-button (click)="modal.dismiss()">Close</ion-button>
+        </ion-buttons>
+      </div>
+    </ng-template>
+</ion-modal>
+    </ion-content>
+      <ion-content>
+
+        <div class="text-center">
+          <div class="text">
+            Liste Importée avec succès !
+          </div>
+          <div class="text">
+            Choissisez une action:
+          </div>
+
+        </div>
+        <div class="row mx-5 m-2">
+          <div class="col">
+            <button type="button" class="btn colorbutton1 btn-sm">Small button</button>
+          </div>
+          <div class="col">
+            <button type="button" class="btn colorbutton2 btn-sm">Small button</button>
+          </div>
+          <div class="col">
+            <button type="button" class="btn colorbutton3 btn-sm">Small button</button>
+          </div>
+        </div>
+  
+
+    
+
+
+        <ion-card-content>
+
+          <div class="content">Date: </div>
+
+          <div class="content">Durée: </div>
+
+          <div class="content">Lead: </div>
+
+          <div class="content">Créer par: </div>
+
+          <div class="content">Formateur(s):</div>
+          <div class="contentSalle text-center">Salle</div>
+        </ion-card-content>
+   
+   
+
+
+ 
+
+
+</ion-content>
+

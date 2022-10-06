@@ -13,91 +13,23 @@
 
 
 <ion-content>
-    <!-- <div class="container py-3"> -->
-
-        <!-- <div class="title h1 text-center">Activite AAAAAAA</div> -->
-        <!-- Card Start -->
-        <!-- <div class="card">
-            <div class="row "> -->
-        <!-- Carousel start -->
-        <!-- <div class="col-md-5">
-                    <img class="img" src="../../assets/odc1.png" alt="">
-                </div> -->
-        <!-- End of carousel -->
-        <!-- <div class="col-md-7 px-3">
-                    <div class="card-block px-6">
-                        <table style="font-size:2rem;">
-                            <tr> Creer Par:
-                                <td>fffff </td>
-                            </tr>
-                            <tr> Titre:
-                                <td>fffff </td>
-                            </tr>
-                            <tr> Status:
-                                <td>fffff </td>
-                            </tr>
-                            <tr>Durée:
-                                <td>fffff </td>
-                            </tr>
-                            <tr> Lead:
-                                <td>fffff </td>
-                            </tr>
-                            <tr> Salles:
-                                <td>fffff </td>
-                            </tr>
-                        </table> -->
-        <!-- <h4 class="card-title">Horizontal Card with Carousel - Bootstrap 4 </h4>
-                        <p class="card-text">
-                            The Carousel code can be replaced with an img src, no problem. The added CSS brings shadow to the card and some adjustments to the prev/next buttons and the indicators is rounded now. As in Bootstrap 3
-                        </p>
-                        <p class="card-text">Made for usage, commonly searched for. Fork, like and use it. Just move the carousel div above the col containing the text for left alignment of images</p>
-                        <br> -->
-        <!-- 
-                    </div>
-                </div>
-
-            </div>
-        </div> -->
-        <!-- End of card -->
-        <!-- <div class="mesbouton">
-            <div class="1">
-                <button style="margin-right: 60px;margin-top: 7px;border-raduis:20px;padding: 8px 15px 8px 16px;">
-                    Importer nouvelle liste </button>
-            </div>
-            <div class="1">
-                <button style="margin-right: 60px;margin-top: 7px;border-raduis:20px;padding: 8px 15px 8px 16px;">
-                    Exporter cette liste </button>
-            </div>
-            <div class="1">
-                <button
-                    style="margin-right: 60px;margin-top: 7px;border-raduis:20px;padding: 8px 15px 8px 16px;">Ajouter
-                    participant </button>
-            </div>
-            <div class="1">
-                <button style="margin-right: 60px;margin-top: 7px;border-raduis:20px;padding: 8px 15px 8px 16px;">Taches
-                </button>
-            </div>
-
-        </div> -->
-
-    <!-- </div> -->
-
+   
     <div class="row laLigne mx-3 my-3">
         <div class="col-lg-5 col-12 text-center">
-            <img class="img mt-1" src="../../assets/odc1.png" alt="">
+            <img class="img mt-1" src={{image}} alt="">
         </div>
         <div class="col-lg-6 col-12 colonne">
             <div  class="item-native my-3">
                 <ion-label class="titre m-3">Créer par</ion-label>
-                <ion-label class="contenu">Awesome Label</ion-label>
+                <ion-label class="contenu">{{Utilisateur.nom}} {{Utilisateur.prenom}}</ion-label>
             </div>
-            <div class="item-native my-3">
+            <div class="item-native my-3" >
                 <ion-label class="titre m-3">Titre</ion-label>
-                <ion-label class="contenu ml-5" slot="end">Awesome Label</ion-label>
+                <ion-label class="contenu ml-5" slot="end">{{nom}} </ion-label>
             </div>
             <div class="item-native my-3">
                 <ion-label class="titre m-3">Status</ion-label>
-                <ion-label class="contenu">Awesome Label</ion-label>
+                <ion-label class="contenu">{{Status}}</ion-label>
             </div>
             <div class="item-native my-3">
                 <ion-label class="titre m-3">Durée</ion-label>
@@ -105,11 +37,11 @@
             </div>
             <div class="item-native my-3">
                 <ion-label class="titre m-3">Lead</ion-label>
-                <ion-label class="contenu">Awesome Label</ion-label>
+                <ion-label class="contenu">{{leadnom}}  {{leadprenom}}</ion-label>
             </div>
             <div class="item-native my-3">
                 <ion-label class="titre m-3">Salle</ion-label>
-                <ion-label class="contenu">Awesome Label</ion-label>
+                <ion-label class="contenu">{{salles}}</ion-label>
             </div>
 
         </div>
@@ -119,10 +51,10 @@
             
             <div class="col-lg-12 col-12">
               <div class="d-grid m-2 gap-2 d-md-flex">
-                <button class="btn buttonColor largerButton" type="button"> Importer nouvelle liste</button>
-                <button class="btn buttonColor largerButton" type="button" routerLink="/dashboard/nouveau-personnel"> Exporter liste</button>
+                <button class="btn buttonColor largerButton" type="button" [routerLink]="['/dashboard/allactivity/importer-participant',id]" routerLinkActive="router-link-active"  > Importer nouvelle liste</button>
+                <button class="btn buttonColor largerButton" type="button" routerLink=""> Exporter liste</button>
                 <button class="btn buttonColor largerButton" type="button">+ &nbsp; Ajouter participant</button>
-                <button class="btn buttonColor largerButton" type="button" routerLink="/dashboard/tache-designation"> Tâche</button>  
+                <button class="btn buttonColor largerButton" type="button" routerLink="/dashboard/allactivity/tachedesignation"> Tâche</button>  
             </div>
             </div>
           </div>
@@ -135,18 +67,18 @@
             <th scope="col" class="hideColonne hideColonneOder">Genre</th>
             <th scope="col">Contact</th>
             <th scope="col" class="hideColonne hideColonneOder">Email</th>
-            <th scope="col" class="hideColonne">Action</th>
+            <th scope="col" class="hideColonne">Presence</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let table of students | paginate: { itemsPerPage: 4, currentPage: pages}">
+          <!-- <tr *ngFor="let table of students | paginate: { itemsPerPage: 4, currentPage: pages}">
             <td> {{table.name}} </td>
             <td> {{table.prenom}} </td>
             <td class="hideColonne hideColonneOder"> {{table.genre}} </td>
             <td> {{table.contact}} </td>
             <td class="hideColonne hideColonneOder"> {{table.email}} </td>
             <td class="hideColonne"> <span class="voirPlus">voir plus</span> </td>
-          </tr>
+          </tr> -->
     
         </tbody>
     

@@ -44,6 +44,43 @@ img{
   border-radius: 15px;
  
 }
+.gauche{
+  border-radius: 15px;
+  background-color: white;
+  padding: 1.5%;
+  height: 100%;
+  margin-top: 4%;
+}
+
+.gauche >table{
+  margin-top: 2%;
+  background-color: white;
+}
+.droite{
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  background-color: white;
+  padding: 1.5%;
+  margin-top: 18%;
+  height: 100%;
+  
+}
+
+.labelContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 500;
+  height: -webkit-fill-available;
+}
+img{
+  border-radius: 15px;
+ 
+}
 .droite >.libelleListe{
   margin-top: 42%;
 

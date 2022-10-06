@@ -13,43 +13,104 @@
  
 <ion-content>
     <div class="container">
-        <div class="col">
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-6" class="principal">
+        <form >
+          <!-- <div style="background-color: #FFD1C9; height: 45px; width: 80%; margin-left: auto; margin-right: auto;">
+            <i class="fa fa-ban" aria-hidden="true"></i>
+          </div> -->
 
-                    <div class="col" class="title">Nouvelle Salle </div><br>
+          <div class="alert alert-danger" role="alert">
+            <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>  Erreur survenu l'or de la création de la salle
+          </div>
 
-                    <form action=" ">
-                        <div class="row">
-                            <div class="col">
-                                <label>Nom *</label>
-                                <input type="text" id="inputs" required>
-                            </div>
-                        </div><br>
-                        <div class="row">
-                            <div class="col">
-                                <label>Niveau *</label>
-                                <input type="text" id="inputs" required>
-                            </div>
-                        </div><br>
-                        <div class="row">
-                            <div class="col">
-                                <label>Entité *</label>
-                                <input type="text" id="inputs" required>
-                            </div>
-                        </div><br>
+          <div class="alert alert-success" role="alert">
+            <i class="fa fa-check-circle-o" aria-hidden="true" style="color: green;"></i>  Salle créé avec succès.
+            
+          </div>
+     
+ 
+     
+       
+          <div class="row" >
+                
+               <div class="col- col-sm- col-md-6 col-lg-6 col-xl-6" >
+                    
+                <div class="input mb-3">
+                    <label for="inputs" class="form-label">Nom *</label>
+                    <input  id="inputs"  [(ngModel)]="nom" name="nom" type="text"  class="form-control" id="inputs"  required>
+                  </div>
 
 
-                        <div class="row">
-                            <div class="col">
-                                <button> Enregistrer </button>
+                  <div class="input mb-3">
+                    <label for="inputs" class="form-label">Niveau *</label>
+                    <input id="inputs" [(ngModel)]="niveau" name="niveau" type="text"  class="form-control" id="inputs" required>
+                  </div>
 
-                            </div>
-                        </div>
-                    </form>
+
+               
+                  <div class="input mb-3">
+                    <label for="inputs" class="form-label">Nombre de place *</label>
+                    <input  id="inputs" [(ngModel)]="nombrePlace" name="nombrePlace" type="number"  class="form-control" id="inputs" required>
+                  </div>
+
+                  <div class="input mb-3">
+                    <label for="inputs" class="form-label">Entité *</label>
+                     <select  id="inputs" class="form-select" aria-label="Default select example">
+                         <option selected >Choisisez une entité</option>
+                        <option *ngFor="let entite of Entites" >{{entite.libelleentite  }}</option>
+                                          
+                      </select>
+                     </div>
+
+                    
+
+              
+
+
+                <!-- <div class="col">
+                                
+                    <label>Entité *</label>
+                        <select id="inputs" [(ngModel)]="entiteNom"  name="entiteNom" class="select" required>
+                            <option >Choisisez une entité</option>
+                            <option *ngFor="let entite of Entites" >{{entite.libelleentite  }}</option>
+                        </select>
+                </div> -->
+
+
+             
+
+
+
+                
+
+
                 </div>
-            </div>
-        </div>
+      
+      
+                <div class="col- col-sm- col-md-6 col-lg-6 col-xl-6" >
+
+                    <label for="descriptiontextarea">Description</label>
+                    <div class="form-floating" style="height: 100%;">
+                                 <textarea class="form-control" placeholder="Description" id="descriptiontextarea"></textarea>
+                      </div>
+      
+                </div>
+
+                <div class="col button_div" >
+                  
+
+
+                        <button type="button" (click)="CreerSalle()" class="btn btn-primary bouton">Enregistrer</button>
+
+
+                    
+                </div>
+
+              </div>
+        </form>
+
+
+      
+
     </div>
 
 </ion-content>

@@ -1,3 +1,17 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 body {
     background-color: #eee;
 }
@@ -28,35 +42,6 @@ body {
     box-shadow:0px 4px 4px rgba(0,0,0,0.25),inset 0px 4px 4px rgba(0,0,0,0.25);
 }
 
-.carousel-indicators li {
-    border-radius: 12px;
-    width: 12px;
-    height: 12px;
-    background-color: #404040;
-}
-
-.carousel-indicators li {
-    border-radius: 12px;
-    width: 12px;
-    height: 12px;
-    background-color: #404040;
-}
-
-.carousel-indicators .active {
-    background-color: white;
-    max-width: 12px;
-    margin: 0 3px;
-    height: 12px;
-}
-
-.carousel-control-prev-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
-}
-
-.carousel-control-next-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
-}
-
 .container {
     display: grid;
     column-gap: 4%;
@@ -73,7 +58,7 @@ body {
     height: 80%;
 }
 // .pagination{
-    
+
 // }
 
 // .btn {
@@ -124,6 +109,25 @@ body {
         grid-template-columns: auto;
     }
 }
+
+.btn{
+  margin-right: 7px;
+                               --bs-btn-active-bg: white;
+                              --bs-btn-active-border-color: #FF7900;
+                              --bs-btn-active-color: #FF7900;
+                              background-color: #FF7900;
+                              border:none;
+                              color: white;
+}
+.btn:hover{
+  margin-right: 7px;
+  --bs-btn-active-bg: white;
+ --bs-btn-active-border-color: #FF7900;
+ --bs-btn-active-color: #FF7900;
+ background-color: white;
+ border: 1px solid #FF7900 ;
+ color: #FF7900;
+}
 /*button*/
 // #button{
 //     color: white;
@@ -141,5 +145,14 @@ body {
 //     width: 60%;
 //     padding: 0;
 //     border-radius: 20px;
-  
+
 //   }
+
+.lblAucune{
+    display: flex;
+      justify-content: center;
+      font-size: 25px;
+      position: relative;
+      top: 50%;
+
+  }

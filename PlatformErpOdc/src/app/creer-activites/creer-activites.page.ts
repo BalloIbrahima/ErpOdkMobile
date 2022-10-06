@@ -1,9 +1,14 @@
+import { AlertController } from '@ionic/angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActiviteService } from '../services/activite/activite.service';
+import { EntiteService } from '../services/entite/entite.service';
 import { SalleServiceService } from '../services/salles/salle-service.service';
 import { TypeActiviteService } from '../services/typeActivite/type-activite.service';
 import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-creer-activites',
@@ -12,18 +17,32 @@ import { UtilisateurService } from '../services/utilisateur/utilisateur.service'
 })
 export class CreerActivitesPage implements OnInit {
 
-  
-  SallesDispo:any;
-  Entites:any;
-  UsersActives:any;
-  TypeActivite:any;
+ //////////variables qui recuperent les data
 
+ Entites:any;
+ TypesActivites:any;
+ SallesDisponibles:any;
+ PersonnelsActives:any;
+//////////variables name et ngmodel
+ typeActivite
+  typeentite:any;
   nomActivite:any;
   duree:any;
+  date:any;
+  datedebut:any;
+  dateFin:any;
+  typeactivite:String;
+  libellesalle:String;
+  leadNomPrenom:any;
+  salles:any;
+  description:any;
+  image:any;
+   externes:any;
 
-  isFormation:Boolean;
-  isTalk:Boolean;
-  isEvenement:Boolean;
+
+
+
+
 
   message:String;
   erreur:Boolean;
@@ -32,157 +51,215 @@ export class CreerActivitesPage implements OnInit {
   Salle:any;
   Type:any;
   lead:any;
-
-  typeactivite:String;
-  libellesalle:String;
-  leadNomPrenom:String;
-
-  date:Date;
-  datedebut:Date;
-  dateFin:Date;
-
   Utilisateur:any;
-  constructor(private router:Router, private salleService:SalleServiceService,private userService:UtilisateurService,private typeActiviteService:TypeActiviteService,private activiteService:ActiviteService) { }
+  utilisateurs:any
+  constructor(private router:Router, private salleService:SalleServiceService,private userService:UtilisateurService,private typeActiviteService:TypeActiviteService,
+    private activiteService:ActiviteService, private http:HttpClient,
+   private entiteService:EntiteService) { }
 
   ngOnInit() {
-     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) 
-     console.log(this.Utilisateur)
+    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'))
 
-    this.ActiviteChange()
-    this.salleService.getAllDispo().subscribe(data=>{
-      if(data.message=='ok'){
-        this.SallesDispo=data.data
-        console.log(data)
-      }
-    })
+     console.log("recuperation de l'utilisateur "+this.Utilisateur)
 
-    this.typeActiviteService.getListe().subscribe(data=>{
-      if(data.message=='ok'){
-        this.TypeActivite=data.data
-        console.log(this.TypeActivite)
+      this.salleService.getSalleDisponible(this.Utilisateur.login,this.Utilisateur.password).subscribe(r=>{
+        this.SallesDisponibles=r.data
+        console.log(this.SallesDisponibles)
+      })
+
+    this.typeActiviteService.getListe(this.Utilisateur.login,this.Utilisateur.password).subscribe(r=>{
+      if(r.message=='ok'){
+        this.TypesActivites=r.data
+        console.log(this.TypesActivites)
 
       }
     })
 
-    this.userService.getActivesUsers().subscribe(data=>{
-      if(data.message=='ok'){
-        this.UsersActives=data.data
-        console.log(this.UsersActives)
+    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) ;
 
-      }
+    this.entiteService.getAllEntites(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour=>{
+      this.Entites=retour.data
+      console.log(this.Entites)
     })
 
-   
-    this.salleService.ToutEntite().subscribe(data=>{
-      if(data.message=='ok'){
-        this.Entites=data.data
+
+    this.userService.getActivesUsers(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour=>{
+      this.PersonnelsActives=retour.data
+      console.log(this.PersonnelsActives)
+    })
+
+    this.userService.getActivesUsers(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour=>{
+      this.utilisateurs=retour.data
+      console.log(this.utilisateurs)
+    })
+
+
+    this.entiteService.getAllEntites(this.Utilisateur.login,this.Utilisateur.password).subscribe(r=>{
+      if(r.message=='ok'){
+        this.Entites=r.data
         console.log(this.Entites)
 
       }
     })
+
+    this.activiteService.getpersonnelsexternes(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour=>{
+      this.externes=retour.data
+      console.log(this.externes)
+    })
+
+
   }
 
-
+  async presentAlert() {
+    Swal.fire({
+      title:'Validé!!!',
+      text:'Activité créée avec Succès!!',
+      icon:'success',
+      heightAuto: false,
+      confirmButtonColor:"#FF7900"
+  });
+  }
+  async notpresent() {
+    Swal.fire({
+      title:'Désolé!!!\nActivité non créée',
+      text:'Veuillez réessayer',
+      icon:'error',
+      heightAuto: false,
+      confirmButtonColor:"#FF7900"
+  });
+  }
 
   CreerActivite(){
-    
-    var idSalle=0;
-    var idType=0;
-    //recuperation de l'id sz la salle
-    for(let i=0 ; i<this.SallesDispo.length; i++){
-      if(this.SallesDispo[i].libelle==this.libellesalle){
-        idSalle=this.SallesDispo[i].id
+
+    var idSalle=null;
+    var idType=null;
+    var identity=null;
+    var iduser=0;
+    var idintervenant=null;
+
+
+    //recuperation de l'id l'entite
+    for(let i=0 ; i<this.Entites.length; i++){
+      if(this.Entites[i].libelleentite==this.typeactivite){
+        identity=this.Entites[i]
+      }
+    }
+     //recuperation de l'id dela salle
+     for(let i=0 ; i<this.SallesDisponibles.length; i++){
+      if(this.SallesDisponibles[i].libelle==this.libellesalle){
+        idSalle=this.SallesDisponibles[i]
       }
     }
 
-    //recuperation de l'id du type
-    for(let i=0 ; i<this.TypeActivite.length; i++){
-      if(this.TypeActivite[i].libelle==this.typeactivite){
-        idSalle=this.TypeActivite[i].id
+
+    //recuperation de l'id du type de l'activite
+    for(let i=0 ; i<this.TypesActivites.length; i++){
+      if(this.TypesActivites[i].libelle==this.typeactivite){
+        idType=this.TypesActivites[i]
       }
     }
+     //recuperation de l'id des formateurs
+     for(let i=0 ; i<this.utilisateurs.length; i++){
+      if(this.utilisateurs[i].libelle==this.utilisateurs){
+        iduser=this.utilisateurs[i]
+        console.log(iduser)
+      }
+     }
+
 
     //recuperation de l'id du lead
-     //recuperation de l'id du type
-     for(let i=0 ; i<this.UsersActives.length; i++){
+     for(let i=0 ; i<this.PersonnelsActives.length; i++){
       console.log(this.leadNomPrenom)
-      const array=this.leadNomPrenom.split(' ')
+      const array=this.leadNomPrenom.split(" ")
 
-      if(this.UsersActives[i].prenom==array[0] && this.UsersActives[i].nom==array[1]){   
-        this.lead=this.UsersActives[i]
+      if(this.PersonnelsActives[i].prenom==array[0] && this.PersonnelsActives[i].nom==array[1]){
+        this.lead=this.PersonnelsActives[i]
       }
     }
+    //recuperation de l'id des intervenants externes
+    for(let i=0 ; i<this.externes.length; i++){
+      if(this.externes[i].libelle==this.externes){
+        idintervenant=this.externes[i]
+        console.log(idintervenant)
+      }
+     }
 
-    //creation de l'activite
-    
-    var activite={
+    //creation de l'activite il manque lentite concernée dans la bdd//affaire de salles dispo a ala creation de lactivite
+    //fitrage par statut et entity ne fonctionne pas en bdd 3 get deja fait
+    //pour une entite recuperer tout les activites en fonction de identite (page detail entite)
+    //avant la suppression afficher un message por expliquer la suppression
+    var activite=[{
       "nom":this.nomActivite,
-      "duree":this.duree,
       "dateDebut":this.datedebut,
       "dateFin":this.dateFin,
-      "lieu":"aa",
-      "description":"zz",
+      "description":this.description,
       "leader":this.lead,
-      "utilisateurs":[this.lead]
-    }
+      "utilisateurs":[this.utilisateurs],
+      "salle":idSalle,
+      "typeActivite":idType,
+      "intervenantExternes":[this.externes]
+    }]
 
 
-
-
-    this.activiteService.Creer(this.Utilisateur.id,idSalle,idType,this.fichier,activite).subscribe(data=>{
+    this.activiteService.Creer(this.Utilisateur.login,this.Utilisateur.password,this.fichier,activite).subscribe(data=>{
       console.log(data)
+      this.presentAlert()
+      // if(data.message == "ok") {
+      //   this.presentAlert()
+      // } else {
+      //   this.notpresent()
+      // }
+
     })
   }
 
+            //fichier selection
+            selectFile(e:any){
+              //verification si une photo a été choisie ou pas
+              if(!e.target.files[0] || e.target.files[0].length==0){
+                this.message="Vous devez choisir un fichier execel !";
+                this.erreur=true;
+                return;
+              }
 
-  ////
-  ActiviteChange(){
-    console.log(this.typeactivite)
-    if(this.typeactivite=="Talk"){
-      this.isTalk==true
-      this.isEvenement==false
-      this.isFormation==false
-    }else if(this.typeactivite=="Evenement"){
-      this.isTalk==false
-      this.isEvenement==true
-      this.isFormation==false
-    }else if(this.typeactivite=="Formations"){
-      this.isTalk==false
-      this.isEvenement==false
-      this.isFormation==true
-    }
-  }
+              //verification du type de fichier choisi pour recaler si ce n'est pas une photo
+              var typeFichier=e.target.files[0].type;
 
 
-  //fichier selection
-  selectFile(e:any){
-    //verification si une photo a été choisie ou pas
-    if(!e.target.files[0] || e.target.files[0].length==0){
-      this.message="Vous devez choisir un fichier execel !";
-      this.erreur=true;
-      return;
-    }
 
-    //verification du type de fichier choisi pour recaler si ce n'est pas une photo
-    var typeFichier=e.target.files[0].type;
-    if(typeFichier.match(/image\/*/)==null){
-      this.message="Seul les images sont suportées";
-  
-      return;
 
-    }
+              if(e.target.files){
+                var reader= new FileReader();
+                reader.readAsDataURL(e.target.files[0]);
+                reader.onload=(event:any)=>{
+                  this.message="";
+                  //this.fichier=event.target.result;
+                  this.fichier=e.target['files'][0];
+                }
+              }
+            }
+
 
 
 
-    if(e.target.files){
-      var reader= new FileReader();
-      reader.readAsDataURL(e.target.files[0]);
-      reader.onload=(event:any)=>{
-        this.message="";
-        //this.fichier=event.target.result;
-        this.fichier=e.target['files'][0];
-      }
-    }
-   }
+  ////
+  // ActiviteChange(){
+  //   console.log(this.typeactivite)
+  //   if(this.typeactivite=="Talk"){
+  //     this.isTalk==true
+  //     this.isEvenement==false
+  //     this.isFormation==false
+  //   }else if(this.typeactivite=="Evenement"){
+  //     this.isTalk==false
+  //     this.isEvenement==true
+  //     this.isFormation==false
+  //   }else if(this.typeactivite=="Formations"){
+  //     this.isTalk==false
+  //     this.isEvenement==false
+  //     this.isFormation==true
+  //   }
+  // }
+
 
 }
+

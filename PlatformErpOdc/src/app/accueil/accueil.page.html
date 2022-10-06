@@ -11,13 +11,12 @@
 </ion-header>
 
 <!-- <div *ngIf="totalactivite==0" class="container-fluid mere" style="height: 100%;">
-  <ion-label class="lblAucune">  Aucune activite 
+  <ion-label class="lblAucune">  Aucune activite
   </ion-label>
-  *ngIf="totalactivite!=0"
 </div> -->
 
 
-  <div  class="container-fluid mere" style="height: 100%;">
+  <div class="container-fluid mere" style="height: 100%;">
 
 
 
@@ -27,7 +26,7 @@
 
         <div class="col side">
 
-      
+
 
           <div class="col">
 
@@ -44,12 +43,12 @@
               <div class="col">
 
                 <div class="row" >
-  
+
                   <div class="col"><i class="bi bi-activity icon1"></i></div>
                   <div class="col nombre" >{{totalactivite}}</div>
-  
+
                 </div>
-  
+
                 <div class="col text_info">
                   Activités réalisées
                 </div>
@@ -61,12 +60,12 @@
               <div class="col">
 
                 <div class="row" >
-  
+
                   <div class="col"><i class="bi bi-people-fill icon2"></i></div>
                   <div class="col nombre" >{{personneActive}}</div>
-  
+
                 </div>
-  
+
                 <div class="col text_info">
                   Personnels actifs
                 </div>
@@ -81,12 +80,12 @@
               <div class="col">
 
                 <div class="row" >
-  
+
                   <div class="col"> <i class="fa fa-users icon3" aria-hidden="true"></i></div>
                   <div class="col nombre" >{{participantsTotal}}</div>
-  
+
                 </div>
-  
+
                 <div class="col text_info">
                   Participants Totals
                 </div>
@@ -100,12 +99,12 @@
               <div class="col">
 
                 <div class="row" >
-  
+
                   <div class="col"><i class="fa fa-female icon4" aria-hidden="true"></i></div>
                   <div class="col nombre" >{{participantFeminins}}</div>
-  
+
                 </div>
-  
+
                 <div class="col text_info">
                   Participants feminins
                 </div>
@@ -119,12 +118,12 @@
               <div class="col">
 
                 <div class="row" >
-  
+
                   <div class="col"><i class="fa fa-child icon5" aria-hidden="true"></i></div>
                   <div class="col nombre" >{{participantEnfants}}</div>
-  
+
                 </div>
-  
+
                 <div class="col text_info">
                   Participants enfants
                 </div>
@@ -133,7 +132,7 @@
 
 
              </div>
-           
+
           </div>
 
 
@@ -147,7 +146,7 @@
 
         </div>
       </div>
-                
+
       <div class="col- col-sm-10 col-md-10 col-lg-8 col-xl-8 col-xxl-8 side_droite">
 
 
@@ -171,29 +170,29 @@
               <div class="carousel-item active" data-bs-interval="1000" *ngFor="let activiteEncour of activiteEncours">
                 <img src={{activiteEncour.image}}  class="d-block w-100" alt="...">
 
-           
+
 
                   <div class="carousel-caption d-none d-md-block">
-                    
+
                     <h5 class="nom_activite">{{activiteEncour.nom}}</h5>
                     <span class="encours_ticket">{{activiteEncour.dateDebut}}</span> <span class="encours_ticket"> -- Salle Kalanso</span><br>
                   <img src="../../assets/A (2).jpg" class="img_activite_avenir" alt="" srcset="">BALLO Ibrahima
-                  
+
                 </div>
               </div>
               <!-- <div class="carousel-item" data-bs-interval="2000">
                 <img src="../../assets/A (1).jpg"  class="d-block w-100" alt="...">
 
                 <a href="#">
-                  
+
                 <div class="carousel-caption d-none d-md-block">
 
                   <h5 class="nom_activite">Nom activité</h5>
                   <span class="encours_ticket">2020-04-23</span> <span class="encours_ticket"> -- Salle Kalanso</span><br>
                 <img src="../../assets/A (2).jpg" class="img_activite_avenir" alt="" srcset=""> BALLO Ibrahima
-                
+
                 </div>
-               
+
               </a>
 
               </div> -->
@@ -209,8 +208,8 @@
                    <img src="../../assets/A (2).jpg" class="img_activite_avenir" alt="" srcset="">BALLO Ibrahima
                        </div>
                 </a>
-             
-              
+
+
                   </div> -->
 
             </div>
@@ -222,22 +221,22 @@
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
-          </div> 
+          </div>
 
 
 
-   
-    
 
 
 
-     
+
+
+
 
         </div>
 
         <div class="col activite" style="margin-top: 3%; padding-right: 11px;  background-color:white; border-radius: 15px;">
-        
-     
+
+
 
           <span class="AenCours"> Activités à venir</span>
 
@@ -250,17 +249,17 @@
             </div> -->
 
             <div class="col m-1">
-              <button type="button" class="btnPlus buttonColor " style=" height: 95%; width: 70%; margin-left:10px; margin-top: 7px; border-radius: 15px;  background-color: #FF6200; " routerLink="/dashboard/ajout-activite"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+              <button type="button" class="btnPlus buttonColor " style=" height: 95%; width: 70%; margin-left:10px; margin-top: 7px; border-radius: 15px;  background-color: #FF6200; " routerLink="/dashboard/creer-activites"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
               </div>
 
-        
 
-              <div class="col m-2 image row"   
-              *ngFor="let aa of activiteAvenir"  
-              
+
+              <div class="col m-2 image row"
+              *ngFor="let aa of activiteAvenir"
+
               style=" background-repeat: no-repeat;   background-position: center; background-size: cover; border-radius: 10px;"
               >
-              
+
                 <img src="{{aa.image}} " style="height:100%; width: 100%; object-fit: cover;" alt="">
                 <!-- <div
                                  [style.background-image]="'url(' + aa.image + ')'"
@@ -285,17 +284,17 @@
                     <span class="nomActivite">
                       {{aa.nom}}
                     </span>
-      
+
                     <br>
                     <span class="Date">
                       Status
                     </span>
-      
+
                     <br>
                     <img src="" style="border-radius: 50%; width:30px" alt="" srcset=""> <span
                       class="nomLead" style="font-size:10px ;"> {{aa.createur.nom}}</span>
                   </div>
-  
+
             </div>
 
 
@@ -323,7 +322,7 @@
 
 
 
-<!-- 
+<!--
        <div class="col m-2 image row" style="background-image: url('../../assets/A (1).jpg'); background-repeat: no-repeat;   background-position: center; background-size: cover; border-radius: 10px; ">
 
         <div class="col align-self-end"

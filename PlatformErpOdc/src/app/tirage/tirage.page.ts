@@ -5,7 +5,6 @@ import { PopupdtiragePage } from '../popupdtirage/popupdtirage.page';
 import { ActiviteService } from '../services/activite/activite.service';
 import { ListeService } from '../services/listes/liste.service';
 import { TirageService } from '../services/tirage/tirage.service';
-import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
 
 @Component({
   selector: 'app-tirage',
@@ -19,11 +18,12 @@ export class TiragePage implements OnInit {
   Utilisateur:any;
   modelData: any;
 
-  libelletirage:any;
+
   idactivite:any;
   libelleListe:any;
   activiteSelect: any;
   nombre:any;
+  postulant: any;
   
 
 
@@ -38,12 +38,12 @@ export class TiragePage implements OnInit {
       },
       backdropDismiss: false
     });
-    modal.onDidDismiss().then((modelData)=>{
-      if (modelData !== null) {
-        this.modelData = this.modelData.data;
-        console.log('Les données du Pop Up sont : ' + modelData.data);
-      }
-    });
+    // modal.onDidDismiss().then((modelData)=>{
+    //   if (modelData !== null) {
+    //     this.modelData = this.modelData.data;
+    //     // console.log('Les données du Pop Up sont : ' + modelData.data);
+    //   }
+    // });
     return await modal.present();
   }
   async popupExist() {
@@ -51,7 +51,8 @@ export class TiragePage implements OnInit {
       title:'Desolé',
       text:'Ce tirage existe déjà',
       icon:'error',
-      heightAuto: false
+      heightAuto: false,
+      confirmButtonColor:'#FF7900'
   });
 
   }
@@ -61,7 +62,8 @@ export class TiragePage implements OnInit {
         title:'Desolé',
         text:'Le nombre entré est superieur au nombre de postulant sur la liste',
         icon:'error',
-        heightAuto: false
+        heightAuto: false,
+        confirmButtonColor:'#FF7900'
     });
   }
 
@@ -86,12 +88,15 @@ export class TiragePage implements OnInit {
         console.log(this.activiteSelect)
       }
     }
+    
 
     this.tirageService.doTirage(this.Utilisateur.login, this.Utilisateur.password,this.libelleListe,this.activiteSelect.id,this.nombre,this.libelletirage).subscribe(retour=>{
       if(retour.message=='ok'){
         console.log(retour)
         this.ouvrirPopup(retour.data)
         console.log(retour.data)
+
+        
       }else{
         if(retour.message=="error"){
           console.log(retour)

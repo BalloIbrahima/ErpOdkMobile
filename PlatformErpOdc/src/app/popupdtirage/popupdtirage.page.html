@@ -15,9 +15,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let table of data,let i=index">
-        <td> {{table.nom}} </td>
-        <td> {{table.prenom}} </td>
-        <td class="hideColonne hideColonneOder">{{table.email}}</td>
+        <td> {{table.postulant.nom}} </td>
+        <td> {{table.postulant.prenom}} </td>
+        <td class="hideColonne hideColonneOder">{{table.postulant.email}}</td>
       </tr>
     </tbody>
   </table>

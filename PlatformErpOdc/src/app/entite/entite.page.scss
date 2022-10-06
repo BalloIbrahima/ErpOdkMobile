@@ -413,7 +413,7 @@ ion-button {
   background: #FFFFFF;
   box-shadow: 0px 6px 4px 6px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
-  margin-bottom: 100px !important;
+  margin-bottom: 10px !important;
 }
 
 .container {
@@ -463,3 +463,69 @@ ion-button {
     top: 50%;
 
 }
+
+//les code permettant de faire la carde boostrap
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #f4b927;
+ }
+ .wrapper {
+ padding-top: 30px;
+ }
+ .card-img-top {
+  height: 200px;
+ box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+ }
+ .card-body{
+     text-align: center;
+     box-shadow: 0px 15px 15px -8px rgba(0,0,0,0.5)
+ }
+ .card-body h6 {
+ font-size: 14px;
+ text-transform: uppercase;
+ color: deeppink;
+ }
+ .card-title {
+ text-transform: uppercase;
+ font-weight: bold;
+ font-size: 24px;
+ }
+ 
+ .socials a {
+ width: 10%;
+ height: 10%;
+ display: inline-block;
+ cursor: pointer;
+ 
+ margin: 0 10px;
+ }
+ .socials a i {
+ color: #fff;
+ padding: 12px 0;
+ }    
+ 
+//  .socials a:nth-child(1) {
+//  background: #3b5998;
+//  }.socials a:nth-child(2) {
+//  background: #ff0000;
+//  }.socials a:nth-child(3) {
+//  background: #007bb5;
+//  }.socials a:nth-child(4) {
+//  background: #ea4c89;
+//  }
+ 
+ @media (max-width: 800px){
+     .mx-30{
+         margin-bottom: 30px;
+     }
+ }
+
+// .p{
+//   white-space: nowrap;
+//   overflow: hidden;
+//   height: 50px !important;
+//   border: 2px solid red !important;
+//   text-overflow: ellipsis !important;
+//  }
+ 

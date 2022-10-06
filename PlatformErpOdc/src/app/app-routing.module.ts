@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AcceuilGuard } from './guard/acceuil/acceuil.guard';
@@ -27,26 +26,14 @@ const routes: Routes = [
     path: 'forgotpassword1',
     loadChildren: () => import('./forgetpassword1/forgetpassword1.module').then( m => m.Forgetpassword1PageModule)
   },
+
   {
-    path: 'reportingfiltreact',
-    loadChildren: () => import('./reportingfiltreact/reportingfiltreact.module').then( m => m.ReportingfiltreactPageModule)
+    path: 'popupdtirage/:id',
+    loadChildren: () => import('./popup-notification/popup-notification-routing.module').then( m => m.PopupNotificationPageRoutingModule)
   },
-  {
-    path: 'reportingfiltrepart',
-    loadChildren: () => import('./reportingfiltrepart/reportingfiltrepart.module').then( m => m.ReportingfiltrepartPageModule)
-  },
-  {
-    path: 'reporting-participant',
-    loadChildren: () => import('./reporting-participant/reporting-participant.module').then( m => m.ReportingParticipantPageModule)
-  },
-  {
-    path: 'reporting',
-    loadChildren: () => import('./reporting/reporting.module').then( m => m.ReportingPageModule)
-  }
+
 
 ];
-
-
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })

@@ -10,22 +10,22 @@
       <tr>
         <th scope="col">Nom</th>
         <th scope="col">Prenom</th>
-        <th scope="col" class="hideColonne hideColonneOder">Date</th>
+        <th scope="col" class="hideColonne hideColonneOder">Email</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let table of donnee_tableau | paginate: { itemsPerPage: 5, currentPage: a}">
-        <td> {{table.name}} </td>
+      <tr *ngFor="let table of data,let i=index">
+        <td> {{table.nom}} </td>
         <td> {{table.prenom}} </td>
-        <td class="hideColonne hideColonneOder"> {{table.date|date: 'dd-MM-yyyy'}}</td>
+        <td class="hideColonne hideColonneOder">{{table.email}}</td>
       </tr>
     </tbody>
   </table>
-  <div class="paginat">
+  <!-- <div class="paginat">
     <pagination-controls (pageChange)=" a = $event"> </pagination-controls>
-  </div>
+  </div> -->
   <div class="button">
-    <input class="but" type="submit" value="Valider" (click)="validerPopup()">
+    <input class="but" type="submit" value="Valider" (click)="ValiderT(idtirage)">
     <input class="but" type="submit" value="Annuler" (click)="annulerPopup()">
   </div>
 </ion-content>

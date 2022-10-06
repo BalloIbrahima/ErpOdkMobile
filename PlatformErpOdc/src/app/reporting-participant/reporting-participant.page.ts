@@ -6,9 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reporting-participant.page.scss'],
 })
 export class ReportingParticipantPage implements OnInit {
-
+a:any;
   constructor() { }
-
+  accueil=[
+    {nom:"ali"},
+    {activite:"ndckc"},
+  ]
   ngOnInit() {
   }
 

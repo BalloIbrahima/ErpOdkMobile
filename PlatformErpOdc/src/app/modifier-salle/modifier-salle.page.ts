@@ -14,8 +14,8 @@ export class ModifierSallePage implements OnInit {
   Utilisateur:any;
 
   id:number = 0;
-  description:string = "rr";
-  etage: string="1 etage";
+  description:string;
+  etage: any;
   libelle:string='';
   nombre: number = 0;
   disponibilite:string;
@@ -23,8 +23,12 @@ export class ModifierSallePage implements OnInit {
   entite1!:any
   salle:any;
   entites:any;
+  niveauEtage:string;
+  
+  alertTrue: boolean = false;
+  alertFalse: boolean = false;
 
-  constructor(private route:ActivatedRoute,private router: Router,private service: SalleServiceService, private serviceEntite: EntiteService) { }
+  constructor(private route:ActivatedRoute,private service: SalleServiceService, private serviceEntite: EntiteService) { }
 
   ngOnInit() {
 
@@ -62,9 +66,27 @@ export class ModifierSallePage implements OnInit {
   }
 
 
+
   ModifSalle(){
+
+        if(this.etage == 0){
+      this.niveauEtage = "Rez-de-chaussée"
+    }
+    else if(this.etage == 1){
+      this.niveauEtage = this.etage + "er étage"
+    }else{
+      this.niveauEtage = this.etage + "ème étage"
+    }
     this.service.ModifSalle(this.Utilisateur.login, this.Utilisateur.password,this.id, this.libelle,this.description, this.etage, this.nombre,this.Utilisateur).subscribe(retour=>{
       this.salle=retour.data
+
+      if(retour.message == 'ok'){
+        this.alertTrue = true
+        this.alertFalse = false
+      }else{
+        this.alertTrue = false
+        this.alertFalse = true
+      }
       console.log(retour)
         })
 

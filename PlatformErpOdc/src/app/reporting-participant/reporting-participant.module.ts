@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ReportingParticipantPageRoutingModule } from './reporting-participant-routing.module';
 
 import { ReportingParticipantPage } from './reporting-participant.page';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ReportingParticipantPageRoutingModule
+    ReportingParticipantPageRoutingModule,
+    NgxPaginationModule
   ],
   declarations: [ReportingParticipantPage]
 })

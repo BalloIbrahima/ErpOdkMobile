@@ -79,18 +79,13 @@
         <ion-toolbar>
           <ion-title>Nouvelle entité</ion-title>
           <ion-buttons slot="end">
-            <ion-button (click)="modal.dismiss()">Close</ion-button>
+            <ion-button (click)="modal.dismiss()"><span aria-hidden="true" style="font-size: 30px;">&times;</span></ion-button>
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
 
       <div class="container">
-<<<<<<< HEAD
-        <button type="button" class="btn-close"  (click)="modal.dismiss()" data-bs-dismiss="modal" aria-label="Close"></button>
-        <h5 class="card-title text-center">Nouvelle entité</h5>
-=======
         <!-- <h5 class="card-title text-center">Nouvelle entité</h5> -->
->>>>>>> 2e6096553f0bda943150bd78616abf03de928590
         <div class="card">
          
           <div class="card-body text-start">
@@ -130,18 +125,4 @@
 
     </ng-template>
   </ion-modal>
-  <!-- 
-  <ion-modal #modal trigger="open-modal1">
-    <ng-template>
-      <div class="container">
-        
-        <div class="card">
-          <div class="card-body text-start" *ngIf="data.message == OK">
-            <h5 class="card-title text-center">ENTITE CREER AVEC SUCCES</h5>
-          </div>
-          <div class="card-body text-start" *ngIf="data.message != OK">
-            <h5 class="card-title text-center">ERREUR LORS DE CREATION DE L'ENTITE</h5>
-          </div>
-        </div>
-    </ng-template>
-  </ion-modal> -->
+ 

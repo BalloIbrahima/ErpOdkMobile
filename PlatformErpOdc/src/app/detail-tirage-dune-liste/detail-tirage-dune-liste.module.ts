@@ -8,6 +8,7 @@ import { DetailTirageDuneListePageRoutingModule } from './detail-tirage-dune-lis
 
 import { DetailTirageDuneListePage } from './detail-tirage-dune-liste.page';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ClocheComponent } from '../cloche/cloche.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     DetailTirageDuneListePageRoutingModule,
     NgxPaginationModule,
   ],
-  declarations: [DetailTirageDuneListePage]
+  declarations: [DetailTirageDuneListePage, ClocheComponent]
 })
 export class DetailTirageDuneListePageModule {}

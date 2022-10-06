@@ -7,14 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { TachedesignationPageRoutingModule } from './tachedesignation-routing.module';
 
 import { TachedesignationPage } from './tachedesignation.page';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ClocheComponent } from '../cloche/cloche.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TachedesignationPageRoutingModule
+    TachedesignationPageRoutingModule,
+    NgxPaginationModule
   ],
-  declarations: [TachedesignationPage]
+  declarations: [TachedesignationPage, ClocheComponent]
 })
 export class TachedesignationPageModule {}

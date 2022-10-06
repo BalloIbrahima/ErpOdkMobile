@@ -1,8 +1,16 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>Profil</ion-title>
+    <ion-button slot="end" fill="clear">
+      <app-cloche></app-cloche>
+
+    </ion-button>
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content>
   <form>
@@ -173,8 +181,8 @@
 
 <div class="col-lg-12 col-12 ">
   <div class=" d-grid d-md-flex gap-2 justify-content-md-end bbtn">
- <button type="button" class="btn btn-primary  bouton">Annuler</button>
-<button type="button" class="btn btn-primary bouton">Enregistrer</button>
+ <button type="button" class="btn bouton">Annuler</button>
+<button type="button" class="btn bouton">Enregistrer</button>
   </div> 
   <!-- <button class="btn btn-primary bouton" type="reset"> Annuler</button>
   <button class="btn btn-primary bouton" type="submit">Enregistrer</button> -->

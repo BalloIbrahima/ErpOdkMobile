@@ -8,6 +8,7 @@ import { PopupdtiragePageRoutingModule } from './popupdtirage-routing.module';
 
 import { PopupdtiragePage } from './popupdtirage.page';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ClocheComponent } from '../cloche/cloche.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     PopupdtiragePageRoutingModule,
     NgxPaginationModule
   ],
-  declarations: [PopupdtiragePage]
+  declarations: [PopupdtiragePage, ClocheComponent]
 })
 export class PopupdtiragePageModule {}

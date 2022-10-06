@@ -27,12 +27,17 @@
     width: 15%;
     // cursor: pointer;
     font-weight: 900;
-    box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+    box-shadow: 2px 2px 2px #cbced1, -6px -6px 6px white;
      border: 2px solid #FF7900;     
      margin-top: 2%;
      margin-bottom: 2%;
     border-radius: 15px;
 
+  }
+  .ajout:hover{
+    border: 2px solid #FF7900 !important;
+    color: #FF7900 !important;
+    background: white !important;  
   }
 
 

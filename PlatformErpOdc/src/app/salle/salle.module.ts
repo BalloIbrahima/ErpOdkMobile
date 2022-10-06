@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { SallePageRoutingModule } from './salle-routing.module';
 
 import { SallePage } from './salle.page';
+import { ClocheComponent } from '../cloche/cloche.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { SallePage } from './salle.page';
     IonicModule,
     SallePageRoutingModule
   ],
-  declarations: [SallePage]
+  declarations: [SallePage, ClocheComponent]
 })
 export class SallePageModule {}

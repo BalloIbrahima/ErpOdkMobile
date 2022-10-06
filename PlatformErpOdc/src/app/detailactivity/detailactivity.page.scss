@@ -151,3 +151,130 @@ ion-label{
     }
     
 }
+.largerButton{
+    width: 320px;
+}
+// style apppliquer au button horizontal
+@font-face {
+    font-family: myfon;
+    src: url("../../assets/font/Poppins-Black.ttf");
+  }
+
+  @font-face {
+    font-family: myfon2;
+    src: url("../../assets/font/Poppins-Light.ttf");
+  }
+  .form-select{
+    color: #FF7900;
+    border: 1px solid #FF7900;
+    border-radius: 15px;
+  }
+  .form-select:focus {
+    box-shadow: 0px 0px 0px;
+    font-family: myfon2;
+    color: #FF7900;
+  }
+
+  .buttonColor {
+    background-color: #FF7900;
+    color: #ffff;
+    font-family: myfon2;
+    border-radius: 15px;
+  }
+
+  .buttonColor:hover {
+    border: 1px solid #FF7900 !important;
+    color: #FF7900 !important;
+    background-color: #ffff !important;
+  }
+
+
+// Style appliquer au tableau
+td {
+    font-family: myfon2;
+  }
+  
+  th {
+    font-family: myfon2;
+    color: #ffff !important;
+    font-weight: 600;
+  }
+  
+  thead {
+    background-color: #FF7900;
+  }
+  
+  .voirPlus {
+    background-color: #FF7900;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 15px;
+    color: #ffff;
+  }
+  hr{
+    background-color: #FF7900 !important;
+    height: 5px;
+    width: 25%;
+  
+  }
+  
+  @media screen and (max-width: 900px) {
+    .form-select {
+      font-size: medium;
+    }
+  
+    .buttonColor {
+      font-size: medium;
+      text-align: center;
+    }
+  
+    .hideColonneOder {
+      display: none;
+    }
+  
+    th {
+      font-size: medium;
+  
+    }
+  
+    td {
+      font-size: small;
+    }
+    .largerButton{
+        width: auto;
+    }
+  
+  }
+  
+  @media screen and (max-width: 450px) {
+    .styleText {
+      text-align: left;
+      margin-right: 20px;
+      font-size: small;
+    }
+    .titreStatus{
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .titreEntite {
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .buttonColor {
+      font-size: small;
+    }
+  
+    .hideColonne {
+      display: none;
+    }
+  
+    th {
+      font-size: medium;
+    }
+  
+    td {
+      font-size: small;
+    }
+  
+  }

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ModifierpersonnelPageRoutingModule } from './modifierpersonnel-routing.module';
 
 import { ModifierpersonnelPage } from './modifierpersonnel.page';
+import { ClocheComponent } from '../cloche/cloche.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { ModifierpersonnelPage } from './modifierpersonnel.page';
     IonicModule,
     ModifierpersonnelPageRoutingModule
   ],
-  declarations: [ModifierpersonnelPage]
+  declarations: [ModifierpersonnelPage, ClocheComponent]
 })
 export class ModifierpersonnelPageModule {}

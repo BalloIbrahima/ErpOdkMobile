@@ -8,7 +8,7 @@ import { MenuController } from '@ionic/angular';
 })
 export class AppComponent {
   constructor(private menu: MenuController) {}
-  // FermerSideBar(){
-  //   this.menu.close()
-  // }
+  FermerSideBar(){
+    this.menu.close()
+  }
 }

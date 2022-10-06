@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { AjouterRolePageRoutingModule } from './ajouter-role-routing.module';
 
 import { AjouterRolePage } from './ajouter-role.page';
+import { ClocheComponent } from '../cloche/cloche.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { AjouterRolePage } from './ajouter-role.page';
     IonicModule,
     AjouterRolePageRoutingModule
   ],
-  declarations: [AjouterRolePage]
+  declarations: [AjouterRolePage,ClocheComponent]
 })
 export class AjouterRolePageModule {}

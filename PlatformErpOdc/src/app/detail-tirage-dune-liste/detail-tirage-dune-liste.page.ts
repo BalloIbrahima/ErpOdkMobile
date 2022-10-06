@@ -16,7 +16,12 @@ export class DetailTirageDuneListePage implements OnInit {
   toustirages:any
   Utilisateur:any;
   id:any;
-  listparid:any
+  listparid:any;
+  nbrPost:number=0;
+  detList:any;
+  dateImpList:any
+
+
   constructor(private route:ActivatedRoute, private service: DetailListPostService, private services: ListeService/*public service: TirageService*/) { }
 
   ngOnInit() {
@@ -25,19 +30,26 @@ export class DetailTirageDuneListePage implements OnInit {
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
       console.log(this.Utilisateur.login)
 
-      //toutes les listes
-      this.service.GetListeTotal(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
-        this.toustirages=data.data;
-        console.log(data)
-        
-      });
-
+      //liste de tous les tirages d'une liste et infos sur la liste données
     this.services.GetListeParId(this.Utilisateur.login,this.Utilisateur.password,this.id).subscribe(data=>{
+     //infos sur la liste données: libelle, date, nombre postulant
+      this.detList= data.data.libelle;
+      console.log(this.detList)
+      this.dateImpList= data.data.dateimport;
+      console.log(this.dateImpList)
+      this.nbrPost= data.data.postulants.length;
+      console.log(this.nbrPost);
+     
+      //liste de tous les tirages d'une liste
       this.listparid=data.data.tirages;
-      console.log(this.listparid.id);
-      console.log(this.listparid.tirages);
+      console.log(this.listparid)
+      // this.listparid=data.data.tirages;
+      // console.log(this.listparid.id);
+      // console.log(this.listparid.tirages);
     
     })
+
+
 
   }
 

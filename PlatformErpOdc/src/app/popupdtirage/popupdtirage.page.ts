@@ -13,18 +13,21 @@ export class PopupdtiragePage implements OnInit {
   a : number=1;
   date = new Date();
   tirage: any;
+  TirageSelect: any;
+  idtira: any;
+  tiraget: any;
   constructor(private modalController: ModalController,private tirageService:TirageService) { }
   @Input() valider: boolean;
 
   
-  idtirage
-  Utilisateur
+  
+  Utilisateur;
   data;
+  
+  
   ngOnInit() {
-
     console.log(this.data)
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) ;
-    
   }
 
   async validerPopup() {
@@ -33,13 +36,19 @@ export class PopupdtiragePage implements OnInit {
     await this.modalController.dismiss(close);
     //alert(close)
   }
-  // ValiderT(idtirage){
-  //   this.tirageService.ValiderTirage(this.Utilisateur.login, this.Utilisateur.password,this.idtirage).subscribe(retour=>{
-  //     this.tirage=retour.data
-  //     console.log(this.tirage)
-  //   })
-  //   this.validerPopup()
-  // }
+  ValiderT(idtirage){
+    const retour=this.data
+    for(let i=0;i<retour.length;i++){
+      this.tiraget=retour[i].tirage
+      console.log(this.tiraget)
+    }
+    console.log(this.tiraget)
+    this.tirageService.ValiderTirage(this.Utilisateur.login, this.Utilisateur.password,this.tiraget.id).subscribe(donnee=>{
+      this.tirage=donnee.data
+      console.log(this.tirage)
+    })
+    this.validerPopup()
+  }
 
   async annulerPopup() {
     const close: string = "Tirage annulé !";

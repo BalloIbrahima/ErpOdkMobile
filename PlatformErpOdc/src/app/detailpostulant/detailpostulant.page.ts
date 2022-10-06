@@ -31,7 +31,7 @@ export class DetailpostulantPage implements OnInit {
   users: any;
   genre: any;
   email: any;
-  image: any;
+  image: File;
   statusUser: any;
   nomEntite: any;
 
@@ -93,6 +93,13 @@ export class DetailpostulantPage implements OnInit {
     }
 
 
+    envoyerImage(event: any){
+      this.image = event.target["files"][0];
+      console.log(this.image)
+    }
+  
+
+
   DeletePersonnel() {
     //   Swal.fire({'Félicitations ...', 'Fichier importer avec succès !', 'success',
     // });
@@ -129,13 +136,16 @@ export class DetailpostulantPage implements OnInit {
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-          //Swal.fire('Saved!', '', 'success');
+          // Swal.fire('Saved!', '', 'success');
         } else if (result.isDenied) {
-          //Swal.fire('Changes are not saved', '', 'info');
+          // Swal.fire('Changes are not saved', '', 'info');
         }
       });
     }
 
+    UpdateUser(){
+
+    }
   // async ModifierPersonnel() {
   //   const modal = await this.modalController.create({
   //     component: ModifierpersonnelPage,

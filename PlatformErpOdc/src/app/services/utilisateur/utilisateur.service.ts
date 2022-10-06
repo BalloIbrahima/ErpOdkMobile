@@ -75,6 +75,19 @@ export class UtilisateurService {
     return this.http.post(`${this.env.api}/admin/create/intervenant`,data1)
   }
 
+//La fonction pour recuperer un utilisateur
+  DetailsUserById(login:String, password:String,id:number):Observable<any>{
+    const data:FormData=new FormData();
+    const user=[
+      {
+        "login":login,
+        "password":password
+      }];
+      data.append('user' , JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+      // data.append('id' , JSON.stringify(identite).slice(1,JSON.stringify(identite).lastIndexOf(']')));
+      return this.http.post(`${this.env.api}/admin/get/user/${id}`, data);
+  }
+
 
 
   //methode qui retourne l'ensemble des utilisateurs

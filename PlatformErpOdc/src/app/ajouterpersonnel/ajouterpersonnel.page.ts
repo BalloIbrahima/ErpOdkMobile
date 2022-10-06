@@ -41,12 +41,12 @@ export class AjouterpersonnelPage implements OnInit {
       }
     })
 
-    this.roleservice.getListeFormatMail(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
-      if(data.message=="ok"){
-        this.formatMail=data.data
-        console.log(this.formatMail)
-      }
-    })
+    // this.roleservice.getListeFormatMail(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+    //   if(data.message=="ok"){
+    //     this.formatMail=data.data
+    //     console.log(this.formatMail)
+    //   }
+    // })
 
     this.roleservice.getAllRole(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
       if(data.message=="ok"){
@@ -95,7 +95,7 @@ export class AjouterpersonnelPage implements OnInit {
     }else{
       this.Genre = 1
     }
-    this.userService.CreateUserExterne(this.Utilisateur.login,this.Utilisateur.password,this.email+this.domaine,this.Genre,this.nom,this.prenom,this.numero,this.RoleSelectionner).subscribe(retour=>{
+    this.userService.CreateUserExterne(this.Utilisateur.login,this.Utilisateur.password,this.email,this.Genre,this.nom,this.prenom,this.numero,this.RoleSelectionner).subscribe(retour=>{
       console.log(retour)
       this.presentAlert()
     })

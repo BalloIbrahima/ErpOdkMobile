@@ -86,7 +86,7 @@ const routes: Routes = [
       loadChildren: () => import('../ajouterpersonnel/ajouterpersonnel.module').then( m => m.AjouterpersonnelPageModule)
     },
     {
-      path: 'detail-personnel',
+      path: 'detail-personnel/:id',
       loadChildren: () => import('../detailpostulant/detailpostulant.module').then( m => m.DetailpostulantPageModule)
     },
     {

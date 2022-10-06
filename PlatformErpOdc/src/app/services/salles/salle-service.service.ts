@@ -132,7 +132,5 @@ export class SalleServiceService {
 
     return this.http.post(`${this.env.api}/salle/SalleInDisponible`, data);
   }
-
-
 }
 

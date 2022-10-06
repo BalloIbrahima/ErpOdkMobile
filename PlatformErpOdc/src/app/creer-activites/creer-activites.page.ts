@@ -123,12 +123,12 @@ export class CreerActivitesPage implements OnInit {
 
   CreerActivite(){
     
-    var idSalle=0;
-    var idType=0;
+    var idSalle=null;
+    var idType=null;
     //recuperation de l'id dela salle
     for(let i=0 ; i<this.SallesDisponibles.length; i++){
       if(this.SallesDisponibles[i].libelle==this.libellesalle){
-        idSalle=this.SallesDisponibles[i].id
+        idSalle=this.SallesDisponibles[i]
       }
     }
 
@@ -136,7 +136,7 @@ export class CreerActivitesPage implements OnInit {
     //recuperation de l'id du type de l'activite
     for(let i=0 ; i<this.TypesActivites.length; i++){
       if(this.TypesActivites[i].libelle==this.typeactivite){
-        idType=this.TypesActivites[i].id
+        idType=this.TypesActivites[i]
       }
     }
 
@@ -157,7 +157,9 @@ export class CreerActivitesPage implements OnInit {
       "dateFin":this.dateFin,
       "description":this.description,
       "leader":this.lead,
-      "utilisateurs":[this.lead]
+      //"utilisateurs":[this.lead],
+      "salle":idSalle,
+      "typeActivite":idType
     }]
     
 

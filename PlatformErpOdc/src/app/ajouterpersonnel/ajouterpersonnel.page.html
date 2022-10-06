@@ -17,47 +17,74 @@
     <form action="#">
       <div class="box">
         <h1>Nouveau personnel externe</h1>
-            <div class="ajout">
-                <div class="input-box">
-                    <span class="details">Nom *</span>
-                    <input type="text" placeholder="Nom du personnel">
-                </div>
-                <div class="input-box">
-                  <span class="details">Mail *</span>
-                  <input type="text" placeholder="loremipsun@orangemali.com">
-                </div>
-                <div class="input-box">
-                  <span class="details">Prénom *</span>
-                  <input type="text" placeholder="Prénom du personnel">
-                </div>
-                <div class="input-box">
-                  <span class="details">Date de naissance *</span>
-                  <input type="date" placeholder="Choisisez la date de debut">
-                </div>
-                <div class="input-box">
-                  <span class="details">Numéro de telephone *</span>
-                  <input type="text" placeholder="Numéro de telephone">
-                </div>
-                <div class="input-box">
-                    <span class="details">Entité *</span>
-                    <select name="tchoixsalle" class="select">
-                      <!-- <option *ngFor="entite of Entites" value="">Orange Digital Kalanso</option>
-                      <option value="">Orange FabLab</option> -->
-                      <option >--Choisisez une entité--</option>
-                      <option *ngFor="let entite of Entites" >{{entite.libelleentite}}</option>
-                      
-                    </select>
-                </div>
-
-                
+        <div class="ajout">
+            <div class="input-box">
+                <span class="details">Nom *</span>
+                <input type="text" placeholder="Nom du personnel"  [(ngModel)]="nom" name="nom" required>
             </div>
-            
-          
+            <div class="input-box">
+              <span class="details">Mail *</span>
+              <div class="mail">
+                <input type="text" [(ngModel)]="email" name="email" placeholder="loremipsun" id="inp" required>
+                <!-- <span class="input-group-text" aria-label="fin de mail">@orangemali.com</span> -->
+                <div style="width: 270px;">
+                  <select class="mailmodel" [(ngModel)]="domaine" name="domaine">
+                    <option >--Choisisez un domaine--</option>
+                    <option *ngFor="let domaine of formatMail" >{{domaine.libelle}}</option>
+                    <!-- <option value="">@orangefablab.com</option>
+                    <option value="">@orangemali.com</option>
+                    <option value="">@orangedigitalcenter.com</option> -->
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="input-box">
+              <span class="details">Prénom *</span>
+              <input type="text" placeholder="Prénom du personnel"  [(ngModel)]="prenom" name="prenom" required>
+            </div>
+            <!-- <div class="input-box">
+              <span class="details">Date de naissance *</span>
+              <input type="date" placeholder="Choisisez la date de debut">
+            </div> -->
+            <div class="input-box">
+              <span class="details">Numéro de telephone *</span>
+              <input type="text" placeholder="Numéro de telephone"  [(ngModel)]="numero" name="numero" required>
+            </div>
+            <!-- <div class="input-box">
+                <span class="details">Entité *</span>
+                <select name="tchoixsalle" class="select">
+                  <option >--Choisisez une entité--</option>
+                  <option *ngFor="let entite of Entites" >{{entite.libelleentite}}</option>
+                  
+                </select>
+            </div> -->
+              <!-- <div class="input-box">
+                <span class="details">Genre *</span>
+                <select name="tchoixsalle" class="select">
+                  <option >--Votre genre--</option>
+                  <option >Masculin</option>
+                  <option >Feminin</option>
+                  <option *ngFor="let entite of Entites" >{{entite.libelleentite}}</option>
+                  
+                </select>
+            </div>  -->
+
+            <div class="input-box">
+              <span class="details">Genre *</span>
+              <select name="genre" [(ngModel)]="genre" class="select">
+                <option >--Votre genre--</option>
+                <option >Masculin</option>
+                <option >Feminin</option>
+                <!-- <option *ngFor="let entite of Entites" >{{entite.libelleentite}}</option> -->
+                
+              </select>
+          </div>
+        </div>  
       </div>
       <div class="button">
-        <input class="but" type="submit" value="Ajouter">
+        <input class="but" type="submit" (click)="CreateIntervenant()" value="Ajouter">
       </div>
 
     </form>
-</div>
+  </div>
 </ion-content>

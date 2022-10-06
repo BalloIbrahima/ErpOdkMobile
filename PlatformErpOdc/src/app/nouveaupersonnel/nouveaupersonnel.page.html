@@ -21,15 +21,15 @@
         <div class="ajout">
           <div class="input-box">
             <span class="details">Nom *</span>
-            <input type="text" placeholder="Nom du personnel">
+            <input type="text" [(ngModel)]="nom" placeholder="Nom du personnel" name="nom" required>
           </div>
           <div class="input-box">
             <span class="details">Mail *</span>
             <div class="mail">
-              <input type="text" placeholder="loremipsun" id="inp">
+              <input type="text" [(ngModel)]="email" name="email" placeholder="loremipsun" id="inp" required>
               <!-- <span class="input-group-text" aria-label="fin de mail">@orangemali.com</span> -->
               <div style="width: 270px;">
-                <select name="tchoixsalle" class="mailmodel">
+                <select name="tchoixsalle" class="mailmodel" [(ngModel)]="domaine" name="domaine">
                   <option >--Choisisez un domaine--</option>
                   <option *ngFor="let domaine of formatMail" >{{domaine.libelle}}</option>
                   <!-- <option value="">@orangefablab.com</option>
@@ -41,46 +41,55 @@
           </div>
           <div class="input-box">
             <span class="details">Prénom *</span>
-            <input type="text" placeholder="Prénom du personnel">
+            <input type="text" [(ngModel)]="prenom" placeholder="Prénom du personnel" name="prenom" required>
           </div>
-          <div class="input-box">
+          <!-- <div class="input-box">
             <span class="details">Date de naissance *</span>
-            <input type="date" placeholder="La date de naissance">
-          </div>
-          <div class="input-box">
+            <input type="date" [(ngModel)]="datenaissance" placeholder="La date de naissance" name="datenaissance">
+          </div> -->
+          <!-- <div class="input-box">
             <span class="details">Telephone *</span>
-            <input type="text" placeholder="Numéro de telephone">
-          </div>
-
+            <input type="text" [(ngModel)]="telephone" placeholder="Numéro de telephone" name="telephone">
+          </div> -->
+          <div class="input-box">
+            <span class="details">Genre *</span>
+            <select name="genre" [(ngModel)]="genre" class="select">
+              <option >--Votre genre--</option>
+              <option >Masculin</option>
+              <option >Feminin</option>
+              <!-- <option *ngFor="let entite of Entites" >{{entite.libelleentite}}</option> -->
+              
+            </select>
+        </div>
           <div class="input-box">
             <span class="details">Entité *</span>
-            <select name="tchoixsalle" class="select">
+            <select class="select" [(ngModel)]="entite" name="entite">
               <option >--Choisisez une entité--</option>
               <option *ngFor="let entite of Entites" >{{entite.libelleentite}}</option>
               <!-- <option value="">Orange Digital Kalanso</option>
               <option value="">Orange FabLab</option> -->
             </select>
           </div>
-          
-          <div class="input-box">
-            <span class="details">Ajouter image *</span>
-            <input type="file" class="form-control" placeholder="Logo.jpg" id="logo" name="logo"
-              accept="image/png, image/jpeg, image/jpg">
-          </div>
+        
 
           <div class="input-box">
-            <span class="details">Role *</span>
-            <select name="tchoixsalle" class="select">
+            <span class="details">Rôle *</span>
+            <select class="select" [(ngModel)]="role" name="role">
               <option value="">--Choisisez un role--</option>
               <option *ngFor="let role of Roles" >{{role.libellerole}}</option>
             </select>
           </div>
-
+  
+          <div class="input-box">
+            <span class="details">Ajouter image *</span>
+            <input type="file" class="form-control" placeholder="Logo.jpg" id="logo"
+              accept="image/png, image/jpeg, image/jpg" (change)="envoyerImage($event)" required>
+          </div>
           
         </div>
       </div>
       <div class="button">
-        <input class="but" type="submit" value="Ajouter">
+        <input class="but" type="submit"  (click)="CreateUser()" value="Ajouter">
       </div>
 
     </form>

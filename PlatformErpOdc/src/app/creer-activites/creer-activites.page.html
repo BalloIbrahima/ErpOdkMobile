@@ -55,7 +55,7 @@
                   
                     <div class="input-box">
                         <span class="details">Date fin *</span>
-                        <input type="datetime-local"  name="dateFin" [(ngModel)]="dateFin" placeholder="Choisisez la date de fin" required/>
+                        <input type="datetime-local"  name="dateFin" [(ngModel)]="dateFin" min="{{datedebut | date:'yyyy-MM-dd'}}" placeholder="Choisisez la date de fin" required/>
                     </div>
 
                     <div class="input-box">

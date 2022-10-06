@@ -182,7 +182,7 @@ export class DetailpostulantPage implements OnInit {
   }
 
   confirm() {
-    this.modal.dismiss(this.name, 'confirm');
+    this.modal.dismiss(null, 'confirm');
   }
   confirmP() {
     this.modal.dismiss(null, 'confirm');
@@ -190,12 +190,18 @@ export class DetailpostulantPage implements OnInit {
 
   onWillDismiss(event: Event) {
     // const ev = event as CustomEvent<OverlayEventDetail<string>>;
-    // if (ev.detail.role === 'confirm') {
-    //   this.message = `Modication effectué avec, ${ev.detail.data}!`;
+    // if (ev.detail.role === 'ConfirmVariale') {
+    //   this.name = `${ev.detail.data}!`;
+    //   console.log(this.name);
     // }
   }
 
-
+  // onWillDismiss(event: Event) {
+  //   const ev = event as CustomEvent<OverlayEventDetail<string>>;
+  //   if (ev.detail.role === 'confirm') {
+  //     this.message = `Modication effectué avec, ${ev.detail.data}!`;
+  //   }
+  // }
 
 
 

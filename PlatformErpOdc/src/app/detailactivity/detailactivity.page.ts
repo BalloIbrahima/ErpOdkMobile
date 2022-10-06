@@ -31,7 +31,7 @@ export class DetailactivityPage implements OnInit {
     console.log("recuperation de l'utilisateur "+this.Utilisateur)
     this.activiteservice.getactivitybyId(this.Utilisateur.login,this.Utilisateur.password,idactivite).subscribe(r=>{
       this.activite=r.data;
-      console.log("recuperer detail activity//////////////////////////"+this.activite)
+      console.log(r);
       this.nom=this.activite.nom
       this.salles=this.activite.salle.libelle
       this.leadnom=this.activite.leader.nom

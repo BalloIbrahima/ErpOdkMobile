@@ -22,14 +22,13 @@ export class AllactivityPage implements OnInit {
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
     console.log(this.Utilisateur)
     //console.log(this.Utilisateur.password)
-
-
     this.service.GetTtActivite(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
       this.touteactivite=data.data;
       this.longueur=data.data.length
-
       console.log(data)
-    });
+    })
+    
+
   }
 
 }

@@ -41,11 +41,11 @@ export class ModifierSallePage implements OnInit {
   ModifSalle(){
     
 
-    this.service.ModifSalle(this.salle.id,this.libelle,this.description,this.etage,this.nombre,this.salle.disponibilite).subscribe(data=>{
-      console.log(data)
+    // this.service.ModifSalle(this.salle.id,this.libelle,this.description,this.etage,this.nombre,this.salle.disponibilite).subscribe(data=>{
+    //   console.log(data)
 
-    });
+    // });
 
-    console.log(this.description)
+    // console.log(this.description)
   }
 }

@@ -11,8 +11,8 @@
   </ion-header>
 <!-- <ion-content *ngIf="longueur==0">
   <div  class="container-fluid mere" style="height: 100%;">
-    <ion-label class="lblAucune">  
-      Aucune activite 
+    <ion-label class="lblAucune">
+      Aucune activite
     </ion-label>
   </div>
   *ngIf="longueur!=0"
@@ -21,13 +21,25 @@
   <div class="row">
     <div class="col-lg-3 col-12">
       <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-start">
-        <select class="form-select form-select-md" aria-label=".form-select-sm example">
-          <option selected>
-            <ion-icon name="funnel-outline" slot="start"></ion-icon>Filtrer par
+        <select class="form-select form-select-md" aria-label=".form-select-sm example" (change)="filtrebyentity()" >
+          <option >
+            <ion-icon name="funnel-outline" slot="start"></ion-icon>Filtrer par Entité
           </option>
-          <option value="1">Entité</option>
-          <option value="2">Status</option>
+          <option *ngFor="let entite of allentity" >{{entite.libelleentite}}</option>
         </select>
+
+        <select [(ngModel)]="textFiltre" name="textFiltre" class="form-select form-select-md" aria-label=".form-select-sm example" (change)="activitesavenir()">
+          <option >
+            <ion-icon name="funnel-outline" slot="start" selected></ion-icon>Filtrer par Status
+          </option>
+          <option  >Activités en cour</option>
+          <option >Activités à venir</option>
+          <option >Activités Terminées </option>
+
+
+        </select>
+
+
       </div>
 
     </div>
@@ -37,39 +49,32 @@
       </div>
     </div>
   </div>
-    <!-- <div class="statutbtn">
-        <div style="margin-top: 7px; color:#FF7900;">
-            <select class="form-select form-select-lg mb-3" style="margin-left: 60px;">
-            <option  style="margin-top: 15px; color:#FF7900;"> Filtrer Par</option>
-            <option  style="margin-top: 15px; color:#FF7900; " value="1">Entité</option>
-            <option   style="margin-top: 15px; color:#FF7900; "value="2">Statut</option>
-          </select>
-        </div>
-        <div> <a href="#" class="btn  btn-sm"id="button" style="margin-right: 60px;margin-top: 7px;border-raduis:20px;padding: 8px 15px 8px 16px;">Creer Activité</a>
-        </div>
-    </div> -->
-    <div class="container">
-        <div class="pag" *ngFor= "let ta of  touteactivite | paginate:{itemsPerPage:6, currentPage:p}; let index =index">
 
-        <div class="card float-left">
+    <div class="container">
+
+        <div class="pag" *ngFor= "let ta of  touteactivite | paginate:{itemsPerPage:6, currentPage:p}; let index =index;" >
+
+          <div class="card float-left">
             <div class="row ">
                 <div class="col-sm-5">
                     <img class="img" src={{ta.image}} alt="">
                 </div>
                 <div class="col-sm-7">
                     <div class="card-block">
-                       
-                        <p class="mt-2"><b>{{ta.nom}}</b> <br> <span>{{ta.typeActivite.libelle}}</span></p>
-                        <p>{{ta.description}} </p>
+                      <!-- <label class="card-title" [innerHTML]="blog.title.rendered | slice:0:100"></label><label>...</label> -->
+                        <p><b>{{ta.nom}}</b> <br> <span>{{ta.typeActivite.libelle}}</span></p>
+                        <p>{{ta.description | slice:0:50}} ...  </p>
                         <div class="statutbtn">
                             <div style="margin-top: 7px; color:#FF7900;"> </div>
-                            <div> <a  class="btn btn-primary btn-sm" style="margin-right: 7px;" [routerLink]="['/dashboard/detailactivite', ta.id]">Voir +</a> </div>
+                            <div> <a  class="btn btn-sm"
+
+                              [routerLink]="['/dashboard/detailactivite', ta.id]">Voir +</a> </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        </div>  
+        </div>
     </div>
     <div class="pagination">
         <pagination-controls (pageChange)="p=$event" nextLabel="Suivants" previousLabel="Précédents"></pagination-controls>

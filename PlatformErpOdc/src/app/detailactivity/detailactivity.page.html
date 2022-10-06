@@ -13,10 +13,11 @@
 
 
 <ion-content>
-   
+
     <div class="row laLigne mx-3 my-3">
         <div class="col-lg-5 col-12 text-center">
-            <img class="img mt-1" src={{image}} alt="">
+            <img class="img mt-1" src="{{image}}" alt="" id="image">
+
         </div>
         <div class="col-lg-6 col-12 colonne">
             <div  class="item-native my-3">
@@ -31,62 +32,73 @@
                 <ion-label class="titre m-3">Status</ion-label>
                 <ion-label class="contenu">{{Status}}</ion-label>
             </div>
-            <div class="item-native my-3">
+            <!-- <div class="item-native my-3">
                 <ion-label class="titre m-3">Durée</ion-label>
                 <ion-label class="contenu">Awesome Label</ion-label>
-            </div>
+            </div> -->
             <div class="item-native my-3">
                 <ion-label class="titre m-3">Lead</ion-label>
                 <ion-label class="contenu">{{leadnom}}  {{leadprenom}}</ion-label>
             </div>
             <div class="item-native my-3">
                 <ion-label class="titre m-3">Salle</ion-label>
-                <ion-label class="contenu">{{salles}}</ion-label>
+                <ion-label class="contenu">{{salles}} </ion-label>
             </div>
+            <div class="item-native my-3">
+              <ion-label class="titre m-3">Date début</ion-label>
+              <ion-label class="contenu">{{dateDebut  | date: 'dd MMMM yyyy à hh:mm'}}</ion-label>
+          </div>
+          <div class="item-native my-3">
+            <ion-label class="titre m-3">Date Fin</ion-label>
+            <ion-label class="contenu">{{dateFin | date: 'dd MMMM yyyy à hh:mm'}}</ion-label>
+        </div>
 
         </div>
     </div>
     <div>
         <div class="row container">
-            
+
             <div class="col-lg-12 col-12">
               <div class="d-grid m-2 gap-2 d-md-flex">
-                <button class="btn buttonColor largerButton" type="button" [routerLink]="['/dashboard/allactivity/importer-participant',id]" routerLinkActive="router-link-active"  > Importer nouvelle liste</button>
-                <button class="btn buttonColor largerButton" type="button" routerLink=""> Exporter liste</button>
-                <button class="btn buttonColor largerButton" type="button">+ &nbsp; Ajouter participant</button>
-                <button class="btn buttonColor largerButton" type="button" routerLink="/dashboard/allactivity/tachedesignation"> Tâche</button>  
+                <button class="btn buttonColor largerButton" type="button" (click)="importerliste()" > Importer  liste Participant</button>
+                <button class="btn buttonColor largerButton" type="button" (click)="exportToExcel()"> Exporter liste</button>
+                <button class="btn buttonColor largerButton" type="button" [routerLink]="['/dashboard/ajoutparticipant',idact]" >+ &nbsp; Ajouter participant</button>
+                <button class="btn buttonColor largerButton" type="button" [routerLink]="['/dashboard/tachedesignation',idact]"> Tâche</button>
+                <button class="btn buttonColor largerButton" type="button"  (click)="supprimeractivite()"> Supprimer</button>
+                <button class="btn buttonColor largerButton" type="button"  > Editer</button>
+
             </div>
             </div>
           </div>
     </div>
-    <table class="table table-striped text-center mx-3">
-        <thead>
-          <tr>
-            <th scope="col">Nom</th>
-            <th scope="col">Prenom</th>
-            <th scope="col" class="hideColonne hideColonneOder">Genre</th>
-            <th scope="col">Contact</th>
-            <th scope="col" class="hideColonne hideColonneOder">Email</th>
-            <th scope="col" class="hideColonne">Presence</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- <tr *ngFor="let table of students | paginate: { itemsPerPage: 4, currentPage: pages}">
-            <td> {{table.name}} </td>
-            <td> {{table.prenom}} </td>
-            <td class="hideColonne hideColonneOder"> {{table.genre}} </td>
-            <td> {{table.contact}} </td>
-            <td class="hideColonne hideColonneOder"> {{table.email}} </td>
-            <td class="hideColonne"> <span class="voirPlus">voir plus</span> </td>
-          </tr> -->
-    
-        </tbody>
-    
-      </table>
+    <table class="table" id="season-tble">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Prenom</th>
+          <th scope="col">email</th>
+          <th scope="col">Date de naissance</th>
+          <th scope="col">Genre</th>
+          <th scope="col">Numero</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+          <td>@fat</td>
+          <td>@fat</td>
+          <td>@fat</td>
+        </tr>
+
+      </tbody>
+    </table>
       <div class="position-relative">
         <div class="position-absolute top-0 end-0 mt-4">
-          <pagination-controls previousLabel="Prev" nextLabel="Next"  
-          
+          <pagination-controls previousLabel="Prev" nextLabel="Next"
             (pageChange)=" pages = $event"> </pagination-controls>
         </div>
       </div>

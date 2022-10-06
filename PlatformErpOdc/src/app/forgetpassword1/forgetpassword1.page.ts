@@ -18,13 +18,17 @@ export class Forgetpassword1Page implements OnInit {
   }
 
   sendMail(){
+    this.error=false;
     this.emailService.SendEmail(this.email).subscribe(retour=>{
       console.log(retour)
       if(retour.message=='ok'){
 
+      }else if(retour.message=="errorUser"){
+        this.error=true;
+        this.erreur=retour.data
       }else{
         this.error=true;
-        this.erreur=retour.message
+        this.erreur="Erreur du serveur !"
       }
     })
   }

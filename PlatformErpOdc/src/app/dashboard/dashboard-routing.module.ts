@@ -21,7 +21,7 @@ const routes: Routes = [
         path: 'salle',
         loadChildren: () => import('../salle/salle.module').then( m => m.SallePageModule)
       },
-  
+
       {
         path: 'home',
         loadChildren: () => import('../home/home.module').then( m => m.HomePageModule)
@@ -43,6 +43,15 @@ const routes: Routes = [
         path: 'allactivity',
         loadChildren: () => import('../allactivity/allactivity.module').then( m => m.AllactivityPageModule)
       },
+      {
+        path: 'ajoutparticipant/:id',
+        loadChildren: () => import('../ajoutparticipant/ajoutparticipant.module').then( m => m.AjoutparticipantPageModule)
+      },
+      {
+        path: 'ajoutparticipant',
+        loadChildren: () => import('../ajoutparticipant/ajoutparticipant.module').then( m => m.AjoutparticipantPageModule)
+      },
+
 
       {
         path: 'detailactivite/:id',
@@ -105,7 +114,7 @@ const routes: Routes = [
       path: 'salle',
       loadChildren: () => import('../salle/salle.module').then( m => m.SallePageModule)
     },
-  
+
     {
       path: 'tirage',
       loadChildren: () => import('../tirage/tirage.module').then( m => m.TiragePageModule)
@@ -126,7 +135,7 @@ const routes: Routes = [
       path: 'importeliste',
       loadChildren: () => import('../importliste/importliste.module').then( m => m.ImportlistePageModule)
     },
-    
+
     {
       path: 'importer-participant/:id',
       loadChildren: () => import('../importer-listeparticipant/importer-listeparticipant.module').then( m => m.ImporterListeparticipantPageModule)
@@ -150,7 +159,7 @@ const routes: Routes = [
 
       { path: '**', redirectTo:'accueil',pathMatch:'full'}
 
-    
+
     ]
   },
 

@@ -254,8 +254,8 @@
 
         
 
-              <div class="col m-2 image row"   
-                *ngFor="let aa of activiteAvenir ; let i=index"  
+              <div class="col m-2 image row"  
+                *ngFor="let aa of activiteAvenir ; let i=index | orderBy: dateCreation"  
                 
                 style=" background-repeat: no-repeat;   background-position: center; background-size: cover; border-radius: 10px;"
                 >

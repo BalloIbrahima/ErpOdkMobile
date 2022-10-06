@@ -42,9 +42,9 @@ const routes: Routes = [
   {
     path: 'reporting',
     loadChildren: () => import('./reporting/reporting.module').then( m => m.ReportingPageModule)
-  },
+  }
 
-
+];
 
 
 @NgModule({
@@ -90,13 +90,7 @@ export class AppRoutingModule { }
 
 
 
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+
 
 
 

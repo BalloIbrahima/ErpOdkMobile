@@ -72,13 +72,25 @@ export class EntitePage implements OnInit {
         console.log("nos entites "+data.data)
       }
     })
-
     this.userService.getActivesUsers(this.Utilisateur.login, this.Utilisateur.password).subscribe(data => {
       this.toutUtilisateur = data.data;
       
       console.log(data.data[1].nom)
 
     })
+  }
+
+  //Methode permettant de recuperer les entite
+
+  getAllEntite(){
+    this.entiteService.getAllEntites(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+      if(data.message=='ok'){
+        this.entites=data.data
+        this.longueur=data.data.length
+        console.log("nos entites "+data.data)
+      }
+    })
+
   }
 
  
@@ -95,6 +107,11 @@ RedirigerEntite(id:number){
 }
   
   // methode permettant de creer une entite
+  alet(): void {
+    setTimeout(() => {
+        this.getAllEntite();
+    }, 1000);
+  }
   postAllEntite() {
     console.log(this.imageentite+" libelleentite : "+this.libelleentite+"description : "+this.description+"responsable : "+this.responsableEntite)
     for(let i = 0; i< this.toutUtilisateur.length; i++){
@@ -116,8 +133,7 @@ RedirigerEntite(id:number){
         this.alertFalse = true
       }
     })
-    
-    
+      this.alet();
     // this.presentAlert()
   }
 

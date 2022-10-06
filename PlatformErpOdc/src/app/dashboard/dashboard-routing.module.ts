@@ -14,7 +14,13 @@ const routes: Routes = [
         redirectTo: 'accueil',
         pathMatch: 'full'
       },
+
       
+      {
+        path: 'reporting-participant',
+        loadChildren: () => import('../reporting-participant/reporting-participant.module').then( m => m.ReportingParticipantPageModule)
+      },
+
       {
         path: 'reporting-participant',
         loadChildren: () => import('../reporting-participant/reporting-participant.module').then( m => m.ReportingParticipantPageModule)
@@ -33,12 +39,14 @@ const routes: Routes = [
         loadChildren: () => import('../reporting-participant/reporting-participant.module').then( m => m.ReportingParticipantPageModule)
       },
 
-      
       {
         path: 'reportingfiltreact',
         loadChildren: () => import('../reportingfiltreact/reportingfiltreact.module').then( m => m.ReportingfiltreactPageModule)
+      }, {
+        path: 'reportingfiltrepart',
+        loadChildren: () => import('../reportingfiltrepart/reportingfiltrepart.module').then( m => m.ReportingfiltrepartPageModule)
       },
-      
+
       {
         path: 'home',
         loadChildren: () => import('../home/home.module').then( m => m.HomePageModule)

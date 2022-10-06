@@ -21,7 +21,7 @@ export class ForgetPasswordService {
       }]
       data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
 
-    return this.http.post(`${this.env.api}/motdepass/forgetpassword/`,data);
+    return this.http.post(`${this.env.api}/motdepass/forgetpassword`,data);
   }
 
 }

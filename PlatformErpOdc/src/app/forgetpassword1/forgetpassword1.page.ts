@@ -19,6 +19,7 @@ export class Forgetpassword1Page implements OnInit {
 
   sendMail(){
     this.emailService.SendEmail(this.email).subscribe(retour=>{
+      console.log(retour)
       if(retour.message=='ok'){
 
       }else{

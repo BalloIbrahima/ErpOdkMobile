@@ -32,7 +32,7 @@
 
 
                     <div class="col salles" style="background-color: #D9D9D9;">
-                        <div *ngIf="sallesDipoLength==0">Aucune Salle Indisponible</div>
+                        <div *ngIf="sallesDipoLength==0">Aucune salle disponible</div>
 
 
                         <div class="col chaquesalle" *ngFor="let salle of sallesDipo">
@@ -133,7 +133,7 @@
 
                     <div class="col salles" style="background-color: #D9D9D9;">
 
-                        <div *ngIf="sallesIndispoLength==0">Aucune Salle Indisponible</div>
+                        <div *ngIf="sallesIndispoLength==0">Aucune salle indisponible</div>
 
 
                         <div class="col chaquesalle" *ngFor="let salle of sallesIndispo">
@@ -141,15 +141,16 @@
                                 <div class="col ">
                                     <img class="img" src="../../assets/salle.png" alt="">
                                 </div>
+
                                 <div class="col" style=" margin-top: 10px;
-                  margin-left: 10px;
-                  width: 50%;">
+                                    margin-left: 10px;
+                                    width: 50%;">
                                     <div class="col">{{salle.libelle}}</div>
                                     <div class="col">{{salle.etage}}</div>
                                 </div>
                                 <div class="col justify-content-end" style=" margin-top: 10px;
-                  margin-left: 10px;
-                  width: 50%;">
+                                        margin-left: 10px;
+                                        width: 50%;">
                                     <div class="col">
 
                                         <button type="button" class="btn btn-outline-dark  ">Lier Activité</button>
@@ -281,7 +282,7 @@
           <div class="col"></div>
           <div class="col" style="width: 100%; color:#FF7900; font-size: 30px;"><i class="fa-regular fa-bell"></i></div>
       </div>
-      <!-- <div>
+       <div>
           <button> Ajouter une Salle</button>
       </div> -->
 <!-- </ion-toolbar>

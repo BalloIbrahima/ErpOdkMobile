@@ -48,7 +48,19 @@ export class SalleServiceService {
 
     return this.http.post(`${this.env.api}/salle/creersalle/`, data);
   }
+//:::::::::::::::::::::Supprimer salle :::::::::::::::::::::::::::
 
+deleteSalle(login: String, password: String, idSalle: number):Observable<any>{
+  const data: FormData = new FormData();
+  const user = [{ "login": login, "password": password }]
+
+  console.log(user)
+
+  data.append('user', JSON.stringify(user).slice(1, JSON.stringify(user).lastIndexOf(']')));
+
+  return this.http.post(`${this.env.api}/salle/suprime/${idSalle}`, data);
+
+}
 
 
 

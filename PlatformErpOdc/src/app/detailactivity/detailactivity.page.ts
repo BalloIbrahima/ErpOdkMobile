@@ -24,10 +24,12 @@ export class DetailactivityPage implements OnInit {
   aaa:any
   constructor(private activiteservice:ActiviteService, private route:ActivatedRoute) { }
 
+  id:any;
 
   ngOnInit() {
 
     const idactivite=this.route.snapshot.params['id']
+    this.id=idactivite
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'))
     //console.log(idactivite)
     console.log("recuperation de l'utilisateur "+this.Utilisateur)

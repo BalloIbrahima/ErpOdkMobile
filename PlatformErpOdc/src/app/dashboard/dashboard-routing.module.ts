@@ -128,7 +128,7 @@ const routes: Routes = [
     },
     
     {
-      path: 'importer-participant',
+      path: 'importer-participant/:id',
       loadChildren: () => import('../importer-listeparticipant/importer-listeparticipant.module').then( m => m.ImporterListeparticipantPageModule)
     },
     {

@@ -17,6 +17,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { ClocheComponent } from './cloche/cloche.component';
 import { PopupNotificationPage } from './popup-notification/popup-notification.page';
 import { registerLocaleData } from '@angular/common';
+import { PopupdtiragePage } from './popupdtirage/popupdtirage.page';
 
 //import { ModifierpersonnelPageModule } from './modifierpersonnel/modifierpersonnel.module';
 // import { ModifierPersonnelComponent } from './modifier-personnel/modifier-personnel.component';
@@ -24,8 +25,8 @@ import { registerLocaleData } from '@angular/common';
 
 
 @NgModule({
-  declarations: [AppComponent,PopupNotificationPage],
-  // imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],   //ComponentTestComponent  ModifierPersonnelComponent
+  declarations: [AppComponent,PopupNotificationPage,PopupdtiragePage],
+  // imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
 
   imports: [FormsModule, RouterModule.forRoot([]), IonicModule.forRoot({}),
     BrowserModule, AppRoutingModule,HttpClientModule,

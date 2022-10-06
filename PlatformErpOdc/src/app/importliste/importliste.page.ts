@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { ImporterListeparticipantPage } from '../importer-listeparticipant/importer-listeparticipant.page';
+import { ActiviteService } from '../services/activite/activite.service';
 import { ListeService } from '../services/listes/liste.service';
 // import Swal from 'sweetalert2';
 // /*importer HttpClient*/
@@ -22,7 +23,10 @@ export class ImportlistePage implements OnInit {
   Utilisateur : any;
   name : String;
   fichier : any;
-constructor(private serviceliste : ListeService, private route : Router){}
+  idactivite:any;
+  activiteselect: any;
+  listeactivite : any;
+constructor(private serviceliste : ListeService, private route : Router,private liste : ActiviteService){}
   succesImport() {
   //   Swal.fire({'Félicitations ...', 'Fichier importer avec succès !', 'success',
   // });
@@ -61,6 +65,11 @@ constructor(private serviceliste : ListeService, private route : Router){}
 
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) ;
 
+    this.liste.GetTtActivite(this.Utilisateur.login, this.Utilisateur.password).subscribe(chemin=>{
+      this.listeactivite = chemin.data
+      console.log("afficher tous "+chemin)
+    })
+
     // this.formgroup = this.formbuilder.group({
     //   libelle:['',Validators.required],
     //   dateimport:['', Validators.required],
@@ -73,16 +82,27 @@ constructor(private serviceliste : ListeService, private route : Router){}
   }
 
   public importerList() {
+    for(let i = 0; i < this.listeactivite.length; i++) {
+      if(this.listeactivite[i].nom == this.idactivite) {
+        this.activiteselect = this.listeactivite[i]
+        console.log(this.activiteselect)
+      }
+    }
     const requete = this.serviceliste.importerListePostulant(this.name, this.fichier, this.Utilisateur.login, this.Utilisateur.password);
-    requete.subscribe(reponse => {
-      // if(reponse.message == "ok") {
-      //   alert("Fichier importer avec succès !")
-      // }
-      // if(reponse.message == "error") {
-      //   alert(reponse)
-      // }
-      console.log(reponse)
-      this.succesImport()
+    requete.subscribe({
+      next: reponse => {
+        console.log(reponse)
+        if(reponse.message == "ok") {
+          this.succesImport()
+        }
+        if(reponse.message == "error") {
+          alert(reponse.data)
+        }
+        
+      },
+      error: reponse => {
+        alert("Erreur inconnu " + reponse.message)
+      }
     });
   }
 

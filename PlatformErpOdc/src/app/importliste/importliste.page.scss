@@ -28,6 +28,16 @@ img{
   box-shadow: none;
   outline:none;
 }
+
+//Style sur le select
+#select{
+  background-color: #F8FAFC;
+  color: black;
+  border: 1px solid #B8BCCA ;
+  padding: 12px 178px 12px 0px;
+  border-radius: 5px;
+ width: 100%;
+}
 label{
 font-family: myfon2;
 color:#FF7900 ;
@@ -65,152 +75,3 @@ margin-right: auto;
     margin-left: 70px;
   
   }
-
-// /*le cadre principal*/
-// .principal{
-
-//   position: relative;
-//   width: 350px;
-//   height: 500px;
-//   border-radius: 20px;
-//   margin-top: 90px;
-//   margin-right: auto;
-//   margin-left: auto;
-//   padding: 40px;
-//   padding-top: 50px;
-//   box-sizing: border-box;
-//   background: white;
-//   box-shadow: 10px 10px 10px  gray, -10px -10px 10px gray;
-// }
-
-// /*le rond du tirage*/
-// .brand-logo {
-//   height: 120px;
-//   width: 300px;
-//   margin-left: -15px;
-//   border-radius: 50%;
-//   box-sizing: border-box;
-//   box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
-// }
-
-// /*titre*/
-// .title {
-//   margin-top: 0px;
-//   font-weight: 900;
-//   font-size: 1.2rem;
-//   color: black;
-//   letter-spacing: 1px;
-//   text-align: center;
-// }
-
-// /* label*/
-// label{
-//   color: orangered;
-// }
-
-// /*input*/
-// #inputs{
-
-//   background-color: #F8FAFC;
-//   color: black;
-//   border: 1px solid #B8BCCA ;
-//   padding: 8px 80px 8px 0px;
-//   border-radius: 5px;
-// }
-
-// /*select*/
-
-// #select{
-//   background-color: #F8FAFC;
-//   color: black;
-//   border: 1px solid #B8BCCA ;
-//   padding: 12px 178px 12px 0px;
-//   border-radius: 5px;
-// }
-// /*button*/
-// button{
-
-//   color: white;
-//   margin-top: auto;
-//   background: orange;
-//   height: 40px;
-//   border-radius: 5px;
-//   cursor: pointer;
-//   font-weight: 900;
-//   box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
-//   transition: 0.5s;
-//    border: 2px solid orange;
-//    padding: 0px 100px 0px 0px;
-// /*mieux centrer le text du button*/
-//   margin-left: 50px;
-//   width: 60%;
-//   padding: 0;
-//   border-radius: 20px;
-
-// }
-
-// button:hover {
-//  background-color: white;
-//  color: black;
-// border: 1px solid orange;
-
-// }
-
-// #import{
-//   box-shadow: none;
-//   border-radius: none;
-//   background: white;
-// }
-
-// .importer{
-//   border: 1px dashed black;
-//   padding: 30px;
-// }
-//  #iconeImport{
-//   margin-bottom: 10px;
-//   font-size:60px ;
-//   margin-left: 70px;
-
-// }
-
-
-
-
-
-
-
-
-
-
-
-// @media (max-width: 584px) {
-//   .container {
-//       max-width: 100%;
-//   }
-//   form .row .col {
-//       margin-bottom: 15px;
-//       width: 100%;
-//   }
-//   .container form .row col {
-//       max-height: 300px;
-//       overflow-y: scroll;
-//   }
-//   .row .col::-webkit-scrollbar {
-//       width: 0;
-//   }
-// }
-
-
-// .modal-backdrop {
-//    --bs-backdrop-zindex: 1050;
-//    --bs-backdrop-bg: #000;
-//    --bs-backdrop-opacity: 0.5;
-//    top: 0;
-//    left: 0;
-//   z-index: var(--bs-backdrop-zindex);
-//   width: 100vw;
-//   height: 100vh;
-//   background-color: var(--bs-backdrop-bg);
-// }
-
-

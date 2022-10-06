@@ -58,8 +58,14 @@
           <input id="inputs"  name="nom" type="text"  class="form-control" id="inputs" required [(ngModel)]="name" [ngModelOptions]="{standalone: true}" >
         </div>
 
+        <div class="input mb-3">
+          <label for="inputs" class="form-label">Activité *</label>
+          <select name="" id="select" class="col" [(ngModel)]="idactivite" [ngModelOptions]="{standalone : true}">
+            <option value="">Choisissez une activité</option>
+            <option *ngFor="let lact of listeactivite" >{{lact.nom}}</option>
+          </select>
+        </div>
 
-               
         <button type="button" class="btn btn-outline-dark bouton" (click)="importerList()">Importer</button>
 
 

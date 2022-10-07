@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
 import { ListeService } from '../services/listes/liste.service';
@@ -17,7 +17,7 @@ export class PopupdtiragePage implements OnInit {
   TirageSelect: any;
   idtira: any;
   tiraget: any;
-  constructor(private modalController: ModalController,private tirageService:TirageService) { }
+  constructor(private modalController: ModalController,private tirageService:TirageService,private navCltr:NavController) { }
   @Input() valider: boolean;
 
   
@@ -36,8 +36,11 @@ export class PopupdtiragePage implements OnInit {
       title:'Tirage Valider',
       icon:'success',
       heightAuto: false,
-      confirmButtonColor:'#FF7900'
-  });
+      confirmButtonColor:'#FF7900',
+      allowOutsideClick:false
+  }).then(()=>{
+    this.navCltr.navigateRoot("detail-liste");
+  })
   await this.modalController.dismiss(close);
   }
   ValiderT(idtirage){

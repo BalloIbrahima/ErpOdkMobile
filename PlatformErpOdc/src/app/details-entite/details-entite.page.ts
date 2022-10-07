@@ -117,12 +117,13 @@ export class DetailsEntitePage implements OnInit {
       this.entites = data.data
       console.log(this.entites)
       this.nomEntite=this.entites.libelleentite
-      this.statusResponsable = this.entites.createur.role.libellerole
+      this.statusResponsable = this.entites.gerant.role.libellerole
       this.descriptionEntite = this.entites.description
       this.nomResponsable = this.entites.gerant.nom
       this.prenomResponsable = this.entites.gerant.prenom
       this.imageEntite = this.entites.image
     })
+
     //methode permettant de retourner le nombre personne dans une entite
     this.entiteService.gettAllActiviterParEntite(this.Utilisateur.login,this.Utilisateur.password,this.identite).subscribe(data =>{
       this.nombreActivite = data
@@ -134,6 +135,7 @@ export class DetailsEntitePage implements OnInit {
       }
       console.log(this.nombreActivite)
     })
+
     //methode permettant de recuperer les personnels d'une entite
     this.entiteService.getAllPersonnelParEntite(this.Utilisateur.login,this.Utilisateur.password,this.identite).subscribe(data =>{
       this.PersonnelEntite = data
@@ -145,7 +147,8 @@ export class DetailsEntitePage implements OnInit {
         this.nombrePersonnel = data.length
       }
       console.log(this.nombrePersonnel)
-    }) 
+    })
+    
 //methode permettant de recuperer les apprenant d'une entite
 this.entiteService.getAllPersonnelParEntite(this.Utilisateur.login,this.Utilisateur.password,this.identite).subscribe(data =>{
   this.ApprenantFormerParEntite = data

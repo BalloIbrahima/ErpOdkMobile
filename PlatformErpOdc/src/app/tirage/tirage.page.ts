@@ -52,8 +52,7 @@ export class TiragePage implements OnInit {
       text:'Ce tirage existe déjà',
       icon:'error',
       heightAuto: false,
-      confirmButtonColor:'#FF7900',
-      allowOutsideClick:false
+      confirmButtonColor:'#FF7900'
   });
 
   }
@@ -64,8 +63,7 @@ export class TiragePage implements OnInit {
         text:'Le nombre entré est superieur au nombre de postulant sur la liste',
         icon:'error',
         heightAuto: false,
-        confirmButtonColor:'#FF7900',
-        allowOutsideClick:false
+        confirmButtonColor:'#FF7900'
     });
   }
 

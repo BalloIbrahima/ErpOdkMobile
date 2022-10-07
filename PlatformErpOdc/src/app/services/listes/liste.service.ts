@@ -32,6 +32,15 @@ export class ListeService {
 
     return this.http.post(`${this.env.api}/utilisateur/AllListePost`,data);
   }
+
+   GetListeParId(login:String,password:String,id:number):Observable<any>{
+    
+     const data:FormData=new FormData();
+     const user=[{"login":login,"password":password}]
+     data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+
+     return this.http.post(`${this.env.api}/admin/liste/${id}`,data);
+   }
   
 
 

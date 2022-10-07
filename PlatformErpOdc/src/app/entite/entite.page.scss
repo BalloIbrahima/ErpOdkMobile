@@ -544,4 +544,8 @@ body {
 //   border: 2px solid red !important;
 //   text-overflow: ellipsis !important;
 //  }
- 
+ion-modal {
+  --height: auto !important;
+  --border-radius: 15px;
+  --width: 30em;
+}

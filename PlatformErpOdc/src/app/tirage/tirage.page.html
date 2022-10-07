@@ -23,7 +23,7 @@
 
              <div class="col- col-sm- col-md-6 col-lg-6 col-xl-6">
 
-          <form action=" ">
+          <form #f="ngForm">
                     
             <div class="input mb-3">
               <label for="inputs" class="form-label">Nom du tirage *</label>
@@ -50,7 +50,7 @@
               <input  [(ngModel)]="nombre" name="nombre" id="inputs"  name="nombrePlace" type="number"  class="form-control" id="inputs" required>
             </div>        
             
-            <button (click)="FaireTirage()" type="button" class="btn btn-outline-dark bouton">Trier</button>
+            <button (click)="FaireTirage()" [disabled]="f.form.invalid" type="button" class="btn btn-outline-dark bouton">Trier</button>
           </form>
              </div>
     </div>

@@ -13,6 +13,13 @@
 
 
 <ion-content>
+  <div class="row">
+    <div class="col-12">
+      <div class="d-grid m-2 gap-2 d-md-flex justify-content-md-end">
+        <button class="btn buttonColor" type="button" routerLink="/dashboard/nouveau-personnel">+ &nbsp; ajouter personnel</button>
+      </div>
+    </div>
+  </div>
   <div class="container-fluid">
     <div class="row mt-3 mb-3">
       <!-- <div class="col"></div> -->
@@ -31,9 +38,9 @@
         <div class="number"> {{nombreApprenantFormerParEntite}} </div>
       </div>
     </div>
-    <div class="row styledetailleEntite mb-3" >
-      <div class="col-12 col-sm-12 col-lg-4">
-        <img src={{imageEntite}} m-3 alt="">
+    <div class="row styledetailleEntite mb-3">
+      <div class="col-12 col-sm-12 col-lg-4 mx-auto my-auto">
+        <img src={{imageEntite}} class="styleAppliquerImageEntite" alt="">
       </div>
       <div class="col styleText">
         <h1 class="titreEntite"> {{nomEntite}} </h1>
@@ -46,40 +53,12 @@
         </p>
         <hr size="3">
 
-
-
       </div>
     </div>
   </div>
-  <!-- <ion-grid class="ion-margin text-center tailleTexte">
-    <ion-row class="tableEntete ">
-      <ion-col>Nom</ion-col>
-      <ion-col>Prenom</ion-col>
-      <ion-col class="cacherCole">Genre</ion-col>
-      <ion-col>Contact</ion-col>
-      <ion-col class="cacherCole">Email</ion-col>
-      <ion-col>Action</ion-col>
-    </ion-row>
-    <ion-row *ngFor="let student of students; index as i">
-
-      <ion-col>{{ student.name }}</ion-col>
-      <ion-col>{{ student.prenom }}</ion-col>
-      <ion-col class="cacherCole">{{ student.genre }}</ion-col>
-      <ion-col>{{ student.contact }}</ion-col>
-      <ion-col class="cacherCole">{{ student.email }}</ion-col>
-      <ion-col> voir plus </ion-col>
-
-    </ion-row>
-    <span></span>
-    <span></span>
-    <div class="position-relative">
-       <div class="position-absolute top-0 end-0 mt-4"><pagination-controls (pageChange)= "a = $event" nextLabel="Suivants" previousLabel="Précédents"></pagination-controls></div> 
-    </div>
-     <div class="pagibottom" style="margin-left: 200px;"></div> 
-  </ion-grid> -->
-  
+  <!-- tableau contenant les personels de l'entite  -->
   <div class="personnelEntiteVide mx-auto mb-2 pt-1" *ngIf="nombrePersonnel == 0">
-    Personnel inexistant 
+    Personnel inexistant
   </div>
   <table class="table table-striped text-center mx-auto caption-top" *ngIf="nombrePersonnel != 0">
     <caption class="text-center">Liste des personnels de {{nomEntite}} </caption>
@@ -109,9 +88,7 @@
   </table>
   <div class="position-relative" *ngIf="nombrePersonnel != 0">
     <div class="position-absolute top-0 end-0 mt-4">
-      <pagination-controls previousLabel="Prev" nextLabel="Next"  
-      
-        (pageChange)=" pages = $event"> </pagination-controls>
+      <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)=" pages = $event"> </pagination-controls>
     </div>
   </div>
 

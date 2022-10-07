@@ -49,12 +49,18 @@
 
         <div class="input mb-3">
           <label for="inputs" class="form-label">Nom fichier *</label>
-          <input id="inputs"  name="nom" type="text"  class="form-control" id="inputs" required>
+          <input id="inputs"  name="nom" type="text"  class="form-control" id="inputs" required [(ngModel)]="name" [ngModelOptions]="{standalone: true}" >
         </div>
 
+        <div class="input mb-3">
+          <label for="inputs" class="form-label">Activité *</label>
+          <select name="" id="select" class="col" [(ngModel)]="idactivite" [ngModelOptions]="{standalone : true}">
+            <option value="">Choisissez une activité</option>
+            <option *ngFor="let lact of listeactivite" >{{lact.nom}}</option>
+          </select>
+        </div>
 
-               
-        <button type="button" class="btn btn-outline-dark bouton">Trier</button>
+        <button type="button" class="btn btn-outline-dark bouton" (click)="importerList()">Importer</button>
 
 
       </form>
@@ -63,15 +69,30 @@
   <!-- </div> -->
 
 </div>
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Importer liste participant</ion-title>
+    <ion-button slot="end" fill="clear">
+      <app-cloche></app-cloche>
+
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
 
 
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+  integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
 
-
-
-
-
-
-  <!-- <div class="container">
+<ion-content>
+  <div class="container">
     <div class="col">
       <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-6" class="principal">
@@ -115,5 +136,5 @@
         </div>
       </div>
     </div>
-  </div> -->
-</ion-content>
+  </div>
+</ion-content> -->

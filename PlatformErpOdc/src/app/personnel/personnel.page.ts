@@ -43,8 +43,23 @@ export class PersonnelPage implements OnInit {
       console.log(data.data)
     });
 
+    this.getAllUser(this.Utilisateur)
 
+  }
 
+  actualisePagApresSuppresion(util:any){
+    setTimeout(() => {
+      this.getAllUser(util)
+    }, 1000);
+  }
+  
+  getAllUser(utilis: any){
+  
+    this.userService.getAllUsers(utilis.login,utilis.password).subscribe(data=>{
+      this.users=data.data;
+      
+      console.log(data.data)
+    });
   }
 
 //La fonction pour recuperer les details du personnel 

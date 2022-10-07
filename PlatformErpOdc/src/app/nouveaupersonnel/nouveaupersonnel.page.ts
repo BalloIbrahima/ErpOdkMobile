@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import Swal from 'sweetalert2';
 import { EntiteService } from '../services/entite/entite.service';
 import { RoleService } from '../services/role/role.service';
 import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
@@ -30,7 +32,7 @@ export class NouveaupersonnelPage implements OnInit {
 
   Genre: number;
 
-  constructor( private alertController : AlertController,private entiteService:EntiteService,private roleservice:RoleService,private userService:UtilisateurService) { }
+  constructor(private router: Router, private alertController : AlertController,private entiteService:EntiteService,private roleservice:RoleService,private userService:UtilisateurService) { }
 
   ngOnInit() {
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) 
@@ -58,8 +60,9 @@ export class NouveaupersonnelPage implements OnInit {
       }
     })
     
-    
   }
+
+
   envoyerImage(event: any){
     this.image = event.target["files"][0];
     console.log(this.image)
@@ -87,24 +90,48 @@ export class NouveaupersonnelPage implements OnInit {
 
     await alert.present();
   }
+  alertSiTousLesChampSonVide(){
+    Swal.fire({
+      title: "Tous les champs sont Obligatoires",
+      showConfirmButton: true,
+      confirmButtonText: "OK",
+      confirmButtonColor: 'green',
+      showCancelButton: true,
+      heightAuto: false
+    })
+  }
+
+  alertSiTousLesChampSonBienRenseigner(){
+    Swal.fire({
+      title: "Personnel créer avec succes",
+      showConfirmButton: true,
+      confirmButtonText: "OK",
+      confirmButtonColor: 'green',
+      showCancelButton: true,
+      heightAuto: false
+    }).then((result) => {
+      if (result.isConfirmed) {
+          // this.actualisePagApresSuppresion()
+          this.router.navigateByUrl('/dashboard/personnels')
+      
+    }else if (result.isDenied) {
+      this.router.navigateByUrl('/dashboard/personnels')
+    }
+  });
+  }
 
 
   CreateUser(){
-
     for(let i=0;i<this.Entites.length;i++){
       if(this.Entites[i].libelleentite==this.entite){
         this.EntiteSelectioner=this.Entites[i]
       }
     }
-
     for(let i=0; i<this.Roles.length;i++){
       if(this.Roles[i].libellerole==this.role){
         this.RoleSelectionner=this.Roles[i]
       }
     }
-
-    
-
     console.log(this.RoleSelectionner)
     console.log(this.EntiteSelectioner)
    
@@ -116,8 +143,11 @@ export class NouveaupersonnelPage implements OnInit {
     }
     this.userService.CreateUser(this.Utilisateur.login,this.Utilisateur.password ,this.nom,this.prenom,this.email+this.domaine,this.Genre,this.image,this.EntiteSelectioner,this.RoleSelectionner).subscribe(retour=>{
       console.log(retour)
-      this.presentAlert()
+      this.alertSiTousLesChampSonBienRenseigner();
+      // this.presentAlert()
     })
   }
+
+  
 
 }

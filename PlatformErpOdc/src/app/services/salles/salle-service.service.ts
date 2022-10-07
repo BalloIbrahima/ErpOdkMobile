@@ -137,7 +137,6 @@ deleteSalle(login: String, password: String, idSalle: number):Observable<any>{
     return this.http.post(`${this.env.api}/salle/SalleDisponible`, data);
     //return this.http.get(`http://localhost:8080/admin/SalleDisponible/${login}/${password}`);
   }
-
   getSallesIndispo(login: String, password: String): Observable<any> {
 
     const data: FormData = new FormData();

@@ -1,3 +1,12 @@
+@font-face {
+    font-family: myfon2;
+    src: url('../../assets/font/Poppins-Light.ttf');
+  }
+  
+  * {
+    font-family: myfon2;
+  }
+
 .entete{
     background-color: #FF7900;
     color: white;
@@ -12,4 +21,12 @@
     margin-top: 20px;
     margin-left: 80%;
     width: 18%;
+    font-weight: 600;
+}
+
+.tache:hover {
+    color: white;
+    background-color: black;
+    border: 2px solid black;
+    // font-family: 'myfon';
 }

@@ -10,22 +10,30 @@ export class ListeparticipantService {
   env=environment;
 
 
-  
+
   constructor(private http:HttpClient) { }
   ImporterlisteParticipant(login:String, password:String, file:File ,libelleliste:String,idactivite:any): Observable<any>{
 
-  const dataa:FormData=new FormData();  
+  const dataa:FormData=new FormData();
   const user=[{"login":login,"password":password}];
-  // const import=[{
-
-  // }]
-    console.log(user)
+     console.log(user)
 
 
     dataa.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
     dataa.append('file',file)
-    //data.append('import', JSON.stringify(import).slice(1,JSON.stringify(import).lastIndexOf(']')));
     return this.http.post(`${this.env.api}/responsable/listparticipant/new/${libelleliste}/${idactivite}`,dataa);
   }
+
+
+  ToutLesParticipant(login:String, password:String): Observable<any>{
+
+    const dataa:FormData=new FormData();
+    const user=[{"login":login,"password":password}];
+    
+    dataa.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+      return this.http.post(`${this.env.api}/utilisateur/participants/all`,dataa);
+    }
+
+  
 }
 

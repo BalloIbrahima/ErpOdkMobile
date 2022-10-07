@@ -22,6 +22,7 @@ export class UtilisateurService {
       "password":password
     }
     return this.http.post(`${this.env.api}/utilisateur/login`,utilisateur);
+    console.log(utilisateur)
   }
 
   //methode pour la creation d'un utilisateur

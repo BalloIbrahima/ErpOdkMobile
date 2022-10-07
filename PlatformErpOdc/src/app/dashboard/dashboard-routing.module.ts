@@ -10,7 +10,7 @@ const routes: Routes = [
     children:[
       {
         path: '',
-        redirectTo: 'accueil',
+        redirectTo: 'profil',
         pathMatch: 'full'
       },
       {
@@ -54,7 +54,7 @@ const routes: Routes = [
         path: 'creertachesdesignation',
         loadChildren: () => import('../creertachesdesignation/creertachesdesignation.module').then( m => m.CreertachesdesignationPageModule)
       },
-      
+
     {
       path: 'personnels',
       loadChildren: () => import('../personnel/personnel.module').then( m => m.PersonnelPageModule)
@@ -103,7 +103,7 @@ const routes: Routes = [
       path: 'importeliste',
       loadChildren: () => import('../importliste/importliste.module').then( m => m.ImportlistePageModule)
     },
-    
+
     {
       path: 'importer-participant',
       loadChildren: () => import('../importer-listeparticipant/importer-listeparticipant.module').then( m => m.ImporterListeparticipantPageModule)
@@ -116,11 +116,16 @@ const routes: Routes = [
       path: 'activite',
       loadChildren: () => import('../allactivity/allactivity.module').then( m => m.AllactivityPageModule)
     },
+    {
+      path: 'profil',
+      loadChildren: () => import('../profil/profil.module').then( m => m.ProfilPageModule)
+    },
+
 
 
       { path: '**', redirectTo:'accueil',pathMatch:'full'}
 
-    
+
     ]
   },
 

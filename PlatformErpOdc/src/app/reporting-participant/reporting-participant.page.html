@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Reporting participant</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="header">
+    
+  
+  
+
+  
+  <div class="headerContent">
+    <p>Liste des participants</p>
+    <button  class="filtre" routerLink="/dashboard/../reportingfiltrepart">Filtre par</button>
+  </div>
+</div>
+ 
+
+
+   <table class="table table-striped text-center mx-3">
+    <thead>
+      <tr>
+        <th scope="col">Activité</th>
+        <th scope="col">Date début</th>
+        <th scope="col" class="hideColonne hideColonneOder">Date fin</th>
+        <th scope="col">Nom</th>
+        <th scope="col" class="hideColonne hideColonneOder">Prenom</th>
+        <th scope="col" class="hideColonne">Email</th>
+        <th scope="col" class="hideColonne">Date de naissance</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor=" let a of accueil | paginate:{itemsPerPage:8, currentPage:a}; let index = index" >
+        <tr>
+        <td>Kalanso 02</td>
+        <td> 12/02/2022	 </td>
+        <td class="hideColonne hideColonneOder">Encours</td>
+        <td> Jean </td>
+        <td class="hideColonne hideColonneOder">SAGARA</td>
+        <td class="hideColonne hideColonneOder">jeansagara272@gmail.com </td>
+        <td class="hideColonne hideColonneOder">02/10/1962 </td>
+      </tr>
+
+      <tr>
+        <td>Kalanso 02</td>
+        <td> 12/02/2022	 </td>
+        <td class="hideColonne hideColonneOder">Encours</td>
+        <td> Djiguiba </td>
+        <td class="hideColonne hideColonneOder">Barema</td>
+        <td class="hideColonne hideColonneOder">djiguiba2@gmail.com </td>
+        <td class="hideColonne hideColonneOder">21/04/1980 </td>
+      </tr>
+    </tbody>
+
+  </table>
+
+  <div class="header">
+  
+    <div class="headerContent">
+      <button  class="filtre2" ><i class="fa fa-download" aria-hidden="true"></i> Télécharger </button>
+      <pagination-controls (pageChange)="a = $event" nextLabel="Suivants" previousLabel="Précédents" ></pagination-controls>
+     
+    </div>
+  </div> 
+</ion-content>

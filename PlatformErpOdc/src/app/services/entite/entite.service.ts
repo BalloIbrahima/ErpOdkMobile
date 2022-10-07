@@ -21,11 +21,13 @@ export class EntiteService {
         "login":login,
         "password":password
       }]
-      
+
     data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
 
     return this.http.post(`${this.env.api}/entite/getAll/entite`, data);
   }
+
+  
 
   PostEntite(login :String, password:String, file:File, libelleentite :String, description: String, utilisateur: any, gerant: any):Observable<any>{
 

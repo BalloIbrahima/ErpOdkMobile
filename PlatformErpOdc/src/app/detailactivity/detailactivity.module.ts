@@ -16,7 +16,7 @@ import { ClocheComponent } from '../cloche/cloche.component';
     CommonModule,
     FormsModule,
     IonicModule,
-
+    
     DetailactivityPageRoutingModule,
     NgxPaginationModule
   ],

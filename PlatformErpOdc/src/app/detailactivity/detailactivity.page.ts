@@ -1,6 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ActiviteService } from '../services/activite/activite.service';
+import * as XLSX from "xlsx"
 
 @Component({
   selector: 'app-detailactivity',
@@ -16,119 +17,92 @@ export class DetailactivityPage implements OnInit {
   nom:any
 
   Status:any
+  image:any
   salles:any
   leadnom:any
   leadprenom:any
-  image:any;
+  suppvar:any
+  dateDebut:any
+dateFin:any
+
 
   aaa:any
+  idact:any
+  byentity:any
+//act a venir rediriger vers son detail()id
   constructor(private activiteservice:ActiviteService, private route:ActivatedRoute) { }
 
+  id:any;
+  
 
   ngOnInit() {
 
     const idactivite=this.route.snapshot.params['id']
+    this.id=idactivite
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'))
+    this.idact=idactivite
     //console.log(idactivite)
     console.log("recuperation de l'utilisateur "+this.Utilisateur)
     this.activiteservice.getactivitybyId(this.Utilisateur.login,this.Utilisateur.password,idactivite).subscribe(r=>{
       this.activite=r.data;
-      console.log(r.data);
+      console.log(this.activite)
       this.nom=this.activite.nom
       this.salles=this.activite.salle.libelle
-      this.leadnom=this.activite.lead.nom
-      this.leadprenom=this.activite.lead.prenom
+      this.leadnom=this.activite.leader.nom
+      this.leadprenom=this.activite.leader.prenom
       this.image=this.activite.image
-
-
+      this.dateDebut=this.activite.dateDebut
+      this.dateFin=this.activite.dateFin
     })
 
     this.activiteservice.GetActiviteStatut(this.Utilisateur.login,this.Utilisateur.password,idactivite).subscribe(r=>{
       console.log(r)
       this.Status=r.message;
+      console.log(this.Status)
     })
 
-    
+    this.activiteservice.getactivitybyId(this.Utilisateur.login,this.Utilisateur.password,idactivite).subscribe(r=>{
+      console.log(r)
+      this.byentity=r.message;
+      console.log(this.byentity)
+    })
 
   }
 
+  //l'id a appliquer au tableau
+  id1="season-tble"
+  name = 'ExcelSheet.xlsx';
+  exportToExcel(): void {
+    let element = document.getElementById('season-tble');
+    const worksheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
 
-  students =[
-    {
-        name: 'Djiguiba',
-        prenom: 'Barema',
-        genre: 'Masculin',
-        email: 'djiguiba@orangemali.com',
-        contact: '+223 8456789'
-    },
-    {
-      name: 'Djiguiba',
-      prenom: 'Barema',
-      genre: 'Masculin',
-      email: 'djiguiba@orangemali.com',
-      contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
-  },
-  {
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    genre: 'Masculin',
-    email: 'djiguiba@orangemali.com',
-    contact: '+223 8456789'
+    const book: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(book, worksheet, 'Sheet1');
+
+    XLSX.writeFile(book, this.name);
   }
-  
-  ];
-   
-  
-   
- 
+
+   supprimeractivite(){
+    this.activiteservice.deletebyid(this.Utilisateur.login,this.Utilisateur.password,this.idact).subscribe(
+      d=>{
+        console.log(d)
+      this.suppvar=d.message;
+      console.log(this.suppvar)
+      }
+    )   }
+
+
+
+
+    //en attente back
+    importerliste(){
+
+    }
+
+
+
+
+
+
 
 }

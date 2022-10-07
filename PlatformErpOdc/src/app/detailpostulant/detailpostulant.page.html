@@ -13,9 +13,13 @@
 
 
 <ion-content>
-  <img
+
+  <img *ngIf="image!=null" src={{image}} class="center" alt="Image du personnel">
+  <img *ngIf="image==null" src="assets/images/profile.png" class="center" alt="Image du personnel">
+
+  <!-- <img
     src="https://images.pexels.com/photos/7562313/pexels-photo-7562313.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-    class="center">
+    class="center"> -->
   <!-- <h3 class="ion-text-center">{{detailpostulant.name.title}} {{detailpostulant.name.first}}</h3> -->
 
   <ion-item lines="none" color="background-color: #FF6200;" style="background-color: #FF6200;">
@@ -26,11 +30,11 @@
   <ion-list>
     <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Nom:</ion-label>
-      <ion-label style="color: black;" class="taille2">DEMBELE</ion-label>
+      <ion-label style="color: black;" class="taille2">{{ nom }}</ion-label>
     </ion-item>
     <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Prenom:</ion-label>
-      <ion-label slot="" style="color: black;" class="taille2">Idissa</ion-label>
+      <ion-label slot="" style="color: black;" class="taille2">{{ prenom }}</ion-label>
     </ion-item>
     <!-- <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Date de naissance:</ion-label>
@@ -45,7 +49,7 @@
     </ion-item>
     <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Genre:</ion-label>
-      <ion-label slot="" style="color: black;" class="taille2" >Masculin</ion-label>
+      <ion-label slot="" style="color: black;" class="taille2" >{{ genre }}</ion-label>
     </ion-item>
     <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Contact:</ion-label>
@@ -53,36 +57,21 @@
     </ion-item>
     <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Email:</ion-label>
-      <ion-label slot="" style="color: black;" class="taille2">dembele@orangemali.com</ion-label>
+      <ion-label slot="" style="color: black;" class="taille2">{{ email }}</ion-label>
     </ion-item>
     <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Entite:</ion-label>
-      <ion-label slot="" style="color: black;" class="taille2">Orange Digital Center</ion-label>
+      <ion-label slot="" style="color: black;" class="taille2">{{nomEntite}}</ion-label>
+      <!-- <ion-label slot="" style="color: black;" class="taille2" *ngIf="nomEntite!=null">{{nomEntite}}</ion-label>
+      <ion-label slot="" style="color: black;" class="taille2" *ngIf="nomEntite==null">Entite non specifié</ion-label> -->
     </ion-item>
     <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Role:</ion-label>
-      <ion-label slot="" style="color: black;" class="taille2">Responsable</ion-label>
+      <ion-label slot="" style="color: black;" class="taille2">{{statusUser}}</ion-label>
     </ion-item>
   </ion-list>
 
-  <div class="buttom">
-    <div class="button1">
-
-      <!-- <input class="but1" type="reset" value="MODIFIER" id="open-modal" expand="block" data-bs-toggle="modal" data-bs-target="#staticBackdrop" > -->
-      <button class="btn buttonColor"  class="but1" id="open-modal" type="button"  >+ &nbsp; Modifier</button>
-      <!-- <ion-button  class="btn buttonColor"  class="but1" id="open-modal" (click)="confirm()" [strong]="true">Confirm</ion-button> -->
-       <!-- <input class="but1" type="submit" value="SUPPRIMER" (click)="SupprimerPersonnel()"> -->
-      <input class="but1" type="submit" value="SUPPRIMER" (click)="DeletePersonnel()">
-
-      <!-- <input class="but1" type="reset" value="MODIFIER" (click)="ModifierPersonnel()" data-bs-toggle="modal"
-        data-bs-target="#staticBackdrop"> -->
-      
-    </div>
-    <div class="button2">
-      <!-- <input class="but2" type="submit" value="DESACTIVER" (click)="DesactiverPersonnel()"> -->
-      <input class="but2" type="submit" value="DESACTIVER" (click)="DPersonnel()">
-    </div>
-  </div> 
+  
   <div class="row">
     <!-- <div class="col-lg-3 col-12">
       <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-start">
@@ -100,9 +89,9 @@
     </div> -->
     <div class="col-lg-9 col-12">
       <div class="d-grid m-2 gap-2 d-md-flex justify-content-md-center">
-        <button class="btn buttonColor" type="button">+ &nbsp; Modifier</button>
-        <button class="btn buttonColor" type="button">+ &nbsp; Supprimer</button>
-        <button class="btn buttonColor" type="button">+ &nbsp; Desactiver</button>
+        <button class="btn buttonColor" type="button" id="open-modal">+ &nbsp; Modifier</button>
+        <button class="btn buttonColor" type="button" (click)="DeletePersonnel()">+ &nbsp; Supprimer</button>
+        <button class="btn buttonColor" type="button" (click)="DPersonnel()">+ &nbsp; Desactiver</button>
       </div>
     </div>
   </div>
@@ -134,14 +123,14 @@
           <div class="ajout">
               <div class="input-box">
                   <span class="details">Nom *</span>
-                  <input type="text" placeholder="Nom du personnel">
+                  <input type="text" placeholder="Nom du personnel" required>
               </div>
               <div class="input-box">
                 <span class="details">Email *</span>
                 <div class="mail">
-                  <input type="text" placeholder="loremipsun" id="inp">
+                  <input type="text" placeholder="loremipsun" id="inp" required>
                   <div style="width: 270px;">
-                  <select name="tchoixsalle" class="mailmodel">
+                  <select name="tchoixsalle" class="mailmodel" required>
                     <option >--Choisisez un domaine--</option>
                     <option *ngFor="let domaine of formatMailperonnel" >{{domaine.libelle}}</option>
                     <!-- formatMail
@@ -154,16 +143,16 @@
               </div>
               <div class="input-box">
                 <span class="details">Prénom *</span>
-                <input type="text" placeholder="Prénom du personnel">
+                <input type="text" placeholder="Prénom du personnel" required>
               </div>
               
-              <div class="input-box">
+              <!-- <div class="input-box">
                 <span class="details">Telephone *</span>
-                <input type="text" placeholder="Numéro de telephone">
+                <input type="text" placeholder="Numéro de telephone" required>
               </div>
               <div class="input-box">
                 <span class="details">Lieu de naissance *</span>
-                <select name="tchoixsalle" class="select">
+                <select name="tchoixsalle" class="select" required>
                   <option value="">Bamako</option>
                   <option value="">Sikasso</option>
                   <option value="">Segou</option>
@@ -173,30 +162,38 @@
                   <option value="">Gao</option>
                   <option value="">Kidal</option>
                 </select>
-             </div>
+             </div> -->
               <div class="input-box">
                   <span class="details">Entité *</span>
-                  <select name="tchoixsalle" class="select">
+                  <select name="tchoixsalle" class="select" required>
                     <option >--Choisisez une entité--</option>
                     <option *ngFor="let entite of Entites" >{{entite.libelleentite}}</option>
                   </select>
               </div>
               <div class="input-box">
-                <span class="details">Genre *</span>
-                Masculin
-                 
-                <!-- <select name="tchoixsalle" class="select">
+                <span class="details">Votre genre </span>
+                <p class="select">
+                  {{genre}}
+                </p>
+                
+                <!-- <select name="tchoixsalle" class="select" required>
                     <option >--Votre genre--</option>
-                    <option *ngFor="let alluser of AllUser" >{{alluser.genre}}</option>
+                    <option *ngFor="let g of genre" >{{g.genre}}</option>
                 </select> -->
             </div>
             <div class="input-box">
               <span class="details">Rôle *</span>
-              <select name="tchoixsalle" class="select">
+              <select name="tchoixsalle" class="select" required>
                 <option value="">--Choisisez un role--</option>
                 <option *ngFor="let role of Roles" >{{role.libellerole}}</option>
               </select>
           </div>
+          <div class="input-box">
+            <span class="details">Ajouter image *</span>
+            <input type="file" class="form-control" placeholder="Logo.jpg" id="logo"
+              accept="image/png, image/jpeg, image/jpg" (change)="envoyerImage($event)">
+          </div>
+
           </div>
     </div>
     <div class="button">

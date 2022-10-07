@@ -6,7 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reporting.page.scss'],
 })
 export class ReportingPage implements OnInit {
+  a:any;
+  accueil:any;
+ 
+//  accueil=[
+//   {nom:"kalanso"},
+//   {type:"Talks"},
+//   {staut:"Encours"},
+//   {activite:"Encours"},
+//   {datefin:"Encours"},
+//   {datedebut:"Encours"},
 
+//  ]
   constructor() { }
 
   ngOnInit() {

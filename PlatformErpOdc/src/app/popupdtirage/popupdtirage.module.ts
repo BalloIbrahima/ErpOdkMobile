@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -16,8 +16,9 @@ import { ClocheComponent } from '../cloche/cloche.component';
     FormsModule,
     IonicModule,
     PopupdtiragePageRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
-  declarations: [PopupdtiragePage, ClocheComponent]
+  declarations: [PopupdtiragePage],
+  schemas: [NO_ERRORS_SCHEMA],
 })
 export class PopupdtiragePageModule {}

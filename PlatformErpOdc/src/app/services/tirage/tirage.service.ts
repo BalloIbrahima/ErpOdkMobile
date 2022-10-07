@@ -47,4 +47,12 @@ GetTiragevalides(login:String,password:String):Observable<any>{
 
   return this.http.post(`${this.env.api}/admin/tirage/valides`, data);
 }
+//:::::::::::::::::::Valider tirage par id:::::::::::::::::::::::::::::::::::
+ValiderTirage(login:String,password:String,idTirage:number):Observable<any>{
+    
+  const data:FormData=new FormData();
+  const user=[{"login":login,"password":password}]
+  data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+  return this.http.post(`${this.env.api}/responsable/valider/tirage/${idTirage}`,data);
+}
 }

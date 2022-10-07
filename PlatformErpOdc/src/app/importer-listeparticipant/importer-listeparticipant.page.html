@@ -44,28 +44,27 @@
         <div class="col" class="importer">
           <i class="fa-solid fa-file-circle-plus" id="iconeImport" style="margin-left: 40%;color: rgb(232, 224, 224)
           ;"></i>
-          <input
-            type="file"
-            name="files"
-            id="import"
-            class="form-control"
-            
-          />
+          <input type="file" name="files"id="import"class="form-control" (change)="televerser($event)" />
         </div><br>
 
         <div class="input mb-3">
-          <label for="inputs" class="form-label">Nom fichier *</label>
-          <input id="inputs"  name="nom" type="text"  class="form-control" id="inputs" required>
-        </div><br>
+          <label for="inputs" class="form-label">Libelle</label>
+          <input id="inputs" [(ngModel)]="libelleliste"  name="libelle" type="text"  class="form-control" id="inputs" required>
+        </div>
+
+
 
         <div class="input mb-3">
           <label for="inputs" class="form-label">Activité *</label>
-          <input id="inputs"  name="nom" type="text"  class="form-control" id="inputs" required>
+          <select name="" id="select" class="col" [(ngModel)]="idactivite" [ngModelOptions]="{standalone : true}">
+            <option value="">Choisissez une activité</option>
+            <option *ngFor="let lact of listeactivite" >{{lact.nom}}</option>
+          </select>
         </div>
 
 
                
-        <button type="button" class="btn btn-outline-dark bouton">Trier</button>
+        <button type="button" class="btn btn-outline-dark bouton" (click)="importAouP()">Importer</button>
 
 
       </form>

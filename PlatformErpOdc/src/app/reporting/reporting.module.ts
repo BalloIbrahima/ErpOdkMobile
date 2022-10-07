@@ -9,14 +9,15 @@ import { ReportingPageRoutingModule } from './reporting-routing.module';
 import { ReportingPage } from './reporting.page';
 import {MatTabsModule} from '@angular/material/tabs';
 import { ClocheComponent } from '../cloche/cloche.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     MatTabsModule,
-    ReportingPageRoutingModule
+    ReportingPageRoutingModule,
+    NgxPaginationModule
   ],
   declarations: [ReportingPage,ClocheComponent]
 })

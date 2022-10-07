@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ReportingParticipantPageModule } from '../reporting-participant/reporting-participant.module';
 import { DashboardPage } from './dashboard.page';
 
 
@@ -13,6 +14,17 @@ const routes: Routes = [
         redirectTo: 'accueil',
         pathMatch: 'full'
       },
+
+      
+      {
+        path: 'reporting-participant',
+        loadChildren: () => import('../reporting-participant/reporting-participant.module').then( m => m.ReportingParticipantPageModule)
+      },
+
+      {
+        path: 'reporting-participant',
+        loadChildren: () => import('../reporting-participant/reporting-participant.module').then( m => m.ReportingParticipantPageModule)
+      },
       {
         path: 'profil',
         loadChildren: () => import('../profil/profil.module').then( m => m.ProfilPageModule)
@@ -20,6 +32,19 @@ const routes: Routes = [
       {
         path: 'salle',
         loadChildren: () => import('../salle/salle.module').then( m => m.SallePageModule)
+      },
+
+      {
+        path: 'reporting-participant',
+        loadChildren: () => import('../reporting-participant/reporting-participant.module').then( m => m.ReportingParticipantPageModule)
+      },
+
+      {
+        path: 'reportingfiltreact',
+        loadChildren: () => import('../reportingfiltreact/reportingfiltreact.module').then( m => m.ReportingfiltreactPageModule)
+      }, {
+        path: 'reportingfiltrepart',
+        loadChildren: () => import('../reportingfiltrepart/reportingfiltrepart.module').then( m => m.ReportingfiltrepartPageModule)
       },
 
       {

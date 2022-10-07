@@ -38,7 +38,6 @@ textarea{
 .bouton{
   background-color: #FF7900;
   width: 135px;
-
   font-weight: bold;
   border-radius: 15px;
   margin-top: 2%;
@@ -69,10 +68,17 @@ textarea{
 @media screen and (max-width:768px) {
 .button_div{
       margin-top: 8%;
+
   }
 
 }
+@media screen and (max-width: 768px) {
+  .bouton{
+    margin-left: auto;
+    margin-right:auto ;
+  }
 
+}
 
 label{
     font-family: myfon2;
@@ -98,13 +104,74 @@ label{
     text-align: center;
     padding: 3px 6px;
     position: absolute;
-    top: 7%;
+    top: 24% !important;
     background-color: #FFF;
     color: #000;
     left: 50%;
     transform: translate(-50%, -2%)
 }
   
+// .btnLink{
+// cursor: pointer;
+// text-decoration: none;
+// }
+// .button_de {
+//  display: none;
+//   font-size: 25px;
+//   color: #FF7900;
+// }
+// .button_de:hover{
+//   display: inline-block !important ;
+//   font-size: 25px;
+//   color: #FF7900;
+
+// }
+
+
+
+#MiniLeftNav li{
+	list-style: outside none none;
+    margin: 20px 0;
+    padding: 0;
+    width: 48px;
+}
+
+#MiniLeftNav li a{
+    border:solid 1px #ff7900;
+	display: block;
+    padding: 7px;
+    position: relative;
+}
+
+
+#MiniLeftNav span {
+  font-family: myfon2;
+  font-size:14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  // text-transform: uppercase;
+  bottom: 0;
+  left: 47px;
+  line-height: 38px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 0;
+  
+  /* CSS3 Transition: */
+-webkit-transition: 0.50s;
+/* Future proofing (these do not work yet): */
+-moz-transition: 0.50s;
+transition: 0.50s;  
+}
+#MiniLeftNav a:hover span{ width:auto; padding:0 30px;overflow:visible; }
+#MiniLeftNav a:hover{text-decoration:none;}
+#MiniLeftNav a span{
+background-color:#ff7900;
+color:white;
+}
+
 
 
 @media screen and (min-width:560px) {
@@ -122,6 +189,32 @@ label{
     }
     }
   
+
+
+
+    @media screen and (max-width:846px) {
+      ol, ul {
+        padding-left: 0rem;
+    }
+    
+    dl, ol, ul {
+      margin-top: -6px;
+      margin-bottom: 1rem;
+    }
+    
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 // /*le cadre principal*/
 // .principal1{

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { DetailListPostService } from '../services/detailListe/detail-list-post.service';
 import { ListeService } from '../services/listes/liste.service';
 import { TirageService } from '../services/tirage/tirage.service';
+
 
 @Component({
   selector: 'app-detail-tirage-dune-liste',
@@ -25,7 +26,9 @@ export class DetailTirageDuneListePage implements OnInit {
  
 
 
-  constructor(private route:ActivatedRoute, private service: DetailListPostService, private services: ListeService/*public service: TirageService*/) { }
+  constructor(private route:ActivatedRoute,
+    private services: ListeService,
+    private routers:Router) { }
 
   ngOnInit() {
     
@@ -52,17 +55,17 @@ export class DetailTirageDuneListePage implements OnInit {
       //liste de tous les tirages faite sur un liste données
       this.listparid=data.data.tirages;
       console.log(this.listparid);
-      
-    
-      //nombre de postulant tirées lors d'un tirage donne  postulanttires
-      this.nbrPostTirer=data.data;
-      console.log(this.nbrPostTirer);
-
     
     })
+  }
 
-
-
+  // goDetailTirage(id:number){
+  //   console.log(id);
+  //   return this.router.navigate(['detail-tirage-liste', id])
+  // }
+  goResultatTirage(idT:number){
+    console.log(idT);
+    return this.routers.navigate(['detail-tirage', idT])
   }
 
   

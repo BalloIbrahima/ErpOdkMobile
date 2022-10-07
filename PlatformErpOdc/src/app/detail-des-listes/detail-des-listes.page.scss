@@ -184,10 +184,10 @@
     
     .menuResponsive{
         display: flex;
-    right: 0px;
-    justify-content: center;
-    text-align: center;
-    margin-top: 10px;
+        right: 0px;
+        justify-content: center;
+        text-align: center;
+        margin-top: 10px;
 
     }
     .InputSearch {
@@ -201,6 +201,8 @@
         display: grid;
         grid-template-columns: 30% 65%;
     }
+
+   
 
     .right{
         display: none ;
@@ -257,7 +259,7 @@
         column-gap: 2%;
         row-gap: 14px;
     }
-
+  
     .InputSearch > input{
         font-size: 10px;
     }

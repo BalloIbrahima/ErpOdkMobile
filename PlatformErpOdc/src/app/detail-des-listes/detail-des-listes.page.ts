@@ -15,11 +15,15 @@ export class DetailDesListesPage implements OnInit {
   nbrliste:number=0;
   totaltirage:any;
   nbreTirageValides:number=0;
-// id:number=1
+  searchText:any
+
   
 
 
-  constructor( private service: DetailListPostService, private services: TirageService,private router:Router /*public listeService:ListeService,public tirageService:TirageService*/) { }
+  constructor( 
+    private service: DetailListPostService,
+    private services: TirageService,
+    private router:Router) { }
 
   ngOnInit(): void {
 
@@ -55,39 +59,5 @@ export class DetailDesListesPage implements OnInit {
     console.log(id);
     return this.router.navigate(['detail-tirage-liste', id])
   }
-
-  // ngOnInit(): void {
-  //   //recupeartion de l'ensemble des listes
-  //   this.listeService.getListe().subscribe(donne=>{
-  //     console.log(donne.message)
-  //     console.log(donne.data.length)
-
-  //     if(donne.message=="ok"){
-  //       this.listeService.liste=donne.data
-  //     }
-
-  //   })
-
-  //   //recupeartion du nombre de tirage
-  //   this.tirageService.getNombre().subscribe(donne=>{
-  //     console.log(donne.message)
-  //     console.log(donne.data.length)
-
-  //     if(donne.message=="ok"  && donne.data!=null){
-  //       this.nombreTirage=donne.data
-  //     }
-
-  //   })
-
-  //   //recupeartion du nombre de listes
-  //   this.listeService.getNombreListe().subscribe(donne=>{
-  //     console.log(donne.data.length)
-  //     if(donne.message=="ok"  && donne.data!=null){
-  //       this.nombreList=donne.data
-  //     }
-
-  //   })
-  // }
-  
 
 }

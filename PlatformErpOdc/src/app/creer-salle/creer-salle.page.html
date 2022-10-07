@@ -52,14 +52,14 @@
                     <input  id="inputs" [(ngModel)]="nombrePlace" name="nombrePlace" type="number"  class="form-control" id="inputs" required>
                   </div>
 
-                  <div class="input mb-3">
+                  <!-- <div class="input mb-3">
                     <label for="inputs" class="form-label">Entité *</label>
                      <select  id="inputs" class="form-select" aria-label="Default select example">
                          <option selected >Choisisez une entité</option>
                         <option *ngFor="let entite of Entites" >{{entite.libelleentite  }}</option>
                                           
                       </select>
-                     </div>
+                     </div> -->
 
                     
 
@@ -90,7 +90,7 @@
 
                     <label for="descriptiontextarea">Description</label>
                     <div class="form-floating" style="height: 100%;">
-                                 <textarea class="form-control" placeholder="Description" id="descriptiontextarea"></textarea>
+                                 <textarea class="form-control" [(ngModel)]="description" name="description" placeholder="Description" id="descriptiontextarea"></textarea>
                       </div>
       
                 </div>

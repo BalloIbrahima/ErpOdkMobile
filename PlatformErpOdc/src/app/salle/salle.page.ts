@@ -16,6 +16,7 @@ export class SallePage implements OnInit {
 
   sallesIndispo:any;
   Utilisateur:any;
+  id: number;
   constructor(private userService:UtilisateurService,private salleService:SalleServiceService) { }
 
   ngOnInit() {
@@ -28,6 +29,7 @@ export class SallePage implements OnInit {
      this.salleService.getSalleDisponible(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
       this.sallesDipo=data.data;
       this.sallesDipoLength=data.data.length
+      console.log("les salle disponible")
       console.log(data.data)
     });
 
@@ -38,6 +40,11 @@ export class SallePage implements OnInit {
     });
 
 
+    this.salleService.supprimerSalles(this.Utilisateur.login, this.Utilisateur.password, this.id).subscribe(data => {
+      this.sallesIndispo=data.data;
+      this.sallesIndispoLength=data.data.length
+      console.log(data.data)
+    })
 
   }
 

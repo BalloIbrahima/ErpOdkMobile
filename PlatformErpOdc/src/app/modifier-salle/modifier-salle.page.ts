@@ -14,7 +14,7 @@ export class ModifierSallePage implements OnInit {
   Utilisateur:any;
 
   id:number = 0;
-  description:string = "rr";
+  description:string = "";
   etage: string="1 etage";
   libelle:string='';
   nombre: number = 0;

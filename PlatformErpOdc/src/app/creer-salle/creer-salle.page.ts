@@ -39,11 +39,11 @@ export class CreerSallePage implements OnInit {
 
   CreerSalle(){
 
-    for(let i=0;i<this.Entites.length;i++){
-      if(this.Entites[i].nom==this.entiteNom){
-        this.EntiteSelectioner=this.Entites[i]
-      }
-    }
+    // for(let i=0;i<this.Entites.length;i++){
+    //   if(this.Entites[i].nom==this.entiteNom){
+    //     this.EntiteSelectioner=this.Entites[i]
+    //   }
+    // }
 
     this.salleService.ajoutSalle(this.Utilisateur.login,this.Utilisateur.password,this.nom,this.description,this.niveau,this.nombrePlace,this.Utilisateur).subscribe(retour=>{
       console.log(retour)

@@ -65,4 +65,5 @@ export class PopupdtiragePage implements OnInit {
   }
 
 
+  
 }

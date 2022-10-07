@@ -25,11 +25,12 @@
   <div class="row">
     <div class="col-12">
       <div class="d-grid m-2 gap-2 d-md-flex justify-content-md-end">
-        <button class="btn buttonColor" type="button" routerLink="/dashboard/ajouter-role">+ &nbsp; Nouveau Role</button>
+        <button class="btn buttonColor" type="button" routerLink="/dashboard/ajouter-role">+ &nbsp; Nouveau
+          Role</button>
       </div>
     </div>
   </div>
-  <div id="flex-container" class="testimonials">
+  <!-- <div id="flex-container" class="testimonials">
     <div id="left-zone">
       <ul class="list">
         <li class="item" *ngFor="let inf of TousLesRole; let i = index">
@@ -41,13 +42,47 @@
             <p>{{inf.descrription}}</p>
             <p class="testimonialFrom">{{inf.status}}</p>
             <p class="testimonialState"> {{inf.nom}} </p>
-            <br> -->
+            <br> 
             <p class="testimonialState"><button class="button">Voir+</button></p>
           </div>
         </li>
       </ul>
     </div>
     <div id="right-zone"></div>
+  </div> -->
+
+  <div class="row mx-2">
+    <div class="col-lg-3 col-12 p-3">
+      <img src="../../assets/icon/icon/loi (1).png" class="styleAppliquerAuRole" alt="" srcset="">
+    </div>
+    <div class="col">
+      <table class="table table-striped text-center mx-auto caption-top">
+        <caption class="text-center"> Les rôles de ODC </caption>
+        <thead>
+          <tr>
+            <th scope="col"> Titre </th>
+            <th scope="col"> Nombre d'utilisateur </th>
+            <th scope="col"> Action </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let inf of TousLesRole; let i = index">
+            <td> {{inf.libellerole}} </td>
+            <td></td>
+            <td>
+                <div class="socials">
+                  <a  title="Voir plus de detail sur l'entité"><img
+                      src="../../assets/icon/voir.png" alt="" srcset=""></a>
+                  <a  title="cliquer ici pour modifier l'entité"><img
+                      src="../../assets/icon/modifier-le-fichier.png" alt="" srcset=""></a>
+                  <a  title="cliquer ici pour supprimer l'entité"><img src="../../assets/icon/supprimer.png" alt=""
+                      srcset=""></a>
+                </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
 </ion-content>

@@ -34,17 +34,26 @@
 
                 <summary> Droit de Lecture</summary>
 
-                <div class="row" *ngFor="let create of TousLesDroits">
+                <div class="row">
                   <div class="col">
-                    <div class="notification" *ngIf="create.libelle.split(' ')[0] == read"> {{create.description}}
+                    <div class="notification" > 
+                      <select class="form-select form-select-md" aria-label=".form-select-sm example" [(ngModel)]="readEntite" name="readEntite" >
+                        <option >
+                          <ion-icon name="funnel-outline" slot="start"></ion-icon>Filtrer par Entité
+                        </option>
+                        <option *ngFor="let create of TousLesDroits" > <span *ngIf="create.libelle.split(' ')[0] == read">{{create.description}}</span></option>
+              
+                      </select>
                       <div class="row iconLabel mb-3">
-                        <div class="col"> <label class="switch">
+                        <div class="col">
+                          <label class="switch">
                             <input type="checkbox" [(ngModel)]="readEntite" name="readEntite">
                             <span class="slider round"></span>
                           </label>
                         </div>
-                        <div class="col icon_mail" *ngIf="create.libelle.split(' ')[0] == read">par mail </div>
+                        <!-- <div class="col icon_mail" *ngIf="create.libelle.split(' ')[0] == read">par mail </div> -->
                       </div>
+
                     </div>
                   </div>
                 </div>

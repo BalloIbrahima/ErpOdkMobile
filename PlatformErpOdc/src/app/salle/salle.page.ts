@@ -57,6 +57,7 @@ export class SallePage implements OnInit {
 
 
   popDeleteSalle(idSalle:number){
+    
     Swal.fire({
       position:'center',
       title: 'Voulez-vous supprimer ?',
@@ -64,6 +65,9 @@ export class SallePage implements OnInit {
       showCancelButton: false,
       confirmButtonText: 'Oui',
       denyButtonText: `Non`,
+      imageUrl:'../../assets/images/alert.gif',
+      imageWidth:'100px',
+      imageHeight:'100px',
       denyButtonColor:'red',
       // cancelButtonText: 'Annuler',
       cancelButtonColor:'red',

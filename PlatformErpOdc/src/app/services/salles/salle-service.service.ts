@@ -48,7 +48,7 @@ export class SalleServiceService {
 
     return this.http.post(`${this.env.api}/salle/creersalle/`, data);
   }
-//:::::::::::::::::::::Supprimer salle :::::::::::::::::::::::::::
+//:::::::::::::::::::::::::::::::Supprimer salle :::::::::::::::::::::::::::::::::::::://
 
 deleteSalle(login: String, password: String, idSalle: number):Observable<any>{
   const data: FormData = new FormData();
@@ -64,7 +64,7 @@ deleteSalle(login: String, password: String, idSalle: number):Observable<any>{
 
 
 
-  // //::::::::::Modif de salle :::::::::::::::::::::::
+  //:::::::::::::::::::::::::::::::::Modifier de salle :::::::::::::::::::::::::::::::::::::::::::
 
   ModifSalle(login: String, password: String, id: number, libelle: String, description: string,
     etage: string, nombre: number, userid: any): Observable<any> {

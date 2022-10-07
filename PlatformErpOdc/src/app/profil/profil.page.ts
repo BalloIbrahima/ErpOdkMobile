@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilPage implements OnInit {
 
-  constructor() { }
+// 
+nom:any;
+prenom:any;
+entité:any;
+persoEnt:any;
+
+  constructor(private http:HttpClient) { }
 
   ngOnInit() {
   }

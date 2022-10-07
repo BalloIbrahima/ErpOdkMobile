@@ -179,10 +179,7 @@
         column-gap: 2%;
         display: grid;
     }
-    
 }
-
-
 //responsivité tablette
 @media only screen and (max-width: 845px) {
     
@@ -214,29 +211,24 @@
         padding: 20px;
         height: 100%
     }
-
     .nbrTirages{
         border-right: solid;
         border-color: #FF7900;
         padding-right: 12px;    
     }
-
     .nbrListes{
         padding-left: 12px;  
         border-right: solid;
         padding-right: 12px; 
         border-color:  #FF7900;
     }
-
     .nbrTiragesValide{
         padding-left: 12px; 
     }
-
     .container{
         display: block;
         height: 85vh;
     }
-
     .listeList{
         display: grid;
         padding: 4%;
@@ -244,12 +236,9 @@
         column-gap: 2%;
         row-gap: 14px;
     }
-
     .InputSearch > input{
         font-size: 15px;
     }
-
-    
 }
 
 @media only screen and (max-width: 325px) {

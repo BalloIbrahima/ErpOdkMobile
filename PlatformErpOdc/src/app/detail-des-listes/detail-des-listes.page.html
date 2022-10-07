@@ -6,13 +6,11 @@
       <ion-title>Détail listes</ion-title>
       <ion-button slot="end" fill="clear">
         <app-cloche></app-cloche>
-
+        
       </ion-button>
     </ion-toolbar>
   </ion-header>
  
-  
-
 <ion-content>
     <div class="row">
         <div class="col-lg-3 col-12 col-sm-6">
@@ -54,10 +52,10 @@
                         <img src="../../assets/listetof1.png" alt="" style="width: 100px ;" >
                     </div>
                     <div class="row">
-                    <!-- ngFor="let l of listeService.liste |filter:searchText  | paginate: {itemsPerPage:16,currentPage: p}; let id = index" [routerLink]="['/detailsliste', l.id]"  -->
-                    <label id="libelleListe">Liste 1</label>
-                    <label id="nbrTirageListe" for="">22 tirages</label>
-                    <label id="nbrTirageListe" for="">22 tirages</label>
+                        <!-- ngFor="let l of listeService.liste |filter:searchText  | paginate: {itemsPerPage:16,currentPage: p}; let id = index" [routerLink]="['/detailsliste', l.id]"  -->
+                        <label id="libelleListe">Liste 1</label>
+                        <label id="nbrTirageListe" for="">22 tirages</label>
+                        <label id="nbrTirageListe" for="">22 tirages</label>
                 </div>
                 </div>
 
@@ -85,23 +83,14 @@
                 </div>
                 </div>
             </div>
-
-
-
             <!--  <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
 
             <!-- <div class="listvide" ngIf="listeService.liste.length==0">   
                         <label>Aucune liste dans la base de donnée</label> 
                     </div> -->
 
-             
-        
-
         </div>
     
-
-
-
         <div class="right">
 
             <div class="nbrTirage">
@@ -125,9 +114,6 @@
                     <label for="">Tirages Validés</label>
                 </div>
             </div>
-
-
-
         </div>
     </div>
     

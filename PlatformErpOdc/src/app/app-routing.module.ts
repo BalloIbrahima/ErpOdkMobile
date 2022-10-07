@@ -18,19 +18,14 @@ const routes: Routes = [
     canActivate: [AcceuilGuard]
   },
   {
-    path: 'forgotpassword',
+    path: 'forgotpassword/:code',
     loadChildren: () => import('./forgotpassword/forgotpassword.module').then( m => m.ForgotpasswordPageModule)
   },
   
   {
     path: 'forgotpassword1',
     loadChildren: () => import('./forgetpassword1/forgetpassword1.module').then( m => m.Forgetpassword1PageModule)
-  },
-
-  {
-    path: 'popupdtirage/:id',
-    loadChildren: () => import('./popup-notification/popup-notification-routing.module').then( m => m.PopupNotificationPageRoutingModule)
-  },
+  }
 ];
 @NgModule({
   imports: [

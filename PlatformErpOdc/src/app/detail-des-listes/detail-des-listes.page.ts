@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DetailListPostService } from '../services/detailListe/detail-list-post.service';
 import { TirageService } from '../services/tirage/tirage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-detail-des-listes',
@@ -8,8 +9,7 @@ import { TirageService } from '../services/tirage/tirage.service';
   styleUrls: ['./detail-des-listes.page.scss'],
 })
 export class DetailDesListesPage implements OnInit {
-
-  
+  p: number=1;
   totallist:any;
   Utilisateur:any;
   nbrliste:number=0;
@@ -19,31 +19,26 @@ export class DetailDesListesPage implements OnInit {
   
 
 
-  constructor( private service: DetailListPostService, private services: TirageService /*public listeService:ListeService,public tirageService:TirageService*/) { }
+  constructor( private service: DetailListPostService, private services: TirageService,private router:Router /*public listeService:ListeService,public tirageService:TirageService*/) { }
 
   ngOnInit(): void {
-  
 
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
       console.log(this.Utilisateur.login)
 
-      // this.tirageService.doTirage(this.Utilisateur.login, this.Utilisateur.password,this.libelleListe,this.activiteSelect.id,this.nombre,this.libelletirage).subscribe(retour=>{
-      //   console.log(retour)
-      //   this.ouvrirPopup()
-      // })
-
       //tutes les listes
       this.service.GetListeTotal(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+        console.log(data.message);
+        console.log(data.data.length);
         this.totallist=data.data;
         console.log(data)
         this.nbrliste=data.data.length;
         
-        
       });
 
       //tirage total
-
       this.services.GetTotalTirage(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+      
         this.totaltirage=data.data.length;
         console.log(data)
         
@@ -54,6 +49,45 @@ export class DetailDesListesPage implements OnInit {
         this.nbreTirageValides=data.data.length;
         console.log(data)
       });
-
   }
+
+  goDetailTirage(id:number){
+    console.log(id);
+    return this.router.navigate(['detail-tirage-liste', id])
+  }
+
+  // ngOnInit(): void {
+  //   //recupeartion de l'ensemble des listes
+  //   this.listeService.getListe().subscribe(donne=>{
+  //     console.log(donne.message)
+  //     console.log(donne.data.length)
+
+  //     if(donne.message=="ok"){
+  //       this.listeService.liste=donne.data
+  //     }
+
+  //   })
+
+  //   //recupeartion du nombre de tirage
+  //   this.tirageService.getNombre().subscribe(donne=>{
+  //     console.log(donne.message)
+  //     console.log(donne.data.length)
+
+  //     if(donne.message=="ok"  && donne.data!=null){
+  //       this.nombreTirage=donne.data
+  //     }
+
+  //   })
+
+  //   //recupeartion du nombre de listes
+  //   this.listeService.getNombreListe().subscribe(donne=>{
+  //     console.log(donne.data.length)
+  //     if(donne.message=="ok"  && donne.data!=null){
+  //       this.nombreList=donne.data
+  //     }
+
+  //   })
+  // }
+  
+
 }

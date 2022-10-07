@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Créer tache</ion-title>
+    <ion-title>Creer tâche</ion-title>
     <ion-button slot="end" fill="clear">
       <app-cloche></app-cloche>
 
@@ -11,112 +11,123 @@
   </ion-toolbar>
 </ion-header>
 
+
+
+
+
+
 <ion-content>
-  <div class="titres">
-    <div class="titres_couleur">
-<b>      Creer une Tâche
-</b>    </div>
-    <div class="titres_couleur">
-<b>      Creer une Désignation
-</b>    </div>
-  </div>
-    <div class="mescontainers">
-      <div class="container">
-        <div class="col">
-          <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-6" class="principal1">
 
-                <!-- <div class="col" style="color: #FF7900;" class="title"> </div><br> -->
 
-            <form>
-              <div class="row">
-                <div class="col">
-                  <label>Nom(Designation)  *</label><br>
-                  <select name="" id="select">
-                    <option value="">Choisir </option>
-                  </select>
-                </div>
-              </div><br>
 
-              <div class="row">
-                <div class="col input mb-3">
-                  <label class="form-label">Date de debut  *</label>
-                  <input type="date" id="inputs" class="form-control" >
-                </div>
-              </div><br>
-              <div class="row">
-                <div class="col input mb-3">
-                  <label class="form-label">Date de fin  *</label>
-                  <input type="date" id="inputs" class="form-control">
-                </div>
-              </div><br>
-              <div class="row">
-                <div class="col input mb-3">
-                  <label class="form-label">Statut  *</label>
-                  <input type="text" id="inputs" class="form-control">
-                </div>
-              </div><br>
-              <div class="row">
-                <div class="col input mb-3">
-                  <label class="form-label">Lieu</label><br>
-                  <select name="" id="select">
-                    <option value="">choisir</option>
-                    <option value="">Salle1</option>
-                    <option value="">Salle1</option>
 
-                  </select>
-                </div>
-              </div><br>
+  <div class="container">
 
-              <div class="row">
-                <div class="col">
-                  <button> Enregistrer </button>
 
-                </div>
-              </div>
-            </form>
-            </div>
-          </div>
-        </div>
+    <form #f="ngForm">
+ 
+      <!-- <div class="alert alert-danger" role="alert" >
+        <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>  Erreur survenue l'or de la création de la salle
       </div>
-      <!-- /////////////////////////////////deuxieme form -->
-      <div class="container" id="form2">
-        <div class="col">
-          <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-6" class="principal2">
-            <form action=" ">
-              <div class="row">
-                <div class="col input mb-3">
-                  <label class="form-label">Nom Désignation</label>
-                  <input type="text" id="inputs" class="form-control" style="border: raduis 10px;">
-                </div>
-              </div><br>
-              <div class="row">
-                <div class="col input mb-3">
-                  <label class="form-label">Etat </label><br>
-                  <select name="" id="select">
-                    <option value="">Choisissez</option>
-                    <option value="">Actif</option>
-                    <option value="">actif</option>
-                  </select>
-                </div>
-              </div><br>
-             
 
-             
+      <div class="alert alert-success" role="alert">
+        <i class="fa fa-check-circle-o" aria-hidden="true" style="color: green;"></i>  Salle créée avec succès.
+        
+      </div> -->
+ 
 
-              <div class="row">
-                <div class="col">
-                  <button> Enregistrer </button>
+   
+      <div class="row" >
+        
+            
+           <div class="col- col-sm- col-md-6 col-lg-6 col-xl-6" >
 
-                </div>
-              </div>
-            </form>
+
+                
+        
+
+    
+         
+         
+
+                
+    <img src="../../assets/images/task.gif" alt="">
+          
+
+
+
+
+
+         
+
+
+
+            
+
+
             </div>
+  
+  
+            <div class="col- col-sm- col-md-6 col-lg-6 col-xl-6" >
+
+
+              <div class="input mb-3">
+                                
+                <label for="inputs" class="form-label">Nom (Désignation) *</label>
+                    <select id="inputs"   class="form-select" aria-label="Default select exemple" name="entiteNom"  required>
+                        <option selected>Choisisez une entité</option>
+                        <option  >entite.libelleentite </option>
+                    </select>
+            </div> 
+
+
+              <div class="input mb-3">
+                <label for="inputs" class="form-label">Date début *</label>
+                <input  id="inputs"   name="nom" type="date"  class="form-control" id="inputs" ngModel required>
+              </div>
+
+              <div class="input mb-3">
+                <label for="inputs" class="form-label">Date fin *</label>
+                <input  id="inputs"   name="nom" type="date"  class="form-control" id="inputs" ngModel required>
+              </div>
+
+
+              <div class="input mb-3">
+                <label for="inputs" class="form-label">Statut *</label>
+                <input id="inputs" name="niveau" type="text"  class="form-control" id="inputs" min="0" max="4" ngModel required>
+              </div>
+
+
+           <div class="input mb-3">
+                                
+                    <label for="inputs" class="form-label">Lieu *</label>
+                        <select id="inputs"   class="form-select" aria-label="Default select exemple" name="entiteNom"  required>
+                            <option selected>Choisisez un lieu</option>
+                            <option> entite.libelleentite </option>
+                        </select>
+                </div>  
+
+
+
+            </div>
+
+
+            <div class="col button_div" >
+              
+                    <button type="button" class="btn bouton" [disabled]="f.form.invalid">Enregistrer</button>
+ 
+            </div>
+
           </div>
-        </div>
-      </div>
-    </div>
+    </form>
+
+
+  
+
+</div>
+
+
+
 </ion-content>
 
    

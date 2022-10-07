@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Créer activité</ion-title>
+    <ion-title>Modifier Activité</ion-title>
     <ion-button slot="end" fill="clear">
         <app-cloche></app-cloche>
 
@@ -14,16 +14,16 @@
 
   <ion-content>
     <div class="container">
-        <form (ngSubmit)="CreerActivite()">
+        <form #f="ngForm" (ngSubmit)="update()">
             <div class="box">
-                <h1>Nouvelle Activité</h1>
+                <h1>Edition</h1>
                 <div class="activite-details">
                     <div class="input-box">
                         <span class="details">Entité *</span>
 
                         <select name="typeentite" [(ngModel)]="typeentite"  class="select" required>
-                        <option >Choisisez une entité</option>
-                        <option *ngFor="let entite of Entites" >{{entite.libelleentite}}</option>
+                        <option >Modifier Entité</option>
+                        <option *ngFor="let entite of activitydata" >{{entite.libelleentite}}</option>
                         <!--pour recuperer l'id de lentite<option *ngFor="let entite of Entites" >{{entite.id}}</option> -->
 
                     </select>
@@ -114,7 +114,7 @@
                 </div>
             </div>
             <div class="button">
-                <input class="but" type="submit"   value="Enregistrer">
+                <input class="but" type="submit"  [disabled]="f.form.invalid" value="Enregistrer">
             </div>
         </form>
 

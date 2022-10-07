@@ -21,7 +21,7 @@ const routes: Routes = [
     path: 'forgotpassword/:code',
     loadChildren: () => import('./forgotpassword/forgotpassword.module').then( m => m.ForgotpasswordPageModule)
   },
-  
+
   {
     path: 'forgotpassword1',
     loadChildren: () => import('./forgetpassword1/forgetpassword1.module').then( m => m.Forgetpassword1PageModule)

@@ -66,6 +66,7 @@ export class CreerActivitesPage implements OnInit {
         this.SallesDisponibles=r.data
         console.log(this.SallesDisponibles)
       })
+      
 
     this.typeActiviteService.getListe(this.Utilisateur.login,this.Utilisateur.password).subscribe(r=>{
       if(r.message=='ok'){
@@ -194,22 +195,16 @@ export class CreerActivitesPage implements OnInit {
       "dateFin":this.dateFin,
       "description":this.description,
       "leader":this.lead,
-      "utilisateurs":[this.utilisateurs],
+      "utilisateurs":this.utilisateurs,
       "salle":idSalle,
       "typeActivite":idType,
-      "intervenantExternes":[this.externes]
+      "intervenantExternes":this.externes
     }]
 
 
     this.activiteService.Creer(this.Utilisateur.login,this.Utilisateur.password,this.fichier,activite).subscribe(data=>{
       console.log(data)
       this.presentAlert()
-      // if(data.message == "ok") {
-      //   this.presentAlert()
-      // } else {
-      //   this.notpresent()
-      // }
-
     })
   }
 
@@ -239,26 +234,6 @@ export class CreerActivitesPage implements OnInit {
               }
             }
 
-
-
-
-  ////
-  // ActiviteChange(){
-  //   console.log(this.typeactivite)
-  //   if(this.typeactivite=="Talk"){
-  //     this.isTalk==true
-  //     this.isEvenement==false
-  //     this.isFormation==false
-  //   }else if(this.typeactivite=="Evenement"){
-  //     this.isTalk==false
-  //     this.isEvenement==true
-  //     this.isFormation==false
-  //   }else if(this.typeactivite=="Formations"){
-  //     this.isTalk==false
-  //     this.isEvenement==false
-  //     this.isFormation==true
-  //   }
-  // }
 
 
 }

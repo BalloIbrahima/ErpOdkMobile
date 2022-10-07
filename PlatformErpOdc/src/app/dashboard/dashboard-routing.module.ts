@@ -166,6 +166,14 @@ const routes: Routes = [
       loadChildren: () => import('../importer-listeparticipant/importer-listeparticipant.module').then( m => m.ImporterListeparticipantPageModule)
     },
     {
+      path: 'editactivity/:id',
+      loadChildren: () => import('../editactivity/editactivity.module').then( m => m.EditactivityPageModule)
+    },
+    {
+      path: 'editactivity',
+      loadChildren: () => import('../editactivity/editactivity.module').then( m => m.EditactivityPageModule)
+    },
+    {
       path: 'ajouter-role',
       loadChildren: () => import('../ajouter-role/ajouter-role.module').then( m => m.AjouterRolePageModule)
     },

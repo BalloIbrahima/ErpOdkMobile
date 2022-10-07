@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Observable } from 'rxjs';
+import Swal from 'sweetalert2';
 import { ListeService } from '../services/listes/liste.service';
 import { TirageService } from '../services/tirage/tirage.service';
 
@@ -31,10 +32,13 @@ export class PopupdtiragePage implements OnInit {
   }
 
   async validerPopup() {
-    const close: string = "Tirage validé !";
-    this.valider = true
-    await this.modalController.dismiss(close);
-    //alert(close)
+    Swal.fire({
+      title:'Tirage Valider',
+      icon:'success',
+      heightAuto: false,
+      confirmButtonColor:'#FF7900'
+  });
+  await this.modalController.dismiss(close);
   }
   ValiderT(idtirage){
     const retour=this.data

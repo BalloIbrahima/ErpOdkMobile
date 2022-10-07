@@ -45,6 +45,7 @@ export class PopupdtiragePage implements OnInit {
   }
   ValiderT(idtirage){
     const retour=this.data
+    console.log(this.data)
     for(let i=0;i<retour.length;i++){
       this.tiraget=retour[i].tirage
       console.log(this.tiraget)

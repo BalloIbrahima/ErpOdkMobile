@@ -1,5 +1,4 @@
 import { CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID, NgModule } from '@angular/core';
-import * as fr from "@angular/common/locales/fr";
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy, RouterModule } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -17,30 +16,25 @@ import {HttpClientModule} from '@angular/common/http';
 import { ClocheComponent } from './cloche/cloche.component';
 import { PopupNotificationPage } from './popup-notification/popup-notification.page';
 import { registerLocaleData } from '@angular/common';
+import * as fr from '@angular/common/locales/fr';
 import { PopupdtiragePage } from './popupdtirage/popupdtirage.page';
-
-//import { ModifierpersonnelPageModule } from './modifierpersonnel/modifierpersonnel.module';
-// import { ModifierPersonnelComponent } from './modifier-personnel/modifier-personnel.component';
-// import { ComponentTestComponent } from './component-test/component-test.component';
 
 
 @NgModule({
-  declarations: [AppComponent,PopupNotificationPage,PopupdtiragePage],
+   declarations: [AppComponent,PopupNotificationPage,PopupdtiragePage],
   // imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
 
   imports: [FormsModule, RouterModule.forRoot([]), IonicModule.forRoot({}),
     BrowserModule, AppRoutingModule,HttpClientModule,
     FormsModule,DashboardPageModule,NgxPaginationModule,BrowserAnimationsModule,
     ReactiveFormsModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, { provide: LOCALE_ID, useValue: 'fr-FR'}],
-  
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, { provide : LOCALE_ID, useValue: 'fr-FR'}],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
 })
 export class AppModule {
-  constructor(){
+  constructor() {
     registerLocaleData(fr.default);
   }
  }
-

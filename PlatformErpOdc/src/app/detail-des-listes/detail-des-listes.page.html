@@ -11,15 +11,12 @@
     </ion-toolbar>
   </ion-header>
  
-  
-
 <ion-content>
     <div class="row">
         <div class="col-lg-3 col-12 col-sm-6">
             <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-start">
                 <button class="btn buttonColor" type="button" routerLink="/dashboard/tirage">Effectuer Tirage</button>
             </div>
-
         </div>
         <div class="col-lg-9 col-12 col-sm-6">
             <div class="d-grid m-2 gap-2 d-md-flex justify-content-md-end">
@@ -37,51 +34,33 @@
                             d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                     </svg>
                     <input type="text" name="motCle" id="motCle" placeholder="Recherche liste">
-                    <!-- [(ngModel)]="searchText" -->
+                    
                 </div>
             </div>
 
             <div class="menuResponsive">
-                <label for="" class="nbrTirages">70 Tirages</label>
-                <label for="" class="nbrListes">15 Listes</label>
-                <label for="" class="nbrTiragesValide">63 Tirages</label>
+                <label for="" class="nbrTirages">{{totaltirage}} Tirages</label>
+                <label for="" class="nbrListes">{{nbrliste}} Listes</label>
+                <label for="" class="nbrTiragesValide">{{nbreTirageValides}} Tirages Validés</label>
             </div>
 
-
             <div class="listeList">
-                <div id="list" class="col" *ngFor="let l of totallist " >
+                <div id="list" class="col" *ngFor="let l of totallist | paginate: { itemsPerPage: 10, currentPage: p} " >
                     <div class="row">
                         <img src="../../assets/listetof1.png" alt="" style="width: 100px ;" >
                     </div>
                     <div class="row">
-                
-                   <label id="libelleListe">{{l.libelle}}</label>
-                   <label id="nbrTirageListe" for="">{{l.tirages.length}} tirages</label>
-                   <label id="nbrTirageListe" >{{l.dateimport | date: 'dd MMMM yyyy'}} </label>
+                        <label id="libelleListe" (click)="goDetailTirage(l.id)"  >{{l.libelle}}</label>
+                        <label id="nbrTirageListe" for="">{{l.tirages.length}} tirages</label>
                     </div>
                 </div>
             </div>
-
-
-
-            <!--  <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
-
-             <!-- ngFor="let l of listeService.liste |filter:searchText  | paginate: {itemsPerPage:16,currentPage: p}; let id = index" [routerLink]="['/detailsliste', l.id]"  -->
-                    
-            <!-- <div class="listvide" ngIf="listeService.liste.length==0">   
-                        <label>Aucune liste dans la base de donnée</label> 
-                    </div> -->
-
-             
-        
-
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </div>
-    
-
-
 
         <div class="right">
 
+            
             <div class="nbrTirage">
                 <div class="labelContainer">
                     <label for="">{{totaltirage}}</label>
@@ -103,10 +82,6 @@
                     <label for="">Tirages Validés</label>
                 </div>
             </div>
-
-
-
         </div>
     </div>
-    
 </ion-content>

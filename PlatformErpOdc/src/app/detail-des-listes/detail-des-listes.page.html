@@ -49,22 +49,16 @@
 
 
             <div class="listeList">
-                <div class="list">
-                    <!-- ngFor="let l of listeService.liste |filter:searchText  | paginate: {itemsPerPage:16,currentPage: p}; let id = index" [routerLink]="['/detailsliste', l.id]"  -->
-                    <label id="libelleListe">Liste 1</label>
-                    <label id="nbrTirageListe" for="">22 tirages</label>
-                </div>
-
-                <div class="list">
-                    <!-- ngFor="let l of listeService.liste |filter:searchText  | paginate: {itemsPerPage:16,currentPage: p}; let id = index" [routerLink]="['/detailsliste', l.id]"  -->
-                    <label id="libelleListe">Liste 1</label>
-                    <label id="nbrTirageListe" for="">22 tirages</label>
-                </div>
-
-                <div class="list">
-                    <!-- ngFor="let l of listeService.liste |filter:searchText  | paginate: {itemsPerPage:16,currentPage: p}; let id = index" [routerLink]="['/detailsliste', l.id]"  -->
-                    <label id="libelleListe">Liste 1</label>
-                    <label id="nbrTirageListe" for="">22 tirages</label>
+                <div id="list" class="col" *ngFor="let l of totallist " >
+                    <div class="row">
+                        <img src="../../assets/listetof1.png" alt="" style="width: 100px ;" >
+                    </div>
+                    <div class="row">
+                
+                   <label id="libelleListe">{{l.libelle}}</label>
+                   <label id="nbrTirageListe" for="">{{l.tirages.length}} tirages</label>
+                   <label id="nbrTirageListe" >{{l.dateimport | date: 'dd MMMM yyyy'}} </label>
+                    </div>
                 </div>
             </div>
 
@@ -72,24 +66,32 @@
 
             <!--  <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
 
+             <!-- ngFor="let l of listeService.liste |filter:searchText  | paginate: {itemsPerPage:16,currentPage: p}; let id = index" [routerLink]="['/detailsliste', l.id]"  -->
+                    
             <!-- <div class="listvide" ngIf="listeService.liste.length==0">   
                         <label>Aucune liste dans la base de donnée</label> 
                     </div> -->
 
+             
+        
+
         </div>
+    
+
+
 
         <div class="right">
 
             <div class="nbrTirage">
                 <div class="labelContainer">
-                    <label for="">10</label>
+                    <label for="">{{totaltirage}}</label>
                     <label for="">Tirages</label>
                 </div>
             </div>
 
             <diV class="nbrliste">
                 <div class="labelContainer">
-                    <label for="">12</label>
+                    <label for="">{{nbrliste}}</label>
                     <label for="">Listes</label>
                 </div>
 
@@ -97,7 +99,7 @@
 
             <div class="nbrTirageValide">
                 <div class="labelContainer">
-                    <label for="">07</label>
+                    <label for="">{{nbreTirageValides}}</label>
                     <label for="">Tirages Validés</label>
                 </div>
             </div>
@@ -106,4 +108,5 @@
 
         </div>
     </div>
+    
 </ion-content>

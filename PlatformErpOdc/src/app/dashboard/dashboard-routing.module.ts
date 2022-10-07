@@ -77,6 +77,10 @@ const routes: Routes = [
         path: 'creertachesdesignation',
         loadChildren: () => import('../creertachesdesignation/creertachesdesignation.module').then( m => m.CreertachesdesignationPageModule)
       },
+      {
+        path: 'reporting',
+        loadChildren: () => import('../reporting/reporting.module').then( m => m.ReportingPageModule)
+      },
 
     {
       path: 'personnels',
@@ -91,17 +95,17 @@ const routes: Routes = [
       loadChildren: () => import('../ajouterpersonnel/ajouterpersonnel.module').then( m => m.AjouterpersonnelPageModule)
     },
     {
-      path: 'detail-personnel',
+      path: 'detail-personnel/:id',
       loadChildren: () => import('../detailpostulant/detailpostulant.module').then( m => m.DetailpostulantPageModule)
     },
     {
       path: 'entite',
       loadChildren: () => import('../entite/entite.module').then( m => m.EntitePageModule)
     },
-    {
-      path: 'details-entite',
-      loadChildren: () => import('../details-entite/details-entite.module').then( m => m.DetailsEntitePageModule)
-    },
+    // {
+    //   path: 'details-entite/:id',
+    //   loadChildren: () => import('../details-entite/details-entite.module').then( m => m.DetailsEntitePageModule)
+    // },
     {
       path: 'role',
       loadChildren: () => import('../role/role.module').then( m => m.RolePageModule)
@@ -133,8 +137,16 @@ const routes: Routes = [
     },
 
     {
-      path: 'importer-participant',
+      path: 'importer-participant/:id',
       loadChildren: () => import('../importer-listeparticipant/importer-listeparticipant.module').then( m => m.ImporterListeparticipantPageModule)
+    },
+    {
+      path: 'editactivity/:id',
+      loadChildren: () => import('../editactivity/editactivity.module').then( m => m.EditactivityPageModule)
+    },
+    {
+      path: 'editactivity',
+      loadChildren: () => import('../editactivity/editactivity.module').then( m => m.EditactivityPageModule)
     },
     {
       path: 'ajouter-role',
@@ -148,7 +160,10 @@ const routes: Routes = [
       path: 'activite',
       loadChildren: () => import('../allactivity/allactivity.module').then( m => m.AllactivityPageModule)
     },
-
+    {
+      path: 'modifier-salle',
+      loadChildren: () => import('../modifier-salle/modifier-salle.module').then( m => m.ModifierSallePageModule)
+    },
 
       { path: '**', redirectTo:'accueil',pathMatch:'full'}
 

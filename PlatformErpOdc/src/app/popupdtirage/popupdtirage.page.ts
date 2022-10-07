@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { Observable } from 'rxjs';
+import { ListeService } from '../services/listes/liste.service';
+import { TirageService } from '../services/tirage/tirage.service';
 
 @Component({
   selector: 'app-popupdtirage',
@@ -8,12 +11,20 @@ import { ModalController } from '@ionic/angular';
 })
 export class PopupdtiragePage implements OnInit {
   a : number=1;
-  
-  constructor(private modalController: ModalController) { }
+  date = new Date();
+  tirage: any;
+  constructor(private modalController: ModalController,private tirageService:TirageService) { }
   @Input() valider: boolean;
-  @Input() donnee_tableau: string;
+
+  
+  idtirage
+  Utilisateur
+  data;
   ngOnInit() {
 
+    console.log(this.data)
+    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) ;
+    
   }
 
   async validerPopup() {
@@ -22,6 +33,13 @@ export class PopupdtiragePage implements OnInit {
     await this.modalController.dismiss(close);
     //alert(close)
   }
+  // ValiderT(idtirage){
+  //   this.tirageService.ValiderTirage(this.Utilisateur.login, this.Utilisateur.password,this.idtirage).subscribe(retour=>{
+  //     this.tirage=retour.data
+  //     console.log(this.tirage)
+  //   })
+  //   this.validerPopup()
+  // }
 
   async annulerPopup() {
     const close: string = "Tirage annulé !";
@@ -29,5 +47,6 @@ export class PopupdtiragePage implements OnInit {
     this.valider = false
     //alert(close)
   }
+
 
 }

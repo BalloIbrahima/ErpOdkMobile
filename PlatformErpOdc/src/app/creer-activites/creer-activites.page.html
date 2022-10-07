@@ -14,7 +14,7 @@
 
   <ion-content>
     <div class="container">
-        <form >
+        <form (ngSubmit)="CreerActivite()">
             <div class="box">
                 <h1>Nouvelle Activité</h1>
                 <div class="activite-details">
@@ -114,7 +114,7 @@
                 </div>
             </div>
             <div class="button">
-                <input class="but" type="submit"  (click)="CreerActivite()" value="Enregistrer">
+                <input class="but" type="submit"   value="Enregistrer">
             </div>
         </form>
 

@@ -14,38 +14,47 @@
 
 <ion-content>
   <div class="container">
-      <form >
+      <form #f="ngForm" >
+        <div class="alert alert-danger" role="alert" *ngIf="alertFalse">
+          <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>  Erreur survenue l'or de la modification de la salle
+        </div>
+
+        <div class="alert alert-success" role="alert" *ngIf="alertTrue">
+          <i class="fa fa-check-circle-o" aria-hidden="true" style="color: green;"></i>  Salle modifié avec succès.
+          
+        </div>
+
         <div class="row" style="margin-top: 3%;" >
          
              <div class="col- col-sm- col-md-6 col-lg-6 col-xl-6" >
 
               <div class="input mb-3">
                   <label for="inputs" class="form-label">Nom *</label>
-                  <input  id="inputs" name="nom" type="text"  class="form-control" id="inputs"  required>
+                  <input  id="inputs" [(ngModel)]="libelle" name="nom" type="text"  class="form-control" id="inputs" [value]="libelle"  ngModel required>
                 </div> 
                 <!-- [(ngModel)]="nom"  -->
 
                 <div class="input mb-3">
                   <label for="inputs" class="form-label">Niveau *</label>
-                  <input id="inputs"  name="niveau" type="text"  class="form-control" id="inputs" required>
+                  <input id="inputs" [(ngModel)]="etage" name="niveau" type="number"  [value]="etage"  class="form-control" id="inputs" min="0" max="4" ngModel required>
                 </div>
                 <!-- [(ngModel)]="niveau" -->
 
              
                 <div class="input mb-3">
                   <label for="inputs" class="form-label">Nombre de place *</label>
-                  <input  id="inputs"  name="nombrePlace" type="number"  class="form-control" id="inputs" required>
+                  <input  id="inputs" [(ngModel)]="nombre" name="nombrePlace" type="number" [value]="nombre"  class="form-control" id="inputs"  min="1" max="100" ngModel required>
                 </div>
                 <!-- [(ngModel)]="nombrePlace" -->
 
-                <div class="input mb-3">
+                <!-- <div class="input mb-3">
                   <label for="inputs" class="form-label">Entité *</label>
                    <select  id="inputs" class="form-select" aria-label="Default select example">
                        <option selected >Choisisez une entité</option>
-                      <option ></option>
-                      <!-- *ngFor="let entite of Entites" >{{entite.libelleentite  }}    -->
-                    </select>
-                   </div>
+                      <option *ngFor="let entite of entites" >{{entite.libelleentite}}</option>
+                       *ngFor="let entite of Entites" >{{entite.libelleentite  }}    -->
+                    <!-- </select>
+                   </div> --> 
 
                   
 
@@ -64,19 +73,14 @@
 
            
 
-
-
-              
-
-
               </div>
     
     
               <div class="col- col-sm- col-md-6 col-lg-6 col-xl-6" >
 
                   <label for="descriptiontextarea">Description</label>
-                  <div class="form-floating" style="height: 100%;">
-                               <textarea class="form-control" placeholder="Description" id="descriptiontextarea"></textarea>
+                  <div class="form-floating" style="height: 95%;">
+                               <textarea class="form-control" placeholder="Description" [(ngModel)]="description" [value]="description" name="description" id="descriptiontextarea">{{description}}</textarea>
                     </div>
     
               </div>
@@ -85,7 +89,7 @@
                 
 
 
-                      <button type="button"  class="btn btn-primary bouton">Enregistrer</button>
+                      <button type="button"  class="btn  bouton" (click)="ModifSalle()" [disabled]="f.form.invalid" >Modifier</button>
                       <!-- (click)="CreerSalle()" -->
 
                   

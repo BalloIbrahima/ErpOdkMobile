@@ -95,7 +95,7 @@ const routes: Routes = [
         loadChildren: () => import('../modifier-salle/modifier-salle.module').then( m => m.ModifierSallePageModule)
       },
       {
-        path: 'tachedesignation',
+        path: 'tachedesignation/:id',
         loadChildren: () => import('../tachedesignation/tachedesignation.module').then( m => m.TachedesignationPageModule)
       },
       {

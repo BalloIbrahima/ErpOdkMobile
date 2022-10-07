@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class EntiteService {
+  
 
   env=environment;
 
@@ -59,5 +60,23 @@ export class EntiteService {
     const user=[{"login":login,"password":password}]
     data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
     return this.http.post(`${this.env.api}/admin/entiteapprenantss/${identite}`,data)
+  }
+
+  //Methode permettant de mettre ent jour une entite
+  updateEntiteById(login: any, password: any, id: any,imageentite:any, libelleentite:any,description:any, Utilisateur:any,lead:any):Observable<any>{
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    const entite=[{"id":id,"libelleentite":libelleentite,"description":description, "createur":Utilisateur, "gerant":lead}]
+    data.append('file', imageentite)
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+    data.append('entite', JSON.stringify(entite).slice(1,JSON.stringify(entite).lastIndexOf(']')));
+
+    return this.http.post(`${this.env.api}/entite/update/entite/${id}`,data)
+  }
+  deleteEntiteById(login: any, password: any, id: any){
+
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    return this.http.post(`${this.env.api}/entite/delete/entite/${id}`,data)
   }
 }

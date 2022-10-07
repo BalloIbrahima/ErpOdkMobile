@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AlertController, IonModal, ModalController } from '@ionic/angular';
 import { DesactiverpersonnelPage } from '../desactiverpersonnel/desactiverpersonnel.page';
-import { ModifierpersonnelPage } from '../modifierpersonnel/modifierpersonnel.page';
 import { SupprimerpersonnelPage } from '../supprimerpersonnel/supprimerpersonnel.page';
 import Swal from 'sweetalert2';
 import { OverlayEventDetail } from '@ionic/core/components';

@@ -1,9 +1,71 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>Reporting</ion-title>
+    <ion-button slot="end" fill="clear">
+      <app-cloche></app-cloche>
+
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+<ion-button  class="part" routerLink="/dashboard/reporting-participant">Participant</ion-button>
+ 
+  <div class="header">
+
+  
+    <div class="headerContent">
+      <p>Liste des activité</p>
+      <button  class="filtre" routerLink="/dashboard/reportingfiltreact">Filtre par</button>
+    </div>
+  </div>
+ 
+
+
+   <table class="table table-striped text-center mx-3">
+    <thead>
+      <tr>
+        <th scope="col">Activité</th>
+        <th scope="col">Type</th>
+        <th scope="col" class="hideColonne hideColonneOder">Statut</th>
+        <th scope="col">Date début</th>
+        <th scope="col" class="hideColonne hideColonneOder">Date fin</th>
+        <th scope="col" class="hideColonne">Entité</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Kalanso 02</td>
+        <td> Formation </td>
+        <td class="hideColonne hideColonneOder">Encours</td>
+        <td> 12/02/2022 </td>
+        <td class="hideColonne hideColonneOder">12/12/2022 </td>
+        <td class="hideColonne hideColonneOder">Fortuner </td>
+      </tr>
+
+      <tr>
+        <td>Kalanso 02</td>
+        <td> Talk </td>
+        <td class="hideColonne hideColonneOder">Terminer</td>
+        <td> 01/09/2022 </td>
+        <td class="hideColonne hideColonneOder">12/04/2022 </td>
+        <td class="hideColonne hideColonneOder">Blinder </td>
+      </tr>
+    </tbody>
+
+  </table>
+
+  <div class="header">
+  
+    <div class="headerContent">
+      <button  class="filtre2" ><i class="fa fa-download" aria-hidden="true"></i> Télécharger </button>
+      <pagination-controls (pageChange)="a = $event" nextLabel="Suivants" previousLabel="Précédents" ></pagination-controls>
+     
+    </div>
+  </div> 
+  
 </ion-content>

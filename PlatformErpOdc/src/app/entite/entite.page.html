@@ -24,7 +24,7 @@
   <div class="row">
     <div class="col-12">
       <div class="d-grid m-2 gap-2 d-md-flex justify-content-md-end">
-        <button class="btn buttonColor" type="button" id="open-modal">+ &nbsp; Nouveau entité</button>
+        <button class="btn buttonColor" type="button" id="open-modal">+ &nbsp; ajouter entité</button>
       </div>
     </div>
   </div>
@@ -38,7 +38,7 @@
       </ion-label>
     </div>
   </div>
-  <div *ngIf="longueur!==0" id="flex-container" class="testimonials">
+  <!-- <div *ngIf="longueur!==0" id="flex-container" class="testimonials">
     <div id="left-zone">
       <ul class="list item1">
 
@@ -52,14 +52,14 @@
             <p class="desc">{{inf.description}}</p>
             <p class="testimonialFrom hideInfo">Gerant</p>
             <p class="testimonialState hideInfo">{{inf.gerant.prenom}} {{inf.gerant.nom}} </p>
-            <p class="testimonialState"><button class="btn button" (click)="RedirigerEntite(inf.id)" >Voir+</button></p>
+            <p class="testimonialState"><button class="btn button" (click)="RedirigerEntite(inf.id)">Voir+</button></p>
           </div>
         </li>
 
       </ul>
     </div>
     <div id="right-zone"></div>
-  </div>
+  </div> -->
 
 
   <!-- code permettant d'ajouter une nouvelle encours -->
@@ -76,18 +76,20 @@
       </div>
       <ion-header>
         <ion-toolbar>
-          <ion-title>Nouvelle entité</ion-title>
+          <ion-title>Ajouter entité</ion-title>
           <ion-buttons slot="end">
-            <ion-button (click)="modal.dismiss()">Close</ion-button>
+            <button type="button" class="btn-close"  (click)="modal.dismiss()" data-bs-dismiss="modal" aria-label="Close"></button>
+   
+            <!-- <ion-button (click)="modal.dismiss()">Close</ion-button> -->
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
 
       <div class="container">
-        <!-- <button type="button" class="btn-close"  (click)="modal.dismiss()" data-bs-dismiss="modal" aria-label="Close"></button>
-        <h5 class="card-title text-center">Nouvelle entité</h5> -->
+        <!-- <button type="button" class="btn-close"  (click)="modal.dismiss()" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        <h5 class="card-title text-center">Nouvelle entité</h5>
         <div class="card">
-         
+
           <div class="card-body text-start">
             <div class="alert alert-success mb-3" role="alert" *ngIf="alertTrue">
               L'entite Creer avec succes
@@ -112,10 +114,10 @@
               <div for="description" class="">Description de l'entité *</div>
               <textarea class="form-control" id="description" name="description" [(ngModel)]="description"
                 rows="3"></textarea>
-                
+
               <div class="d-grid gap-2 col-6 text-center mx-auto mt-2">
                 <button type="button" class="btn colorbutton2 btn-sm" id="open-modal1"
-                  (click)="postAllEntite()">Enregistrer</button>
+                  (click)="postAllEntite();modal.dismiss();">Enregistrer</button>
               </div>
             </form>
           </div>
@@ -125,18 +127,105 @@
 
     </ng-template>
   </ion-modal>
-  <!-- 
-  <ion-modal #modal trigger="open-modal1">
+  <!-- methode permettant de modifier l'entite -->
+
+  <ion-modal [isOpen]="isModalOpen" backdropDismiss="false">
+
     <ng-template>
+      <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-end">
+        <!-- <ion-buttons slot="end">
+        <ion-button (click)="modal.dismiss()">Close</ion-button>
+      </ion-buttons> -->
+      </div>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Modifier entité</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setClose(false); allEntite()">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+
       <div class="container">
-        
+        <!-- <button type="button" class="btn-close"  (click)="modal.dismiss()" data-bs-dismiss="modal" aria-label="Close"></button>
+      <h5 class="card-title text-center">Nouvelle entité</h5> -->
         <div class="card">
-          <div class="card-body text-start" *ngIf="data.message == OK">
-            <h5 class="card-title text-center">ENTITE CREER AVEC SUCCES</h5>
-          </div>
-          <div class="card-body text-start" *ngIf="data.message != OK">
-            <h5 class="card-title text-center">ERREUR LORS DE CREATION DE L'ENTITE</h5>
+
+          <div class="card-body text-start">
+            <div class="alert alert-success mb-3" role="alert" *ngIf="alertTrue">
+              Entité modifier avec succès
+            </div>
+            <div class="alert alert-danger mb-3" role="alert" *ngIf="alertFalse">
+              Erreur, Veuillez verfier tous les champs
+            </div>
+            <form>
+              <div for="libelleEntite" class="">Nom entité *</div>
+              <input type="text" name="libelleentiteMo" [(ngModel)]="libelleentiteMo" class="form-control"
+                id="libelleEntite" [value]="libelleentiteMo">
+              <div for="responsableEntite" class="">Responsable de l'entité *</div>
+              <select class="form-select form-select-sm" name="responsableEntiteMo" [(ngModel)]="responsableEntiteMo">
+                <option selected>--selectionner un responsable</option>
+                <option *ngFor="let user of toutUtilisateur ">{{user.prenom}} {{user.nom}}</option>
+
+              </select>
+              <div for="imageEntite" class="">Image entite *</div>
+              <input type="file" (change)="recuperationImage($event)" class="form-control" id="imageEntite"
+                placeholder="selectionner une image">
+
+              <div for="description" class="">Description de l'entité *</div>
+              <textarea class="form-control" id="description" name="descriptionMo" [(ngModel)]="descriptionMo" rows="3"
+                [innerText]="descriptionMo"></textarea>
+
+              <div class="d-grid gap-2 col-6 text-center mx-auto mt-2">
+                <button type="button" class="btn colorbutton2 btn-sm" id="open-modal1"
+                  (click)="modifierEntite(idEntite)">Modifier</button>
+              </div>
+            </form>
           </div>
         </div>
+      </div>
+
+
     </ng-template>
-  </ion-modal> -->
+  </ion-modal>
+
+
+  <div class="wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-4 col-6 position-relative" *ngFor="let inf of entites">
+          <div class="card mx-30 laragerColonne">
+            <img src={{inf.image}} class="card-img-top" alt="...">
+            <div class="card-body">
+              <h4 class="card-title">{{inf.libelleentite}}</h4>
+              <h6 class="card-title">
+                Responsable <br>{{inf.gerant.prenom}} {{inf.gerant.nom}}</h6>
+              <h6>
+              </h6>
+              <p class="card-text" [innerHTML]="inf.description | slice:0:80"></p>
+              
+                <div class="position-absolute bottom-0 start-50 translate-middle-x mb-2">
+                  <div class="socials">
+                    <a (click)="RedirigerEntite(inf.id)" title="Voir plus de detail sur l'entité"><img
+                        src="../../assets/icon/voir.png" alt="" srcset=""></a>
+                    <a (click)="setOpen(true,inf.id)" title="cliquer ici pour modifier l'entité"><img
+                        src="../../assets/icon/modifier-le-fichier.png" alt="" srcset=""></a>
+                    <a (click)="supprimerEntite(inf.id)" title="cliquer ici pour supprimer l'entité"><img src="../../assets/icon/supprimer.png" alt=""
+                        srcset=""></a>
+                  </div>
+                </div>
+              
+
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+</ion-content>

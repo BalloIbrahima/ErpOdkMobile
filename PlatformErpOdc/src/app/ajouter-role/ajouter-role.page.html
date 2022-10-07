@@ -23,8 +23,8 @@
           <div class="row mb-3">
             <div class="col-12 col-lg-6 mx-auto">
               <div for="exampleFormControlInput1" class="">Libelle role *</div>
-              <input type="email" class="form-control" [(ngModel)]="libelleRole" name="libelleRole" id="exampleFormControlInput1"
-                placeholder="Orange digital kalanso">
+              <input type="email" class="form-control" [(ngModel)]="libelleRole" name="libelleRole"
+                id="exampleFormControlInput1" placeholder="Orange digital kalanso">
             </div>
           </div>
           <ul class="timeline">
@@ -114,7 +114,7 @@
             </li>
           </ul>
           <div class="d-grid gap-2 col-6 text-center mx-auto mt-2">
-            <button type="button" class="btn colorbutton2 btn-sm">Enregistrer</button>
+            <button type="button" class="btn colorbutton2 btn-sm" (click)="postRole()">Enregistrer</button>
           </div>
         </form>
       </div>

@@ -18,8 +18,11 @@ export class DetailTirageDuneListePage implements OnInit {
   id:any;
   listparid:any;
   nbrPost:number=0;
+  nbrPostTirer:any;
+  nbrPostTirer1:any;
   detList:any;
-  dateImpList:any
+  dateImpList:any;
+ 
 
 
   constructor(private route:ActivatedRoute, private service: DetailListPostService, private services: ListeService/*public service: TirageService*/) { }
@@ -31,21 +34,30 @@ export class DetailTirageDuneListePage implements OnInit {
       console.log(this.Utilisateur.login)
 
       //liste de tous les tirages d'une liste et infos sur la liste données
+
     this.services.GetListeParId(this.Utilisateur.login,this.Utilisateur.password,this.id).subscribe(data=>{
-     //infos sur la liste données: libelle, date, nombre postulant
+     
+      //libelle de la liste postulant avant tirage
       this.detList= data.data.libelle;
-      console.log(this.detList)
+      console.log(this.detList);
+
+      // date d'importation de la liste postulant
       this.dateImpList= data.data.dateimport;
-      console.log(this.dateImpList)
+      console.log(this.dateImpList);
+
+      //nombre postulant sur la liste avant tirage
       this.nbrPost= data.data.postulants.length;
       console.log(this.nbrPost);
      
-      //liste de tous les tirages d'une liste
+      //liste de tous les tirages faite sur un liste données
       this.listparid=data.data.tirages;
-      console.log(this.listparid)
-      // this.listparid=data.data.tirages;
-      // console.log(this.listparid.id);
-      // console.log(this.listparid.tirages);
+      console.log(this.listparid);
+      
+    
+      //nombre de postulant tirées lors d'un tirage donne  postulanttires
+      this.nbrPostTirer=data.data;
+      console.log(this.nbrPostTirer);
+
     
     })
 

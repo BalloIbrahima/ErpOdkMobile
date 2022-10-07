@@ -24,11 +24,18 @@ export class PopupdtiragePage implements OnInit {
   
   Utilisateur;
   data;
+
+  postulantTires: any;
   
   
   ngOnInit() {
     console.log(this.data)
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) ;
+
+    this.tirageService.AllPostulantsByTirage(this.Utilisateur.login, this.Utilisateur.password,this.data.id).subscribe(donnee=>{
+      this.postulantTires=donnee.data
+      console.log(this.postulantTires)
+    })
   }
 
   async validerPopup() {
@@ -44,14 +51,16 @@ export class PopupdtiragePage implements OnInit {
   await this.modalController.dismiss(close);
   }
   ValiderT(idtirage){
-    const retour=this.data
-    console.log(this.data)
-    for(let i=0;i<retour.length;i++){
-      this.tiraget=retour[i].tirage
-      console.log(this.tiraget)
-    }
-    console.log(this.tiraget)
-    this.tirageService.ValiderTirage(this.Utilisateur.login, this.Utilisateur.password,this.tiraget.id).subscribe(donnee=>{
+    const retour=this.data.id
+
+    
+    // console.log(this.data)
+    // for(let i=0;i<retour.length;i++){
+    //   this.tiraget=retour[i].tirage
+    //   console.log(this.tiraget)
+    // }
+    // console.log(this.tiraget)
+    this.tirageService.ValiderTirage(this.Utilisateur.login, this.Utilisateur.password,this.data.id).subscribe(donnee=>{
       this.tirage=donnee.data
       console.log(this.tirage)
     })

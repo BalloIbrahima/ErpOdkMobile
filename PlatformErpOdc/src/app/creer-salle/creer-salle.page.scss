@@ -16,13 +16,15 @@
 .container {
     max-width: 700px;
     width: 100%;
-    padding: 25px 30px;
+    padding: 50px 30px ;
     border-radius: 15px;
     background: #fff;
     margin-top:3%;
-    height: 90%;
+    margin-bottom: 3%;
+    // height: auto;
     // margin: auto;
     box-shadow: 0px 6px 4px 6px rgba(0, 0, 0, 0.10);
+    
 }
 
 .form-floating>.form-control, .form-floating>.form-control-plaintext {
@@ -52,27 +54,37 @@ textarea{
 .bouton{
     background-color: #FF7900;
     width: 135px;
-    border: none;
+  
     font-weight: bold;
-    margin-bottom: 10%;
+    // margin-bottom: 10%;
     border-radius: 15px;
-
+    margin-top: 2%;
     letter-spacing: 0.03em;
     font-family: myfon2;
+    margin-left: 40%;
+    color: #fff;
+    --bs-btn-active-bg: white;
+    --bs-btn-active-border-color: #FF7900;
 }
 
 
 .bouton:hover{
-    background-color: #fff;
+    background-color: #fff !important;
     width: 135px;
-    border: 1px solid  #FF7900 ;
+    border: 1px solid #FF7900 !important;
     font-weight: bold;
-    margin-bottom: 10%;
+    // margin-bottom: 10%;
     border-radius: 15px;
-  color:#FF7900 ;
+    color:#FF7900 !important;
     letter-spacing: 0.03em;
     font-family: myfon2;
+    margin-top: 2%;
+    margin-left: 40%;
+    
+    
 }
+
+
 
 @media screen and (max-width:768px) {
 .button_div{

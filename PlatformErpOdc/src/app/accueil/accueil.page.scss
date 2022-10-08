@@ -159,7 +159,7 @@ font-weight: 700;
 font-family: myfontBlack;
 }
 .btn{
-background-color: #FF6200;
+background-color: #FF7900;
 color: white;
 font-weight: bold;
 font-family:myfontLight ;
@@ -171,8 +171,8 @@ margin-left: auto;
 margin-right: auto;
 }
 .btn:hover{
-background-color: #FF6200;
-color: white;
+border-color: #FF7900 !important;
+color: #FF7900 !important;
 font-weight: bold;
 font-family:myfontLight ;
 }
@@ -180,6 +180,10 @@ font-family:myfontLight ;
 .img_activite_avenir{
 border-radius: 50%;
 width:30px
+}
+
+.btn > i:hover{
+  color: #FF7900 !important;
 }
 
 .nom_activite{
@@ -354,5 +358,15 @@ font-weight: bold;
     font-size: 25px;
     position: relative;
     top: 50%;
+
+}
+// .fa-plus-circle:before {
+ 
+//   color: white;
+// }
+.aucune{
+  display: flex;
+  justify-content: center;
+  font-family: myfontLight;
 
 }

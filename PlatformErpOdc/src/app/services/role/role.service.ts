@@ -86,5 +86,27 @@ export class RoleService {
 
     return this.http.post(`${this.env.api}/admin/Delete/role/${idrole}`, data)
   }
+
   
+  updateRole(login: String, password: String,libellerole: String, droitRole: any, idrole: any): Observable<any> {
+    const data: FormData = new FormData();
+    const role = [
+      {
+        "droits": droitRole,
+        "libellerole": libellerole
+      }
+    ]
+    const user = [
+      {
+        "login": login,
+        "password": password
+      }]
+
+
+    data.append('user', JSON.stringify(user).slice(1, JSON.stringify(user).lastIndexOf(']')));
+    data.append('role', JSON.stringify(role).slice(1, JSON.stringify(role).lastIndexOf(']')));
+
+    return this.http.post(`${this.env.api}/admin/Delete/role/${idrole}`, data)
+  }
+
 }

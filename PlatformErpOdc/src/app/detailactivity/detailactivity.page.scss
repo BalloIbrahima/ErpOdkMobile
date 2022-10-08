@@ -109,7 +109,7 @@
 //      margin-left: 50px;
 //     padding: 0;
 //     border-radius: 20px;
-  
+
 //   }
 @font-face {
     font-family: myfon1;
@@ -117,6 +117,10 @@
 }
 ion-content{
     font-family: myfon1 !important;
+}
+#image{
+  border-radius: 15px;
+  object-fit: fill;
 }
 .laLigne{
     background-color: #ffff;
@@ -149,7 +153,7 @@ ion-label{
         font-size: smaller;
         font-weight: lighter;
     }
-    
+
 }
 .largerButton{
     width: 320px;
@@ -193,17 +197,17 @@ ion-label{
 td {
     font-family: myfon2;
   }
-  
+
   th {
     font-family: myfon2;
     color: #ffff !important;
     font-weight: 600;
   }
-  
+
   thead {
     background-color: #FF7900;
   }
-  
+
   .voirPlus {
     background-color: #FF7900;
     padding: 5px;
@@ -216,37 +220,37 @@ td {
     background-color: #FF7900 !important;
     height: 5px;
     width: 25%;
-  
+
   }
-  
+
   @media screen and (max-width: 900px) {
     .form-select {
       font-size: medium;
     }
-  
+
     .buttonColor {
       font-size: medium;
       text-align: center;
     }
-  
+
     .hideColonneOder {
       display: none;
     }
-  
+
     th {
       font-size: medium;
-  
+
     }
-  
+
     td {
       font-size: small;
     }
     .largerButton{
         width: auto;
     }
-  
+
   }
-  
+
   @media screen and (max-width: 450px) {
     .styleText {
       text-align: left;
@@ -264,17 +268,17 @@ td {
     .buttonColor {
       font-size: small;
     }
-  
+
     .hideColonne {
       display: none;
     }
-  
+
     th {
       font-size: medium;
     }
-  
+
     td {
       font-size: small;
     }
-  
+
   }

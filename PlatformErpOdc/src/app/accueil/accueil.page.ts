@@ -23,6 +23,10 @@ activiteEncours:any;
 activiteAvenir:any;
 participantsTotal:any
 
+
+enCourLong:any
+aVenirLong:any
+
 participantFeminins:any
 participantEnfants:any
 
@@ -56,6 +60,7 @@ image = 'https://www.decome-store.fr/27073-thickbox_pbm/mini-voiture-laferrari-p
     //::::::::::::::: ::::::::::::::::::Activite en cour ::::::::::::::
     this.service.GetActiviteEncour(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
       this.activiteEncours=data.data;
+      this.enCourLong=data.data.length;
       console.log(data.data)
     });
 
@@ -63,6 +68,8 @@ image = 'https://www.decome-store.fr/27073-thickbox_pbm/mini-voiture-laferrari-p
     //::::::::::::::: ::::::::::::::::::Activite avenir ::::::::::::::
     this.service.GetActiviteAvenir(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
       this.activiteAvenir=data.data;
+      this.aVenirLong=data.data.length;
+
       console.log(data.data)
   });
 

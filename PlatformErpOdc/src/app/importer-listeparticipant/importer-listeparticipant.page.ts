@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Route, Router, ActivatedRoute } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import Swal from 'sweetalert2';
 import { ActiviteService } from '../services/activite/activite.service';
+import { ListeparticipantService } from '../services/listeparticipants/listeparticipant.service';
 
 @Component({
   selector: 'app-importer-listeparticipant',
@@ -12,8 +14,22 @@ export class ImporterListeparticipantPage implements OnInit {
 
   listeactivite:any;
    Utilisateur:any;
-
-  constructor( private liste:ActiviteService, private chemin: Router) { }
+   importerliste:any;
+   file: File;
+   libelleliste:String;
+   idactivite:any;
+   activiteselect: any;
+   id:any
+   //nom de lectivité
+   nom:any
+  constructor( private liste:ActiviteService, private chemin: Router, private importation: ListeparticipantService,private nav:NavController,private route:ActivatedRoute) { }
+  NoImporte(){
+    Swal.fire({
+      position:'center',
+      title: 'Cette liste existe dejà',
+      heightAuto: false,
+  });
+  }
   succesImport() {
     //   Swal.fire({'Félicitations ...', 'Fichier importer avec succès !', 'success',
     // });
@@ -26,26 +42,62 @@ export class ImporterListeparticipantPage implements OnInit {
         //denyButtonText: `Faire tirage`,
         //denyButtonColor:'green',
         cancelButtonText: 'Non',
-        cancelButtonColor:'red',
+        cancelButtonColor:'#FF7900',
         heightAuto: false,
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-          //Swal.fire('Saved!', '', 'success');
+         this.nav.navigateRoot('detailactivite,idactivite')
         } else if (result.isDenied) {
-          //Swal.fire('Changes are not saved', '', 'info');
+          this.nav.navigateRoot('importer-listeparticipant')
         }
       });
     }
 
   ngOnInit() {
-    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) 
+
+    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'))
      console.log(this.Utilisateur)
-    // this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) 
-    this.liste.GetTtActivite(this.Utilisateur.login, this.Utilisateur.password).subscribe(chemin=>{
-      this.listeactivite = chemin.data
-      console.log("afficher tous "+chemin)
+    // this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'))
+    // this.liste.GetTtActivite(this.Utilisateur.login, this.Utilisateur.password).subscribe(chemin=>{
+    //   this.listeactivite = chemin.data
+    //   console.log("afficher tous "+chemin)
+    // })
+    const idactivite=this.route.snapshot.params['id']
+    this.id=idactivite
+    this.liste.getactivitybyId(this.Utilisateur.login,this.Utilisateur.password,idactivite).subscribe(r=>{
+      this.listeactivite=r.data;
+      console.log(this.listeactivite)
+      this.nom=this.listeactivite.nom
     })
+
+  }
+  importAouP(){
+    var idact=0;
+    for(let i = 0; i < this.listeactivite.length; i++) {
+      if(this.listeactivite[i].nom == this.idactivite) {
+         this.activiteselect = this.listeactivite[i].id
+         console.log(this.activiteselect)
+       idact= this.listeactivite[i].id
+      }
+    }
+    console.log(this.id)
+
+    this.importation.ImporterlisteParticipant(this.Utilisateur.login, this.Utilisateur.password, this.file, this.libelleliste ,this.id).subscribe(chemin=>{
+
+      this.importerliste= chemin.data;
+      console.log(this.importerliste)
+      if(chemin.message=="ok"){
+        this.succesImport();
+      }
+      else{
+        this.NoImporte();
+      }
+
+    })
+  }
+  televerser(event:any) {
+    this.file = event.target["files"][0];
   }
 
 }

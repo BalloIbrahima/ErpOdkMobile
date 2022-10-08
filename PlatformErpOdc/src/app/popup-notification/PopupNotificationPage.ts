@@ -65,7 +65,7 @@ export class PopupNotificationPage implements OnInit {
       this.notif = data.data;
       console.log("data notif" + this.notif);
       this.notifTotal = data.data.length;
-      console.log("data notif" + this.notif);
+      console.log("data notif total" + this.notif);
     });
 
 

@@ -126,38 +126,38 @@ export class DetailsEntitePage implements OnInit {
 
     //methode permettant de retourner le nombre personne dans une entite
     this.entiteService.gettAllActiviterParEntite(this.Utilisateur.login,this.Utilisateur.password,this.identite).subscribe(data =>{
-      this.nombreActivite = data
-      console.log(data.length)
-      if(data.length == undefined){
+      this.nombreActivite = data.data
+      console.log(data)
+      if(data.data.length == undefined){
         this.nombreActivite = 0
       }else{
-        this.nombreActivite = data.length
+        this.nombreActivite = data.data.length
       }
       console.log(this.nombreActivite)
     })
 
     //methode permettant de recuperer les personnels d'une entite
     this.entiteService.getAllPersonnelParEntite(this.Utilisateur.login,this.Utilisateur.password,this.identite).subscribe(data =>{
-      this.PersonnelEntite = data
+      this.PersonnelEntite = data.data
       console.log("les personels d'une entite")
       console.log(data)
-      if(data.length == undefined){
+      if(data.data.length == undefined){
         this.nombrePersonnel = 0
       }else{
-        this.nombrePersonnel = data.length
+        this.nombrePersonnel = data.data.length
       }
       console.log(this.nombrePersonnel)
     })
     
 //methode permettant de recuperer les apprenant d'une entite
-this.entiteService.getAllPersonnelParEntite(this.Utilisateur.login,this.Utilisateur.password,this.identite).subscribe(data =>{
-  this.ApprenantFormerParEntite = data
+this.entiteService.getAllAprenantParEntite(this.Utilisateur.login,this.Utilisateur.password,this.identite).subscribe(data =>{
+  this.ApprenantFormerParEntite = data.data
   console.log("les apprenants d'une entite")
   console.log(data)
-  if(data.length == undefined){
+  if(data.data.length == undefined){
     this.nombreApprenantFormerParEntite = 0
   }else{
-    this.nombreApprenantFormerParEntite = data.length
+    this.nombreApprenantFormerParEntite = data.data.length
   }
   console.log(this.nombreApprenantFormerParEntite)
 }) 

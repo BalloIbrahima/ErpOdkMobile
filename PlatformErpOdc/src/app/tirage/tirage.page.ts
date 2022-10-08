@@ -75,7 +75,7 @@ export class TiragePage implements OnInit {
       console.log(this.listes)
     })
 
-      this.activiteService.GetTtActivite(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour=>{
+      this.activiteService.GetAllActiviteSansPartcipant(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour=>{
       this.nom=retour.data;
       console.log(this.nom)
     })

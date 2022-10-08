@@ -46,11 +46,11 @@ export class PopupNotificationPage implements OnInit {
   ngOnInit() {
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
     
-    this.notificationService.GetAllNotif(this.Utilisateur.login, this.Utilisateur.password).subscribe(data=>{
-          this.notif=data.data;
-          console.log("data notif"+ this.notif)
-          this.notifTotal=data.data.length
-          console.log("data notif"+ this.notif)
+    this.notificationService.GetAllNotif(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour=>{
+          this.notif=retour.data;
+          console.log(this.notif)
+          this.notifTotal=retour.data.length
+          console.log(this.notif)
         })
   }
 

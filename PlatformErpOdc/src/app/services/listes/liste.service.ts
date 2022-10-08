@@ -33,6 +33,8 @@ export class ListeService {
     return this.http.post(`${this.env.api}/utilisateur/AllListePost`,data);
   }
 
+ 
+
    GetListeParId(login:String,password:String,id:number):Observable<any>{
     
      const data:FormData=new FormData();

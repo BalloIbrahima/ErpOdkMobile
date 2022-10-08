@@ -14,7 +14,7 @@
 
   <ion-content>
     <div class="container">
-        <form >
+        <form  #f="ngForm">
             <div class="box">
                 <h1>Nouveau Participant</h1>
                 <div class="activite-details">
@@ -54,10 +54,13 @@
                 </div>
             </div>
             <div class="button">
-                <input class="but" type="submit"  (click)="ajoutparticipant()" value="Enregistrer">
+                <input class="but" type="submit" [disabled]="f.form.invalid" (click)="ajoutparticipant()" value="Enregistrer">
             </div>
         </form>
 
     </div>
+    
+
+
 
 </ion-content>

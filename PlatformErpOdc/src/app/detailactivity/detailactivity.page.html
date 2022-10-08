@@ -42,8 +42,10 @@
             </div>
             <div class="item-native my-3">
                 <ion-label class="titre m-3">Salle</ion-label>
-                <ion-label class="contenu">{{salles}} </ion-label>
-            </div>
+                <ion-label *ngIf="salles!=null" class="contenu">{{salles}} </ion-label>
+                <button class="btn buttonColor largerButton" type="button" *ngIf="salles==null" >Associer une salle </button>
+
+              </div>
             <div class="item-native my-3">
               <ion-label class="titre m-3">Date début</ion-label>
               <ion-label class="contenu">{{dateDebut  | date: 'dd MMMM yyyy à hh:mm'}}</ion-label>
@@ -60,18 +62,23 @@
 
             <div class="col-lg-12 col-12">
               <div class="d-grid m-2 gap-2 d-md-flex">
-                <button class="btn buttonColor largerButton" type="button" (click)="importerliste()" > Importer  liste Participant</button>
+                <button class="btn buttonColor largerButton" type="button" [routerLink]="['/dashboard/importer-participant',idact]"> Importer  liste Participant</button>
                 <button class="btn buttonColor largerButton" type="button" (click)="exportToExcel()"> Exporter liste</button>
                 <button class="btn buttonColor largerButton" type="button" [routerLink]="['/dashboard/ajoutparticipant',idact]" >+ &nbsp; Ajouter participant</button>
                 <button class="btn buttonColor largerButton" type="button" [routerLink]="['/dashboard/tachedesignation',idact]"> Tâche</button>
                 <button class="btn buttonColor largerButton" type="button"  (click)="supprimeractivite()"> Supprimer</button>
-                <button class="btn buttonColor largerButton" type="button"  > Editer</button>
+                <button class="btn buttonColor largerButton" type="button"  [routerLink]="['/dashboard/editactivity',idact]" > Editer</button>
 
             </div>
             </div>
           </div>
     </div>
-    <table class="table" id="season-tble">
+    <table class="table caption-top" id="season-tble" >
+      <caption>
+        <!-- <input type="number" [(ngModel)]="nombreLingne" /> -->
+        
+        <button class="btn buttonColor largerButton" type="submit" (click)="envoyernombre()">Afficher toute la liste</button>
+      </caption>
       <thead class="thead-dark">
         <tr>
           <th scope="col">Id</th>
@@ -84,14 +91,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td>@fat</td>
-          <td>@fat</td>
-          <td>@fat</td>
+
+        <tr *ngFor="let p of postulants  | paginate: {itemsPerPage:nombreLingne1, currentPage: pages} ; let i= index">
+          <th scope="row">{{p.postulant.id}}</th>
+          <td>{{p.postulant.nom}}</td>
+          <td>{{p.postulant.prenom}}</td>
+          <td>{{p.postulant.email}}</td>
+          <td>{{p.postulant.dateNaissance}}</td>
+          <td>{{p.postulant.genre}}</td>
+          <td>{{p.postulant.numero}}</td>
         </tr>
 
       </tbody>

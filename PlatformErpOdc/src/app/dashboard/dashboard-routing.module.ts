@@ -20,11 +20,6 @@ const routes: Routes = [
         path: 'reporting-participant',
         loadChildren: () => import('../reporting-participant/reporting-participant.module').then( m => m.ReportingParticipantPageModule)
       },
-
-      {
-        path: 'reporting-participant',
-        loadChildren: () => import('../reporting-participant/reporting-participant.module').then( m => m.ReportingParticipantPageModule)
-      },
       {
         path: 'profil',
         loadChildren: () => import('../profil/profil.module').then( m => m.ProfilPageModule)
@@ -33,12 +28,6 @@ const routes: Routes = [
         path: 'salle',
         loadChildren: () => import('../salle/salle.module').then( m => m.SallePageModule)
       },
-
-      {
-        path: 'reporting-participant',
-        loadChildren: () => import('../reporting-participant/reporting-participant.module').then( m => m.ReportingParticipantPageModule)
-      },
-
       {
         path: 'reportingfiltreact',
         loadChildren: () => import('../reportingfiltreact/reportingfiltreact.module').then( m => m.ReportingfiltreactPageModule)
@@ -59,10 +48,7 @@ const routes: Routes = [
         path: 'ajout-entite',
         loadChildren: () => import('../ajout-entite/ajout-entite.module').then( m => m.AjoutEntitePageModule)
       },
-      {
-        path: 'creer-activites',
-        loadChildren: () => import('../creer-activites/creer-activites.module').then( m => m.CreerActivitesPageModule)
-      },
+      
 
       {
         path: 'allactivity',
@@ -164,6 +150,14 @@ const routes: Routes = [
     {
       path: 'importer-participant/:id',
       loadChildren: () => import('../importer-listeparticipant/importer-listeparticipant.module').then( m => m.ImporterListeparticipantPageModule)
+    },
+    {
+      path: 'editactivity/:id',
+      loadChildren: () => import('../editactivity/editactivity.module').then( m => m.EditactivityPageModule)
+    },
+    {
+      path: 'editactivity',
+      loadChildren: () => import('../editactivity/editactivity.module').then( m => m.EditactivityPageModule)
     },
     {
       path: 'ajouter-role',

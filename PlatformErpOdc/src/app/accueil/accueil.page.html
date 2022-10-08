@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="col text_info">
-                  Activités réalisées
+                  Activités Totales
                 </div>
 
               </div>
@@ -139,7 +139,7 @@
 
 
         <div class="col reporting">
-          <button type="button" class="btn buttonColor">Reporting</button>
+          <button type="button" class="btn buttonColor" [routerLink]="['/dashboard/reporting']" routerLinkActive="router-link-active" >Reporting</button>
         </div>
 
 
@@ -156,9 +156,11 @@
 
           <span class="AenCours">Activités en cours</span>
 
+          <div *ngIf="enCourLong==0" >
+            <div class="aucune">Aucune activité en cours</div>
+          </div>
 
-
-          <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+          <div *ngIf="enCourLong!=0"  id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
               <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -173,9 +175,9 @@
 
 
                   <div *ngIf="i<3" class="carousel-caption d-none d-md-block">
-                    
+
                     <h5 class="nom_activite">{{activiteEncour.nom}}</h5>
-                    <span class="encours_ticket">{{activiteEncour.dateDebut | date }}</span> <span class="encours_ticket"> -- {{activiteEncour.salle.libelle}}</span><br>
+                    <span class="encours_ticket">{{activiteEncour.dateDebut | date }}</span> <span  *ngIf="activiteEncour.salle!=null" class="encours_ticket"> -- {{activiteEncour.salle.libelle}}</span><br>
                   <img src="../../assets/A (2).jpg" class="img_activite_avenir" alt="" srcset="">{{activiteEncour.createur.nom}} {{activiteEncour.createur.prenom}}
                   
                 </div>
@@ -240,6 +242,8 @@
 
           <span class="AenCours"> Activités à venir</span>
 
+          
+
           <div class="row" >
 
             <!-- <div class="col">
@@ -249,10 +253,12 @@
             </div> -->
 
             <div class="col m-1">
-              <button type="button" class="btnPlus buttonColor " style=" height: 95%; width: 70%; margin-left:10px; margin-top: 7px; border-radius: 15px;  background-color: #FF6200; " routerLink="/dashboard/creer-activites"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+              <button type="button" class="btnPlus btn buttonColor " style=" height: 95%; width: 70%; margin-left:10px; margin-top: 7px; border-radius: 15px; " routerLink="/dashboard/creer-activites"><i class="fa fa-plus-circle" id="plus" aria-hidden="true" ></i></button>
               </div>
 
-
+              <div  *ngIf="aVenirLong==0" >
+                <div class="aucune">Aucune activité à venir</div>
+              </div>
               <div class="col m-2 image row"  
                 *ngFor="let aa of activiteAvenir ; let i=index "  
                 
@@ -269,8 +275,8 @@
 
                 style=" background-repeat: no-repeat;background-position: center; background-size: cover; border-radius: 10px;">
                   hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh -->
-<!-- [ngStyle]="{backgroundImage:'url(./images/rose.png)'} -->
-<!-- [ngStyle]="{ 'background': 'url(' + bg_image + ')' }" -->
+                <!-- [ngStyle]="{backgroundImage:'url(./images/rose.png)'} -->
+                <!-- [ngStyle]="{ 'background': 'url(' + bg_image + ')' }" -->
 
                 <!-- </div> -->
 

@@ -22,7 +22,7 @@
           <option value="1">ODC</option>
           <option value="2">ODK</option>
           <option value="3">FABLAB</option>
-          <option value="3">ORANGE FAB</option>
+          <option value="4">ORANGE FAB</option>
         </select>
       </div>
 
@@ -53,8 +53,8 @@
           <img *ngIf="a.image==null" src="assets/images/profile.png" class="card-img-top" alt="...">
 
           <div class="card-body">
-            <h5 class="card-title"> {{a.nom}} </h5>
-            <p class="card-text"> {{a.prenom}} </p>
+            <h5 class="card-title"  [innerHTML]="a.nom | slice:0:10"><label for="">...</label></h5>
+            <p class="card-text" [innerHTML]="a.prenom | slice:0:10"><label for="">...</label></p>
           </div>
 
         </div>

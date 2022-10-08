@@ -81,7 +81,7 @@ export class AllactivityPage implements OnInit {
       this.service.GetActiviteavenir(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
         this.touteactivite=data.data;
         this.longueur=data.data.length
-        console.log(this.actevenir)
+        console.log(data)
       })
     }else if(this.textFiltre=="Activités Terminée"){
       this.service.GetActiviteterminer(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{

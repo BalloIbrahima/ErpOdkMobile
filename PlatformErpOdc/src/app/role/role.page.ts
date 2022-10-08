@@ -29,6 +29,7 @@ export class RolePage implements OnInit {
   idrole: any;
   libelleRole2: String;
   currentRoleCreate2: any;
+  currentRoleCreate1: any;
 
   constructor(private seriveRole: RoleService) { }
   // eslint-disable-next-line @typescript-eslint/member-ordering
@@ -126,6 +127,9 @@ export class RolePage implements OnInit {
 
   handleChange(ev) {
     this.currentRoleCreate = ev.target.value;
+  }
+  handleChange11(ev) {
+    this.currentRoleCreate1 = ev.target.value;
   }
   postRole() {
     if (this.libelleRole == '' || this.currentRoleCreate == null) {

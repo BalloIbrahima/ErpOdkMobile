@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController, ToastController } from '@ionic/angular';
+import Swal from 'sweetalert2';
 import { PopupdtiragePage } from '../popupdtirage/popupdtirage.page';
 import { ActiviteService } from '../services/activite/activite.service';
 import { ListeService } from '../services/listes/liste.service';
 import { TirageService } from '../services/tirage/tirage.service';
-import { TypeActiviteService } from '../services/typeActivite/type-activite.service';
-import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
 
 @Component({
   selector: 'app-tirage',
@@ -24,28 +23,50 @@ export class TiragePage implements OnInit {
   libelleListe:any;
   activiteSelect: any;
   nombre:any;
+  postulant: any;
   
 
 
-  constructor(private tirageService: TirageService,public modalController: ModalController,private listeService:ListeService,private activiteService:ActiviteService,private userService:UtilisateurService) { }
+  constructor(private tirageService: TirageService,public modalController: ModalController,private listeService:ListeService,private activiteService:ActiviteService,private toastCtrl: ToastController) { }
  
-  async ouvrirPopup() {
+  async ouvrirPopup(data) {
     const modal = await this.modalController.create({
       component: PopupdtiragePage,
       componentProps: {
-        'valider': true,
-        'donnee_tableau': this.listes
+        'data': data,
+        
       },
       backdropDismiss: false
     });
-    modal.onDidDismiss().then((modelData)=>{
-      if (modelData !== null) {
-        this.modelData = this.modelData.data;
-        console.log('Les donnés du Pop Up sont : ' + modelData.data);
-      }
-    });
+    // modal.onDidDismiss().then((modelData)=>{
+    //   if (modelData !== null) {
+    //     this.modelData = this.modelData.data;
+    //     // console.log('Les données du Pop Up sont : ' + modelData.data);
+    //   }
+    // });
     return await modal.present();
   }
+  async popupExist() {
+    Swal.fire({
+      title:'Desolé',
+      text:'Ce tirage existe déjà',
+      icon:'error',
+      heightAuto: false,
+      confirmButtonColor:'#FF7900'
+  });
+
+  }
+ 
+  popupDepasse() {
+      Swal.fire({
+        title:'Desolé',
+        text:'Le nombre entré est superieur au nombre de postulant sur la liste',
+        icon:'error',
+        heightAuto: false,
+        confirmButtonColor:'#FF7900'
+    });
+  }
+
 
   ngOnInit() {
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) ;
@@ -67,10 +88,26 @@ export class TiragePage implements OnInit {
         console.log(this.activiteSelect)
       }
     }
+    
 
     this.tirageService.doTirage(this.Utilisateur.login, this.Utilisateur.password,this.libelleListe,this.activiteSelect.id,this.nombre,this.libelletirage).subscribe(retour=>{
-      console.log(retour)
-      this.ouvrirPopup()
+      if(retour.message=='ok'){
+        console.log(retour)
+        this.ouvrirPopup(retour.data)
+        console.log(retour.data)
+
+        
+      }else{
+        if(retour.message=="error"){
+          console.log(retour)
+          this.popupExist()
+        }
+        else{
+          this.popupDepasse()
+        }
+        
+      }
+      
     })
     
   }

@@ -102,3 +102,17 @@ h6{
     }
 
 }
+
+@media (max-width: 1060px) {
+    
+    .img {
+        max-width: 100%;
+        border: 0;
+        margin-top: 22px;
+        margin-left: 15px;
+        border-radius: 50%;
+        width: auto;
+        height: 40%;
+    }
+
+}

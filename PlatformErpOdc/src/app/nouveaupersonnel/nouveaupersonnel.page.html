@@ -53,7 +53,7 @@
           </div> -->
           <div class="input-box">
             <span class="details">Genre *</span>
-            <select name="genre" [(ngModel)]="genre" class="select">
+            <select name="genre" [(ngModel)]="genre" class="select" required>
               <option >--Votre genre--</option>
               <option >Masculin</option>
               <option >Feminin</option>
@@ -63,9 +63,9 @@
         </div>
           <div class="input-box">
             <span class="details">Entité *</span>
-            <select class="select" [(ngModel)]="entite" name="entite">
+            <select class="select" [(ngModel)]="entite" name="entite" required>
               <option >--Choisisez une entité--</option>
-              <option *ngFor="let entite of Entites" >{{entite.libelleentite}}</option>
+              <option *ngFor="let entite of Entites" required="required">{{entite.libelleentite}}</option>
               <!-- <option value="">Orange Digital Kalanso</option>
               <option value="">Orange FabLab</option> -->
             </select>
@@ -83,7 +83,7 @@
           <div class="input-box">
             <span class="details">Ajouter image *</span>
             <input type="file" class="form-control" placeholder="Logo.jpg" id="logo"
-              accept="image/png, image/jpeg, image/jpg" (change)="envoyerImage($event) required">
+              accept="image/png, image/jpeg, image/jpg" (change)="envoyerImage($event)">
           </div>
           
         </div>

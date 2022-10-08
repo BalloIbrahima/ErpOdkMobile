@@ -26,7 +26,45 @@ getTirageById(login:String,password:String,id:number):Observable<any>{
   const data:FormData=new FormData();
   const user=[{"login":login,"password":password}]
   data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
-  return this.http.post(`${this.env.api}
-  ​/utilisateur​/tirageById​/${id}`,data);
+  return this.http.post(`${this.env.api}​/utilisateur​/tirageById​/${id}`,data);
 }
+
+//tous les tirages  
+
+GetTotalTirage(login:String,password:String):Observable<any>{
+  const data:FormData=new FormData();
+  const user=[{"login":login,"password":password}]
+  data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+
+  return this.http.post(`${this.env.api}/admin/TouteslesTirages`, data);
+}
+
+//tous les tirages valider
+GetTiragevalides(login:String,password:String):Observable<any>{
+  const data:FormData=new FormData();
+  const user=[{"login":login,"password":password}]
+  data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+
+  return this.http.post(`${this.env.api}/admin/tirage/valides`, data);
+}
+//:::::::::::::::::::Valider tirage par id:::::::::::::::::::::::::::::::::::
+ValiderTirage(login:String,password:String,idTirage:number):Observable<any>{
+    
+  const data:FormData=new FormData();
+  const user=[{"login":login,"password":password}]
+  data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+  return this.http.post(`${this.env.api}/responsable/valider/tirage/${idTirage}`,data);
+}
+
+//tous les postiulants d'un tirage
+AllPostulantsByTirage(login:String,password:String, idTirage:number):Observable<any>{
+  const data:FormData=new FormData();
+  const user=[{"login":login,"password":password}]
+  data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+
+  return this.http.post(`${this.env.api}/responsable/tirage/postulants/${idTirage}`, data);
+}
+
+
+// tirage/postulants/{idTirage}
 }

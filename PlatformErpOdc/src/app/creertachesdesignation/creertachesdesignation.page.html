@@ -93,9 +93,37 @@
                     <label for="inputs" class="form-label">Lieu *</label>
                         <select id="inputs"   class="form-select" aria-label="Default select exemple" name="entiteNom"  required>
                             <option selected>Choisisez un lieu</option>
-                            <option> entite.libelleentite </option>
+                            <option *ngFor="let lieu of sallesDipo ">  {{lieu.libelle}} </option>
                         </select>
-                </div>  
+            </div>  
+
+
+            <div class="input-box">
+              <span class="details">Commission </span>
+              <ion-list >
+        
+                <ion-item >
+                  <ion-select placeholder="Selectionner les formateurs" [multiple]="true" >
+                    <ion-select-option >A</ion-select-option>
+                    <ion-select-option >B</ion-select-option>
+
+                    <!-- *ngFor="let u of utilisateurs">{{u.nom}}  {{u.prenom}} -->
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+
+            </div>
+
+
+
+            <div class="input mb-3">
+                                
+              <label for="inputs" class="form-label">Réalisateur *</label>
+                  <select id="inputs"   class="form-select" aria-label="Default select exemple" name="entiteNom"  required>
+                      <option selected>Choisisez un réalisateur</option>
+                      <option *ngFor="let user of utilisateurs ">  {{user.nom}} {{user.prenom}} </option>
+                  </select>
+      </div> 
 
 
 
@@ -177,7 +205,7 @@
                     <label for="inputs" class="form-label">Lieu *</label>
                         <select id="inputs"   class="form-select" aria-label="Default select exemple" name="entiteNom"  required>
                             <option selected>Choisisez un lieu</option>
-                            <option> entite.libelleentite </option>
+                            <option *ngFor="let lieu of sallesDipo ">  {{lieu.libelle}} </option>
                         </select>
                 </div>
 

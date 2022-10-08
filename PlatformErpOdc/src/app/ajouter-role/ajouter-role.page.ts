@@ -94,6 +94,13 @@ export class AjouterRolePage implements OnInit {
   updateTypeActivite: any;
   readTypeActivite: any;
   deleteTypeActivite: any;
+  LibelleEntite: any;
+  LibelleEntiteLecture: any;
+  LibelleRoleLecture: any;
+  LibelleRoleCreation: any;
+  LibelleRoleUpdate: any;
+  LibelleRoleSuppression: any;
+  currentRoleCreate: any;
 
   constructor(private serviceRole: RoleService ) { }
 
@@ -105,6 +112,20 @@ export class AjouterRolePage implements OnInit {
       console.log(this.TousLesDroits)
       console.log(this.TousLesDroits.length)
     })
+console.log(this.TousLesDroits)
+    for(let i=0; i<this.TousLesDroits; i++){
+      if(this.TousLesDroits[i].libelle.split(' ')[0] == this.read){
+        
+        this.LibelleRoleLecture = this.TousLesDroits[i].description
+      }else if(this.TousLesDroits[i].libelle.split(' ')[0] == this.creation){
+        this.LibelleRoleCreation = this.TousLesDroits[i].description
+      }else if(this.TousLesDroits[i].libelle.split(' ')[0] == this.update){
+        this.LibelleRoleUpdate = this.TousLesDroits[i].description
+      }else{
+        this.LibelleRoleSuppression = this.TousLesDroits[i].description
+        console.log(this.LibelleRoleSuppression)
+      }
+    }
 
     // for(let i = 0; i< this.TousLesDroits.length; i++){
     //   const create = 'Create'
@@ -123,12 +144,28 @@ export class AjouterRolePage implements OnInit {
     // }
 
   }
-  postRole(){
-    console.log(this.createEntite)
-    console.log(this.updateEntite)
-    console.log(this.readEntite)
-    console.log(this.deleteEntite)
-    console.log(this.libelleRole)
+  compareWith(o1, o2) {
+    if (!o1 || !o2) {
+      return o1 === o2;
+    }
+
+    if (Array.isArray(o2)) {
+      return o2.some((o) => o.id === o1.id);
+    }
+
+    return o1.id === o2.id;
   }
+
+  handleChange(ev) {
+    this.currentRoleCreate = ev.target.value;
+  }
+  postRole(){
+    this.serviceRole.postRole(this.Utilisateur.login, this.Utilisateur.password, this.libelleRole, this.currentRoleCreate).subscribe(data =>{
+      console.log(data)
+    })
+  }
+  
+
+
 
 }

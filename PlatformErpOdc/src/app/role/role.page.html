@@ -70,14 +70,13 @@
             <td> {{inf.libellerole}} </td>
             <td></td>
             <td>
-                <div class="socials">
-                  <a  title="Voir plus de detail sur l'entité"><img
-                      src="../../assets/icon/voir.png" alt="" srcset=""></a>
-                  <a  title="cliquer ici pour modifier l'entité"><img
-                      src="../../assets/icon/modifier-le-fichier.png" alt="" srcset=""></a>
-                  <a  title="cliquer ici pour supprimer l'entité"><img src="../../assets/icon/supprimer.png" alt=""
-                      srcset=""></a>
-                </div>
+              <div class="socials">
+                <a title="Voir plus de detail sur l'entité"><img src="../../assets/icon/voir.png" alt="" srcset=""></a>
+                <a title="cliquer ici pour modifier l'entité"><img src="../../assets/icon/modifier-le-fichier.png"
+                    alt="" srcset=""></a>
+                <a title="cliquer ici pour supprimer l'entité" (click)="supprimerRole(inf.id)"><img
+                    src="../../assets/icon/supprimer.png" alt="" srcset=""></a>
+              </div>
             </td>
           </tr>
         </tbody>

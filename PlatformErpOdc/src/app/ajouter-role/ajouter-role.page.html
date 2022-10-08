@@ -36,23 +36,40 @@
 
                 <div class="row">
                   <div class="col">
-                    <div class="notification" > 
-                      <select class="form-select form-select-md" aria-label=".form-select-sm example" [(ngModel)]="readEntite" name="readEntite" >
-                        <option >
-                          <ion-icon name="funnel-outline" slot="start"></ion-icon>Filtrer par Entité
-                        </option>
-                        <option *ngFor="let create of TousLesDroits" > <span *ngIf="create.libelle.split(' ')[0] == read">{{create.description}}</span></option>
-              
-                      </select>
-                      <div class="row iconLabel mb-3">
+                    <div class="notification">
+
+                      <ion-list>
+                        <ion-item>
+                          <ion-select [compareWith]="compareWith" placeholder="Select food"
+                            (ionChange)="handleChange($event)" [multiple]="true">
+                              <ion-select-option *ngFor="let food of TousLesDroits" [value]="food" [class.disabled-field]="food.libelle.split(' ')[0] == read">{{ food.description }}
+                              </ion-select-option>
+                          </ion-select>
+                        </ion-item>
+                        <ion-item lines="none">
+                          <ion-label>Current value: {{ currentRoleCreate | json }}</ion-label>
+                        </ion-item>
+                      </ion-list>
+                      <div>
+                        <!-- <select  class="form-select form-select-md" aria-label=".form-select-sm example"
+                          [(ngModel)]="readEntite" name="readEntite">
+                          <option>
+                            <ion-icon name="funnel-outline" slot="start"></ion-icon>Filtrer par Entité
+                          </option>
+
+                          <option *ngFor="let create of TousLesDroits" [class.disabled-field]="create.libelle.split(' ')[0] != read" > {{create.description}}</option>
+
+
+                        </select> -->
+                      </div>
+                      <!-- <div class="row iconLabel mb-3">
                         <div class="col">
                           <label class="switch">
                             <input type="checkbox" [(ngModel)]="readEntite" name="readEntite">
                             <span class="slider round"></span>
                           </label>
                         </div>
-                        <!-- <div class="col icon_mail" *ngIf="create.libelle.split(' ')[0] == read">par mail </div> -->
-                      </div>
+                      </div> -->
 
                     </div>
                   </div>

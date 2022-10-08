@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 import { RoleService } from '../services/role/role.service';
 
 @Component({
@@ -92,62 +93,33 @@ export class RolePage implements OnInit {
 
   constructor(private seriveRole: RoleService) { }
   // eslint-disable-next-line @typescript-eslint/member-ordering
-  info = [
-    {
-      entite: 'Orange Digital Center',
-      descrription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam eligendi harum tempora expedita sed officia molestiasquas eius culpa. Reprehenderit nam exercitationem error quidem hic molestiae, id ut illo consequuntur.',
-      nom: 'Ousmane TOURE',
-      status: 'Responsable',
-    },
-    {
-      entite: 'Orange Digital Kalnso',
-      descrription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam eligendi harum tempora expedita sed officia molestiasquas eius culpa. Reprehenderit nam exercitationem error quidem hic molestiae, id ut illo consequuntur.',
-      nom: 'Hamadoun Kaou DIALLO',
-      status: 'Responsable',
-    },
-    {
-      entite: 'Orange Digital Kalnso',
-      descrription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam eligendi harum tempora expedita sed officia molestiasquas eius culpa. Reprehenderit nam exercitationem error quidem hic molestiae, id ut illo consequuntur.',
-      nom: 'Hamadoun Kaou DIALLO',
-      status: 'Responsable',
-    },
-    {
-      entite: 'Orange Digital Kalnso',
-      descrription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam eligendi harum tempora expedita sed officia molestiasquas eius culpa. Reprehenderit nam exercitationem error quidem hic molestiae, id ut illo consequuntur.',
-      nom: 'Hamadoun Kaou DIALLO',
-      status: 'Responsable',
-    },
-    {
-      entite: 'Orange Digital Kalnso',
-      descrription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam eligendi harum tempora expedita sed officia molestiasquas eius culpa. Reprehenderit nam exercitationem error quidem hic molestiae, id ut illo consequuntur.',
-      nom: 'Hamadoun Kaou DIALLO',
-      status: 'Responsable',
-    },
-    {
-      entite: 'Orange Digital Kalnso',
-      descrription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam eligendi harum tempora expedita sed officia molestiasquas eius culpa. Reprehenderit nam exercitationem error quidem hic molestiae, id ut illo consequuntur.',
-      nom: 'Hamadoun Kaou DIALLO',
-      status: 'Responsable',
-    },
-    {
-      entite: 'Orange Digital Kalnso',
-      descrription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam eligendi harum tempora expedita sed officia molestiasquas eius culpa. Reprehenderit nam exercitationem error quidem hic molestiae, id ut illo consequuntur.',
-      nom: 'Hamadoun Kaou DIALLO',
-      status: 'Responsable',
-    },
-    {
-      entite: 'Orange Digital Kalnso',
-      descrription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam eligendi harum tempora expedita sed officia molestiasquas eius culpa. Reprehenderit nam exercitationem error quidem hic molestiae, id ut illo consequuntur.',
-      nom: 'Hamadoun Kaou DIALLO',
-      status: 'Responsable',
-    },
-  ];
 
   ngOnInit() {
     this.Utilisateur = JSON.parse(localStorage.getItem('utilisateur'));
     this.seriveRole.getAllRole(this.Utilisateur.login, this.Utilisateur.password).subscribe(data =>{
       this.TousLesRole = data.data
       console.log(this.TousLesRole)
+    })
+  }
+
+  supprimerRole(idrole: any){
+    this.seriveRole.deleteRole(this.Utilisateur.login, this.Utilisateur.password, idrole).subscribe(data =>{
+      console.log(data)
+    })
+  }
+
+  //Le pop montrant la suppression du role
+  popUp() {
+    Swal.fire({
+      title: 'Félicitation !!',
+      text: 'Entité créée avec succes',
+      heightAuto: false,
+      showConfirmButton: true,
+      confirmButtonText: "D'accord",
+      confirmButtonColor: 'green',
+      showDenyButton: false,
+      showCancelButton : false,
+      allowOutsideClick: false
     })
   }
 

@@ -407,3 +407,39 @@ button {
   }
 
 }
+.disabled-field{
+  pointer-events: none !important;
+    display: none !important;
+    color: #FF7900;
+}
+
+.sc-ion-alert-md-h {
+  --min-width: 3000px !important;
+  --width: auto;
+  --min-height: auto;
+  --height: auto;
+  --max-height: 90%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  outline: none;
+  font-family: var(--ion-font-family, inherit);
+  contain: strict;
+  -ms-touch-action: none;
+  touch-action: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 1001;
+}

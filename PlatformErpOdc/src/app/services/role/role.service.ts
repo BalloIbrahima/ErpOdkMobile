@@ -12,44 +12,79 @@ export class RoleService {
 
   // methode permettant de recuperer tous les droits
 
-  getAllDroit(login: string, password: string): Observable<any>{
-    const data:FormData=new FormData();
-    const user=[
+  getAllDroit(login: string, password: string): Observable<any> {
+    const data: FormData = new FormData();
+    const user = [
       {
-        "login":login,
-        "password":password
+        "login": login,
+        "password": password
       }]
-      
-    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
-    return this.http.post(`${this.env.api}/admin/droit/Getall`,data)
+
+    data.append('user', JSON.stringify(user).slice(1, JSON.stringify(user).lastIndexOf(']')));
+    return this.http.post(`${this.env.api}/admin/droit/Getall`, data)
 
   }
 
-  getAllRole(login: string, password: string): Observable<any>{
-    const data:FormData=new FormData();
-    const user=[
+  getAllRole(login: string, password: string): Observable<any> {
+    const data: FormData = new FormData();
+    const user = [
       {
-        "login":login,
-        "password":password
+        "login": login,
+        "password": password
       }]
-      
-    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
-    return this.http.post(`${this.env.api}/admin/role/getAll`,data)
+
+    data.append('user', JSON.stringify(user).slice(1, JSON.stringify(user).lastIndexOf(']')));
+    return this.http.post(`${this.env.api}/admin/role/getAll`, data)
 
   }
 
 
-    //::::::::::::::::::Retour de la liste des formatMail dans nouvelle personnel interne
-    getListeFormatMail(login:String, password:String):Observable<any>{
-      const data:FormData=new FormData();
-      const user=[
-        {
-          "login":login,
-          "password":password
-        }]
-        
-      data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+  //::::::::::::::::::Retour de la liste des formatMail dans nouvelle personnel interne
+  getListeFormatMail(login: String, password: String): Observable<any> {
+    const data: FormData = new FormData();
+    const user = [
+      {
+        "login": login,
+        "password": password
+      }]
+
+    data.append('user', JSON.stringify(user).slice(1, JSON.stringify(user).lastIndexOf(']')));
+
+    return this.http.post(`${this.env.api}/formatemail/getAll`, data)
+  }
+  postRole(login: String, password: String, libellerole: String, droitRole: any): Observable<any> {
+    const data: FormData = new FormData();
+    const user = [
+      {
+        "login": login,
+        "password": password
+      }]
+    const role = [
+      {
+        "droits": droitRole,
+        "libellerole": libellerole
+      }
+    ]
+
+    data.append('user', JSON.stringify(user).slice(1, JSON.stringify(user).lastIndexOf(']')));
+    data.append('role', JSON.stringify(role).slice(1, JSON.stringify(role).lastIndexOf(']')));
+
+    return this.http.post(`${this.env.api}/admin/create/role`, data)
+    ///Delete/role/{idrole}
+  }
+
+  deleteRole(login: String, password: String, idrole: any): Observable<any> {
+    const data: FormData = new FormData();
+    const user = [
+      {
+        "login": login,
+        "password": password
+      }]
+
+
+    data.append('user', JSON.stringify(user).slice(1, JSON.stringify(user).lastIndexOf(']')));
+
+    return this.http.post(`${this.env.api}/admin/Delete/role/${idrole}`, data)
+  }
   
-      return this.http.post(`${this.env.api}/formatemail/getAll`,data)
-    }
 }

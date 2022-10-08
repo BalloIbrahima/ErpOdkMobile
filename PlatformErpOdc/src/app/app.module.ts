@@ -21,7 +21,7 @@ import { PopupdtiragePage } from './popupdtirage/popupdtirage.page';
 
 
 @NgModule({
-   declarations: [AppComponent,PopupdtiragePage],
+   declarations: [AppComponent,PopupdtiragePage,PopupNotificationPage],
   // imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
 
   imports: [FormsModule, RouterModule.forRoot([]), IonicModule.forRoot({}),

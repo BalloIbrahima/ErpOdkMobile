@@ -180,6 +180,30 @@ export class UtilisateurService {
     return this.http.post(`${this.env.api}/admin/getUsers/active`, data);  
   }
 
+  
+  //l'ensemble des personnes externes
+  readPersonEx(login :String, password:String):Observable<any>{
+   
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+
+    return this.http.post(`${this.env.api}....................`, data);  
+  }
+
+    //l'ensemble des personnes interne
+    readPersonIn(login :String, password:String):Observable<any>{
+   
+      const data:FormData=new FormData();
+      const user=[{"login":login,"password":password}]
+      data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+  
+      return this.http.post(`${this.env.api}....................`, data);  
+    }
+  
+
+    
+
   //l'esamble des users desactive
   getDesactivesUsers():Observable<any>{
     return this.http.get(`${this.env.api}/admin/getUsers/desactive`)

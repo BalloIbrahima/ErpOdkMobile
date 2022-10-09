@@ -13,6 +13,19 @@ export class TachedesignationService {
 
   constructor(private http:HttpClient) { }
 
+
+  CreateTache(login:string,password:string,taches:any){
+    const data:FormData=new FormData();
+
+    const user=[{"login":login,"password":password}]
+    
+    console.log(taches)
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+    data.append('data', JSON.stringify(taches).slice(1,JSON.stringify(taches).lastIndexOf(']')));
+    return this.http.post(`${this.env.api}/tache/creerTache`,data);
+  }
+
+
 //;;;;;;;;;;;;;;;;;;;;;;creer designation::::::::::::::::::::
 
   creerDesignation(login: String, password: String ,nom:string, etat: boolean): Observable<any> {
@@ -54,5 +67,8 @@ getEtat(){
       return this.http.post(`${this.env.api}​/designation​/Designation​/GetAll`, data);
   
       }
+
+
+
 
 }

@@ -64,11 +64,11 @@
               <div class="input mb-3">
                                 
                 <label for="inputs" class="form-label">Nom (Désignation) *</label>
-                    <select id="inputs"             name=" designations" class="form-select" aria-label="Default select exemple" name="entiteNom"  required>
-                      <!-- [(ngModel)]=" designations"  -->
+                    <select id="inputs" [(ngModel)]=" designations"    name=" designations" class="form-select" aria-label="Default select exemple" name="entiteNom"  required>
+                  
                         <option selected>Choisisez une entité</option>
-                        <!-- <option *ngFor="let desi of designations">{{desi.libelle}}</option> -->
-                        <option>AAA</option>
+                         <option *ngFor="let desi of designations">{{desi.libelle}}</option>
+                        
                     </select>
             </div> 
 
@@ -103,8 +103,9 @@
            <div class="input mb-3">
                                 
                     <label for="inputs" class="form-label">Salle *</label>
-                        <select id="inputs"   class="form-select" aria-label="Default select exemple" name="entiteNom"  required>
-                            <option selected>Choisisez une salle</option>
+                        <select id="inputs"   class="form-select" aria-label="Default select exemple" name="libelleSalle"  required>
+                           <!-- [(ngModel)]="libelleSalle"  --> 
+                          <option selected>Choisisez une salle</option>
                             <!-- <option *ngFor="let salle of salles ">  {{salle.libelle}} </option> -->
                             <option> AA </option>
 

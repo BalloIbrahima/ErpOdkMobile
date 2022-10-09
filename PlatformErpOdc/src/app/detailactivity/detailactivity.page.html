@@ -13,148 +13,100 @@
 
 
 <ion-content>
-    <!-- <div class="container py-3"> -->
-
-        <!-- <div class="title h1 text-center">Activite AAAAAAA</div> -->
-        <!-- Card Start -->
-        <!-- <div class="card">
-            <div class="row "> -->
-        <!-- Carousel start -->
-        <!-- <div class="col-md-5">
-                    <img class="img" src="../../assets/odc1.png" alt="">
-                </div> -->
-        <!-- End of carousel -->
-        <!-- <div class="col-md-7 px-3">
-                    <div class="card-block px-6">
-                        <table style="font-size:2rem;">
-                            <tr> Creer Par:
-                                <td>fffff </td>
-                            </tr>
-                            <tr> Titre:
-                                <td>fffff </td>
-                            </tr>
-                            <tr> Status:
-                                <td>fffff </td>
-                            </tr>
-                            <tr>Durée:
-                                <td>fffff </td>
-                            </tr>
-                            <tr> Lead:
-                                <td>fffff </td>
-                            </tr>
-                            <tr> Salles:
-                                <td>fffff </td>
-                            </tr>
-                        </table> -->
-        <!-- <h4 class="card-title">Horizontal Card with Carousel - Bootstrap 4 </h4>
-                        <p class="card-text">
-                            The Carousel code can be replaced with an img src, no problem. The added CSS brings shadow to the card and some adjustments to the prev/next buttons and the indicators is rounded now. As in Bootstrap 3
-                        </p>
-                        <p class="card-text">Made for usage, commonly searched for. Fork, like and use it. Just move the carousel div above the col containing the text for left alignment of images</p>
-                        <br> -->
-        <!-- 
-                    </div>
-                </div>
-
-            </div>
-        </div> -->
-        <!-- End of card -->
-        <!-- <div class="mesbouton">
-            <div class="1">
-                <button style="margin-right: 60px;margin-top: 7px;border-raduis:20px;padding: 8px 15px 8px 16px;">
-                    Importer nouvelle liste </button>
-            </div>
-            <div class="1">
-                <button style="margin-right: 60px;margin-top: 7px;border-raduis:20px;padding: 8px 15px 8px 16px;">
-                    Exporter cette liste </button>
-            </div>
-            <div class="1">
-                <button
-                    style="margin-right: 60px;margin-top: 7px;border-raduis:20px;padding: 8px 15px 8px 16px;">Ajouter
-                    participant </button>
-            </div>
-            <div class="1">
-                <button style="margin-right: 60px;margin-top: 7px;border-raduis:20px;padding: 8px 15px 8px 16px;">Taches
-                </button>
-            </div>
-
-        </div> -->
-
-    <!-- </div> -->
 
     <div class="row laLigne mx-3 my-3">
         <div class="col-lg-5 col-12 text-center">
-            <img class="img mt-1" src="../../assets/odc1.png" alt="">
+            <img class="img mt-1" src="{{image}}" alt="" id="image">
+
         </div>
         <div class="col-lg-6 col-12 colonne">
             <div  class="item-native my-3">
                 <ion-label class="titre m-3">Créer par</ion-label>
-                <ion-label class="contenu">Awesome Label</ion-label>
+                <ion-label class="contenu">{{Utilisateur.nom}} {{Utilisateur.prenom}}</ion-label>
             </div>
-            <div class="item-native my-3">
+            <div class="item-native my-3" >
                 <ion-label class="titre m-3">Titre</ion-label>
-                <ion-label class="contenu ml-5" slot="end">Awesome Label</ion-label>
+                <ion-label class="contenu ml-5" slot="end">{{nom}} </ion-label>
             </div>
             <div class="item-native my-3">
                 <ion-label class="titre m-3">Status</ion-label>
-                <ion-label class="contenu">Awesome Label</ion-label>
+                <ion-label class="contenu">{{Status}}</ion-label>
             </div>
-            <div class="item-native my-3">
+            <!-- <div class="item-native my-3">
                 <ion-label class="titre m-3">Durée</ion-label>
                 <ion-label class="contenu">Awesome Label</ion-label>
-            </div>
+            </div> -->
             <div class="item-native my-3">
                 <ion-label class="titre m-3">Lead</ion-label>
-                <ion-label class="contenu">Awesome Label</ion-label>
+                <ion-label class="contenu">{{leadnom}}  {{leadprenom}}</ion-label>
             </div>
             <div class="item-native my-3">
                 <ion-label class="titre m-3">Salle</ion-label>
-                <ion-label class="contenu">Awesome Label</ion-label>
-            </div>
+                <ion-label *ngIf="salles!=null" class="contenu">{{salles}} </ion-label>
+                <button class="btn buttonColor largerButton" type="button" *ngIf="salles==null" >Associer une salle </button>
+
+              </div>
+            <div class="item-native my-3">
+              <ion-label class="titre m-3">Date début</ion-label>
+              <ion-label class="contenu">{{dateDebut  | date: 'dd MMMM yyyy à hh:mm'}}</ion-label>
+          </div>
+          <div class="item-native my-3">
+            <ion-label class="titre m-3">Date Fin</ion-label>
+            <ion-label class="contenu">{{dateFin | date: 'dd MMMM yyyy à hh:mm'}}</ion-label>
+        </div>
 
         </div>
     </div>
     <div>
         <div class="row container">
-            
+
             <div class="col-lg-12 col-12">
               <div class="d-grid m-2 gap-2 d-md-flex">
-                <button class="btn buttonColor largerButton" type="button"> Importer nouvelle liste</button>
-                <button class="btn buttonColor largerButton" type="button" routerLink="/dashboard/nouveau-personnel"> Exporter liste</button>
-                <button class="btn buttonColor largerButton" type="button">+ &nbsp; Ajouter participant</button>
-                <button class="btn buttonColor largerButton" type="button" routerLink="/dashboard/tache-designation"> Tâche</button>  
+                <button class="btn buttonColor largerButton" type="button" [routerLink]="['/dashboard/importer-participant',idact]"> Importer  liste Participant</button>
+                <button class="btn buttonColor largerButton" type="button" (click)="exportToExcel()"> Exporter liste</button>
+                <button class="btn buttonColor largerButton" type="button" [routerLink]="['/dashboard/ajoutparticipant',idact]" >+ &nbsp; Ajouter participant</button>
+                <button class="btn buttonColor largerButton" type="button" [routerLink]="['/dashboard/tachedesignation',idact]"> Tâche</button>
+                <button class="btn buttonColor largerButton" type="button"  (click)="supprimeractivite()"> Supprimer</button>
+                <button class="btn buttonColor largerButton" type="button"  [routerLink]="['/dashboard/editactivity',idact]" > Editer</button>
+
             </div>
             </div>
           </div>
     </div>
-    <table class="table table-striped text-center mx-3">
-        <thead>
-          <tr>
-            <th scope="col">Nom</th>
-            <th scope="col">Prenom</th>
-            <th scope="col" class="hideColonne hideColonneOder">Genre</th>
-            <th scope="col">Contact</th>
-            <th scope="col" class="hideColonne hideColonneOder">Email</th>
-            <th scope="col" class="hideColonne">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let table of students | paginate: { itemsPerPage: 4, currentPage: pages}">
-            <td> {{table.name}} </td>
-            <td> {{table.prenom}} </td>
-            <td class="hideColonne hideColonneOder"> {{table.genre}} </td>
-            <td> {{table.contact}} </td>
-            <td class="hideColonne hideColonneOder"> {{table.email}} </td>
-            <td class="hideColonne"> <span class="voirPlus">voir plus</span> </td>
-          </tr>
-    
-        </tbody>
-    
-      </table>
+    <table class="table caption-top" id="season-tble" >
+      <caption>
+        <!-- <input type="number" [(ngModel)]="nombreLingne" /> -->
+        
+        <button class="btn buttonColor largerButton" type="submit" (click)="envoyernombre()">Afficher toute la liste</button>
+      </caption>
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Prenom</th>
+          <th scope="col">email</th>
+          <th scope="col">Date de naissance</th>
+          <th scope="col">Genre</th>
+          <th scope="col">Numero</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let p of postulants  | paginate: {itemsPerPage:nombreLingne1, currentPage: pages} ; let i= index">
+          <th scope="row">{{p.postulant.id}}</th>
+          <td>{{p.postulant.nom}}</td>
+          <td>{{p.postulant.prenom}}</td>
+          <td>{{p.postulant.email}}</td>
+          <td>{{p.postulant.dateNaissance}}</td>
+          <td>{{p.postulant.genre}}</td>
+          <td>{{p.postulant.numero}}</td>
+        </tr>
+
+      </tbody>
+    </table>
       <div class="position-relative">
         <div class="position-absolute top-0 end-0 mt-4">
-          <pagination-controls previousLabel="Prev" nextLabel="Next"  
-          
+          <pagination-controls previousLabel="Prev" nextLabel="Next"
             (pageChange)=" pages = $event"> </pagination-controls>
         </div>
       </div>

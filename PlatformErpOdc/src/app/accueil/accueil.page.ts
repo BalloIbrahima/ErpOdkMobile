@@ -4,6 +4,10 @@ import { AccueilserviceService } from '../services/acceuil/accueilservice.servic
 import { ActivatedRoute, Route, Router, RouterLink } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
+<<<<<<< HEAD
+=======
+import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
+>>>>>>> karimSave
 
 
 @Component({
@@ -20,6 +24,7 @@ personneActive:any;
 touteactivite:any;
 activiteEncours:any;
 activiteAvenir:any;
+<<<<<<< HEAD
 
 image = 'https://www.decome-store.fr/27073-thickbox_pbm/mini-voiture-laferrari-pour-enfant-50w.jpg'
 @ViewChild(IonSlides) slides: IonSlides;
@@ -54,11 +59,65 @@ console.log(data.data.length)
                   this.activiteAvenir=data.data;
             console.log(data.data)
                 });
+=======
+participantsTotal:any
+
+
+enCourLong:any
+aVenirLong:any
+
+participantFeminins:any
+participantEnfants:any
+
+image = 'https://www.decome-store.fr/27073-thickbox_pbm/mini-voiture-laferrari-pour-enfant-50w.jpg'
+@ViewChild(IonSlides) slides: IonSlides;
+
+  constructor(private route:ActivatedRoute,private router: Router,private service:AccueilserviceService,private userService:UtilisateurService) { }
+
+  ngOnInit() {
+    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
+      console.log(this.Utilisateur.login)
+      // ;:::::::::::total acTIVITE ::::::::::::
+      this.service.GetActviteTotal(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+      // ;:::::::::::total acTIVITE ::::::::::::
+            this.totalactivite=data.data;
+            console.log(data)
+    });
+
+    //!::::::::::::total perso ::::::::::::
+    this.userService.getActivesUsers(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+      this.personneActive=data.data.length;
+    console.log(data.data)
+    });
+
+    //!::::::::::::total perso ::::::::::::
+    this.service.GetParticipantTotal(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+      this.participantsTotal=data.data.length;
+    console.log(data.data)
+    });
+
+    //::::::::::::::: ::::::::::::::::::Activite en cour ::::::::::::::
+    this.service.GetActiviteEncour(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+      this.activiteEncours=data.data;
+      this.enCourLong=data.data.length;
+      console.log(data.data)
+    });
+
+
+    //::::::::::::::: ::::::::::::::::::Activite avenir ::::::::::::::
+    this.service.GetActiviteAvenir(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+      this.activiteAvenir=data.data;
+      this.aVenirLong=data.data.length;
+
+      console.log(data.data)
+  });
+>>>>>>> karimSave
 
 
 
 
     //TOUTES LES ACTIVITES :::::::::::::::::::::
+<<<<<<< HEAD
     this.service.GetToutesActivites(this.Utilisateur.id).subscribe(data=>{
       this.touteactivite=data.data;
 console.log(this.touteactivite)
@@ -77,6 +136,29 @@ console.log(data)
 
 
   
+=======
+    this.service.GetToutesActivites(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+      this.touteactivite=data.data;
+      console.log(this.touteactivite)
+    });
+
+    this.service.GetParticipantTotal(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+      this.totlapostulant=data.data;
+      console.log(data)
+    });
+
+    this.service.participantEnfants(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+      this.participantEnfants=data.data.length;
+      console.log(data)
+    });
+
+    this.service.participantFeminins(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+      this.participantFeminins=data.data.length;
+      console.log(data)
+    });
+
+     
+>>>>>>> karimSave
   }
 
   slideOpts = {
@@ -85,6 +167,7 @@ console.log(data)
 
   change():any{
     
+<<<<<<< HEAD
   var
   carousel = document.querySelector('.carousel'),
   figure = carousel.querySelector('figure'),
@@ -114,6 +197,37 @@ console.log(data)
   
   figure.style.transform = `rotateY(${currImage * -theta}rad)`;
   }
+=======
+    var
+    carousel = document.querySelector('.carousel'),
+    figure = carousel.querySelector('figure'),
+    nav = carousel.querySelector('nav'),
+    numImages = figure.childElementCount,
+    theta =  2 * Math.PI / numImages,
+    currImage = 0;
+    
+    nav.addEventListener('click', onClick, true);
+    
+    function onClick(e) {
+      e.stopPropagation();
+    
+      var t = e.target;
+    
+    
+    if (t.tagName.toUpperCase() != 'BUTTON')
+    return;
+    
+    if (t.classList.contains('suiv')) {
+      currImage++;
+    }
+    else if(t.classList.contains('pre')) {
+      currImage--;
+    }
+    
+    
+    figure.style.transform = `rotateY(${currImage * -theta}rad)`;
+    }
+>>>>>>> karimSave
   }
 
 

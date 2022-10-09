@@ -1,48 +1,66 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Liste de tache</ion-title>
-    <ion-button slot="end" fill="clear">
-      <app-cloche></app-cloche>
-
-    </ion-button>
-  </ion-toolbar>
-</ion-header>
-
-
-<ion-content>
-  <div class="liste">
-
-    <ion-grid class="ion-margin text-center tailleTexte">
-        <ion-row class="tableEntete ">
-            <ion-col>Nom</ion-col>
-            <ion-col>Prenom</ion-col>
-            <ion-col class="cacherCole">Genre</ion-col>
-            <ion-col>Contact</ion-col>
-            <ion-col class="cacherCole">Email</ion-col>
-            <ion-col>Presence</ion-col>
-        </ion-row>
-        <ion-row *ngFor="let student of students; index as i">
-
-            <ion-col>{{ student.name }}</ion-col>
-            <ion-col>{{ student.prenom }}</ion-col>
-            <ion-col class="cacherCole">{{ student.genre }}</ion-col>
-            <ion-col>{{student.contact}}</ion-col>
-            <ion-col class="cacherCole">{{ student.email }}</ion-col>
-            <ion-col>
-                <ion-icon name="checkmark-circle-outline"></ion-icon>
-                <ion-icon name="close-circle-outline"></ion-icon>
-            </ion-col>
-
-        </ion-row>
-        <div class="position-relative">
-            <div class="position-absolute top-0 end-0 mt-4">
-                <pagination-controls (pageChange)="a = $event" nextLabel="Suivants" previousLabel="Précédents"></pagination-controls>
-            </div>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Liste des tâches</ion-title>
+      <ion-button slot="end" fill="clear">
+        <app-cloche></app-cloche>
+  
+      </ion-button>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  
+  
+   
+    <!-- <div class="header">
+   -->
+  
+      <!-- <div class="headerContent">
+      
+        <button  class="tache" routerLink="">Ajouter tâche</button>
+      </div>
+    </div> -->
+   
+    <div class="container">
+        <div> 
+            <button  class="tache" [routerLink]="['/dashboard/creertachesdesignation',id]">Ajouter tâche</button>
         </div>
-        <!-- <div class="pagibottom" style="margin-left: 200px;"></div> -->
-    </ion-grid>
-</div>
-</ion-content>
+        <table class="table table-striped"  >
+            <thead class="thead entete" >
+              <tr>
+                <th>Désignation</th>
+                <th>Réalisateur</th>
+                <th>Lieu</th>
+                <th>Statut</th>
+                <th>Date début</th>
+                <th>Date fin</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let tache of taches">
+              <tr >
+                <td>{{tache.designation.libelle}}</td>
+                <td>{{tache.porteur}}</td>
+                <td>{{tache.lieu}}</td>
+                <td>{{tache.statut.libelle}}</td>
+                <td>{{tache.datedebut}}</td>
+                <td>{{tache.datefin}}</td>
+              </tr>    
+              </tbody>
+          </table>
+        </div>
+    
+  
+
+    <!-- <div class="header">
+  
+      <div class="headerContent">
+        <button  class="filtre2" ><i class="fa fa-download" aria-hidden="true"></i> Télécharger </button>
+        <pagination-controls (pageChange)="a = $event" nextLabel="Suivants" previousLabel="Précédents" ></pagination-controls>
+  
+      </div>
+    </div>  -->
+
+  </ion-content>

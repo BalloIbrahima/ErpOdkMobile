@@ -1,7 +1,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <!-- <ion-header>
 =======
+=======
+>>>>>>> karimSave
 <ion-header>
 >>>>>>> ecdf15815f04f572f8ef42c088fb51d14b144ad0
   <ion-toolbar>
@@ -64,26 +67,31 @@
       </div>-->
 =======
     <ion-title>Accueil</ion-title>
+    <!-- <ion-buttons slot="end">
+      <img [src]="imag" />
+    </ion-buttons> -->
   </ion-toolbar>
 </ion-header>
 <ion-content>
+  <ion-button id="open-modal" expand="block">Open Card Modal</ion-button>
 
-  <div class="row">
+  <ion-modal #modal trigger="open-modal">
+    <ng-template>
+      <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-end">
+        <ion-buttons slot="end">
+          <ion-button (click)="modal.dismiss()">Close</ion-button>
+        </ion-buttons>
+      </div>
+      <ion-content>
 
-
-    <div class=" col-sm-3 col-md-3 col-6 ">
-      <ion-card class="rou">
-        <ion-card-header>
-          <ion-card-title class="text-center">Card Title</ion-card-title>
-          <div class="text-center image">
-            <img class="img" src="../../assets/inconnu.png" alt="" srcset="">
-            <ion-card-subtitle class="rou1 text-center">Card Title</ion-card-subtitle>
+        <div class="text-center">
+          <div class="text">
+            Liste Importée avec succès !
           </div>
-          <div class="icon text-center">
-            <img class="imageIcon" src="../../assets/icon/hypermetropie.png" alt="" srcset="">
-            <img class="imageIcon" src="../../assets/icon/modifier-le-fichier.png" alt="" srcset="">
-            <img class="imageIcon" src="../../assets/icon/supprimer.png" alt="" srcset="">
+          <div class="text">
+            Choissisez une action:
           </div>
+<<<<<<< HEAD
         </ion-card-header>
 
         <ion-card-content>
@@ -159,4 +167,19 @@
 >>>>>>> ecdf15815f04f572f8ef42c088fb51d14b144ad0
 >>>>>>> karimSave
 =======
+>>>>>>> karimSave
+=======
+        </div>
+        <div class="row mx-5 m-2">
+          <div class="col">
+            <button type="button" class="btn colorbutton1 btn-sm">Small button</button>
+          </div>
+          <div class="col">
+            <button type="button" class="btn colorbutton2 btn-sm">Small button</button>
+          </div>
+          <div class="col">
+            <button type="button" class="btn colorbutton3 btn-sm">Small button</button>
+          </div>
+        </div>
+</ion-content>
 >>>>>>> karimSave

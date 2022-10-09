@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
@@ -12,6 +13,16 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'accueil',
+=======
+import { NgModule } from '@angular/core';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AcceuilGuard } from './guard/acceuil/acceuil.guard';
+
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'dashboard',
+>>>>>>> karimSave
     pathMatch: 'full'
   },
   {
@@ -19,6 +30,7 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
+<<<<<<< HEAD
     path: 'personnels',
     loadChildren: () => import('./personnel/personnel.module').then( m => m.PersonnelPageModule)
   },
@@ -88,23 +100,28 @@ export class AppRoutingModule { }
   },
 
   {
+=======
+>>>>>>> karimSave
     path: 'dashboard',
     loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule),
-    canActivate: [AcceuilGuard] 
+    canActivate: [AcceuilGuard]
   },
   {
-    path: 'forgotpassword',
+    path: 'forgotpassword/:code',
     loadChildren: () => import('./forgotpassword/forgotpassword.module').then( m => m.ForgotpasswordPageModule)
   },
+
   {
     path: 'forgotpassword1',
     loadChildren: () => import('./forgetpassword1/forgetpassword1.module').then( m => m.Forgetpassword1PageModule)
+<<<<<<< HEAD
   },
 
 
+=======
+  }
+>>>>>>> karimSave
 ];
-
-
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
@@ -112,6 +129,9 @@ export class AppRoutingModule { }
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
+
 // import { NgModule } from '@angular/core';
 // import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -142,5 +162,48 @@ export class AppRoutingModule { }
 //   ],
 //   exports: [RouterModule]
 // })
+
+<<<<<<< HEAD
+>>>>>>> karimSave
+=======
+
+
+
+
+
+
+// import { NgModule } from '@angular/core';
+// import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+
+// const routes: Routes = [
+//   {
+//     path: 'home',
+//     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+//   },
+//   {
+//     path: '',
+//     redirectTo: 'home',
+//     pathMatch: 'full'
+//   },
+//   {
+//     path: 'login',
+//     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+//   },
+//   {
+//     path: 'activite',
+//     loadChildren: () => import('./activite/activite.module').then( m => m.ActivitePageModule)
+//   },
+
+// ];
+
+// @NgModule({
+//   imports: [
+//     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+//   ],
+//   exports: [RouterModule]
+// })
+
+
+
 
 >>>>>>> karimSave

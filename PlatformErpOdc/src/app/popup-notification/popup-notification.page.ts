@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PopoverController } from '@ionic/angular';
+import { NotificationService } from '../services/notification/notification.service';
 
 @Component({
   selector: 'app-popup-notification',
@@ -7,38 +9,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PopupNotificationPage implements OnInit {
   p:number = 1;
-  constructor() { }
-  salleactivites=[
-    {
-      user:"Fatoumata Kalogo",
-      activite:"activité",
-    },
-    {
-      user:"Fatoumata Kalogo",
-      activite:"activité",
-    },
-    {
-      user:"Fatoumata Kalogo",
-      activite:"activité",
-    },
-    {
-      user:"Fatoumata Kalogo",
-      activite:"activité",
-    },
-    {
-      user:"Fatoumata Kalogo",
-      activite:"activité",
-    },
-    {
-      user:"Fatoumata Kalogo",
-      activite:"activité",
-    },
-  ]
+  Utilisateur: any;
+  notif: any;
+  notifTotal: any;
+  constructor(private popoverCtrl:PopoverController,private notificationService:NotificationService) { }
+  // salleactivites=[
+  //   {
+  //     user:"Fatoumata Kalogo",
+  //     activite:"activité",
+  //   },
+  //   {
+  //     user:"Fatoumata Kalogo",
+  //     activite:"activité",
+  //   },
+  //   {
+  //     user:"Fatoumata Kalogo",
+  //     activite:"activité",
+  //   },
+  //   {
+  //     user:"Fatoumata Kalogo",
+  //     activite:"activité",
+  //   },
+  //   {
+  //     user:"Fatoumata Kalogo",
+  //     activite:"activité",
+  //   },
+  //   {
+  //     user:"Fatoumata Kalogo",
+  //     activite:"activité",
+  //   },
+  // ]
   close(){
-
+    this.popoverCtrl.dismiss()
   }
 
   ngOnInit() {
+    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
+    
+    this.notificationService.GetAllNotif(this.Utilisateur.login, this.Utilisateur.password).subscribe(data=>{
+          this.notif=data.data;
+          console.log("data notif"+ this.notif)
+          this.notifTotal=data.data.length
+          console.log("data notif"+ this.notif)
+        })
   }
 
 }

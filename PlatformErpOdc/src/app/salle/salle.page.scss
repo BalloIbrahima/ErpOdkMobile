@@ -23,21 +23,27 @@
 .ajout{
     color: white;
     background: #FF7900;
+    box-shadow: none;
     
     width: 15%;
     // cursor: pointer;
     font-weight: 900;
-    box-shadow: 2px 2px 2px #cbced1, -6px -6px 6px white;
-     border: 2px solid #FF7900;     
+    // box-shadow: 2px 2px 2px #cbced1, -6px -6px 6px white;
+     border: 1px solid #FF7900;     
      margin-top: 2%;
      margin-bottom: 2%;
-    border-radius: 15px;
+    border-radius: 10px;
 
   }
   .ajout:hover{
-    border: 2px solid #FF7900 !important;
+    font-weight: 900;
+    width: 15%;
+    border: 1px solid #FF7900 !important;
     color: #FF7900 !important;
     background: white !important;  
+    box-shadow: none;
+    margin-bottom: 2%;
+    border-radius: 10px;
   }
 
 
@@ -46,10 +52,10 @@
     .ajout{
         color: white;
         background: #FF7900;
-        width: 28%;
+        width: 35%;
         // cursor: pointer;
         font-weight: 900;
-        box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+        // box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
          border: 2px solid #FF7900;     
          margin-top: 2%;
          margin-bottom: 2%;
@@ -109,13 +115,21 @@ margin-bottom: 50px;
 
 }
 
-
-
-
-
-
-
-
+a:hover{
+  cursor: pointer;
+}
+.swal2-title {
+  position: relative;
+  max-width: 100%;
+  margin: 0;
+  padding: .8em 1em 0;
+  color: inherit;
+  font-size: 1rem !important;
+  font-weight: 600;
+  text-align: center;
+  text-transform: none;
+  word-wrap: break-word;
+}
 
 
 

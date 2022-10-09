@@ -13,7 +13,7 @@
 <ion-content>
   <div class="container">
      
-      <div class="pag" *ngFor= "let salleactivite of  salleactivites let index =index">
+      <div class="pag" *ngFor= "let n of  notif let index =index">
      
       <div class="card float-left">
           <div class="row">
@@ -22,11 +22,11 @@
               </div>
               <div class="col-7">
                   <div class="card-block">
-                      <h6>{{salleactivite.user}}</h6> 
+                      <h6>{{n.user}}</h6> 
 
                       <div class="statutbtn">
-                        <span>a crée </span>
-                          <div class="act-nom">{{salleactivite.activite}}</div>
+                        
+                          <div class="act-nom">a crée <span>{{n.activite}}</span></div>
                       </div>
                   </div>
               </div>

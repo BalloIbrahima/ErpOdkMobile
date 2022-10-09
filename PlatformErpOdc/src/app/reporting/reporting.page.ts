@@ -41,6 +41,15 @@ export class ReportingPage implements OnInit {
     console.log(this.entiteselect)
     console.log(this.datedebut)
     console.log(this.datefin)
+    this.serviceactivite.getFiltre(this.utilisateur.login, this.utilisateur.password, this.nomactivite, this.typeactivite, this.entiteselect, this.datedebut, this.datefin).subscribe({
+      next: reponse => {
+        this.activites = reponse.data;
+        console.log(this.activites)
+      },
+      error: reponse => {
+        alert(reponse)
+      }
+    })
   }
 
 }

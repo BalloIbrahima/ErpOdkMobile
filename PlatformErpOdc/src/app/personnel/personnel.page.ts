@@ -80,7 +80,6 @@ export class PersonnelPage implements OnInit {
     
   }
 
-
   //Filtrage fonction
   filtrebyentity(){
        //recuperation de l'id l'entite

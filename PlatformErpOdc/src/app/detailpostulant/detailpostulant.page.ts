@@ -41,6 +41,8 @@ export class DetailpostulantPage implements OnInit {
   EntiteSelectionner: any;
   domaine: any;
   image1: any;
+  idEntite: any;
+  idRole: any;
 
   constructor(private alertController : AlertController,private modalController:ModalController,private entiteService:EntiteService,private roleservice:RoleService,private userService:UtilisateurService,
     private router: Router, private route:ActivatedRoute) { }
@@ -98,6 +100,7 @@ export class DetailpostulantPage implements OnInit {
         this.image = this.users.image
         this.nomEntite = this.users.monEntite.libelleentite
         this.statusUser = this.users.role.libellerole
+
       })
 
     }
@@ -107,12 +110,12 @@ export class DetailpostulantPage implements OnInit {
     //Methode de update du personnel
     UpdateUser(){
       for(let i=0; i<this.Roles.length;i++){
-        if(this.Roles[i].libellerole==this.role){
+        if(this.Roles[i].libellerole==this.idRole){
           this.RoleSelectionner=this.Roles[i]
         }
       }
       for(let i=0; i<this.Entites.length;i++){
-        if(this.Entites[i].libelleentite==this.entite){
+        if(this.Entites[i].libelleentite==this.idEntite){
           this.EntiteSelectionner=this.Entites[i]
         }
       }

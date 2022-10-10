@@ -29,9 +29,9 @@
               <input type="text" class="form-control" [(ngModel)]="email" name="email" placeholder="loremipsun" id="inp" required>
               <!-- <span class="input-group-text" aria-label="fin de mail">@orangemali.com</span> -->
               <div style="width: 270px;">
-                <select name="tchoixsalle" class="mailmodel" class="form-control" [(ngModel)]="domaine" name="domaine">
-                  <option >--Choisisez un domaine--</option>
-                  <option *ngFor="let domaine of formatMail" >{{domaine.libelle}}</option>
+                <select name="domaine" class="mailmodel" class="form-control" [(ngModel)]="domaine">
+                  <option selected>--Choisisez un domaine--</option>
+                  <option *ngFor="let d of formatMail" >{{d.libelle}}</option>
                   <!-- <option value="">@orangefablab.com</option>
                   <option value="">@orangemali.com</option>
                   <option value="">@orangedigitalcenter.com</option> -->

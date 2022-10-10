@@ -128,7 +128,7 @@
               <div class="input-box">
                 <span class="details">Email *</span>
                 <div class="mail">
-                  <input type="email" name="email" [(ngModel)]="email" placeholder="loremipsun" id="inp" [value]="email" required>
+                  <input type="email" name="email" [(ngModel)]="email" placeholder="loremipsun" id="inp" [value]="email.split('@orangemali.com')" required>
                   <div style="width: 270px;">
                   <select name="domaine" [(ngModel)]="domaine" class="mailmodel" required>
                     <option >--Choisisez un domaine--</option>
@@ -165,15 +165,15 @@
              </div> -->
               <div class="input-box">
                   <span class="details">Entité *</span>
-                  <select name="entite" [(ngModel)]="entite" class="select"  required>
-                    <option >--Choisisez une entité--</option>
+                  <select name="idEntite" [(ngModel)]="entite" class="select"  required>
+                    <option selected>--Choisisez une entité--</option>
                     <option *ngFor="let entite of Entites" >{{entite.libelleentite}}</option>
                   </select>
               </div>
               <div class="input-box">
                 <span class="details">Votre genre </span>
-                <select name="genre" [(ngModel)]="genre" class="select" required>
-                  <option value="">--Votre genre--</option>
+                <select name="idGenre" [(ngModel)]="genre" class="select" required>
+                  <option selected>--Votre genre--</option>
                   <option >Masculin</option>
                     <option >Feminin</option>
                 </select>
@@ -184,8 +184,8 @@
             </div>
             <div class="input-box">
               <span class="details">Rôle *</span>
-              <select name="role" [(ngModel)]="role" class="select" required >
-                <option value="">--Choisisez un role--</option>
+              <select name="idRole" [(ngModel)]="role" class="select" required >
+                <option selected>--Choisisez un role--</option>
                 <option *ngFor="let r of Roles" >{{r.libellerole}}</option>
               </select>
           </div>

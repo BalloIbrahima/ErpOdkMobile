@@ -31,6 +31,7 @@ export class NouveaupersonnelPage implements OnInit {
   RoleSelectionner:any;
 
   Genre: number;
+  formatMailSelectionner: any;
 
   constructor(private router: Router, private alertController : AlertController,private entiteService:EntiteService,private roleservice:RoleService,private userService:UtilisateurService) { }
 
@@ -130,8 +131,14 @@ export class NouveaupersonnelPage implements OnInit {
         this.RoleSelectionner=this.Roles[i]
       }
     }
+    for(let i=0; i<this.formatMail.length;i++){
+      if(this.formatMail[i].libelle==this.domaine){
+        this.formatMailSelectionner=this.formatMail[i]
+      }
+    }
     console.log(this.RoleSelectionner)
     console.log(this.EntiteSelectioner)
+    console.log(this.formatMailSelectionner)
    
     if(this.genre == 'Masculin')
     {

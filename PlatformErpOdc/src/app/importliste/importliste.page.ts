@@ -4,15 +4,6 @@ import Swal from 'sweetalert2';
 import { ImporterListeparticipantPage } from '../importer-listeparticipant/importer-listeparticipant.page';
 import { ActiviteService } from '../services/activite/activite.service';
 import { ListeService } from '../services/listes/liste.service';
-// import Swal from 'sweetalert2';
-// /*importer HttpClient*/
-// import { HttpClient } from '@angular/common/http';
-// /*importer le service*/
-// import { ImporterPostulantService } from '../importer-postulant.service';
-// /*importer le model*/
-// import { Liste } from '../liste';
-// /*importer les formgroup etc*/
-// import { FormGroup, FormBuilder, FormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-importliste',
@@ -26,55 +17,49 @@ export class ImportlistePage implements OnInit {
   idactivite:any;
   activiteselect: any;
   listeactivite : any;
-constructor(private serviceliste : ListeService, private route : Router,private liste : ActiviteService){}
+constructor(private serviceliste : ListeService, private route : Router){}
   succesImport() {
-  //   Swal.fire({'Félicitations ...', 'Fichier importer avec succès !', 'success',
-  // });
     Swal.fire({
-       position:'center',
-       title: 'Liste importée avec succès !\nChoisissez une action :',
+       title: 'Liste importée avec succès !',
+       text : 'Choisissez une action :',
        showDenyButton: true,
-       showCancelButton: true,
-       confirmButtonText: 'Voir la liste',
-       denyButtonText: `Faire tirage`,
+       showCloseButton: true,
+       showCancelButton: false,
+       closeButtonAriaLabel: 'Fermer',
+       denyButtonText: 'Faire un tirage',
        denyButtonColor:'green',
-       cancelButtonText: 'Annuler',
-       cancelButtonColor:'red',
        heightAuto: false,
      }).then((result) => {
        /* Read more about isConfirmed, isDenied below */
        if (result.isConfirmed) {
-         //Swal.fire('Saved!', '', 'success');
-        
+         
        } else if (result.isDenied) {
          //Swal.fire('Changes are not saved', '', 'info');
-         this.route.navigate(['tirage'])
+         this.route.navigate(['/dashboard/tirage'])
        }
      });
   }
 
-  // formgroup: FormGroup;
-  // liste: Liste;
-  // file: any;
-
-
-  /*le declarrer ou instencier dans le controleur: HttpClient; le service; le formBuilder*/
-  // constructor(public http: HttpClient, private importliste: ImporterPostulantService, private formbuilder: FormBuilder ) { }
+  errorImport(message : any) {
+    Swal.fire({
+       title: 'Erreur !',
+       text : message,
+       showDenyButton: false,
+       showCloseButton: true,
+       showCancelButton: false,
+       closeButtonAriaLabel: 'Fermer',
+       heightAuto: false,
+     });
+  }
 
   ngOnInit() {
 
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) ;
 
-    this.liste.GetTtActivite(this.Utilisateur.login, this.Utilisateur.password).subscribe(chemin=>{
+    this.serviceliste.getAllactivite(this.Utilisateur.login, this.Utilisateur.password).subscribe(chemin=>{
       this.listeactivite = chemin.data
-      console.log("afficher tous "+chemin)
+      console.log(chemin.data)
     })
-
-    // this.formgroup = this.formbuilder.group({
-    //   libelle:['',Validators.required],
-    //   dateimport:['', Validators.required],
-    //   file:['', Validators.required],
-    // })
   }
 
   televerser(event : any){
@@ -88,35 +73,23 @@ constructor(private serviceliste : ListeService, private route : Router,private 
         console.log(this.activiteselect)
       }
     }
-    const requete = this.serviceliste.importerListePostulant(this.name, this.fichier, this.Utilisateur.login, this.Utilisateur.password);
-    requete.subscribe({
+    const requete = this.serviceliste.importerListePostulant(this.name, this.activiteselect.id, this.fichier, this.Utilisateur.login, this.Utilisateur.password);
+      requete.subscribe({
       next: reponse => {
         console.log(reponse)
         if(reponse.message == "ok") {
           this.succesImport()
         }
         if(reponse.message == "error") {
-          alert(reponse.data)
+          this.errorImport(reponse.message)
         }
         
       },
       error: reponse => {
-        alert("Erreur inconnu " + reponse.message)
+        this.errorImport(reponse)
       }
     });
+    
   }
-
-  // filechange(fch:any){
-  //   this.file=fch.target["files"][0]
-  // }
-
-  // addListe(){
-  //   this.liste=this.formgroup.value
-  //   this.importliste.ImportListe(this.liste.libelle, this.file).subscribe(
-  //     data=>{
-  //       this.formgroup.reset()
-  //     }
-  //   )
-  // }
 
 }

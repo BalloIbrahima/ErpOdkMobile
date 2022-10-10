@@ -18,21 +18,17 @@ const routes: Routes = [
     canActivate: [AcceuilGuard]
   },
   {
-    path: 'forgotpassword',
+    path: 'forgotpassword/:code',
     loadChildren: () => import('./forgotpassword/forgotpassword.module').then( m => m.ForgotpasswordPageModule)
   },
-  
+
   {
     path: 'forgotpassword1',
     loadChildren: () => import('./forgetpassword1/forgetpassword1.module').then( m => m.Forgetpassword1PageModule)
-  },
-
-  {
-    path: 'popupdtirage/:id',
-    loadChildren: () => import('./popup-notification/popup-notification-routing.module').then( m => m.PopupNotificationPageRoutingModule)
-  },
-
-
+  },  {
+    path: 'detail-taches',
+    loadChildren: () => import('./detail-taches/detail-taches.module').then( m => m.DetailTachesPageModule)
+  }
 
 ];
 @NgModule({
@@ -75,6 +71,44 @@ export class AppRoutingModule { }
 //   ],
 //   exports: [RouterModule]
 // })
+
+
+
+
+
+
+
+// import { NgModule } from '@angular/core';
+// import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+
+// const routes: Routes = [
+//   {
+//     path: 'home',
+//     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+//   },
+//   {
+//     path: '',
+//     redirectTo: 'home',
+//     pathMatch: 'full'
+//   },
+//   {
+//     path: 'login',
+//     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+//   },
+//   {
+//     path: 'activite',
+//     loadChildren: () => import('./activite/activite.module').then( m => m.ActivitePageModule)
+//   },
+
+// ];
+
+// @NgModule({
+//   imports: [
+//     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+//   ],
+//   exports: [RouterModule]
+// })
+
 
 
 

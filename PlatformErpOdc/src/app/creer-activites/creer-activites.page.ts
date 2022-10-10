@@ -8,6 +8,7 @@ import { EntiteService } from '../services/entite/entite.service';
 import { SalleServiceService } from '../services/salles/salle-service.service';
 import { TypeActiviteService } from '../services/typeActivite/type-activite.service';
 import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-creer-activites',
@@ -17,7 +18,7 @@ import { UtilisateurService } from '../services/utilisateur/utilisateur.service'
 export class CreerActivitesPage implements OnInit {
 
  //////////variables qui recuperent les data
- 
+
  Entites:any;
  TypesActivites:any;
  SallesDisponibles:any;
@@ -27,21 +28,26 @@ export class CreerActivitesPage implements OnInit {
   typeentite:any;
   nomActivite:any;
   duree:any;
-  date:Date;
-  datedebut:Date;
-  dateFin:Date;
+  date:any;
+  datedebut:any;
+  dateFin:any;
   typeactivite:String;
   libellesalle:String;
-  leadNomPrenom:String;
+  leadNomPrenom:any;
   salles:any;
   description:any;
   image:any;
+   externes:any;
 
 
 
 
+   FormateursInternes:any;
+   FormateursExternes:any;
 
-  
+  //  FormateursUsers:any;
+  //  FormateursExters:any;
+
   message:String;
   erreur:Boolean;
   fichier:any
@@ -50,11 +56,11 @@ export class CreerActivitesPage implements OnInit {
   Type:any;
   lead:any;
   Utilisateur:any;
+  utilisateurs:any
   constructor(private router:Router, private salleService:SalleServiceService,private userService:UtilisateurService,private typeActiviteService:TypeActiviteService,
     private activiteService:ActiviteService, private http:HttpClient,
-   private entiteService:EntiteService,
-   private alertController : AlertController) { }
- 
+   private entiteService:EntiteService) { }
+
   ngOnInit() {
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'))
 
@@ -64,6 +70,7 @@ export class CreerActivitesPage implements OnInit {
         this.SallesDisponibles=r.data
         console.log(this.SallesDisponibles)
       })
+
 
     this.typeActiviteService.getListe(this.Utilisateur.login,this.Utilisateur.password).subscribe(r=>{
       if(r.message=='ok'){
@@ -86,7 +93,12 @@ export class CreerActivitesPage implements OnInit {
       console.log(this.PersonnelsActives)
     })
 
-   
+    this.userService.getActivesUsers(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour=>{
+      this.utilisateurs=retour.data
+      console.log(this.utilisateurs)
+    })
+
+
     this.entiteService.getAllEntites(this.Utilisateur.login,this.Utilisateur.password).subscribe(r=>{
       if(r.message=='ok'){
         this.Entites=r.data
@@ -95,44 +107,93 @@ export class CreerActivitesPage implements OnInit {
       }
     })
 
-
+    this.activiteService.getpersonnelsexternes(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour=>{
+      this.externes=retour.data
+      console.log(this.externes)
+    })
 
 
   }
 
   async presentAlert() {
-    const alert = await this.alertController.create({
-      header: 'Validé!!!',
-      subHeader: 'Activité créée avec Succès!!',
+    Swal.fire({
+      title:'Validé!!!',
+      text:'Activité créée avec Succès!!',
+      icon:'success',
+      heightAuto: false,
+      confirmButtonColor:"#FF7900"
+  }).then(()=>{
 
-      buttons: ['OK'],
-    });
-
-    await alert.present();
+    this.router.navigate(["/dashboard/allactivity"]);
+  });
   }
   async notpresent() {
-    const alert = await this.alertController.create({
-      header: 'Activité non créée!!!',
-      subHeader: 'veuillez réessayer!!',
-
-      buttons: ['OK'],
-    });
-
-    await alert.present();
+    Swal.fire({
+      title:'Désolé!!!\nActivité non créée',
+      text:'Veuillez réessayer',
+      icon:'error',
+      heightAuto: false,
+      confirmButtonColor:"#FF7900"
+  });
   }
 
   CreerActivite(){
-    
+
     var idSalle=null;
     var idType=null;
-    //recuperation de l'id dela salle
-    for(let i=0 ; i<this.SallesDisponibles.length; i++){
+    var identity=null;
+    var iduser=0;
+    var idintervenant=null;
+
+
+    var FormateursUsers=[];
+    var FormateursExters=[]
+    console.log(this.FormateursExternes)
+    console.log(this.FormateursInternes)
+
+    for(let i=0;i<this.FormateursInternes.length;i++){
+      const array=this.FormateursInternes[i].split(" ")
+
+      for(let j=0 ; j<this.PersonnelsActives.length; j++){
+
+        if(this.PersonnelsActives[j].nom==array[0] && this.PersonnelsActives[j].prenom==array[1]){
+          console.log(this.PersonnelsActives[j])
+
+          FormateursUsers.push(this.PersonnelsActives[j])
+        }
+      }
+      
+    }
+
+    for(let i=0;i<this.FormateursExternes.length;i++){
+      const array=this.FormateursExternes[i].split(" ")
+
+      for(let j=0 ; j<this.externes.length; j++){
+        if(this.externes[j].nom==array[0] && this.externes[j].prenom==array[1]){
+          console.log(this.externes[j])
+          FormateursExters.push(this.externes[j])
+        }
+      }
+      
+    }
+
+
+    console.log(FormateursUsers)
+    console.log(FormateursExters)
+    //recuperation de l'id l'entite
+    for(let i=0 ; i<this.Entites.length; i++){
+      if(this.Entites[i].libelleentite==this.typeactivite){
+        identity=this.Entites[i]
+      }
+    }
+     //recuperation de l'id dela salle
+     for(let i=0 ; i<this.SallesDisponibles.length; i++){
       if(this.SallesDisponibles[i].libelle==this.libellesalle){
         idSalle=this.SallesDisponibles[i]
       }
     }
 
-  
+
     //recuperation de l'id du type de l'activite
     for(let i=0 ; i<this.TypesActivites.length; i++){
       if(this.TypesActivites[i].libelle==this.typeactivite){
@@ -145,28 +206,34 @@ export class CreerActivitesPage implements OnInit {
       console.log(this.leadNomPrenom)
       const array=this.leadNomPrenom.split(" ")
 
-      if(this.PersonnelsActives[i].prenom==array[0] && this.PersonnelsActives[i].nom==array[1]){   
+      if(this.PersonnelsActives[i].nom==array[0] && this.PersonnelsActives[i].prenom==array[1]){
         this.lead=this.PersonnelsActives[i]
       }
     }
+    
 
-    //creation de l'activite
+    //creation de l'activite il manque lentite concernée dans la bdd//affaire de salles dispo a ala creation de lactivite
+    //fitrage par statut et entity ne fonctionne pas en bdd 3 get deja fait
+    //pour une entite recuperer tout les activites en fonction de identite (page detail entite)
+    //avant la suppression afficher un message por expliquer la suppression
     var activite=[{
       "nom":this.nomActivite,
       "dateDebut":this.datedebut,
       "dateFin":this.dateFin,
       "description":this.description,
       "leader":this.lead,
-      //"utilisateurs":[this.lead],
+      "utilisateurs":FormateursUsers,
       "salle":idSalle,
-      "typeActivite":idType
+      "typeActivite":idType,
+      "intervenantExternes":FormateursExters
     }]
-    
 
-    
-    this.activiteService.Creer(this.Utilisateur.login,this.Utilisateur.password,idSalle,idType,this.fichier,activite).subscribe(data=>{
+
+    this.activiteService.Creer(this.Utilisateur.login,this.Utilisateur.password,this.fichier,activite).subscribe(data=>{
       console.log(data)
-      this.presentAlert()
+      if(data.message="ok"){
+        this.presentAlert()
+      }
     })
   }
 
@@ -181,7 +248,7 @@ export class CreerActivitesPage implements OnInit {
 
               //verification du type de fichier choisi pour recaler si ce n'est pas une photo
               var typeFichier=e.target.files[0].type;
-              
+
 
 
 
@@ -197,26 +264,6 @@ export class CreerActivitesPage implements OnInit {
             }
 
 
-  
-
-  ////
-  // ActiviteChange(){
-  //   console.log(this.typeactivite)
-  //   if(this.typeactivite=="Talk"){
-  //     this.isTalk==true
-  //     this.isEvenement==false
-  //     this.isFormation==false
-  //   }else if(this.typeactivite=="Evenement"){
-  //     this.isTalk==false
-  //     this.isEvenement==true
-  //     this.isFormation==false
-  //   }else if(this.typeactivite=="Formations"){
-  //     this.isTalk==false
-  //     this.isEvenement==false
-  //     this.isFormation==true
-  //   }
-  // }
-
 
 }
-  
+

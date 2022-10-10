@@ -45,13 +45,13 @@
                 </div>
             </div>
 
-            <div class="listeList">
-                <div id="list" class="col" *ngFor="let l of totallist | paginate: { itemsPerPage: 10, currentPage: p} " >
+            <div class="listeList" >
+                <div id="list"  (click)="goDetailTirage(l.id)" class="col" *ngFor="let l of totallist | paginate: { itemsPerPage: 10, currentPage: p} " >
                     <div class="row">
                         <img src="../../assets/listetof1.png" alt="" style="width: 100px ;" >
                     </div>
                     <div class="row">
-                        <label id="libelleListe" (click)="goDetailTirage(l.id)"  >{{l.libelle}}</label>
+                        <label id="libelleListe"  >{{l.libelle}}</label>
                         <label id="nbrTirageListe" for="">{{l.tirages.length}} tirages</label>
                     </div>
                 </div>

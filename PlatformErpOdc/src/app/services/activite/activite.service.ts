@@ -12,9 +12,29 @@ export class ActiviteService {
 
   constructor(public http:HttpClient) { }
 
-  Creer(login:string,password:string,idSalle:Number,idType:Number,file:any,activite:any){
+
+  ajoutpartticipant(login:string,password:string,idActivite:Number,participant:any){
     const data:FormData=new FormData();
-   
+    const user=[{"login":login,"password":password}]
+    console.log(participant)
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+    data.append('aoup', JSON.stringify(participant).slice(1,JSON.stringify(participant).lastIndexOf(']')));
+    return this.http.post(`${this.env.api}/admin/aoup/${idActivite}`,data);
+
+  }
+
+  getallpostulantsbyidact(login:string,password:string,idActivite:Number):Observable<any>{
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+    return this.http.post(`${this.env.api}/admin/participants/${idActivite}`,data);
+
+  }
+
+
+  Creer(login:string,password:string,file:any,activite:any):Observable<any>{
+    const data:FormData=new FormData();
+
     const user=[{"login":login,"password":password}]
     data.append('file',file);
     //data.append('data',activite);
@@ -36,11 +56,50 @@ export class ActiviteService {
     }
 
 
+    GetActiviteavenir(login:string,password:string):Observable<any>{
+      const data:FormData=new FormData();
+      const user=[{"login":login,"password":password}]
+
+      data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+
+      return this.http.post(`${this.env.api}/admin/activites/avenir`,data);
+    }
+
+    GetActivitencour(login:string,password:string):Observable<any>{
+      const data:FormData=new FormData();
+      const user=[{"login":login,"password":password}]
+
+      data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+
+      return this.http.post(`${this.env.api}/admin/activites/encour`,data);
+
+    }
+
+    GetActiviteterminer(login:string,password:string):Observable<any>{
+      const data:FormData=new FormData();
+      const user=[{"login":login,"password":password}]
+      data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+      return this.http.post(`${this.env.api}/admin/activites/termines`,data);
+    }
+
+    GetActivitebyentite(login:string,password:string,idActivite:Number):Observable<any>{
+      const data:FormData=new FormData();
+      const user=[{"login":login,"password":password}]
+
+      data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+
+      return this.http.post(`${this.env.api}/adminactivites/entite/${idActivite}`,data);
+
+    }
+
+
+
+
 
 
   // :::::::::::::::toute les activites ::::::::::::::::
   GetTtActivite(login:String,password:String):Observable<any>{
-    
+
     const data:FormData=new FormData();
     const user=[{"login":login,"password":password}]
     data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
@@ -50,7 +109,7 @@ export class ActiviteService {
 
   //recuperer les entites pour la select liste lors de la creation d'activite
   entite="http://localhost:8080/admin/getAll/entite";
-  
+
   GetAllEntite(login:String,password:String):Observable<any>{
 
     return this.http.get(`http://localhost:8080/admin/getAll/entite/${login}/${password}`);
@@ -64,4 +123,50 @@ export class ActiviteService {
     return this.http.post(`${this.env.api}/utilisateur/activite/${idactivite}`,data);
   }
 
+  deletebyid(login:String,password:String, idactivite:number):Observable<any>{
+
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+    return this.http.post(`${this.env.api}/utilisateur/supprimeractivite/${idactivite}`,data);
+  }
+   updatebyid(login:String,password:String, idactivite:number):Observable<any>{
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+    return this.http.post(`${this.env.api}/utilisateur/update/activity/${idactivite}`,data);
+   }
+
+  getpersonnelsexternes(login:String,password:String):Observable<any>{
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+    return this.http.post(`${this.env.api}/admin/intervenant/all`,data);
+  }
+
+
+  /*::::::::::::::::::Retour de la liste des formatMail dans nouvelle personnel interne */
+    getAllFormatMail(login:String, password:String):Observable<any>{
+      const data:FormData=new FormData();
+      const user=[
+        {
+          "login":login,
+          "password":password
+        }]
+
+      data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+
+      return this.http.post(`${this.env.api}/formatemail/getAll`,data)
+    }
+
+
+      // :::::::::::::::Activites sans participants::::::::::::::::
+   GetAllActiviteSansPartcipant(login:String,password:String):Observable<any>{
+    
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+
+    return this.http.post(`${this.env.api}/admin/activitesansparticipants`,data);
+  }
 }

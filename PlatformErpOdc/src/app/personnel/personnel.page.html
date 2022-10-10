@@ -15,17 +15,21 @@
   <div class="row">
     <div class="col-lg-3 col-12">
       <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-start">
-        <select class="form-select form-select-md" aria-label=".form-select-sm example">
+        <select class="form-select form-select-md" aria-label=".form-select-sm example" (change)="filtrebyentity()">
           <option selected>
             <ion-icon name="funnel-outline" slot="start"></ion-icon>Filtrer par entité
           </option>
-          <option value="1">ODC</option>
-          <option value="2">ODK</option>
-          <option value="3">FABLAB</option>
-          <option value="3">ORANGE FAB</option>
+          <option *ngFor="let entite of Entites" >{{entite.libelleentite}}</option>
+        </select>
+        <select class="form-select form-select-md" aria-label=".form-select-sm example" (change)="filtrebyentity()">
+          <option selected>
+            <ion-icon name="funnel-outline" slot="start"></ion-icon>Filtrer par type personnel
+          </option>
+          <option value="Personnels externes">Personnels externes</option>
+          <option value="Personnels internes">Personnels internes</option>
+          <!-- <option *ngFor="let user of users" >{{user.libelle}}</option> -->
         </select>
       </div>
-
     </div>
     <div class="col-lg-9 col-12">
       <div class="d-grid m-2 gap-2 d-md-flex justify-content-md-end">
@@ -53,8 +57,8 @@
           <img *ngIf="a.image==null" src="assets/images/profile.png" class="card-img-top" alt="...">
 
           <div class="card-body">
-            <h5 class="card-title"> {{a.nom}} </h5>
-            <p class="card-text"> {{a.prenom}} </p>
+            <h5 class="card-title"  [innerHTML]="a.nom | slice:0:10"></h5><label>...</label>
+            <p class="card-text" [innerHTML]="a.prenom | slice:0:10"></p><label>...</label>
           </div>
 
         </div>

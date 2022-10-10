@@ -12,6 +12,7 @@ export class DetailtiragePage implements OnInit {
   Utilisateur:any;
   page:number=0;
   idT:any;
+  idTirage:number
   resultTir:any;
   resultTirs:any;
 
@@ -23,24 +24,32 @@ export class DetailtiragePage implements OnInit {
 
     this.idT = this.route.snapshot.params['idT']
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
-      console.log(this.Utilisateur.login)
-      console.log(this.idT)
+      // console.log(this.Utilisateur.login)
+      // console.log(this.idT)
 
-      this.service.GetListeParId(this.Utilisateur.login,this.Utilisateur.password,this.idT).subscribe(data=>{
-
-        console.log(data)
-        this.resultTir=data.data.tirages;
-
-        for(let i=0;i<this.resultTir.length;i++){
-
-           if(this.resultTir[i].id==this.idT){
-            console.log(this.resultTir[i].postulanttires);
-
-            this.Tirage=this.resultTir[i].postulanttires
-          }
-        }
-  
+      this.service.GetPostulantParListe(this.Utilisateur.login,this.Utilisateur.password,this.idT).subscribe(data=>{
+        this.resultTir=data.data;
+        console.log(this.resultTir)
+       
+      
+        
       })
+
+      // this.service.GetListeParId(this.Utilisateur.login,this.Utilisateur.password,this.idT).subscribe(data=>{
+
+      //   console.log(data)
+      //   this.resultTir=data.data.tirages;
+
+      //   for(let i=0;i<this.resultTir.length;i++){
+
+      //      if(this.resultTir[i].id==this.idT){
+      //       console.log(this.resultTir[i].postulanttires);
+
+      //       this.Tirage=this.resultTir[i].postulanttires
+      //     }
+      //   }
+  
+      // })
          
 
   }

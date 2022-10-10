@@ -37,15 +37,7 @@
           </tr>
         </thead>
         <tbody>
-          <!-- <tr *ngFor="let table of Tirage | paginate: { itemsPerPage: 4, currentPage: page}">
-            <td> {{table.postulant.id}} </td>
-            <td> {{table.postulant.nom}} </td>
-            <td class="hideColonne hideColonneOder" > {{table.postulant.prenom}} </td> 
-            <td> {{table.postulant.email}} </td>
-            <td class="hideColonne hideColonneOder" > {{table.postulant.dateNaissance | date: "dd MMMM yyyy"}} </td>
-          </tr> -->
-
-          <tr *ngFor="let table of Tirage | paginate: { itemsPerPage: 4, currentPage: page}">
+          <tr *ngFor="let table of resultTir | paginate: { itemsPerPage: 4, currentPage: page}">
             <td> {{table.postulant.id}} </td>
             <td> {{table.postulant.nom}} </td>
             <td class="hideColonne hideColonneOder" > {{table.postulant.prenom}} </td> 

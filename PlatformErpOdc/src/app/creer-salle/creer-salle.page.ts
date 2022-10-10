@@ -14,7 +14,7 @@ export class CreerSallePage implements OnInit {
   Entites:any;
   Utilisateur:any;
 
-  entiteNom:any;
+  // entiteNom:any;
   nom:any;
   nombrePlace:any;
   description:any;
@@ -24,6 +24,7 @@ export class CreerSallePage implements OnInit {
 
   alertTrue: boolean = false;
   alertFalse: boolean = false;
+  niveauEtage: string;
 
   constructor(private salleService:SalleServiceService,private entiteService:EntiteService,private typeActiviteService:TypeActiviteService,private userService:UtilisateurService) { }
 
@@ -44,8 +45,16 @@ export class CreerSallePage implements OnInit {
     //     this.EntiteSelectioner=this.Entites[i]
     //   }
     // }
-
-    this.salleService.ajoutSalle(this.Utilisateur.login,this.Utilisateur.password,this.nom,this.description,this.niveau,this.nombrePlace,this.Utilisateur).subscribe(retour=>{
+    if(this.niveau == 0){
+      this.niveauEtage = "Rez-de-chaussée"
+    }
+    else if(this.niveau == 1){
+      this.niveauEtage = this.niveau + "er étage"
+    }else{
+      this.niveauEtage = this.niveau + "ème étage"
+    }
+    
+    this.salleService.ajoutSalle(this.Utilisateur.login,this.Utilisateur.password,this.nom,this.description,this.niveauEtage,this.nombrePlace,this.Utilisateur).subscribe(retour=>{
       console.log(retour)
       if(retour.message == 'ok'){
         this.alertTrue = true

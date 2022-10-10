@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
+import { DetailDesListesPage } from '../detail-des-listes/detail-des-listes.page';
 import { SalleServiceService } from '../services/salles/salle-service.service';
 import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
 
@@ -13,23 +16,32 @@ export class SallePage implements OnInit {
   sallesDipoLength:any;
   sallesIndispoLength:any
   url="/modifier-salle"
+  // deleteSalleParId:number;
 
   sallesIndispo:any;
   Utilisateur:any;
   id: number;
   constructor(private userService:UtilisateurService,private salleService:SalleServiceService) { }
 
+
+
+
   ngOnInit() {
 
+    // this.id =+this.route.snapshot.params['id']
+    
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
 
      //!::::::::::::total perso ::::::::::::
 
+    this.callSalle()
 
-     this.salleService.getSalleDisponible(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+  }
+
+  callSalle(){
+    this.salleService.getSalleDisponible(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
       this.sallesDipo=data.data;
-      this.sallesDipoLength=data.data.length
-      console.log("les salle disponible")
+      this.sallesDipoLength = data.data.length
       console.log(data.data)
     });
 
@@ -39,13 +51,44 @@ export class SallePage implements OnInit {
       console.log(data.data)
     });
 
-
-    this.salleService.supprimerSalles(this.Utilisateur.login, this.Utilisateur.password, this.id).subscribe(data => {
-      this.sallesIndispo=data.data;
-      this.sallesIndispoLength=data.data.length
-      console.log(data.data)
-    })
-
   }
 
+
+    // this.salleService.supprimerSalles(this.Utilisateur.login, this.Utilisateur.password, this.id).subscribe(data => {
+    //   this.sallesIndispo=data.data;
+    //   this.sallesIndispoLength=data.data.length
+    //   console.log(data.data)
+    // })
+
+
+  popDeleteSalle(idSalle:number){
+    Swal.fire({
+      position:'center',
+      title: 'Voulez-vous supprimer ?',
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: 'Oui',
+      denyButtonText: `Non`,
+      denyButtonColor:'red',
+      // cancelButtonText: 'Annuler',
+      cancelButtonColor:'red',
+      confirmButtonColor: 'green',
+      heightAuto: false,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        //Swal.fire('Saved!', '', 'success');
+        this.salleService.deleteSalle(this.Utilisateur.login,this.Utilisateur.password,idSalle).subscribe(data=>{
+          if(data.message=="ok"){
+            this.callSalle()
+          }
+        });
+       
+      } else if (result.isDenied) {
+        //Swal.fire('Changes are not saved', '', 'info');
+      //  this.route.navigate(['tirage'])
+      }
+    });
+ 
+  }
 }

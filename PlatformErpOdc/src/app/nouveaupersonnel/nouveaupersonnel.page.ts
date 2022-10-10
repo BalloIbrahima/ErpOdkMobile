@@ -95,8 +95,7 @@ export class NouveaupersonnelPage implements OnInit {
       title: "Tous les champs sont Obligatoires",
       showConfirmButton: true,
       confirmButtonText: "OK",
-      confirmButtonColor: 'green',
-      showCancelButton: true,
+      confirmButtonColor: 'red',
       heightAuto: false
     })
   }
@@ -107,7 +106,6 @@ export class NouveaupersonnelPage implements OnInit {
       showConfirmButton: true,
       confirmButtonText: "OK",
       confirmButtonColor: 'green',
-      showCancelButton: true,
       heightAuto: false
     }).then((result) => {
       if (result.isConfirmed) {

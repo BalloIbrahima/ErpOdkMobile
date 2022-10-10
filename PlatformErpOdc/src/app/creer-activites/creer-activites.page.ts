@@ -123,8 +123,9 @@ export class CreerActivitesPage implements OnInit {
       heightAuto: false,
       confirmButtonColor:"#FF7900"
   }).then(()=>{
-
-    this.router.navigate(["/dashboard/allactivity"]);
+      this.router.navigateByUrl('/dashboard/allactivity', {skipLocationChange: true}).then(() => {
+      this.router.navigate(["/dashboard/allactivity"]);
+      });
   });
   }
   async notpresent() {

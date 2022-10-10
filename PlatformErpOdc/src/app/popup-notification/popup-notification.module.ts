@@ -6,7 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { PopupNotificationPageRoutingModule } from './popup-notification-routing.module';
 
-import { PopupNotificationPage } from './popup-notification.page';
+import { PopupNotificationPage } from "./PopupNotificationPage.1";
 
 @NgModule({
   imports: [

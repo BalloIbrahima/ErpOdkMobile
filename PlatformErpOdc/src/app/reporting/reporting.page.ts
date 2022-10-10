@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { ActiviteService } from '../services/activite/activite.service';
 import { EntiteService } from '../services/entite/entite.service';
 
@@ -18,7 +19,7 @@ export class ReportingPage implements OnInit {
   entiteselect : any;
   datedebut : Date;
   datefin : Date;
-  constructor(private serviceactivite : ActiviteService, private serviceentite : EntiteService) { }
+  constructor(private serviceactivite : ActiviteService, private serviceentite : EntiteService, private modalController : ModalController) { }
 
   ngOnInit() {
     this.utilisateur = JSON.parse(localStorage.getItem('utilisateur'))
@@ -50,6 +51,8 @@ export class ReportingPage implements OnInit {
         alert(reponse)
       }
     })
+    this.modalController.dismiss();
+
   }
 
 }

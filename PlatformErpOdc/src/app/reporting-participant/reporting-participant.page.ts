@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActiviteService } from '../services/activite/activite.service';
 import { EntiteService } from '../services/entite/entite.service';
+import { ListeparticipantService } from '../services/listeparticipants/listeparticipant.service';
 
 @Component({
   selector: 'app-reporting-participant',
@@ -17,8 +18,9 @@ utilisateur : any;
   entiteselect : any;
   datedebut : Date;
   datefin : Date;
+  listeparticipants : any;
 
-  constructor(private serviceactivite : ActiviteService, private serviceentite : EntiteService) { }
+  constructor(private serviceactivite : ActiviteService, private serviceentite : EntiteService,private servicelp : ListeparticipantService) { }
   // accueil=[
   //   {nom:"ali"},
   //   {activite:"ndckc"},
@@ -37,6 +39,14 @@ utilisateur : any;
         console.log(this.entites)
       }
     )
+
+    this.servicelp.ToutLesParticipant(this.utilisateur.login, this.utilisateur.password).subscribe(
+      reponse => {
+        this.listeparticipants = reponse.data;
+        console.log(this.listeparticipants);
+      }
+    )
+
   }
   filtrerActivite() {
     console.log(this.nomactivite)

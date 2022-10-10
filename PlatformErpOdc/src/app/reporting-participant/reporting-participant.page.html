@@ -17,7 +17,7 @@
 
   <div class="mx-3">
 
-    <table class="table table-striped text-center" id="season-tble">
+    <table class="table table-striped text-center mx-3">
       <thead>
         <tr>
           <th scope="col">Activité</th>
@@ -30,24 +30,23 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Talk</td>
-          <td>20/10/2020</td>
-          <td class="hideColonne hideColonneOder">20/12/2020</td>
-          <td>Lorem</td>
-          <td>ipsum</td>
-          <td>loripsum@gmail.com</td>
-          <td class="hideColonne hideColonneOder">31/12/1960</td>
-
+        <tr *ngFor="let participant of listeparticipants | paginate : { itemsPerPage:10, currentPage:a}">
+          <td>{{participant.activite.nom}}</td>
+          <td>{{participant.activite.dateDebut | date: 'dd/MM/yyyy'}}</td>
+          <td class="hideColonne hideColonneOder">{{participant.activite.dateFin | date: 'dd/MM/yyyy'}}</td>
+          <td>{{participant.postulant.nom}}</td>
+          <td class="hideColonne hideColonneOder">{{participant.postulant.prenom}}</td>
+          <td>{{participant.postulant.email}}</td>
+          <td class="hideColonne hideColonneOder">{{participant.postulant.dateNaissance| date: 'dd/MM/yyyy'}}</td>
         </tr>
       </tbody>
-
     </table>
   </div>
+    </ion-content>
 
 
 
-  <!-- <table class="table table-striped text-center mx-3">
+      <!-- <table class="table table-striped text-center mx-3">
     <thead>
       <tr>
         <th scope="col">Activité</th>
@@ -85,17 +84,18 @@
 
   </table> -->
 
-  <div class="header">
+      <div class="header">
 
-    <div class="headerContent">
-      <button class="filtre2" (click)="exportToExcel()"><i class="fa fa-download" aria-hidden="true"></i> Télécharger
-      </button>
-      <pagination-controls (pageChange)="a = $event" nextLabel="Suivants" previousLabel="Précédents">
-      </pagination-controls>
+        <div class="headerContent">
+          <button class="filtre2" (click)="exportToExcel()"><i class="fa fa-download" aria-hidden="true"></i>
+            Télécharger
+          </button>
+          <pagination-controls (pageChange)="a = $event" nextLabel="Suivants" previousLabel="Précédents">
+          </pagination-controls>
 
-    </div>
-  </div>
-</ion-content>
+        </div>
+      </div>
+
 <div class="container">
 
   <ion-modal trigger="open-modal1">

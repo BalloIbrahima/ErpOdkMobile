@@ -21,7 +21,7 @@ utilisateur : any;
   datefin : Date;
   listeparticipants : any;
 
-  constructor(private serviceactivite : ActiviteService, private serviceentite : EntiteService, private listeparticipantservice : ListeparticipantService) { }
+  constructor(private serviceactivite : ActiviteService, private serviceentite : EntiteService,private servicelp : ListeparticipantService) { }
   // accueil=[
   //   {nom:"ali"},
   //   {activite:"ndckc"},
@@ -40,13 +40,14 @@ utilisateur : any;
         console.log(this.entites)
       }
     )
-    // liste participants
-    this.listeparticipantservice.ToutLesParticipant(this.utilisateur.login, this.utilisateur.password).subscribe(
+
+    this.servicelp.ToutLesParticipant(this.utilisateur.login, this.utilisateur.password).subscribe(
       reponse => {
         this.listeparticipants = reponse.data;
-        console.log(this.listeparticipants)
+        console.log(this.listeparticipants);
       }
     )
+
   }
   filtrerActivite() {
     console.log(this.nomactivite)

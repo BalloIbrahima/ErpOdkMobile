@@ -27,32 +27,7 @@ export class PopupNotificationPage implements OnInit {
 
   constructor(private popoverCtrl: PopoverController, private notificationService: NotificationService,
     private router: Router, private route: ActivatedRoute) { }
-  // salleactivites=[
-  //   {
-  //     user:"Fatoumata Kalogo",
-  //     activite:"activité",
-  //   },
-  //   {
-  //     user:"Fatoumata Kalogo",
-  //     activite:"activité",
-  //   },
-  //   {
-  //     user:"Fatoumata Kalogo",
-  //     activite:"activité",
-  //   },
-  //   {
-  //     user:"Fatoumata Kalogo",
-  //     activite:"activité",
-  //   },
-  //   {
-  //     user:"Fatoumata Kalogo",
-  //     activite:"activité",
-  //   },
-  //   {
-  //     user:"Fatoumata Kalogo",
-  //     activite:"activité",
-  //   },
-  // ]
+  
   close() {
     this.popoverCtrl.dismiss();
   }

@@ -83,10 +83,11 @@ textarea{
 
 
 
+
 .container{
   max-width: 1000px;
   width: 100%;
-  padding: 0x 30px 30px 30px !important; 
+  padding: 50px 30px 106px;
   border-radius: 15px;
   background: #fff;
   margin-top: 3%;
@@ -94,9 +95,14 @@ textarea{
   box-shadow: 0px 6px 4px 6px rgb(0 0 0 / 10%);
 }
 
+.list-md{
+  background: none !important;
+}
 
 
-
+.item-native::after{
+  background: none !important;
+}
 
 
 label{
@@ -130,26 +136,22 @@ label{
     transform: translate(-50%, -2%)
 }
   
-// .btnLink{
-// cursor: pointer;
-// text-decoration: none;
-// }
-// .button_de {
-//  display: none;
-//   font-size: 25px;
-//   color: #FF7900;
-// }
-// .button_de:hover{
-//   display: inline-block !important ;
-//   font-size: 25px;
-//   color: #FF7900;
 
-// }
+img{
 
+  margin-top: 15%;
+}
+
+@media screen and (max-width:767px) {
+  img{
+
+    margin-top: 0%;
+  }
+}
 
 
 #MiniLeftNav li{
-	list-style: outside none none;
+  list-style: outside none none;
     margin: 20px 0;
     padding: 0;
     width: 48px;
@@ -157,7 +159,7 @@ label{
 
 #MiniLeftNav li a{
     border:solid 1px #ff7900;
-	display: block;
+  display: block;
     padding: 7px;
     position: relative;
 }
@@ -209,8 +211,6 @@ color:white;
     }
   
 
-
-
     @media screen and (max-width:846px) {
       ol, ul {
         padding-left: 0rem;
@@ -234,143 +234,3 @@ color:white;
 
 
 
-
-// /*le cadre principal*/
-// .principal1{
-//     position: relative;
-//     width: 350px;
-//     height: 600px;
-//     border-radius: 15px;
-//     margin-top: 10px;
-//     margin-bottom: 6%;
-//     margin-right: auto;
-//     margin-left: auto;
-//     padding: 40px;
-//     padding-top: 50px;
-//     box-sizing: border-box;
-//     background: white;
-//     box-shadow: 0px 6px 4px 6px rgba(0, 0, 0, 0.25);
-//   }
-
-//   .titres {
-//     margin-top: 3%;
-//     display: flex;
-//     justify-content: space-around;
-//     font-size: 2rem; 
-//     font-weight: 200px;
-//   }
-
-//   .titres_couleur {
-//     color: #FF7900;
-//   }
-  
-//   /*le rond du tirage*/
-//   .brand-logo {
-//     height: 120px;
-//     width: 300px;
-//     margin-left: -15px;
-//     border-radius: 50%;
-//     box-sizing: border-box;
-//     box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
-//   }
-  
-//   /*titre*/
-//   .title {
-//     margin-top: 0px;
-//     font-weight: 900;
-//     font-size: 1.2rem;
-//     color: black;
-//     letter-spacing: 1px;
-//     text-align: center;
-//   }
-//   .mescontainers{
-//     display:flex;
-//     justify-content:space-around;
-//   }
-  
-//   /* label*/
-//   label{
-//     color: orangered;
-//   }
-  
-//   /*input*/
-//   #inputs{
-  
-//     background-color: #F8FAFC;
-//     color: black;
-//     border: 1px solid #B8BCCA ;
-//     padding: 8px 80px 8px 0px;
-//     border-radius: 5px;
-//   }
-  
-//   /*select*/
-  
-//   #select{
-//     background-color: #F8FAFC;
-//     color: black;
-//     border: 1px solid #B8BCCA ;
-//     padding: 12px 178px 12px 0px;
-//     border-radius: 5px;
-//   }
-//   /*button*/
-//   button{
-//     color: white;
-//     margin-top: auto;
-//     background: #FF7900;
-//     height: 40px;
-//     border-radius: 5px;
-//     cursor: pointer;
-//     font-weight: 900;
-//     box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
-//     transition: 0.5s;
-//      border: 2px solid #FF7900;
-//      padding: 0px 100px 0px 0px;
-//      margin-left: 50px;
-//     width: 60%;
-//     padding: 0;
-//     border-radius: 20px;
-  
-//   }
-//   .principal2{
-//     position: relative;
-//     width: 350px;
-//     height: 350px;
-//     border-radius: 15px;
-//     margin-top: 10px;
-//     margin-right: auto;
-//     margin-left: auto;
-//     padding: 40px;
-//     padding-top: 50px;
-//     box-sizing: border-box;
-//     background: white;
-//     box-shadow: 0px 6px 4px 6px rgba(0, 0, 0, 0.25);
-//   }
-//   button:hover {
-//    background-color: white;
-//    color: black;
-//    border: 1px solid #FF7900;
-  
-//   }
-  
-  
-  
-//   @media (max-width: 584px) {
-//     .container {
-//         max-width: 100%;
-//     }
-//     form .row .col {
-//         margin-bottom: 15px;
-//         width: 100%;
-//     }
-//     ion-title #notif{
-//       width: 100%;
-//     }
-//     .container form .row col {
-//         max-height: 300px;
-//         overflow-y: scroll;
-//     }
-//     .row .col::-webkit-scrollbar {
-//         width: 0;
-//     }
-//   }
-  

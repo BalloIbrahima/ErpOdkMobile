@@ -516,6 +516,15 @@ body {
  
  margin: 0 10px;
  }
+ @media screen and (max-width: 450px) {
+
+  .socials a {
+    width: 15%;
+    height: 15%;
+    
+    }
+  
+ }
  .socials a i {
  color: #fff;
  padding: 12px 0;
@@ -544,4 +553,8 @@ body {
 //   border: 2px solid red !important;
 //   text-overflow: ellipsis !important;
 //  }
- 
+ion-modal {
+  --height: auto !important;
+  --border-radius: 15px;
+  --width: 30em;
+}

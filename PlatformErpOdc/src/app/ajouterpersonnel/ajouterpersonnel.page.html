@@ -20,23 +20,23 @@
             <div class="ajout">
                 <div class="input-box">
                     <span class="details">Nom *</span>
-                    <input type="text" placeholder="Nom du personnel"  [(ngModel)]="nom" name="nom" required>
+                    <input type="text" class="form-control" placeholder="Nom du personnel"  [(ngModel)]="nom" name="nom" required>
                 </div>
                 <div class="input-box">
                   <span class="details">Mail *</span>
                   <div class="mail">
-                    <input type="text" [(ngModel)]="email" name="email" placeholder="loremipsun" id="inp" required>
+                    <input type="text" class="form-control" [(ngModel)]="email" name="email" placeholder="loremipsun" id="inp" required>
                   
                   </div>
                 </div>
                 <div class="input-box">
                   <span class="details">Prénom *</span>
-                  <input type="text" placeholder="Prénom du personnel"  [(ngModel)]="prenom" name="prenom" required>
+                  <input type="text" placeholder="Prénom du personnel" class="form-control" [(ngModel)]="prenom" name="prenom" required>
                 </div>
 
                 <div class="input-box">
                   <span class="details">Numéro de telephone *</span>
-                  <input type="tel" 
+                  <input type="tel" class="form-control"
       pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$"
       [(ngModel)]="numero" name="numero" required>
                   <!-- <input type="text" placeholder="Numéro de telephone"  [(ngModel)]="numero" name="numero" required> -->
@@ -45,7 +45,7 @@
 
                 <div class="input-box">
                   <span class="details">Genre *</span>
-                  <select name="genre" [(ngModel)]="genre" class="select" required>
+                  <select name="genre" [(ngModel)]="genre" class="select" class="form-control" required>
                     <option >--Votre genre--</option>
                     <option >Masculin</option>
                     <option >Feminin</option>

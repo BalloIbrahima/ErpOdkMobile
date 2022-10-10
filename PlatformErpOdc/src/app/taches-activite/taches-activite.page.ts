@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PopoverController } from '@ionic/angular';
-import { PopupNotificationPage } from '../popup-notification/popup-notification.page';
+import { PopupNotificationPage } from "../popup-notification/popup-notification.page";
 
 
 @Component({

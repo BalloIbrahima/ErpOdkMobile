@@ -45,23 +45,21 @@ export class SallePage implements OnInit {
       console.log(data.data)
     });
 
+   
     this.salleService.getSallesIndispo(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
       this.sallesIndispo=data.data;
-      this.sallesIndispoLength=data.data.length
+      this.sallesIndispoLength = data.data.length
       console.log(data.data)
     });
 
   }
 
 
-    // this.salleService.supprimerSalles(this.Utilisateur.login, this.Utilisateur.password, this.id).subscribe(data => {
-    //   this.sallesIndispo=data.data;
-    //   this.sallesIndispoLength=data.data.length
-    //   console.log(data.data)
-    // })
+ 
 
 
   popDeleteSalle(idSalle:number){
+    
     Swal.fire({
       position:'center',
       title: 'Voulez-vous supprimer ?',
@@ -69,6 +67,9 @@ export class SallePage implements OnInit {
       showCancelButton: false,
       confirmButtonText: 'Oui',
       denyButtonText: `Non`,
+      imageUrl:'../../assets/images/alert.gif',
+      imageWidth:'100px',
+      imageHeight:'100px',
       denyButtonColor:'red',
       // cancelButtonText: 'Annuler',
       cancelButtonColor:'red',

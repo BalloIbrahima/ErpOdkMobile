@@ -13,9 +13,13 @@
 
 
 <ion-content>
-  <img
+
+  <img *ngIf="image!=null" src={{image}} class="center" alt="Image du personnel">
+  <img *ngIf="image==null" src="assets/images/profile.png" class="center" alt="Image du personnel">
+
+  <!-- <img
     src="https://images.pexels.com/photos/7562313/pexels-photo-7562313.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-    class="center">
+    class="center"> -->
   <!-- <h3 class="ion-text-center">{{detailpostulant.name.title}} {{detailpostulant.name.first}}</h3> -->
 
   <ion-item lines="none" color="background-color: #FF6200;" style="background-color: #FF6200;">
@@ -26,23 +30,26 @@
   <ion-list>
     <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Nom:</ion-label>
-      <ion-label style="color: black;" class="taille2">DEMBELE</ion-label>
+      <ion-label style="color: black;" class="taille2">{{ nom }}</ion-label>
     </ion-item>
     <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Prenom:</ion-label>
-      <ion-label slot="" style="color: black;" class="taille2">Idissa</ion-label>
+      <ion-label slot="" style="color: black;" class="taille2">{{ prenom }}</ion-label>
     </ion-item>
-    <ion-item lines="none">
+    <!-- <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Date de naissance:</ion-label>
       <ion-label slot="" style="color: black;" class="taille2">12/12/1999</ion-label>
-    </ion-item>
+
+ [(ngModel)]="name"
+
+    </ion-item> -->
     <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Lieu de naissance:</ion-label>
-      <ion-label slot="" style="color: black;" class="taille2">12/12/1999</ion-label>
+      <ion-label slot="" style="color: black;" class="taille2">Bamako</ion-label>
     </ion-item>
     <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Genre:</ion-label>
-      <ion-label slot="" style="color: black;" class="taille2">Masculin</ion-label>
+      <ion-label slot="" style="color: black;" class="taille2" >{{ genre }}</ion-label>
     </ion-item>
     <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Contact:</ion-label>
@@ -50,55 +57,43 @@
     </ion-item>
     <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Email:</ion-label>
-      <ion-label slot="" style="color: black;" class="taille2">dembele@orangemali.com</ion-label>
+      <ion-label slot="" style="color: black;" class="taille2">{{ email }}</ion-label>
     </ion-item>
     <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Entite:</ion-label>
-      <ion-label slot="" style="color: black;" class="taille2">Orange Digital Center</ion-label>
+      <ion-label slot="" style="color: black;" class="taille2">{{nomEntite}}</ion-label>
+      <!-- <ion-label slot="" style="color: black;" class="taille2" *ngIf="nomEntite!=null">{{nomEntite}}</ion-label>
+      <ion-label slot="" style="color: black;" class="taille2" *ngIf="nomEntite==null">Entite non specifié</ion-label> -->
     </ion-item>
     <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Role:</ion-label>
-      <ion-label slot="" style="color: black;" class="taille2">Responsable</ion-label>
+      <ion-label slot="" style="color: black;" class="taille2">{{statusUser}}</ion-label>
     </ion-item>
   </ion-list>
 
-  <div class="buttom">
+  <!-- <div class="buttom">
     <div class="button1">
 
-      <!-- <input class="but1" type="reset" value="MODIFIER" id="open-modal" expand="block" data-bs-toggle="modal" data-bs-target="#staticBackdrop" > -->
-      <button class="btn buttonColor"  class="but1" id="open-modal" type="button">+ &nbsp; Modifier</button>
-       <!-- <input class="but1" type="submit" value="SUPPRIMER" (click)="SupprimerPersonnel()"> -->
-      <input class="but1" type="submit" value="SUPPRIMER" (click)="DeletePersonnel()">
+    
+       
+        <button class="btn buttonColor"  class="but1"  type="button"  >+ &nbsp; Modifier</button> 
+        <input class="but1" type="submit" value="Supprimer" >
 
-      <!-- <input class="but1" type="reset" value="MODIFIER" (click)="ModifierPersonnel()" data-bs-toggle="modal"
-        data-bs-target="#staticBackdrop"> -->
-
+      <input class="but1" type="reset" value="MODIFIER" (click)="ModifierPersonnel()" data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop">
+      
     </div>
     <div class="button2">
-      <!-- <input class="but2" type="submit" value="DESACTIVER" (click)="DesactiverPersonnel()"> -->
-      <input class="but2" type="submit" value="DESACTIVER" (click)="DPersonnel()">
+      <input class="but2" type="submit" value="DESACTIVER" (click)="DesactiverPersonnel()">
+      <input class="but2" type="submit" value="Desactiver" ">
     </div>
-  </div> 
+  </div>  -->
   <div class="row">
-    <!-- <div class="col-lg-3 col-12">
-      <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-start">
-        <select class="form-select form-select-md" aria-label=".form-select-sm example">
-          <option selected>
-            <ion-icon name="funnel-outline" slot="start"></ion-icon>Filtrer par entité
-          </option>
-          <option value="1">ODC</option>
-          <option value="2">ODK</option>
-          <option value="3">FABLAB</option>
-          <option value="3">ORANGE FAB</option>
-        </select>
-      </div>
-
-    </div> -->
     <div class="col-lg-9 col-12">
       <div class="d-grid m-2 gap-2 d-md-flex justify-content-md-center">
         <button class="btn buttonColor" id="open-modal" type="button">+ &nbsp; Modifier</button>
-        <button class="btn buttonColor" type="button">+ &nbsp; Supprimer</button>
-        <button class="btn buttonColor" type="button">+ &nbsp; Desactiver</button>
+        <button class="btn buttonColor" (click)="DeleteUser()" type="button">+ &nbsp; Supprimer</button>
+        <button class="btn buttonColor" (click)="DesactiverUser()" type="button">+ &nbsp; Desactiver</button>
       </div>
     </div>
   </div>
@@ -119,46 +114,45 @@
           
         </ion-toolbar>
       </ion-header> -->
-
-    
+      
 <div class="container">
   <form action="#">
-    <button type="button" class="btn-close"  (click)="cancel()" data-bs-dismiss="modal" aria-label="Close"></button>
     <div class="box">
+      <button type="button" class="btn-close"  (click)="cancel()" data-bs-dismiss="modal" aria-label="Close"></button>
       <h1>Modifier personnel</h1>
           <div class="ajout">
               <div class="input-box">
                   <span class="details">Nom *</span>
-                  <input type="text" placeholder="Nom du personnel">
+                  <input type="text" name="nom" [(ngModel)]="nom" [value]="nom" placeholder="Nom du personnel" required>
               </div>
               <div class="input-box">
                 <span class="details">Email *</span>
                 <div class="mail">
-                  <input type="text" placeholder="loremipsun" id="inp">
+                  <input type="email" name="email" [(ngModel)]="email" placeholder="loremipsun" id="inp" [value]="email" required>
                   <div style="width: 270px;">
-                  <select name="tchoixsalle" class="mailmodel">
+                  <select name="domaine" [(ngModel)]="domaine" class="mailmodel" required>
+                    <option >--Choisisez un domaine--</option>
+                    <option *ngFor="let d of formatMailperonnel" >{{d.libelle}}</option>
+                    <!-- formatMail
                     <option value="">@orangefablab.com</option>
                     <option value="">@orangemali.com</option>
-                    <option value="">@orangedigitalcenter.com</option>
+                    <option value="">@orangedigitalcenter.com</option> -->
                   </select>
                 </div>
                 </div>
               </div>
               <div class="input-box">
                 <span class="details">Prénom *</span>
-                <input type="text" placeholder="Prénom du personnel">
+                <input type="text" name="prenom" [(ngModel)]="prenom" [value]="prenom" placeholder="Prénom du personnel" required>
               </div>
-              <div class="input-box">
-                <span class="details">Date de naissance *</span>
-                <input type="date" placeholder="La date de naissance">
-              </div>
-              <div class="input-box">
-                <span class="details">Contact *</span>
-                <input type="text" placeholder="Numéro du personnel">
+              
+              <!-- <div class="input-box">
+                <span class="details">Telephone *</span>
+                <input type="text" placeholder="Numéro de telephone" required>
               </div>
               <div class="input-box">
                 <span class="details">Lieu de naissance *</span>
-                <select name="tchoixsalle" class="select">
+                <select name="tchoixsalle" class="select" required>
                   <option value="">Bamako</option>
                   <option value="">Sikasso</option>
                   <option value="">Segou</option>
@@ -168,29 +162,39 @@
                   <option value="">Gao</option>
                   <option value="">Kidal</option>
                 </select>
-             </div>
+             </div> -->
               <div class="input-box">
                   <span class="details">Entité *</span>
-                  <select name="tchoixsalle" class="select">
-                    <option value="">Orange Digital Kalanso</option>
-                    <option value="">Orange FabLab</option>
+                  <select name="entite" [(ngModel)]="entite" class="select"  required>
+                    <option >--Choisisez une entité--</option>
+                    <option *ngFor="let entite of Entites" >{{entite.libelleentite}}</option>
                   </select>
               </div>
               <div class="input-box">
-                <span class="details">Genre *</span>
-                <select name="tchoixsalle" class="select">
-                  <option value="">Homme</option>
-                  <option value="">Femme</option>
+                <span class="details">Votre genre </span>
+                <select name="genre" [(ngModel)]="genre" class="select" required>
+                  <option value="">--Votre genre--</option>
+                  <option >Masculin</option>
+                    <option >Feminin</option>
                 </select>
+                <!-- <select name="tchoixsalle" class="select" required>
+                    <option >--Votre genre--</option>
+                    <option *ngFor="let g of genre" >{{g.genre}}</option>
+                </select> -->
             </div>
             <div class="input-box">
               <span class="details">Rôle *</span>
-              <select name="tchoixsalle" class="select">
-                <option value="">Administrateur</option>
-                <option value="">Responsable</option>
-                <option value="">Utilisateur</option>
+              <select name="role" [(ngModel)]="role" class="select" required >
+                <option value="">--Choisisez un role--</option>
+                <option *ngFor="let r of Roles" >{{r.libellerole}}</option>
               </select>
           </div>
+          <div class="input-box">
+            <span class="details">Ajouter image *</span>
+            <input type="file" class="form-control" placeholder="Logo.jpg" id="logo"
+              accept="image/png, image/jpeg, image/jpg" (change)="envoyerImage1($event)">
+          </div>
+
           </div>
     </div>
     <div class="button">
@@ -199,9 +203,8 @@
       </ion-buttons>
       <!-- <input class="but" type="submit" (click)="modal.dismiss()" value="Annuler"> -->
       <ion-buttons slot="end">
-        <ion-button (click)="confirm()" [strong]="true" class="but">Modifier</ion-button>
+        <ion-button (click)="UpdateUser()" class="but">Modifier</ion-button>
       </ion-buttons>
-     
     </div>
 
     

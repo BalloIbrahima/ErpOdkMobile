@@ -30,6 +30,8 @@ export class AccueilserviceService {
     return this.http.post(`${this.env.api}/utilisateur/totalactivite`, data);
   }
 
+ 
+
   // :::::::::::::::::::::::activites en cours
   GetActiviteEncour(login:String, password:String):Observable<any>{
     const data:FormData=new FormData();

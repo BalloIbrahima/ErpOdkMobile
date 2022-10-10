@@ -48,7 +48,7 @@ export class SalleServiceService {
 
     return this.http.post(`${this.env.api}/salle/creersalle/`, data);
   }
-//:::::::::::::::::::::Supprimer salle :::::::::::::::::::::::::::
+//:::::::::::::::::::::::::::::::Supprimer salle :::::::::::::::::::::::::::::::::::::://
 
 deleteSalle(login: String, password: String, idSalle: number):Observable<any>{
   const data: FormData = new FormData();
@@ -64,7 +64,7 @@ deleteSalle(login: String, password: String, idSalle: number):Observable<any>{
 
 
 
-  // //::::::::::Modif de salle :::::::::::::::::::::::
+  //:::::::::::::::::::::::::::::::::Modifier de salle :::::::::::::::::::::::::::::::::::::::::::
 
   ModifSalle(login: String, password: String, id: number, libelle: String, description: string,
     etage: string, nombre: number, userid: any): Observable<any> {
@@ -128,14 +128,15 @@ deleteSalle(login: String, password: String, idSalle: number):Observable<any>{
 
 
   getSalleDisponible(login: String, password: String): Observable<any> {
+
     const data: FormData = new FormData();
     const user = [{ "login": login, "password": password }]
+    
     data.append('user', JSON.stringify(user).slice(1, JSON.stringify(user).lastIndexOf(']')));
 
     return this.http.post(`${this.env.api}/salle/SalleDisponible`, data);
     //return this.http.get(`http://localhost:8080/admin/SalleDisponible/${login}/${password}`);
   }
-
   getSallesIndispo(login: String, password: String): Observable<any> {
 
     const data: FormData = new FormData();
@@ -144,17 +145,5 @@ deleteSalle(login: String, password: String, idSalle: number):Observable<any>{
 
     return this.http.post(`${this.env.api}/salle/SalleInDisponible`, data);
   }
-
-  supprimerSalles(Login: String, password: String, id: number): Observable<any> {
-    const data: FormData = new FormData();
-    const user = [{ "login": Login, "password": password}]
-    data.append('user', JSON.stringify(user).slice(1, JSON.stringify(user).lastIndexOf(']')));
-
-    return this.http.post(`${this.env.api}/salle/supprimersalle/${id}/`, data);
-    console.log(data);
-
-  }
-
-
 }
 

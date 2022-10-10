@@ -78,12 +78,6 @@ export class CreertachesdesignationPage implements OnInit {
   console.log(retour)
     });
 
-//:::::::::::::::::::: get all User ::::::::::::::::::::::::::::::::::::::
-
-this.user.getAllUsers(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour=>{
-  this.designations = retour.data
-  console.log(retour)
-    });
 
 
     //::::::::::::::::::::::::::::: getactivitybyId:::::::::::::::::::::::::::::::::::::::::::::::
@@ -100,18 +94,22 @@ this.user.getAllUsers(this.Utilisateur.login, this.Utilisateur.password).subscri
     console.log(this.Allstatut)
    })
    
-   this.user.readPersonEx(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour=>{
-   this.personEx = retour.data
-   console.log(retour)
-   })
 
-   this.user.readPersonIn(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour=>{
-    this.personIn = retour.data
+   this.activiteService.getpersonnelsexternes(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour=>{
+    this.personEx = retour.data
     console.log(retour)
-  })
+    })
+//:::::::::::::::::::: get all User ::::::::::::::::::::::::::::::::::::::
 
+this.user.getAllUsers(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour=>{
+  this.personIn = retour.data
+  console.log(this.personIn)
+    });
 
-
+    // for (let index = 0; index < this.personEx.length; index++) {
+    //   this.personIn = this.personIn
+      
+    // }
 
   }
 
@@ -159,6 +157,12 @@ this.user.getAllUsers(this.Utilisateur.login, this.Utilisateur.password).subscri
     }
   }
 
+
+
+
+
+
+
   for(let i=0; i<this.personEx.length; i++){
     if(this.personEx[i].libelle == this.personneEx){
       this.idPorteurexterne = this.personEx[i]
@@ -172,6 +176,9 @@ this.user.getAllUsers(this.Utilisateur.login, this.Utilisateur.password).subscri
     }
   }
   
+
+
+
 
     var tache=[{
       "datedebut": datedebut,

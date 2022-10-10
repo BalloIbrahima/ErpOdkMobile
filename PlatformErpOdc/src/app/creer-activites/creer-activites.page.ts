@@ -37,17 +37,10 @@ export class CreerActivitesPage implements OnInit {
   salles:any;
   description:any;
   image:any;
-   externes:any;
-
-
-
-
-
-
+  externes:any;
   message:String;
   erreur:Boolean;
   fichier:any
-
   Salle:any;
   Type:any;
   lead:any;
@@ -162,6 +155,7 @@ export class CreerActivitesPage implements OnInit {
         idType=this.TypesActivites[i]
       }
     }
+
      //recuperation de l'id des formateurs
      for(let i=0 ; i<this.utilisateurs.length; i++){
       if(this.utilisateurs[i].libelle==this.utilisateurs){
@@ -180,6 +174,7 @@ export class CreerActivitesPage implements OnInit {
         this.lead=this.PersonnelsActives[i]
       }
     }
+    
     //recuperation de l'id des intervenants externes
     for(let i=0 ; i<this.externes.length; i++){
       if(this.externes[i].libelle==this.externes){
@@ -187,6 +182,7 @@ export class CreerActivitesPage implements OnInit {
         console.log(idintervenant)
       }
      }
+
 
     //creation de l'activite il manque lentite concernée dans la bdd//affaire de salles dispo a ala creation de lactivite
     //fitrage par statut et entity ne fonctionne pas en bdd 3 get deja fait
@@ -210,6 +206,9 @@ export class CreerActivitesPage implements OnInit {
       this.presentAlert()
     })
   }
+
+
+
 
             //fichier selection
             selectFile(e:any){

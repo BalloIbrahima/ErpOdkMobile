@@ -64,7 +64,7 @@
               <div class="input mb-3">
                                 
                 <label for="inputs" class="form-label">Nom (Désignation) *</label>
-                    <select id="inputs" [(ngModel)]=" designations"    name=" designations" class="form-select" aria-label="Default select exemple" name="entiteNom"  required>
+                    <select id="inputs" [(ngModel)]="libelleDesignation"    name=" designations" class="form-select" aria-label="Default select exemple" name="entiteNom"  required>
                   
                         <option selected>Choisisez une entité</option>
                          <option *ngFor="let desi of designations">{{desi.libelle}}</option>
@@ -75,14 +75,14 @@
 
               <div class="input mb-3">
                 <label for="inputs" class="form-label">Date début *</label>
-                <input  id="inputs"             name="datedebut" type="date"  class="form-control" id="inputs" ngModel required>
-                <!-- [(ngModel)]="datedebut" -->
+                <input  id="inputs"    [(ngModel)]="datedebut"      name="datedebut" type="date"  class="form-control" id="inputs" ngModel required>
+               
               </div>
 
               <div class="input mb-3">
                 <label for="inputs" class="form-label">Date fin *</label>
-                <input  id="inputs"             name="datefin" type="date"  class="form-control" id="inputs" ngModel required>
-                <!-- [(ngModel)]="datefin" -->
+                <input  id="inputs"  [(ngModel)]="datefin"  name="datefin" type="date"  class="form-control" id="inputs" ngModel required>
+               
               </div>
 
 
@@ -90,11 +90,11 @@
               <div class="input mb-3">
                                 
                 <label for="inputs" class="form-label">Statut *</label>
-                    <select id="inputs"           name=" statuts" class="form-select" aria-label="Default select exemple" name="entiteNom"  required>
-                      <!-- [(ngModel)]="statuts"  -->
+                    <select id="inputs" [(ngModel)]="libelleStatut"  name=" statuts" class="form-select" aria-label="Default select exemple" name="entiteNom"  required>
+                    
                         <option selected>Choisisez une entité</option>
-                        <option>AA</option>
-                        <!-- <option *ngFor="let statut of statuts">{{statut.libelle}}</option> -->
+                    
+                         <option *ngFor="let statut of Allstatut">{{statut.libelle}}</option> -->
 
                     </select>
             </div> 
@@ -103,12 +103,11 @@
            <div class="input mb-3">
                                 
                     <label for="inputs" class="form-label">Salle *</label>
-                        <select id="inputs"   class="form-select" aria-label="Default select exemple" name="libelleSalle"  required>
-                           <!-- [(ngModel)]="libelleSalle"  --> 
+                        <select id="inputs"  [(ngModel)]="libelleSalle"    class="form-select" aria-label="Default select exemple" name="libelleSalle"  required>
+                          
                           <option selected>Choisisez une salle</option>
                             <!-- <option *ngFor="let salle of salles ">  {{salle.libelle}} </option> -->
-                            <option> AA </option>
-
+                            <option *ngFor="let salle of sallesDipo"> {{salle.libelle}} </option>
                         </select>
              </div>  
 
@@ -119,18 +118,20 @@
             <label for="inputs" class="form-label">Réalisateur *</label>
                 <select id="inputs"   class="form-select" aria-label="Default select exemple" name="entiteNom"  required>
                     <option selected>Choisisez un réalisateur</option>
-                    <!-- <option *ngFor="let u of utilisateurs"> {{u.nom}} {{u.prenom}} </option> -->
-                    <option>AA</option>
+                     <option *ngFor="let pex of personEx" >{{pex.nom}} {{pex.prenom}}</option>
+                     <option *ngFor="let pin of personEx" >{{pin.nom}} {{pin.prenom}}</option>
+                    <option></option>
                 </select>
           </div>  
 
 
              <div class="input-box">
-              <span class="details">Comission </span>
+              <span class="details">Comission *</span>
               <ion-list>
                 <ion-item>
-                  <ion-select placeholder="Selectionner les formateurs" [multiple]="true">
-                    <ion-select-option >aaa</ion-select-option>
+                  <ion-select placeholder="Selectionner les formateurs" [multiple]="true" [(ngModel)]="Commissions">
+                    <ion-select-option *ngFor="let pex of personEx" >{{pex.nom}} {{pex.prenom}}</ion-select-option>
+                    <ion-select-option *ngFor="let pin of personEx" >{{pin.nom}} {{pin.prenom}}</ion-select-option>
                     <!-- <ion-select-option *ngFor="let u of utilisateurs">{{u.nom}} {{u.prenom}}</ion-select-option> -->
 
                    </ion-select>
@@ -139,7 +140,7 @@
             </div>
             </div>
               <div class="col button_div" >
-                <button type="button" class="btn bouton" [disabled]="f.form.invalid">Enregistrer</button>
+                <button type="button" class="btn bouton" (click)="createTache()" [disabled]="f.form.invalid">Enregistrer</button>
               </div>
           </div>
         </div>

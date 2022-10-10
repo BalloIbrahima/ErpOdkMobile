@@ -29,6 +29,7 @@ export class CreertachesdesignationPage implements OnInit {
 
   //:::::::::::::designation::::::::::::::::::::::::
   designations: any;
+  designation: any;
 
 
   //:::::::::::::::::::::::::create Tache::::::::::::::::::::::::
@@ -41,6 +42,8 @@ export class CreertachesdesignationPage implements OnInit {
   libelleStatut: any;
   personneEx: any;
   personneIn: any;
+  datedebut:any;
+  datefin:any;
 
 
   // if (etatselect = "Actif") {
@@ -48,6 +51,8 @@ export class CreertachesdesignationPage implements OnInit {
   // } elsif (etatselect = "Inactif") {
   //   this.etat = false
   // }
+  
+  Commissions:any;
   constructor( private tachedesign : TachedesignationService,private user: UtilisateurService ,private route: ActivatedRoute , private  statut : StatusService, private activiteService : ActiviteService ,private salleService: SalleServiceService,private entiteService:EntiteService) { }
 
   ngOnInit() {
@@ -131,8 +136,7 @@ this.user.getAllUsers(this.Utilisateur.login, this.Utilisateur.password).subscri
   createTache(){
 
    var idSalle:any;
-   var datedebut:any;
-   var datefin:any;
+
    var idDesignation:any;
    var idStatus: any;
 
@@ -180,15 +184,53 @@ this.user.getAllUsers(this.Utilisateur.login, this.Utilisateur.password).subscri
 
 
 
+
+  var FormateursUsers=[];
+  var FormateursExters=[];
+
+
+  for(let i=0;i<this.Commissions.length;i++){
+    const array=this.Commissions[i].split(" ")
+
+    for(let j=0 ; j<this.personIn.length; j++){
+
+      if(this.personIn[j].nom==array[0] && this.personIn[j].prenom==array[1]){
+        console.log(this.personIn[j])
+
+        FormateursUsers.push(this.personIn[j])
+      }
+    }
+
+    for(let j=0 ; j<this.personEx.length; j++){
+
+      if(this.personEx[j].nom==array[0] && this.personEx[j].prenom==array[1]){
+        console.log(this.personEx[j])
+
+        FormateursExters.push(this.personEx[j])
+      }
+    }
+
+  }
+
+
+
+
+
+
+
+
+
     var tache=[{
-      "datedebut": datedebut,
-      "datefin": datefin,
+      "datedebut": this.datedebut,
+      "datefin": this.datefin,
       "activite":  this.ActiviteCourant,
       "designation": idDesignation,
       "statut":  idStatus,
       "porteurexterne":this.idPorteurexterne,
       "porteurinterne"	:this.idPorteurinterne,
       "salle": idSalle,
+      "commissionsInterne":FormateursUsers,
+      "commissionsExterne":FormateursExters
     }]
 
 

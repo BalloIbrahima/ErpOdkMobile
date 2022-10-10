@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -6,7 +6,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { PopupNotificationPageRoutingModule } from './popup-notification-routing.module';
 
-import { PopupNotificationPage } from "./PopupNotificationPage.1";
+import { PopupNotificationPage } from './popup-notification.page';
+import { ClocheComponent } from '../cloche/cloche.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { PopupNotificationPage } from "./PopupNotificationPage.1";
     IonicModule,
     PopupNotificationPageRoutingModule
   ],
-  declarations: [PopupNotificationPage]
+  declarations: [PopupNotificationPage,ClocheComponent],
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class PopupNotificationPageModule {}

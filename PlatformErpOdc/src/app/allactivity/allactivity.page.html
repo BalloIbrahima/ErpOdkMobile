@@ -45,19 +45,19 @@
 
       <div class="pag" *ngFor= "let ta of  touteactivite | paginate:{itemsPerPage:6, currentPage:p}; let index =index;" >
 
-        <div class="card float-left">
-          <div class="row ">
-              <div class="col-sm-5">
-                  <img class="img" src={{ta.image}} alt="">
-              </div>
-              <div class="col-sm-7">
-                  <div class="card-block">
-                    <!-- <label class="card-title" [innerHTML]="blog.title.rendered | slice:0:100"></label><label>...</label> -->
-                      <p><b>{{ta.nom}}</b> <br> <span>{{ta.typeActivite.libelle}}</span></p>
-                      <p>{{ta.description | slice:0:50}} ...  </p>
-                      <div class="statutbtn">
-                          <div style="margin-top: 7px; color:#FF7900;"> </div>
-                          <div> <a  class="btn btn-sm"
+          <div class="card float-left">
+            <div class="row ">
+                <div class="col-sm-5">
+                    <img class="img" src={{ta.image}} alt="">
+                </div>
+                <div class="col-sm-7">
+                    <div class="card-block">
+                      <!-- <label class="card-title" [innerHTML]="blog.title.rendered | slice:0:100"></label><label>...</label> -->
+                        <p><b>{{ta.nom}}</b> <br> <span>{{ta.typeActivite.libelle}}</span></p>
+                        <p>{{ta.description | slice:0:50}} ...  </p>
+                        <div class="statutbtn">
+                            <div style="margin-top: 7px; color:#FF7900;"> {{ta.etat.statut}}</div>
+                            <div> <a  class="btn btn-sm"
 
                             [routerLink]="['/dashboard/detailactivite', ta.id]">Voir +</a> </div>
                       </div>

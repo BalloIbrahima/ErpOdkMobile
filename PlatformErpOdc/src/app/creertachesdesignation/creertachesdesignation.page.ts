@@ -84,6 +84,10 @@ export class CreertachesdesignationPage implements OnInit {
     });
 
 
+    
+
+
+
 
     //::::::::::::::::::::::::::::: getactivitybyId:::::::::::::::::::::::::::::::::::::::::::::::
    this.activiteService.getactivitybyId(this.Utilisateur.login, this.Utilisateur.password,this.idActivites).subscribe(retour=>{

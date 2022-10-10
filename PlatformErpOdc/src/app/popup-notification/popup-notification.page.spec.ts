@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
+import { PopupNotificationPage } from './popup-notification.page';
 
-import { PopupNotificationPage } from "./PopupNotificationPage.1";
 
 describe('PopupNotificationPage', () => {
   let component: PopupNotificationPage;

@@ -43,6 +43,11 @@ export class DetailpostulantPage implements OnInit {
   image1: any;
   idEntite: any;
   idRole: any;
+  shouldHide: boolean;
+  dividerHide: boolean;
+  network: any;
+  platform: any;
+  numero: any;
 
   constructor(private alertController : AlertController,private modalController:ModalController,private entiteService:EntiteService,private roleservice:RoleService,private userService:UtilisateurService,
     private router: Router, private route:ActivatedRoute) { }
@@ -86,6 +91,11 @@ export class DetailpostulantPage implements OnInit {
     })
 
     }
+  
+
+
+
+
 
 
     //Pour récupérer le personnel par id
@@ -102,8 +112,22 @@ export class DetailpostulantPage implements OnInit {
         this.statusUser = this.users.role.libellerole
 
       })
-
     }
+    
+
+
+     //Pour récupérer le personnel par id
+    //  getIntervenantParId(id: any, utilisateur: any){
+    //   this.userService.DetailsUserById(utilisateur.login, utilisateur.password, id).subscribe(data => {
+    //     this.users = data.data
+    //     console.log(this.users)
+    //     this.nom = this.users.nom
+    //     this.prenom = this.users.prenom
+    //     this.genre = this.users.genre
+    //     this.email = this.users.email
+    //     this.numero = this.users.numero
+    //   })
+    // }
 
 
 

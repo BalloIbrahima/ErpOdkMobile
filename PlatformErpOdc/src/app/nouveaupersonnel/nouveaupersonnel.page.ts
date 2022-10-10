@@ -71,26 +71,26 @@ export class NouveaupersonnelPage implements OnInit {
 
 
   
-  async presentAlert() {
-    const alert = await this.alertController.create({
-      header: 'Validé!!!',
-      subHeader: 'Personnel créée avec Succès!!',
+  // async presentAlert() {
+  //   const alert = await this.alertController.create({
+  //     header: 'Validé!!!',
+  //     subHeader: 'Personnel créée avec Succès!!',
 
-      buttons: ['OK'],
-    });
+  //     buttons: ['OK'],
+  //   });
 
-    await alert.present();
-  }
-  async notpresent() {
-    const alert = await this.alertController.create({
-      header: 'Personnel non créée!!!',
-      subHeader: 'veuillez réessayer!!',
+  //   await alert.present();
+  // }
+  // async notpresent() {
+  //   const alert = await this.alertController.create({
+  //     header: 'Personnel non créée!!!',
+  //     subHeader: 'veuillez réessayer!!',
 
-      buttons: ['OK'],
-    });
+  //     buttons: ['OK'],
+  //   });
 
-    await alert.present();
-  }
+  //   await alert.present();
+  // }
   alertSiTousLesChampSonVide(){
     Swal.fire({
       title: "Tous les champs sont Obligatoires",

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import Swal from 'sweetalert2';
 import { EntiteService } from '../services/entite/entite.service';
 import { RoleService } from '../services/role/role.service';
 import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
@@ -26,8 +28,9 @@ export class AjouterpersonnelPage implements OnInit {
   email:any;
   domaine:any;
   formatMail: any;
+  window: any;
 
-  constructor(private roleservice:RoleService, private alertController : AlertController,private entiteService:EntiteService,private userService:UtilisateurService) { }
+  constructor(private router: Router, private roleservice:RoleService, private alertController : AlertController,private entiteService:EntiteService,private userService:UtilisateurService) { }
 
   ngOnInit() {
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) 
@@ -57,27 +60,24 @@ export class AjouterpersonnelPage implements OnInit {
 
   }
 
-  async presentAlert() {
-    const alert = await this.alertController.create({
-      header: 'Validé!!!',
-      subHeader: 'Personnel externe créée avec Succès!!',
-
-      buttons: ['OK'],
-    });
-
-    await alert.present();
-  }
-  async notpresent() {
-    const alert = await this.alertController.create({
-      header: 'Personnel externe non créée!!!',
-      subHeader: 'veuillez réessayer!!',
-
-      buttons: ['OK'],
-    });
-
-    await alert.present();
-  }
-
+      //Pop up de enregistrement reçu
+      MessageSuccess(){
+        Swal.fire({
+          title: "Personnel externe creer avec succes",
+          showConfirmButton: true,
+          confirmButtonText: "OK",
+          confirmButtonColor: 'green',
+          heightAuto: false
+        }).then((result) => {
+          if (result.isConfirmed) {
+              // this.actualisePagApresSuppresion()
+              this.router.navigateByUrl('/dashboard/personnel-externe')
+              this.window.location.reload();
+        }else if (result.isDenied) {
+          this.router.navigateByUrl('/dashboard/personnels')
+        }
+      });
+      }
 
   CreateIntervenant(){
 
@@ -97,7 +97,7 @@ export class AjouterpersonnelPage implements OnInit {
     }
     this.userService.CreateUserExterne(this.Utilisateur.login,this.Utilisateur.password,this.email,this.Genre,this.nom,this.prenom,this.numero,this.RoleSelectionner).subscribe(retour=>{
       console.log(retour)
-      this.presentAlert()
+      this.MessageSuccess();
     })
   }
 

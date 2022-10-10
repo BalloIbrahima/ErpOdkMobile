@@ -85,12 +85,9 @@ const routes: Routes = [
         loadChildren: () => import('../tachedesignation/tachedesignation.module').then( m => m.TachedesignationPageModule)
       },
 
+ 
       {
-        path: 'tachedesignation',
-        loadChildren: () => import('../tachedesignation/tachedesignation.module').then( m => m.TachedesignationPageModule)
-      },
-      {
-        path: 'creertachesdesignation',
+        path: 'creertachesdesignation/:id',
         loadChildren: () => import('../creertachesdesignation/creertachesdesignation.module').then( m => m.CreertachesdesignationPageModule)
       },
       {
@@ -98,6 +95,10 @@ const routes: Routes = [
         loadChildren: () => import('../reporting/reporting.module').then( m => m.ReportingPageModule)
       },
       
+    {
+      path: 'personnel-externe',
+      loadChildren: () => import('../personnelexterne/personnelexterne.module').then( m => m.PersonnelexternePageModule)
+    },
     {
       path: 'personnels',
       loadChildren: () => import('../personnel/personnel.module').then( m => m.PersonnelPageModule)

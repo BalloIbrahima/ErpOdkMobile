@@ -14,7 +14,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import {HttpClientModule} from '@angular/common/http';
 import { ClocheComponent } from './cloche/cloche.component';
-import { PopupNotificationPage } from './popup-notification/popup-notification.page';
+import { PopupNotificationPage } from "./popup-notification/popup-notification.page";
 import { registerLocaleData } from '@angular/common';
 import * as fr from '@angular/common/locales/fr';
 import { PopupdtiragePage } from './popupdtirage/popupdtirage.page';

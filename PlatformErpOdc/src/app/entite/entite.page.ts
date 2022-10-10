@@ -32,6 +32,7 @@ export class EntitePage implements OnInit {
   descriptionMo: any;
   responsableEntiteMo: any;
   idEntite: any;
+  imageentite1: any;
 
   constructor(private entitedetailservice: DetailentiteService, private entiteService:EntiteService,private acceuilService: AccueilserviceService,
     private userService: UtilisateurService, private router: Router, private route:ActivatedRoute) { }
@@ -96,6 +97,11 @@ export class EntitePage implements OnInit {
   recuperationImage(event: any) {
 
     this.imageentite = event.target["files"][0];
+    console.log(this.imageentite)
+  }
+  recuperationImage1(event: any) {
+
+    this.imageentite1 = event.target["files"][0];
     console.log(this.imageentite)
   }
 //Redirection voir +
@@ -177,11 +183,11 @@ RedirigerEntite(id:number){
       // this.imageEntite = this.entites.image
     })
   }
-  setClose(isOpen: boolean){
-    this.isModalOpen = isOpen;
+  setClose(){
+    this.isModalOpen = false;
   }
    //Methode permettant de Modifier une entite
-   modifierEntite(id:any){
+   modifierEntite(){
     for(let i = 0; i< this.toutUtilisateur.length; i++){
 
       const array=this.responsableEntiteMo.split(' ')
@@ -190,10 +196,11 @@ RedirigerEntite(id:number){
         this.lead =this.toutUtilisateur[i]
       }
     }
-    this.entiteService.updateEntiteById(this.Utilisateur.login, this.Utilisateur.password,id,this.imageentite, this.libelleentiteMo, this.descriptionMo, this.Utilisateur, this.lead).subscribe(data =>{
+    this.entiteService.updateEntiteById(this.Utilisateur.login, this.Utilisateur.password,this.idEntite,this.imageentite1, this.libelleentiteMo, this.descriptionMo, this.Utilisateur, this.lead).subscribe(data =>{
       
       console.log(data)
     })
+    this.alet();
    }
 
    supprimerEntite(id:any){

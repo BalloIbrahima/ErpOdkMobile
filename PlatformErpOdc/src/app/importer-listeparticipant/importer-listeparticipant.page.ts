@@ -72,7 +72,10 @@ export class ImporterListeparticipantPage implements OnInit {
     })
 
   }
+
+
   importAouP(){
+    
     var idact=0;
     for(let i = 0; i < this.listeactivite.length; i++) {
       if(this.listeactivite[i].nom == this.idactivite) {

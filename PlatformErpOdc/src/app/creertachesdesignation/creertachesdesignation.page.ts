@@ -75,6 +75,14 @@ export class CreertachesdesignationPage implements OnInit {
 
     this.tachedesign.getAlldesignation(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour=>{
   this.designations = retour.data
+  console.log(retour)
+    });
+
+//:::::::::::::::::::: get all User ::::::::::::::::::::::::::::::::::::::
+
+this.user.getAllUsers(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour=>{
+  this.designations = retour.data
+  console.log(retour)
     });
 
 

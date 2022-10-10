@@ -133,9 +133,14 @@ label{
 
 img{
 
-  margin-top: 13%;
+  margin-top: 15%;
+}
 
+@media screen and (max-width:767px) {
+  img{
 
+    margin-top: 0%;
+  }
 }
 
 

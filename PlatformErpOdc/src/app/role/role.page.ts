@@ -25,13 +25,14 @@ export class RolePage implements OnInit {
   LibelleRoleCreation = new Array();
   LibelleRoleUpdate = new Array();
   LibelleRoleSuppression = new Array();
-  currentRoleCreate: any;
+  currentRoleCreate = [];
   idrole: any;
   libelleRole2: String;
-  currentRoleCreate2: any;
+  currentRoleCreate2 = [];
   currentRoleCreate1: any;
   Valeur: string;
-  libellerole: any;
+  libellerole: String;
+  currentRoleCreate3: {};
 
   constructor(private seriveRole: RoleService) { }
   // eslint-disable-next-line @typescript-eslint/member-ordering
@@ -128,7 +129,16 @@ export class RolePage implements OnInit {
   }
 
   handleChange(ev) {
-    this.currentRoleCreate = ev.target.value;
+    //this.currentRoleCreate = ev.target.value;
+    this.currentRoleCreate = this.currentRoleCreate.concat(ev.target.value)
+    console.log(this.currentRoleCreate)
+    for (let index = 0; index < this.currentRoleCreate.length; index++) {
+      if (this.currentRoleCreate[index] != this.currentRoleCreate[0] ) {
+        this.currentRoleCreate3 = this.currentRoleCreate
+        
+      }
+    }
+    console.log(this.currentRoleCreate3)
     // if(this.currentRoleCreate != null){
     //   // this.Valeur = JSON.stringify(JSON.parse(this.currentRoleCreate).concat(JSON.parse(ev.target.value)));
     //   this.Valeur = Object.assign(this.currentRoleCreate, ev.target.value)
@@ -183,13 +193,14 @@ export class RolePage implements OnInit {
   setOpen(isOpen: boolean, idRole, libellerole){
     this.isModalOpen = isOpen;
     this.idrole = idRole
+
     this.libellerole = libellerole
     console.log("mmmmmmmmmmmmmmmmmmmm");
     console.log(this.libellerole);
   }
 
   handleChange1(ev) {
-    this.currentRoleCreate2 = ev.target.value;
+    this.currentRoleCreate2 = this.currentRoleCreate2.concat(ev.target.value)
   }
   updateRole(){
     

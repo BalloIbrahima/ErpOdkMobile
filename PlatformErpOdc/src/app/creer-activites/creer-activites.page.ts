@@ -42,7 +42,11 @@ export class CreerActivitesPage implements OnInit {
 
 
 
+   FormateursInternes:any;
+   FormateursExternes:any;
 
+  //  FormateursUsers:any;
+  //  FormateursExters:any;
 
   message:String;
   erreur:Boolean;
@@ -142,6 +146,40 @@ export class CreerActivitesPage implements OnInit {
     var idintervenant=null;
 
 
+    var FormateursUsers=[];
+    var FormateursExters=[]
+    console.log(this.FormateursExternes)
+    console.log(this.FormateursInternes)
+
+    for(let i=0;i<this.FormateursInternes.length;i++){
+      const array=this.FormateursInternes[i].split(" ")
+
+      for(let j=0 ; j<this.PersonnelsActives.length; j++){
+
+        if(this.PersonnelsActives[j].nom==array[0] && this.PersonnelsActives[j].prenom==array[1]){
+          console.log(this.PersonnelsActives[j])
+
+          FormateursUsers.push(this.PersonnelsActives[j])
+        }
+      }
+      
+    }
+
+    for(let i=0;i<this.FormateursExternes.length;i++){
+      const array=this.FormateursExternes[i].split(" ")
+
+      for(let j=0 ; j<this.externes.length; j++){
+        if(this.externes[j].nom==array[0] && this.externes[j].prenom==array[1]){
+          console.log(this.externes[j])
+          FormateursExters.push(this.externes[j])
+        }
+      }
+      
+    }
+
+
+    console.log(FormateursUsers)
+    console.log(FormateursExters)
     //recuperation de l'id l'entite
     for(let i=0 ; i<this.Entites.length; i++){
       if(this.Entites[i].libelleentite==this.typeactivite){
@@ -162,31 +200,17 @@ export class CreerActivitesPage implements OnInit {
         idType=this.TypesActivites[i]
       }
     }
-     //recuperation de l'id des formateurs
-     for(let i=0 ; i<this.utilisateurs.length; i++){
-      if(this.utilisateurs[i].libelle==this.utilisateurs){
-        iduser=this.utilisateurs[i]
-        console.log(iduser)
-      }
-     }
-
 
     //recuperation de l'id du lead
      for(let i=0 ; i<this.PersonnelsActives.length; i++){
       console.log(this.leadNomPrenom)
       const array=this.leadNomPrenom.split(" ")
 
-      if(this.PersonnelsActives[i].prenom==array[0] && this.PersonnelsActives[i].nom==array[1]){
+      if(this.PersonnelsActives[i].nom==array[0] && this.PersonnelsActives[i].prenom==array[1]){
         this.lead=this.PersonnelsActives[i]
       }
     }
-    //recuperation de l'id des intervenants externes
-    for(let i=0 ; i<this.externes.length; i++){
-      if(this.externes[i].libelle==this.externes){
-        idintervenant=this.externes[i]
-        console.log(idintervenant)
-      }
-     }
+    
 
     //creation de l'activite il manque lentite concernée dans la bdd//affaire de salles dispo a ala creation de lactivite
     //fitrage par statut et entity ne fonctionne pas en bdd 3 get deja fait
@@ -198,16 +222,18 @@ export class CreerActivitesPage implements OnInit {
       "dateFin":this.dateFin,
       "description":this.description,
       "leader":this.lead,
-      "utilisateurs":this.utilisateurs,
+      "utilisateurs":FormateursUsers,
       "salle":idSalle,
       "typeActivite":idType,
-      "intervenantExternes":this.externes
+      "intervenantExternes":FormateursExters
     }]
 
 
     this.activiteService.Creer(this.Utilisateur.login,this.Utilisateur.password,this.fichier,activite).subscribe(data=>{
       console.log(data)
-      this.presentAlert()
+      if(data.message="ok"){
+        this.presentAlert()
+      }
     })
   }
 

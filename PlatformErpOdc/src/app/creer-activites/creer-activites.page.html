@@ -36,6 +36,7 @@
           <div class="input-box ">
             <span class="details">Type d'activité *</span>
             <select name="typeactivite" [(ngModel)]="typeactivite" class="select" required>
+                <option>Choisir le type de  l'activité</option>
               <option *ngFor="let type of TypesActivites">{{type.libelle}}</option>
             </select>
           </div>
@@ -73,7 +74,7 @@
             <span class="details">Formateurs </span>
             <ion-list>
               <ion-item>
-                <ion-select placeholder="Selectionner les formateurs" [multiple]="true">
+                <ion-select placeholder="Selectionner les formateurs" [multiple]="true" [(ngModel)]="FormateursInternes"  name="FormateursInternes">
                   <ion-select-option *ngFor="let u of utilisateurs">{{u.nom}} {{u.prenom}}</ion-select-option>
                 </ion-select>
               </ion-item>
@@ -85,7 +86,7 @@
             <span class="details">Formateurs Externes</span>
             <ion-list>
               <ion-item>
-                <ion-select placeholder="Selectionner les formateurs" [multiple]="true">
+                <ion-select placeholder="Selectionner les formateurs" [multiple]="true" [(ngModel)]="FormateursExternes" name="FormateursExternes">
                   <ion-select-option *ngFor="let u of externes">{{u.nom}} {{u.prenom}}</ion-select-option>
                 </ion-select>
               </ion-item>
@@ -96,6 +97,7 @@
           <div class="input-box">
             <span class="details">Salle </span>
             <select name="libellesalle" [(ngModel)]="libellesalle" class="select">
+                <option>Choisir une salle *</option>
               <option *ngFor="let s of SallesDisponibles">{{s.libelle}}</option>
             </select>
           </div>

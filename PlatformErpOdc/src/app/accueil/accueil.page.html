@@ -262,8 +262,7 @@
               <div class="col m-2 image row"  
                 *ngFor="let aa of activiteAvenir ; let i=index "  
                 
-                style=" background-repeat: no-repeat;   background-position: center; background-size: cover; border-radius: 10px;"
-                >
+                style=" background-repeat: no-repeat;   background-position: center; background-size: cover; border-radius: 10px;">
               
                 <img *ngIf="i<3" src="{{aa.image}} " style="height:100%; width: 100%; object-fit: cover;" alt="">
                 <!-- <div
@@ -281,18 +280,21 @@
                 <!-- </div> -->
 
                    <div *ngIf="i<3" class="col align-self-end"
-                    style="background: rgba(250, 220, 220, 0.74);
-                    height: 75px;
-                    width: 60% !important;
-                    margin-top: -50%;
-                    border-radius: 15px;">
+                      style=" background: rgb(221 199 199 / 74%);
+                      height: 75px;
+                      width: 60% !important;
+                      margin: 10%;
+                      margin-top: -50%;
+                      justify-content: center;
+                      border-radius: 15px;
+                      text-align: center;">
                     <span class="nomActivite">
                       {{aa.nom}}
                     </span>
 
                     <br>
-                    <span class="Date">
-                      Status
+                    <span class="Date" *ngIf="aa.salle!=null">
+                      {{aa.salle.libelle}}
                     </span>
 
                     <br>

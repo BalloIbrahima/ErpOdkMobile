@@ -129,7 +129,7 @@
               <span class="details">Comission *</span>
               <ion-list>
                 <ion-item>
-                  <ion-select placeholder="Selectionner les formateurs" [multiple]="true" [(ngModel)]="Commissions">
+                  <ion-select placeholder="Selectionner les formateurs" [multiple]="true" [(ngModel)]="Commissions" name="Commissions">
                     <ion-select-option *ngFor="let pex of personEx" >{{pex.nom}} {{pex.prenom}}</ion-select-option>
                     <ion-select-option *ngFor="let pin of personEx" >{{pin.nom}} {{pin.prenom}}</ion-select-option>
                     <!-- <ion-select-option *ngFor="let u of utilisateurs">{{u.nom}} {{u.prenom}}</ion-select-option> -->

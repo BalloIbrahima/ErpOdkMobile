@@ -24,22 +24,22 @@ export class DetailtiragePage implements OnInit {
     this.idT = this.route.snapshot.params['idT']
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
       console.log(this.Utilisateur.login)
+      console.log(this.idT)
 
       this.service.GetListeParId(this.Utilisateur.login,this.Utilisateur.password,this.idT).subscribe(data=>{
 
+        console.log(data)
         this.resultTir=data.data.tirages;
-        
+
         for(let i=0;i<this.resultTir.length;i++){
-          if(this.resultTir[i].id==this.idT){
+
+           if(this.resultTir[i].id==this.idT){
             console.log(this.resultTir[i].postulanttires);
 
             this.Tirage=this.resultTir[i].postulanttires
           }
         }
-
-
-      
-
+  
       })
          
 

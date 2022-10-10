@@ -32,8 +32,8 @@ export class DetailDesListesPage implements OnInit {
 
       //tutes les listes
       this.service.GetListeTotal(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
-        console.log(data.message);
-        console.log(data.data.length);
+        // console.log(data.message);
+        // console.log(data.data.length);
         this.totallist=data.data;
         console.log(data)
         this.nbrliste=data.data.length;

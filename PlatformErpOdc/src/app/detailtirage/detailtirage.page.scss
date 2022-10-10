@@ -5,6 +5,11 @@
   background-color: #F2EDED;
   
 }
+.fond{
+  background-color: white;
+  margin-top: 6%;
+  border-radius: 15px;
+}
 .container >table{
   margin-top: 2%;
   background-color: white;
@@ -25,6 +30,7 @@
   border-radius: 10px;
   display: grid;
   grid-template-columns: 30% 65%;
+  border: #FF7900 solid;
 }
 .InputSearch >svg{
   display: flex;
@@ -44,6 +50,7 @@
 
 table{
   margin-top: 50px;
+ 
 }
 
 td{

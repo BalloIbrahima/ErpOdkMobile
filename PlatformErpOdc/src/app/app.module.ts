@@ -14,14 +14,14 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import {HttpClientModule} from '@angular/common/http';
 import { ClocheComponent } from './cloche/cloche.component';
-import { PopupNotificationPage } from './popup-notification/popup-notification.page';
+import { PopupNotificationPage } from "./popup-notification/PopupNotificationPage";
 import { registerLocaleData } from '@angular/common';
 import * as fr from '@angular/common/locales/fr';
 import { PopupdtiragePage } from './popupdtirage/popupdtirage.page';
 
 
 @NgModule({
-   declarations: [AppComponent,PopupdtiragePage],
+   declarations: [AppComponent,PopupdtiragePage,PopupNotificationPage],
   // imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
 
   imports: [FormsModule, RouterModule.forRoot([]), IonicModule.forRoot({}),

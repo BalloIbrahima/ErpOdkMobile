@@ -106,7 +106,7 @@ export class RoleService {
     data.append('user', JSON.stringify(user).slice(1, JSON.stringify(user).lastIndexOf(']')));
     data.append('role', JSON.stringify(role).slice(1, JSON.stringify(role).lastIndexOf(']')));
 
-    return this.http.post(`${this.env.api}/admin/Delete/role/${idrole}`, data)
+    return this.http.post(`${this.env.api}/admin/update/role/${idrole}`, data)
   }
 
 }

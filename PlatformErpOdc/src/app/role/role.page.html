@@ -72,7 +72,7 @@
             <td>
               <div class="socials">
                 <a title="Voir plus de detail sur l'entité"><img src="../../assets/icon/voir.png" alt="" srcset=""></a>
-                <a title="cliquer ici pour modifier l'entité" (click)="setOpen(true,inf.id)"><img src="../../assets/icon/modifier-le-fichier.png"
+                <a title="cliquer ici pour modifier l'entité" (click)="setOpen(true,inf.id, inf.libellerole)"><img src="../../assets/icon/modifier-le-fichier.png"
                     alt="" srcset=""></a>
                 <a title="cliquer ici pour supprimer l'entité" (click)="supprimerRole(inf.id)"><img
                     src="../../assets/icon/supprimer.png" alt="" srcset=""></a>
@@ -96,7 +96,7 @@
       </div> -->
       <ion-header>
         <ion-toolbar>
-          <ion-title>Création de role et attribution des droits</ion-title>
+          <ion-title>Création et attribution des droits au rôle</ion-title>
           <ion-buttons slot="end">
             <button type="button" class="btn-close" (click)="modal.dismiss()" data-bs-dismiss="modal"
               aria-label="Close"> </button>
@@ -190,7 +190,7 @@
               </div>
 
               <div class="d-grid gap-2 col-6 text-center mx-auto mt-2">
-                <button type="button" class="btn colorbutton2 btn-sm" (click)="postRole()">Enregistrer</button>
+                <button type="button" class="btn colorbutton2 btn-sm" (click)="postRole();modal.dismiss()">Enregistrer</button>
               </div>
             </form>
           </div>
@@ -217,7 +217,7 @@
       </div> -->
       <ion-header>
         <ion-toolbar>
-          <ion-title>Création de role et attribution des droits</ion-title>
+          <ion-title>Mise à jour  et attribution des droits au rôle</ion-title>
           <ion-buttons slot="end">
             <button type="button" class="btn-close" (click)="setClose(false);" data-bs-dismiss="modal"
               aria-label="Close"> </button>
@@ -240,7 +240,7 @@
               <div class="row mb-3">
                 <div class="col-12 col-lg-6">
                   <div for="exampleFormControlInput1" class="libellerole">Libelle role *</div>
-                  <input type="email" class="form-control" [(ngModel)]="libelleRole2" name="libelleRole"
+                  <input type="text" class="form-control" [value]="libellerole" [(ngModel)]="libelleRole2" name="libelleRole2"
                     id="exampleFormControlInput1" placeholder="Orange digital kalanso">
                 </div>
               </div>

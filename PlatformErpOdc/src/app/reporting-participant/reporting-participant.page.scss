@@ -193,6 +193,13 @@ p{
     width: 25%;
   
   }
+  ion-modal {
+ 
+    padding: none;
+    --border-radius:15px;
+    
+  }
+  
   
   @media screen and (max-width: 900px) {
     .form-select {

@@ -41,12 +41,14 @@
             </thead>
             <tbody *ngFor="let tache of taches">
               <tr >
+                <!-- {{tache.designation.libelle}}
+                {{tache.porteur}} -->
                 <td>{{tache.designation.libelle}}</td>
-                <td>{{tache.porteur}}</td>
-                <td>{{tache.lieu}}</td>
+                <td> {{tache.porteurInterne.nom}} {{tache.porteurInterne.prenom}}</td>
+                <td>{{tache.salle.libelle}}</td>
                 <td>{{tache.statut.libelle}}</td>
-                <td>{{tache.datedebut}}</td>
-                <td>{{tache.datefin}}</td>
+                <td>{{tache.datedebut | date: "dd MMMM yyyy"}}</td>
+                <td>{{tache.datefin | date: "dd MMMM yyyy"}}</td>
               </tr>    
               </tbody>
           </table>

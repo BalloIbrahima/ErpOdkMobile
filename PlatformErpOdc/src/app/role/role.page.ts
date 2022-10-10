@@ -30,6 +30,8 @@ export class RolePage implements OnInit {
   libelleRole2: String;
   currentRoleCreate2: any;
   currentRoleCreate1: any;
+  Valeur: string;
+  libellerole: any;
 
   constructor(private seriveRole: RoleService) { }
   // eslint-disable-next-line @typescript-eslint/member-ordering
@@ -127,18 +129,31 @@ export class RolePage implements OnInit {
 
   handleChange(ev) {
     this.currentRoleCreate = ev.target.value;
+    // if(this.currentRoleCreate != null){
+    //   // this.Valeur = JSON.stringify(JSON.parse(this.currentRoleCreate).concat(JSON.parse(ev.target.value)));
+    //   this.Valeur = Object.assign(this.currentRoleCreate, ev.target.value)
+    // }else{
+    //   this.currentRoleCreate = ev.target.value;
+    // }
+    
+    // console.log(this.Valeur)
   }
   handleChange11(ev) {
     this.currentRoleCreate1 = ev.target.value;
   }
   postRole() {
-    if (this.libelleRole == '' || this.currentRoleCreate == null) {
+    if (this.libelleRole == null) {
       Swal.fire({
-        position: 'center',
         title: 'Veuillez indiquer le nom du rôle',
-        imageUrl: '../../assets/img/Yes_check.svg.png',
-        imageWidth: '100px',
-        imageHeight: '100px',
+        
+        confirmButtonText: 'Ok',
+        confirmButtonColor: '#FF7900',
+        heightAuto: false,
+      })
+    } else if(this.LibelleRoleCreation == null){
+      Swal.fire({
+        title: 'Veuillez Choisir au moins un droit',
+        
         confirmButtonText: 'Ok',
         confirmButtonColor: '#FF7900',
         heightAuto: false,
@@ -147,23 +162,30 @@ export class RolePage implements OnInit {
       this.seriveRole.postRole(this.Utilisateur.login, this.Utilisateur.password, this.libelleRole, this.currentRoleCreate).subscribe(data => {
         console.log(data)
         if (data.message = 'ok')
+        Swal.fire({
+          position: 'center',
+          title: 'Rôle crée avec succes',
+          imageUrl: '../../assets/img/Yes_check.svg.png',
+          imageWidth: '100px',
+          imageHeight: '100px',
+          confirmButtonText: 'Ok',
+          confirmButtonColor: '#FF7900',
+          heightAuto: false,
+        })
           this.getAllRole()
+         
       })
-      Swal.fire({
-        position: 'center',
-        title: 'Rôle crée avec succes',
-
-        confirmButtonText: 'Ok',
-        confirmButtonColor: '#FF7900',
-        heightAuto: false,
-      })
+      
     }
 
   }
   isModalOpen = false;
-  setOpen(isOpen: boolean, idRole){
+  setOpen(isOpen: boolean, idRole, libellerole){
     this.isModalOpen = isOpen;
     this.idrole = idRole
+    this.libellerole = libellerole
+    console.log("mmmmmmmmmmmmmmmmmmmm");
+    console.log(this.libellerole);
   }
 
   handleChange1(ev) {

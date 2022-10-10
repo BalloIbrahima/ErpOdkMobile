@@ -160,7 +160,7 @@ export class CreerActivitesPage implements OnInit {
     }
      //recuperation de l'id des formateurs
      for(let i=0 ; i<this.utilisateurs.length; i++){
-      if(this.utilisateurs[i].libelle==this.utilisateurs){
+      if(this.utilisateurs[i].activitesFormateurs==this.utilisateurs){
         iduser=this.utilisateurs[i]
         console.log(iduser)
       }
@@ -203,7 +203,7 @@ export class CreerActivitesPage implements OnInit {
 
     this.activiteService.Creer(this.Utilisateur.login,this.Utilisateur.password,this.fichier,activite).subscribe(data=>{
       console.log(data)
-      
+
       this.presentAlert()
 
 

@@ -88,7 +88,7 @@ export class ActiviteService {
 
       data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
 
-      return this.http.post(`${this.env.api}/adminactivites/entite/${idActivite}`,data);
+      return this.http.post(`${this.env.api}/admin/activites/entite/${idActivite}`,data);
 
     }
 

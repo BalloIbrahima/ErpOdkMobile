@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActiviteService } from '../services/activite/activite.service';
 import * as XLSX from "xlsx"
 import Swal from 'sweetalert2';
+import { EventListenerFocusTrapInertStrategy } from '@angular/cdk/a11y';
 
 @Component({
   selector: 'app-detailactivity',
@@ -105,7 +106,7 @@ dateFin:any
     // });
     Swal.fire({
         position:'center',
-        title: 'Liste importée avec succès !\nVoulez-vous voir la liste :',
+        title: 'voulez-vous supprimer cette activité !',
         //showDenyButton: true,
         showCancelButton: true,
         confirmButtonText: 'Oui',
@@ -117,10 +118,11 @@ dateFin:any
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-         this.navv.navigateRoot('detailactivite,idactivite')
+          this.navv.navigateBack('allactivity')
+         //this.navv.navigateRoot('detailactivite,idactivite')
         } else if (result.isDenied) {
-          this.navv.navigateRoot('detailactivite')
-          
+          this.navv.back
+
         }
       });
     }
@@ -131,16 +133,15 @@ dateFin:any
         console.log(d)
       this.suppvar=d.message;
       console.log(this.suppvar)
-      
+
     if(d.message=="ok"){
       this.succesImport();
+    }else if(d.message != "ok"){
+      console.log("impossible de supprimer cette activite")
     }
-
-          
-
       }
     )
-    
+
 
   }
   update(){

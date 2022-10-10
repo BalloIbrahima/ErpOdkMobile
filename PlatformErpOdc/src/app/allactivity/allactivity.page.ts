@@ -36,7 +36,7 @@ export class AllactivityPage implements OnInit {
     this.service.GetTtActivite(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
       this.touteactivite=data.data;
       this.longueur=data.data.length
-      console.log(data)
+      console.log(this.touteactivite)
     })
 
 //recuperrer tout les entites

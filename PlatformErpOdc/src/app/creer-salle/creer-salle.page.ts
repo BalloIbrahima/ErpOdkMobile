@@ -26,6 +26,9 @@ export class CreerSallePage implements OnInit {
   alertTrue: boolean = false;
   alertFalse: boolean = false;
   niveauEtage: string;
+  alertNomTrue: boolean =false;
+  alertNomFalse: boolean =false;
+  messageerror: string;
 
   constructor(private salleService:SalleServiceService,private entiteService:EntiteService,private typeActiviteService:TypeActiviteService,private userService:UtilisateurService) { }
 
@@ -54,9 +57,24 @@ export class CreerSallePage implements OnInit {
     }else{
       this.niveauEtage = this.niveau + "ème étage"
     }
-    
-    this.salleService.ajoutSalle(this.Utilisateur.login,this.Utilisateur.password,this.nom,this.description,this.niveauEtage,this.nombrePlace,this.Utilisateur).subscribe(retour=>{
+
+    if (this.nom == null) {
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="Le champ nom vide!!"
+    }else if(this.nombrePlace == null){
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="Le champ nombre place est vide!!"
+    }else if(this.niveau == null){
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="Le champ niveau est vide!!"
+    }
+    else{
+      this.salleService.ajoutSalle(this.Utilisateur.login,this.Utilisateur.password,this.nom,this.description,this.niveauEtage,this.nombrePlace,this.Utilisateur).subscribe(retour=>{
       console.log(retour)
+
       if(retour.message == 'ok'){
         this.alertTrue = true
         this.alertFalse = false
@@ -64,7 +82,13 @@ export class CreerSallePage implements OnInit {
         this.alertTrue = false
         this.alertFalse = true
       }
+
     })
+    // this.alertNomTrue=false
+    // this.alertNomFalse=true
+    }
+
+
 
   }
 

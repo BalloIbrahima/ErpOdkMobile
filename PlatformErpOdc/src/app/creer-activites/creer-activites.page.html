@@ -24,7 +24,7 @@
                         <select name="typeentite" [(ngModel)]="typeentite"  class="select" required>
                         <option >Choisisez une entité</option>
                         <option *ngFor="let entite of Entites" >{{entite.libelleentite}}</option>
-                        <!--pour recuperer l'id de lentite<option *ngFor="let entite of Entites" >{{entite.id}}</option> -->
+                        <!-- pour recuperer l'id de lentite<option *ngFor="let entite of Entites" >{{entite.id}}</option> -->
 
                     </select>
                     </div>
@@ -61,14 +61,7 @@
 
 
 
-                    <!-- <div class="input-box">
-                      <span class="details">Formateurs </span>
-                      <select name="utilisateurs" [(ngModel)]="utilisateurs" class="select" >
-                        <option selected>Choisir des formateurs</option>
-                      <option   *ngFor="let u of utilisateurs">{{u.nom}}  {{u.prenom}}</option>
 
-                      </select>
-                  </div> -->
                   <div class="input-box">
                     <span class="details">Formateurs </span>
                     <ion-list >

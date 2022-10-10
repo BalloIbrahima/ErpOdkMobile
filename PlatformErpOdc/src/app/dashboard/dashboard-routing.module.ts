@@ -11,16 +11,11 @@ const routes: Routes = [
     children:[
       {
         path: '',
-        redirectTo: 'accueil',
+        redirectTo: 'acceuil',
         pathMatch: 'full'
       },
 
       
-      {
-        path: 'reporting-participant',
-        loadChildren: () => import('../reporting-participant/reporting-participant.module').then( m => m.ReportingParticipantPageModule)
-      },
-
       {
         path: 'reporting-participant',
         loadChildren: () => import('../reporting-participant/reporting-participant.module').then( m => m.ReportingParticipantPageModule)
@@ -33,12 +28,6 @@ const routes: Routes = [
         path: 'salle',
         loadChildren: () => import('../salle/salle.module').then( m => m.SallePageModule)
       },
-
-      {
-        path: 'reporting-participant',
-        loadChildren: () => import('../reporting-participant/reporting-participant.module').then( m => m.ReportingParticipantPageModule)
-      },
-
       {
         path: 'reportingfiltreact',
         loadChildren: () => import('../reportingfiltreact/reportingfiltreact.module').then( m => m.ReportingfiltreactPageModule)
@@ -59,15 +48,21 @@ const routes: Routes = [
         path: 'ajout-entite',
         loadChildren: () => import('../ajout-entite/ajout-entite.module').then( m => m.AjoutEntitePageModule)
       },
-      {
-        path: 'creer-activites',
-        loadChildren: () => import('../creer-activites/creer-activites.module').then( m => m.CreerActivitesPageModule)
-      },
+      
 
       {
         path: 'allactivity',
         loadChildren: () => import('../allactivity/allactivity.module').then( m => m.AllactivityPageModule)
       },
+      {
+        path: 'ajoutparticipant/:id',
+        loadChildren: () => import('../ajoutparticipant/ajoutparticipant.module').then( m => m.AjoutparticipantPageModule)
+      },
+      {
+        path: 'ajoutparticipant',
+        loadChildren: () => import('../ajoutparticipant/ajoutparticipant.module').then( m => m.AjoutparticipantPageModule)
+      },
+
 
       {
         path: 'detailactivite/:id',
@@ -85,6 +80,11 @@ const routes: Routes = [
         path: 'modifiersalle/:id',
         loadChildren: () => import('../modifier-salle/modifier-salle.module').then( m => m.ModifierSallePageModule)
       },
+      {
+        path: 'tachedesignation/:id',
+        loadChildren: () => import('../tachedesignation/tachedesignation.module').then( m => m.TachedesignationPageModule)
+      },
+
       {
         path: 'tachedesignation',
         loadChildren: () => import('../tachedesignation/tachedesignation.module').then( m => m.TachedesignationPageModule)
@@ -130,7 +130,7 @@ const routes: Routes = [
       path: 'salle',
       loadChildren: () => import('../salle/salle.module').then( m => m.SallePageModule)
     },
-  
+
     {
       path: 'tirage',
       loadChildren: () => import('../tirage/tirage.module').then( m => m.TiragePageModule)
@@ -140,7 +140,7 @@ const routes: Routes = [
       loadChildren: () => import('../detailtirage/detailtirage.module').then( m => m.DetailtiragePageModule)
     },
     {
-      path: 'detail-tirage-liste',
+      path: 'detail-tirage-liste/:id',
       loadChildren: () => import('../detail-tirage-dune-liste/detail-tirage-dune-liste.module').then( m => m.DetailTirageDuneListePageModule)
     },
     {
@@ -151,10 +151,18 @@ const routes: Routes = [
       path: 'importeliste',
       loadChildren: () => import('../importliste/importliste.module').then( m => m.ImportlistePageModule)
     },
-    
+
     {
       path: 'importer-participant/:id',
       loadChildren: () => import('../importer-listeparticipant/importer-listeparticipant.module').then( m => m.ImporterListeparticipantPageModule)
+    },
+    {
+      path: 'editactivity/:id',
+      loadChildren: () => import('../editactivity/editactivity.module').then( m => m.EditactivityPageModule)
+    },
+    {
+      path: 'editactivity',
+      loadChildren: () => import('../editactivity/editactivity.module').then( m => m.EditactivityPageModule)
     },
     {
       path: 'ajouter-role',
@@ -172,10 +180,16 @@ const routes: Routes = [
       path: 'modifier-salle',
       loadChildren: () => import('../modifier-salle/modifier-salle.module').then( m => m.ModifierSallePageModule)
     },
+  {
+        path: 'profil',
+      loadChildren: () => import('../profil/profil.module').then( m => m.ProfilPageModule)
+    },
+
+
 
       { path: '**', redirectTo:'accueil',pathMatch:'full'}
 
-    
+
     ]
   },
 

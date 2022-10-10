@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ModalController, NavController } from '@ionic/angular';
 import { Observable } from 'rxjs';
+import Swal from 'sweetalert2';
 import { ListeService } from '../services/listes/liste.service';
 import { TirageService } from '../services/tirage/tirage.service';
 
@@ -13,33 +15,58 @@ export class PopupdtiragePage implements OnInit {
   a : number=1;
   date = new Date();
   tirage: any;
-  constructor(private modalController: ModalController,private tirageService:TirageService) { }
+  TirageSelect: any;activite
+  idtira: any;
+  tiraget: any;
+  constructor(private modalController: ModalController,private tirageService:TirageService,private navCltr:NavController,private route:ActivatedRoute,private router:Router) { }
   @Input() valider: boolean;
 
   
-  idtirage
-  Utilisateur
+  
+  Utilisateur;
   data;
-  ngOnInit() {
 
-    console.log(this.data)
+  postulantTires: any;
+  
+  
+  ngOnInit() {
+    console.log(this.data);
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) ;
-    
+
+    this.tirageService.AllPostulantsByTirage(this.Utilisateur.login, this.Utilisateur.password,this.data.id).subscribe(donnee=>{
+      this.postulantTires=donnee.data
+      console.log(this.postulantTires)
+    })
   }
 
   async validerPopup() {
-    const close: string = "Tirage validé !";
-    this.valider = true
-    await this.modalController.dismiss(close);
-    //alert(close)
+    Swal.fire({
+      title:'Tirage Valider',
+      icon:'success',
+      heightAuto: false,
+      confirmButtonColor:'#FF7900',
+      allowOutsideClick:false
+  }).then(()=>{
+    this.router.navigate(["/detailactivite",this.data.activite.id]);
+  })
+  await this.modalController.dismiss(close);
   }
-  // ValiderT(idtirage){
-  //   this.tirageService.ValiderTirage(this.Utilisateur.login, this.Utilisateur.password,this.idtirage).subscribe(retour=>{
-  //     this.tirage=retour.data
-  //     console.log(this.tirage)
-  //   })
-  //   this.validerPopup()
-  // }
+  ValiderT(idtirage){
+    const retour=this.data.id
+
+    
+    // console.log(this.data)
+    // for(let i=0;i<retour.length;i++){
+    //   this.tiraget=retour[i].tirage
+    //   console.log(this.tiraget)
+    // }
+    // console.log(this.tiraget)
+    this.tirageService.ValiderTirage(this.Utilisateur.login, this.Utilisateur.password,this.data.id).subscribe(donnee=>{
+      this.tirage=donnee.data
+      console.log(this.tirage)
+    })
+    this.validerPopup()
+  }
 
   async annulerPopup() {
     const close: string = "Tirage annulé !";
@@ -49,4 +76,5 @@ export class PopupdtiragePage implements OnInit {
   }
 
 
+  
 }

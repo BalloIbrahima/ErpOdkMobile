@@ -80,25 +80,23 @@
   <ion-modal #modal trigger="open-modal" backdropDismiss="false">
 
     <ng-template>
-      <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-end">
+      <!-- <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-end">
         <!-- <ion-buttons slot="end">
           <ion-button (click)="modal.dismiss()">Close</ion-button>
-        </ion-buttons> -->
-      </div>
+        </ion-buttons> 
+      </div> -->
       <ion-header>
         <ion-toolbar>
           <ion-title>Ajouter entité</ion-title>
           <ion-buttons slot="end">
-            <button type="button" class="btn-close"  (click)="modal.dismiss()" data-bs-dismiss="modal" aria-label="Close"></button>
-   
-            <!-- <ion-button (click)="modal.dismiss()">Close</ion-button> -->
+            <ion-button (click)="modal.dismiss()"><span aria-hidden="true" style="font-size: 30px;">&times;</span></ion-button>
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
 
       <div class="container">
         <!-- <button type="button" class="btn-close"  (click)="modal.dismiss()" data-bs-dismiss="modal" aria-label="Close"></button> -->
-        <h5 class="card-title text-center">Nouvelle entité</h5>
+        <!-- <h5 class="card-title text-center">Nouvelle entité</h5> -->
         <div class="card">
 
           <div class="card-body text-start">
@@ -213,7 +211,7 @@
                 Responsable <br>{{inf.gerant.prenom}} {{inf.gerant.nom}}</h6>
               <h6>
               </h6>
-              <p class="card-text" [innerHTML]="inf.description | slice:0:80"></p>
+              <p class="card-text" [innerHTML]="inf.description | slice:0:50"></p> 
               
                 <div class="position-absolute bottom-0 start-50 translate-middle-x mb-2">
                   <div class="socials">

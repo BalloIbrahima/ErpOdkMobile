@@ -32,7 +32,7 @@ export class ActiviteService {
   }
 
 
-  Creer(login:string,password:string,file:any,activite:any){
+  Creer(login:string,password:string,file:any,activite:any):Observable<any>{
     const data:FormData=new FormData();
 
     const user=[{"login":login,"password":password}]

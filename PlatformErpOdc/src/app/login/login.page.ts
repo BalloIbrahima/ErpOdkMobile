@@ -33,7 +33,7 @@ export class LoginPage {
       if(data.message=="ok"){
         //enregistrement de l'utilisateur dans le local storage
         localStorage.setItem('utilisateur',JSON.stringify(data.data))
-          
+
         // if(data.data.role.libellerole=="ADMIN"){
           //rediriger vers la page admin
 
@@ -50,6 +50,10 @@ export class LoginPage {
       }else if(data.message=="error"){
         this.error=true;
         this.erreur=data.data
+        this.spinner.hide();
+      }else{
+        this.error=true;
+        this.erreur="Erreur liée au serveur !"
         this.spinner.hide();
       }
     })

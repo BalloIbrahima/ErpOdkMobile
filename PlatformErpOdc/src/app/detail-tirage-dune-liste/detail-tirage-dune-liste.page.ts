@@ -22,7 +22,8 @@ export class DetailTirageDuneListePage implements OnInit {
   nbrPostTirer1:any;
   detList:any;
   dateImpList:any;
- 
+  cherch:String;
+  liste:[];
 
 
   constructor(private route:ActivatedRoute, private service: DetailListPostService, private services: ListeService/*public service: TirageService*/) { }

@@ -66,7 +66,7 @@ export class CreerActivitesPage implements OnInit {
         this.SallesDisponibles=r.data
         console.log(this.SallesDisponibles)
       })
-      
+
 
     this.typeActiviteService.getListe(this.Utilisateur.login,this.Utilisateur.password).subscribe(r=>{
       if(r.message=='ok'){
@@ -118,6 +118,9 @@ export class CreerActivitesPage implements OnInit {
       icon:'success',
       heightAuto: false,
       confirmButtonColor:"#FF7900"
+  }).then(()=>{
+
+    this.router.navigate(["/dashboard/allactivity"]);
   });
   }
   async notpresent() {

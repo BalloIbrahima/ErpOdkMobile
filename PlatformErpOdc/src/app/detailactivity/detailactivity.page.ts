@@ -20,7 +20,7 @@ export class DetailactivityPage implements OnInit {
 
   Status:any
   image:any
-  salles:any
+  salles:any=null;
   leadnom:any
   leadprenom:any
   suppvar:any
@@ -54,7 +54,9 @@ dateFin:any
       this.activite=r.data;
       console.log(this.activite)
       this.nom=this.activite.nom
-      this.salles=this.activite.salle.libelle
+      if(this.activite.salle!=null){
+        this.salles=this.activite.salle.libelle
+      }
       this.leadnom=this.activite.leader.nom
       this.leadprenom=this.activite.leader.prenom
       this.image=this.activite.image

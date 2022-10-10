@@ -84,6 +84,11 @@ const routes: Routes = [
         path: 'tachedesignation/:id',
         loadChildren: () => import('../tachedesignation/tachedesignation.module').then( m => m.TachedesignationPageModule)
       },
+
+      {
+        path: 'tachedesignation',
+        loadChildren: () => import('../tachedesignation/tachedesignation.module').then( m => m.TachedesignationPageModule)
+      },
       {
         path: 'creertachesdesignation',
         loadChildren: () => import('../creertachesdesignation/creertachesdesignation.module').then( m => m.CreertachesdesignationPageModule)

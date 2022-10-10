@@ -66,6 +66,15 @@ export class TiragePage implements OnInit {
         confirmButtonColor:'#FF7900'
     });
   }
+  popupEgal() {
+      Swal.fire({
+        title:'Desolé',
+        text:'Le nombre entré est égal au nombre de postulant sur la liste',
+        icon:'error',
+        heightAuto: false,
+        confirmButtonColor:'#FF7900'
+    });
+  }
 
 
   ngOnInit() {
@@ -75,7 +84,7 @@ export class TiragePage implements OnInit {
       console.log(this.listes)
     })
 
-      this.activiteService.GetTtActivite(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour=>{
+      this.activiteService.GetAllActiviteSansPartcipant(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour=>{
       this.nom=retour.data;
       console.log(this.nom)
     })
@@ -102,9 +111,14 @@ export class TiragePage implements OnInit {
           console.log(retour)
           this.popupExist()
         }
-        else{
+        if(retour.data=="Nombre de postulants insufusant !"){
+          console.log(retour)
           this.popupDepasse()
         }
+        if(retour.data=="Index 3 out of bounds for length 3"){
+          this.popupEgal()
+        }
+        
         
       }
       

@@ -60,7 +60,7 @@ export class DetailDesListesPage implements OnInit {
 
   goDetailTirage(id:number){
     console.log(id);
-    return this.router.navigate(['detail-tirage-liste', id])
+    return this.router.navigate(['detail-tirage-dune-liste', id])
   }
 
 }

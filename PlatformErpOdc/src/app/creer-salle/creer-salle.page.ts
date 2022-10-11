@@ -53,7 +53,7 @@ export class CreerSallePage implements OnInit {
       this.niveauEtage = "Rez-de-chaussée"
     }
     else if(this.niveau == 1){
-      this.niveauEtage = this.niveau + "er étage"
+      this.niveauEtage = this.niveau + "ère étage"
     }else{
       this.niveauEtage = this.niveau + "ème étage"
     }

@@ -147,13 +147,16 @@ textarea {
         background: #FFFF;
         padding: 5% 7%;
     }
+
     form .activite-details .input-box {
         margin-bottom: 15px;
         width: 100%;
     }
+
     .container form .activite-details {
         overflow-y: scroll;
     }
+
     .activite-details::-webkit-scrollbar {
         width: 0;
     }
@@ -163,9 +166,10 @@ textarea {
         width: 100%;
     }
 
-    .title{
+    .title {
         margin-top: 5%;
     }
+
     input[type=submit] {
         border-radius: 10px;
         padding: 7px 10px;

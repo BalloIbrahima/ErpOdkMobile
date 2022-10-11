@@ -1,5 +1,9 @@
 {
   "dependencies": {
+<<<<<<< HEAD
+    "@angular/animations": "^14.2.5",
+=======
+>>>>>>> 5f81b0eee788deb61103e1df7a19b731045965f5
     "ngx-pagination": "^6.0.2",
     "sweetalert2": "^11.4.37"
   }

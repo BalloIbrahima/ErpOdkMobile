@@ -204,6 +204,10 @@ input:checked~.content-test {
   margin-top: 10px !important;
 }
 
+button:hover {
+  background-color: rgba(247, 28, 28, 0.979);
+}
+
 /* If the screen size is 480px or less */
 @media (max-width: 480px) {
   .content_testimonial .picto {
@@ -318,10 +322,14 @@ p.testimonialFrom {
 }
 
 .buttonColor:hover {
+  background-color: #ffff !important;
   border: 1px solid #ff7900 !important;
   border-radius: 15px;
   color: #ff7900 !important;
+  background-color: #ffff !important;
+    
 }
+
 
 .item1 {
   height: 100em;
@@ -395,6 +403,9 @@ ion-modal {
   --height: 30em !important;
   --border-radius: 15px;
   --width: 30em;
+}
+ion-content{
+  font-family: myfon1 !important;
 }
 
 ion-menu-button {
@@ -471,7 +482,8 @@ body {
  padding-top: 30px;
  }
  .card-img-top {
-  height: 200px;
+  object-fit: cover;
+  height: 150px;
  box-shadow: 0 5px 10px rgba(0,0,0,0.5);
  }
  .card-body{
@@ -481,17 +493,24 @@ body {
  .card-body h6 {
  font-size: 14px;
  text-transform: uppercase;
- color: deeppink;
+ color: black;
  }
  .card-title {
  text-transform: uppercase;
  font-weight: bold;
  font-size: 24px;
  }
+ .card-text{
+  color: black;
+ }
+
+ .laragerColonne{
+  height: 400px !important;
+ }
  
  .socials a {
- width: 10%;
- height: 10%;
+ width: 20%;
+ height: 20%;
  display: inline-block;
  cursor: pointer;
  
@@ -525,4 +544,8 @@ body {
 //   border: 2px solid red !important;
 //   text-overflow: ellipsis !important;
 //  }
- 
+ion-modal {
+  --height: auto !important;
+  --border-radius: 15px;
+  --width: 30em;
+}

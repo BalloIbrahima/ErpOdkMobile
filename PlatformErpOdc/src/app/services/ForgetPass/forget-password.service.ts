@@ -21,7 +21,20 @@ export class ForgetPasswordService {
       }]
       data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
 
-    return this.http.post(`${this.env.api}/motdepass/forgetpassword/`,data);
+    return this.http.post(`${this.env.api}/motdepass/forgetpassword`,data);
+  }
+
+  ChangePass(email:String, password:String,code:String ):Observable<any>{
+
+    const data:FormData=new FormData();
+    const user=[
+      {
+        "email":email,
+        "password":password
+      }]
+      data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+
+    return this.http.post(`${this.env.api}/motdepass//change/password/${code}`,data);
   }
 
 }

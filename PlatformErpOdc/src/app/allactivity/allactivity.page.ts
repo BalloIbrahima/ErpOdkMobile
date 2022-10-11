@@ -26,17 +26,20 @@ export class AllactivityPage implements OnInit {
   constructor(private route:ActivatedRoute,private router: Router,private entiteService:EntiteService,private service:ActiviteService) { }
 
 
-  ngOnInit() {
-
-
-
+  ngOnInit(){ 
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
     console.log(this.Utilisateur)
     //console.log(this.Utilisateur.password)
     this.service.GetTtActivite(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
-      this.touteactivite=data.data;
-      this.longueur=data.data.length
-      console.log(this.touteactivite)
+      console.log(data.message)
+      if(data.message =="ok"){
+        this.touteactivite=data.data;
+        this.longueur=data.data.length
+        console.log(this.touteactivite)
+      }else{
+        this.touteactivite="Aucune activité enregistrée"
+      }
+
     })
 
 //recuperrer tout les entites
@@ -83,7 +86,7 @@ export class AllactivityPage implements OnInit {
         this.longueur=data.data.length
         console.log(data)
       })
-    }else if(this.textFiltre=="Activités Terminée"){
+    }else if(this.textFiltre=="Activités Terminées"){
       this.service.GetActiviteterminer(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
         this.touteactivite=data.data;
         this.longueur=data.data.length

@@ -48,11 +48,23 @@ export class SalleServiceService {
 
     return this.http.post(`${this.env.api}/salle/creersalle/`, data);
   }
+//:::::::::::::::::::::::::::::::Supprimer salle :::::::::::::::::::::::::::::::::::::://
+
+deleteSalle(login: String, password: String, idSalle: number):Observable<any>{
+  const data: FormData = new FormData();
+  const user = [{ "login": login, "password": password }]
+
+  console.log(user)
+
+  data.append('user', JSON.stringify(user).slice(1, JSON.stringify(user).lastIndexOf(']')));
+
+  return this.http.post(`${this.env.api}/salle/suprime/${idSalle}`, data);
+
+}
 
 
 
-
-  // //::::::::::Modif de salle :::::::::::::::::::::::
+  //:::::::::::::::::::::::::::::::::Modifier de salle :::::::::::::::::::::::::::::::::::::::::::
 
   ModifSalle(login: String, password: String, id: number, libelle: String, description: string,
     etage: string, nombre: number, userid: any): Observable<any> {
@@ -125,7 +137,6 @@ export class SalleServiceService {
     return this.http.post(`${this.env.api}/salle/SalleDisponible`, data);
     //return this.http.get(`http://localhost:8080/admin/SalleDisponible/${login}/${password}`);
   }
-
   getSallesIndispo(login: String, password: String): Observable<any> {
 
     const data: FormData = new FormData();

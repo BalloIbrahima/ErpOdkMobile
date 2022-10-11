@@ -1,13 +1,99 @@
 .container{
-  display: grid;
+  display: grid;   
+  grid-template-columns: 80% 18%;
+  column-gap: 2%;
+  height: 650px;
   height: 100%;
   background-color: #F2EDED;
+  
 }
+.gauche{
+  border-radius: 15px;
+  background-color: white;
+  padding: 1.5%;
+  height: 100%;
+  margin-top: 4%;
+}
+
+.gauche >table{
+  margin-top: 2%;
+  background-color: white;
+}
+.droite{
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  background-color: white;
+  padding: 1.5%;
+  margin-top: 18%;
+  height: 100%;
+  
+}
+
+.labelContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 500;
+  height: -webkit-fill-available;
+}
+img{
+  border-radius: 15px;
+ 
+}
+.gauche{
+  border-radius: 15px;
+  background-color: white;
+  padding: 1.5%;
+  height: 100%;
+  margin-top: 4%;
+}
+
+.gauche >table{
+  margin-top: 2%;
+  background-color: white;
+}
+.droite{
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  background-color: white;
+  padding: 1.5%;
+  margin-top: 18%;
+  height: 100%;
+  
+}
+
+.labelContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 500;
+  height: -webkit-fill-available;
+}
+img{
+  border-radius: 15px;
+ 
+}
+.droite >.libelleListe{
+  margin-top: 42%;
+
+}
+.droite >.dateImport{
+  margin-top: 42%;
+}
+
 .searchBar{
   display: flex;
   justify-content: center;
-  margin-top: 1%;
-  margin-bottom: 10px;
+  margin-top: 2%;
+  
 }
 .InputSearch{
   margin-top: 10px;
@@ -15,7 +101,7 @@
   display: flex;
   justify-content: center;
   height: 40px;
-  background-color: #FFFFFF;
+  background-color: #F3F3F3;
   border-radius: 10px;
   display: grid;
   grid-template-columns: 30% 65%;
@@ -30,6 +116,7 @@
   border: 0;
   font-size: 20px;
   font-family: cursive;
+  background-color: #F3F3F3;
 }
 .InputSearch >input:focus {
   border: 0;
@@ -48,6 +135,9 @@ thead{
 .voirPlus{
   color: #FF7900;
 }
+// table{
+//   margin-top: 10%;
+// }
 @media screen and (max-width: 900px) {
   .form-select{
     font-size: medium;
@@ -93,5 +183,6 @@ thead{
     font-size: 10px;
     font-family: cursive;
   }
+  
 
 }

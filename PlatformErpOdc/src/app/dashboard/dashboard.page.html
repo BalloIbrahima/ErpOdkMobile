@@ -20,7 +20,9 @@
         <!-- image de l'utilisateur -->
         <div class="row mt-2">
           <div class="col align-self-center text-center" routerLink="/dashboard/profil">
-            <img class="imageUtilisateur" alt="Silhouette of mountains" src="../../assets/avatar.png" />
+            <img *ngIf="Utilisateur.image==null" class="imageUtilisateur" alt="Silhouette of mountains" src="../../assets/avatar.png" />
+            <img *ngIf="Utilisateur.image!=null" class="imageUtilisateur" alt="Silhouette of mountains" src="{{Utilisateur.image}}" />
+
           </div>
 
         </div>
@@ -53,12 +55,12 @@
             <img class="ion-icon Desactive" src="../assets/icon/icon/activiter.png" alt="" srcset=""> &nbsp;&nbsp;&nbsp;
             <ion-label class="lienPage">Activités</ion-label>
           </ion-item>
-          <ion-item (click)="FermerSideBar()" lines="none" routerLink="/dashboard/entite" routerLinkActive='active-item'>
+          <ion-item *ngIf="Utilisateur.role.libellerole=='ADMIN'" (click)="FermerSideBar()" lines="none" routerLink="/dashboard/entite" routerLinkActive='active-item'>
             <img class="ion-icon Active" src="../assets/icon/icon/entite une fois toucher.png" alt="" srcset="">
             <img class="ion-icon Desactive" src="../assets/icon/icon/entite.png" alt="" srcset=""> &nbsp;&nbsp;&nbsp;
             <ion-label class="lienPage">Entités</ion-label>
           </ion-item>
-          <ion-item (click)="FermerSideBar()" lines="none" routerLink="/dashboard/personnels" routerLinkActive='active-item'>
+          <ion-item *ngIf="Utilisateur.role.libellerole=='ADMIN'" (click)="FermerSideBar()" lines="none" routerLink="/dashboard/personnels" routerLinkActive='active-item'>
             <img class="ion-icon Active" src="../assets/icon/icon/personnel une fois active.png" alt="" srcset="">
             <img class="ion-icon Desactive" src="../assets/icon/icon/personnel.png" alt="" srcset=""> &nbsp;&nbsp;&nbsp;
             <ion-label class="lienPage">Personnels</ion-label>
@@ -68,7 +70,7 @@
             <img class="ion-icon Desactive" src="../assets/icon/icon/reporting.png" alt="" srcset=""> &nbsp;&nbsp;&nbsp;
             <ion-label class="lienPage">Reporting</ion-label>
           </ion-item>
-          <ion-item (click)="FermerSideBar()" lines="none" routerLink="/dashboard/role" routerLinkActive='active-item'>
+          <ion-item *ngIf="Utilisateur.role.libellerole=='ADMIN'" (click)="FermerSideBar()" lines="none" routerLink="/dashboard/role" routerLinkActive='active-item'>
             <img class="ion-icon Active" src="../assets/icon/icon/role une fois active.png" alt="" srcset="">
             <img class="ion-icon Desactive" src="../assets/icon/icon/role.png" alt="" srcset=""> &nbsp;&nbsp;&nbsp;
             <ion-label class="lienPage">Rôles</ion-label>

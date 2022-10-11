@@ -21,7 +21,7 @@ export class DetailactivityPage implements OnInit {
 
   Status:any
   image:any
-  salles:any
+  salles:any=null;
   leadnom:any
   leadprenom:any
   suppvar:any
@@ -29,6 +29,7 @@ export class DetailactivityPage implements OnInit {
   postulants:any
   dateDebut:any
 dateFin:any
+description:any
 
 
   aaa:any
@@ -42,6 +43,7 @@ dateFin:any
 
   id:any;
 
+
   ngOnInit() {
 
     const idactivite=this.route.snapshot.params['id']
@@ -54,7 +56,10 @@ dateFin:any
       this.activite=r.data;
       console.log(this.activite)
       this.nom=this.activite.nom
-      this.salles=this.activite.salle.libelle
+      this.description=this.activite.description
+      if(this.activite.salle!=null){
+        this.salles=this.activite.salle.libelle
+      }
       this.leadnom=this.activite.leader.nom
       this.leadprenom=this.activite.leader.prenom
       this.image=this.activite.image

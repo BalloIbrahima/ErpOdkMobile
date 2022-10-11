@@ -216,11 +216,11 @@ caption{
     font-size: small;
   }
   .titreStatus{
-    font-weight: bold;
+    font-weight: bold !important;
     font-size: 16px;
   }
   .titreEntite {
-    font-weight: bold;
+    font-weight: bold !important;
     font-size: 18px;
   }
   .buttonColor {
@@ -239,4 +239,23 @@ caption{
     font-size: small;
   }
 
+}
+// Style appliquer au button ajouter personnel
+.buttonColor {
+  background: #ff7900;
+  border-radius: 15px;
+  color: #ffffff;
+}
+
+.buttonColor:hover {
+  border: 1px solid #ff7900 !important;
+  border-radius: 15px;
+  color: #ff7900 !important;
+  background: #ffff !important;
+}
+
+//style appliquer a l'image 
+.styleAppliquerImageEntite{
+  object-fit: cover;
+  height: 200px;
 }

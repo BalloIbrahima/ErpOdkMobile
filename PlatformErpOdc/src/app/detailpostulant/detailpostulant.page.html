@@ -71,27 +71,29 @@
     </ion-item>
   </ion-list>
 
-  
-  <div class="row">
-    <!-- <div class="col-lg-3 col-12">
-      <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-start">
-        <select class="form-select form-select-md" aria-label=".form-select-sm example">
-          <option selected>
-            <ion-icon name="funnel-outline" slot="start"></ion-icon>Filtrer par entité
-          </option>
-          <option value="1">ODC</option>
-          <option value="2">ODK</option>
-          <option value="3">FABLAB</option>
-          <option value="3">ORANGE FAB</option>
-        </select>
-      </div>
+  <!-- <div class="buttom">
+    <div class="button1">
 
-    </div> -->
+    
+       
+        <button class="btn buttonColor"  class="but1"  type="button"  >+ &nbsp; Modifier</button> 
+        <input class="but1" type="submit" value="Supprimer" >
+
+      <input class="but1" type="reset" value="MODIFIER" (click)="ModifierPersonnel()" data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop">
+      
+    </div>
+    <div class="button2">
+      <input class="but2" type="submit" value="DESACTIVER" (click)="DesactiverPersonnel()">
+      <input class="but2" type="submit" value="Desactiver" ">
+    </div>
+  </div>  -->
+  <div class="row">
     <div class="col-lg-9 col-12">
       <div class="d-grid m-2 gap-2 d-md-flex justify-content-md-center">
-        <button class="btn buttonColor" type="button" id="open-modal">+ &nbsp; Modifier</button>
-        <button class="btn buttonColor" type="button" (click)="DeletePersonnel()">+ &nbsp; Supprimer</button>
-        <button class="btn buttonColor" type="button" (click)="DPersonnel()">+ &nbsp; Desactiver</button>
+        <button class="btn buttonColor" id="open-modal" type="button">+ &nbsp; Modifier</button>
+        <button class="btn buttonColor" (click)="DeleteUser()" type="button">+ &nbsp; Supprimer</button>
+        <button class="btn buttonColor" (click)="DesactiverUser()" type="button">+ &nbsp; Desactiver</button>
       </div>
     </div>
   </div>
@@ -112,27 +114,25 @@
           
         </ion-toolbar>
       </ion-header> -->
-
-    
+      
 <div class="container">
   <form action="#">
-    
     <div class="box">
       <button type="button" class="btn-close"  (click)="cancel()" data-bs-dismiss="modal" aria-label="Close"></button>
       <h1>Modifier personnel</h1>
           <div class="ajout">
               <div class="input-box">
                   <span class="details">Nom *</span>
-                  <input type="text" placeholder="Nom du personnel" required>
+                  <input type="text" name="nom" [(ngModel)]="nom" [value]="nom" placeholder="Nom du personnel" required>
               </div>
               <div class="input-box">
                 <span class="details">Email *</span>
                 <div class="mail">
-                  <input type="text" placeholder="loremipsun" id="inp" required>
+                  <input type="email" name="email" [(ngModel)]="email" placeholder="loremipsun" id="inp" [value]="email" required>
                   <div style="width: 270px;">
-                  <select name="tchoixsalle" class="mailmodel" required>
+                  <select name="domaine" [(ngModel)]="domaine" class="mailmodel" required>
                     <option >--Choisisez un domaine--</option>
-                    <option *ngFor="let domaine of formatMailperonnel" >{{domaine.libelle}}</option>
+                    <option *ngFor="let d of formatMailperonnel" >{{d.libelle}}</option>
                     <!-- formatMail
                     <option value="">@orangefablab.com</option>
                     <option value="">@orangemali.com</option>
@@ -143,7 +143,7 @@
               </div>
               <div class="input-box">
                 <span class="details">Prénom *</span>
-                <input type="text" placeholder="Prénom du personnel" required>
+                <input type="text" name="prenom" [(ngModel)]="prenom" [value]="prenom" placeholder="Prénom du personnel" required>
               </div>
               
               <!-- <div class="input-box">
@@ -165,17 +165,18 @@
              </div> -->
               <div class="input-box">
                   <span class="details">Entité *</span>
-                  <select name="tchoixsalle" class="select" required>
+                  <select name="entite" [(ngModel)]="entite" class="select"  required>
                     <option >--Choisisez une entité--</option>
                     <option *ngFor="let entite of Entites" >{{entite.libelleentite}}</option>
                   </select>
               </div>
               <div class="input-box">
                 <span class="details">Votre genre </span>
-                <p class="select">
-                  {{genre}}
-                </p>
-                
+                <select name="genre" [(ngModel)]="genre" class="select" required>
+                  <option value="">--Votre genre--</option>
+                  <option >Masculin</option>
+                    <option >Feminin</option>
+                </select>
                 <!-- <select name="tchoixsalle" class="select" required>
                     <option >--Votre genre--</option>
                     <option *ngFor="let g of genre" >{{g.genre}}</option>
@@ -183,15 +184,15 @@
             </div>
             <div class="input-box">
               <span class="details">Rôle *</span>
-              <select name="tchoixsalle" class="select" required>
+              <select name="role" [(ngModel)]="role" class="select" required >
                 <option value="">--Choisisez un role--</option>
-                <option *ngFor="let role of Roles" >{{role.libellerole}}</option>
+                <option *ngFor="let r of Roles" >{{r.libellerole}}</option>
               </select>
           </div>
           <div class="input-box">
             <span class="details">Ajouter image *</span>
             <input type="file" class="form-control" placeholder="Logo.jpg" id="logo"
-              accept="image/png, image/jpeg, image/jpg" (change)="envoyerImage($event)">
+              accept="image/png, image/jpeg, image/jpg" (change)="envoyerImage1($event)">
           </div>
 
           </div>
@@ -202,7 +203,7 @@
       </ion-buttons>
       <!-- <input class="but" type="submit" (click)="modal.dismiss()" value="Annuler"> -->
       <ion-buttons slot="end">
-        <ion-button (click)="confirmP()" [strong]="true" class="but">Modifier</ion-button>
+        <ion-button (click)="UpdateUser()" class="but">Modifier</ion-button>
       </ion-buttons>
     </div>
 

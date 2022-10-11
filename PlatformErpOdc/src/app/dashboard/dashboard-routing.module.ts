@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ReportingParticipantPageModule } from '../reporting-participant/reporting-participant.module';
 import { DashboardPage } from './dashboard.page';
 
 
@@ -13,6 +14,17 @@ const routes: Routes = [
         redirectTo: 'accueil',
         pathMatch: 'full'
       },
+
+      
+      {
+        path: 'reporting-participant',
+        loadChildren: () => import('../reporting-participant/reporting-participant.module').then( m => m.ReportingParticipantPageModule)
+      },
+
+      {
+        path: 'reporting-participant',
+        loadChildren: () => import('../reporting-participant/reporting-participant.module').then( m => m.ReportingParticipantPageModule)
+      },
       {
         path: 'profil',
         loadChildren: () => import('../profil/profil.module').then( m => m.ProfilPageModule)
@@ -21,7 +33,20 @@ const routes: Routes = [
         path: 'salle',
         loadChildren: () => import('../salle/salle.module').then( m => m.SallePageModule)
       },
-  
+
+      {
+        path: 'reporting-participant',
+        loadChildren: () => import('../reporting-participant/reporting-participant.module').then( m => m.ReportingParticipantPageModule)
+      },
+
+      {
+        path: 'reportingfiltreact',
+        loadChildren: () => import('../reportingfiltreact/reportingfiltreact.module').then( m => m.ReportingfiltreactPageModule)
+      }, {
+        path: 'reportingfiltrepart',
+        loadChildren: () => import('../reportingfiltrepart/reportingfiltrepart.module').then( m => m.ReportingfiltrepartPageModule)
+      },
+
       {
         path: 'home',
         loadChildren: () => import('../home/home.module').then( m => m.HomePageModule)
@@ -43,6 +68,15 @@ const routes: Routes = [
         path: 'allactivity',
         loadChildren: () => import('../allactivity/allactivity.module').then( m => m.AllactivityPageModule)
       },
+      {
+        path: 'ajoutparticipant/:id',
+        loadChildren: () => import('../ajoutparticipant/ajoutparticipant.module').then( m => m.AjoutparticipantPageModule)
+      },
+      {
+        path: 'ajoutparticipant',
+        loadChildren: () => import('../ajoutparticipant/ajoutparticipant.module').then( m => m.AjoutparticipantPageModule)
+      },
+
 
       {
         path: 'detailactivite/:id',
@@ -61,12 +95,16 @@ const routes: Routes = [
         loadChildren: () => import('../modifier-salle/modifier-salle.module').then( m => m.ModifierSallePageModule)
       },
       {
-        path: 'tachedesignation',
+        path: 'tachedesignation/:id',
         loadChildren: () => import('../tachedesignation/tachedesignation.module').then( m => m.TachedesignationPageModule)
       },
       {
         path: 'creertachesdesignation',
         loadChildren: () => import('../creertachesdesignation/creertachesdesignation.module').then( m => m.CreertachesdesignationPageModule)
+      },
+      {
+        path: 'reporting',
+        loadChildren: () => import('../reporting/reporting.module').then( m => m.ReportingPageModule)
       },
       
     {
@@ -82,17 +120,21 @@ const routes: Routes = [
       loadChildren: () => import('../ajouterpersonnel/ajouterpersonnel.module').then( m => m.AjouterpersonnelPageModule)
     },
     {
-      path: 'detail-personnel',
+      path: 'tachedesignation',
+      loadChildren: () => import('../tachedesignation/tachedesignation.module').then( m => m.TachedesignationPageModule)
+    },
+    {
+      path: 'detail-personnel/:id',
       loadChildren: () => import('../detailpostulant/detailpostulant.module').then( m => m.DetailpostulantPageModule)
     },
     {
       path: 'entite',
       loadChildren: () => import('../entite/entite.module').then( m => m.EntitePageModule)
     },
-    {
-      path: 'details-entite',
-      loadChildren: () => import('../details-entite/details-entite.module').then( m => m.DetailsEntitePageModule)
-    },
+    // {
+    //   path: 'details-entite/:id',
+    //   loadChildren: () => import('../details-entite/details-entite.module').then( m => m.DetailsEntitePageModule)
+    // },
     {
       path: 'role',
       loadChildren: () => import('../role/role.module').then( m => m.RolePageModule)
@@ -101,7 +143,7 @@ const routes: Routes = [
       path: 'salle',
       loadChildren: () => import('../salle/salle.module').then( m => m.SallePageModule)
     },
-  
+
     {
       path: 'tirage',
       loadChildren: () => import('../tirage/tirage.module').then( m => m.TiragePageModule)
@@ -122,9 +164,9 @@ const routes: Routes = [
       path: 'importeliste',
       loadChildren: () => import('../importliste/importliste.module').then( m => m.ImportlistePageModule)
     },
-    
+
     {
-      path: 'importer-participant',
+      path: 'importer-participant/:id',
       loadChildren: () => import('../importer-listeparticipant/importer-listeparticipant.module').then( m => m.ImporterListeparticipantPageModule)
     },
     {
@@ -139,11 +181,14 @@ const routes: Routes = [
       path: 'activite',
       loadChildren: () => import('../allactivity/allactivity.module').then( m => m.AllactivityPageModule)
     },
-
+    {
+      path: 'modifier-salle',
+      loadChildren: () => import('../modifier-salle/modifier-salle.module').then( m => m.ModifierSallePageModule)
+    },
 
       { path: '**', redirectTo:'accueil',pathMatch:'full'}
 
-    
+
     ]
   },
 

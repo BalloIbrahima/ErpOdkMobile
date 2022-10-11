@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title> Ajout Particicpant</ion-title>
+    <ion-button slot="end" fill="clear">
+        <!-- <app-cloche></app-cloche> -->
+
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+
+  <ion-content>
+    <div class="container">
+        <form >
+            <div class="box">
+                <h1>Nouveau Participant</h1>
+                <div class="activite-details">
+                              <div class="input-box">
+                                <span class="details">Nom*</span>
+                                <input type="text" [(ngModel)]="nomparticipant"  name="nomparticipant" placeholder="Nom du participant" required>
+                            </div>
+                            <div class="input-box">
+                              <span class="details">Prenom *</span>
+                              <input type="text" [(ngModel)]="prenom"  name="prenom" placeholder="Prenom du participant" required>
+                          </div>
+                           <div class="input-box">
+                            <span class="details">Mail *</span>
+                            <input type="email" [(ngModel)]="email"  name="email" placeholder="Email du  participant" required>
+                        </div>
+
+                        <div class="input-box">
+                          <span class="details">Date de naissance *</span>
+                          <input type="date" [(ngModel)]="daten"  name="daten" placeholder="Date de naissance" required>
+
+                        </div>
+                        <div class="input-box">
+                        <span class="details">Telephone *</span>
+                        <input type="tel" [(ngModel)]="numero"  name="numero" placeholder="Numero de telephone" required>
+                    </div>
+
+
+                    <div class="input-box">
+                        <span class="details"> Activité *</span>
+                        <select name="nom" [(ngModel)]="nom" class="select" required>
+
+                        <option >{{nom}}</option>
+
+                    </select>
+
+                    </div>
+                </div>
+            </div>
+            <div class="button">
+                <input class="but" type="submit"  (click)="ajoutparticipant()" value="Enregistrer">
+            </div>
+        </form>
+
+    </div>
+
+</ion-content>

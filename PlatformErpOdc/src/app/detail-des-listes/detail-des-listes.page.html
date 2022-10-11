@@ -6,7 +6,7 @@
       <ion-title>Détail listes</ion-title>
       <ion-button slot="end" fill="clear">
         <app-cloche></app-cloche>
-        
+
       </ion-button>
     </ion-toolbar>
   </ion-header>
@@ -34,7 +34,7 @@
                         <path
                             d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                     </svg>
-                    <input type="text" name="motCle" id="motCle" placeholder="Recherche liste">
+                    <input type="text" name="motCle" id="motCle" placeholder="Recherche.." [(ngModel)]="essai" animated="true">
                     <!-- [(ngModel)]="searchText" -->
                 </div>
             </div>
@@ -47,44 +47,26 @@
 
 
             <div class="listeList">
-                <div id="list" class="col" >
+                <div id="list" class="col" *ngFor="let l of totallist |filter: essai   " >
                     <div class="row">
                         <img src="../../assets/listetof1.png" alt="" style="width: 100px ;" >
                     </div>
                     <div class="row">
-                        <!-- ngFor="let l of listeService.liste |filter:searchText  | paginate: {itemsPerPage:16,currentPage: p}; let id = index" [routerLink]="['/detailsliste', l.id]"  -->
-                        <label id="libelleListe">Liste 1</label>
-                        <label id="nbrTirageListe" for="">22 tirages</label>
-                        <label id="nbrTirageListe" for="">22 tirages</label>
-                </div>
+                
+                   <label id="libelleListe">{{l.libelle}}</label>
+                   <label id="nbrTirageListe" for="">{{l.tirages.length}} tirages</label>
+                   <label id="nbrTirageListe" >{{l.dateimport | date: 'dd MMMM yyyy'}} </label>
+                    </div>
                 </div>
 
-                <div id="list" class="col">
-                    <div class="row">
-                        <img src="../../assets/listetof1.png" alt="" style="width: 100px ;" >
-                    </div>
-                    <div class="row">
-                    <!-- ngFor="let l of listeService.liste |filter:searchText  | paginate: {itemsPerPage:16,currentPage: p}; let id = index" [routerLink]="['/detailsliste', l.id]"  -->
-                    <label id="libelleListe">Liste 1</label>
-                    <label id="nbrTirageListe" for="">22 tirages</label>
-                    <label id="nbrTirageListe" for="">22 tirages</label>
-                </div>
-                </div>
-
-                <div id="list" class="col">
-                    <div class="row">
-                        <img src="../../assets/listetof1.png" alt="" style="width: 100px ;" >
-                    </div>
-                    <div class="row">
-                    <!-- ngFor="let l of listeService.liste |filter:searchText  | paginate: {itemsPerPage:16,currentPage: p}; let id = index" [routerLink]="['/detailsliste', l.id]"  -->
-                    <label id="libelleListe">Liste 1</label>
-                    <label id="nbrTirageListe" for="">22 tirages</label>
-                    <label id="nbrTirageListe" for="">22 tirages</label>
-                </div>
-                </div>
             </div>
+
+
+
             <!--  <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
 
+             <!-- ngFor="let l of listeService.liste |filter:searchText  | paginate: {itemsPerPage:16,currentPage: p}; let id = index" [routerLink]="['/detailsliste', l.id]"  -->
+                    
             <!-- <div class="listvide" ngIf="listeService.liste.length==0">   
                         <label>Aucune liste dans la base de donnée</label> 
                     </div> -->
@@ -95,14 +77,14 @@
 
             <div class="nbrTirage">
                 <div class="labelContainer">
-                    <label for="">10</label>
+                    <label for="">{{totaltirage}}</label>
                     <label for="">Tirages</label>
                 </div>
             </div>
 
             <diV class="nbrliste">
                 <div class="labelContainer">
-                    <label for="">12</label>
+                    <label for="">{{nbrliste}}</label>
                     <label for="">Listes</label>
                 </div>
 
@@ -110,7 +92,7 @@
 
             <div class="nbrTirageValide">
                 <div class="labelContainer">
-                    <label for="">07</label>
+                    <label for="">{{nbreTirageValides}}</label>
                     <label for="">Tirages Validés</label>
                 </div>
             </div>

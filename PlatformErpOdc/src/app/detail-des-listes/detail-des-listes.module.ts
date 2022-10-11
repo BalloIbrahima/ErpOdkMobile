@@ -8,11 +8,12 @@ import { IonicModule } from '@ionic/angular';
 
 import { DetailDesListesPageRoutingModule } from '../detail-des-listes/detail-des-listes-routing.module';
 
-// import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DetailDesListesPage } from './detail-des-listes.page';
 import { ClocheComponent } from '../cloche/cloche.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   imports: [
@@ -21,7 +22,7 @@ import { ClocheComponent } from '../cloche/cloche.component';
     IonicModule,
     DetailDesListesPageRoutingModule,
     NgxPaginationModule,
-    //Ng2SearchPipeModule,
+    Ng2SearchPipeModule,
   ],
   declarations: [DetailDesListesPage, ClocheComponent]
 })

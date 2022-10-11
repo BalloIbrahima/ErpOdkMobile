@@ -25,9 +25,100 @@ export class UtilisateurService {
   }
 
   //methode pour la creation d'un utilisateur
-  CreateUser(User:any,login:String,password:String){
-    return this.http.post(`${this.env.api}/create/user/${login}/${password}`,User)
+  CreateUser(login:String,password:String,
+    nom:String,prenom:String,email:string,Genre: any,file:any,entiteid:any,roleid:any): Observable<any>{
+
+    const data1:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+
+    const data=[{
+      "nom":nom,
+      "prenom":prenom,
+      'email':email,
+      "genre":Genre,
+      "active":true,
+      "notif":true,
+      //"login":login,
+      //"password":password,
+      "monEntite":entiteid,
+      "role":roleid
+    }]
+
+    console.log(data)
+
+    data1.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+    data1.append('data', JSON.stringify(data).slice(1,JSON.stringify(data).lastIndexOf(']')));
+    data1.append('file',file)
+    return this.http.post(`${this.env.api}/admin/create/user`,data1)
   }
+
+  //methode pour la creation d'un intervenat externe
+  CreateUserExterne(login:String,password:String,
+    email:string,Genre: any,nom:String,prenom:String,numero:number,roleid:any): Observable<any>{
+
+    const data1:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+
+    const data=[{
+      'email':email,
+      "genre":Genre,
+      "nom":nom,
+      "prenom":prenom,
+      "numero":numero,
+      "role":roleid
+    }]
+
+    console.log(data)
+
+    data1.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+    data1.append('data', JSON.stringify(data).slice(1,JSON.stringify(data).lastIndexOf(']')));
+    return this.http.post(`${this.env.api}/admin/create/intervenant`,data1)
+  }
+
+//La fonction pour recuperer un utilisateur
+  DetailsUserById(login:String, password:String,id:number):Observable<any>{
+    const data:FormData=new FormData();
+    const user=[
+      {
+        "login":login,
+        "password":password
+      }];
+      data.append('user' , JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+      // data.append('id' , JSON.stringify(identite).slice(1,JSON.stringify(identite).lastIndexOf(']')));
+      return this.http.post(`${this.env.api}/admin/get/user/${id}`, data);
+  }
+
+
+  //La methode pour mettre a jour un user
+  UpdateUser(login:String,password:String,
+    nom:String,prenom:String,email:string,Genre: any,file:any,entiteid:any,roleid:any,
+    idAdmin:number,id:number):Observable<any>{
+
+    const data1:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+
+    const data=[{
+      "nom":nom,
+      "prenom":prenom,
+      'email':email,
+      "genre":Genre,
+      "active":true,
+      "notif":true,
+      //"login":login,
+      //"password":password,
+      "monEntite":entiteid,
+      "role":roleid
+    }]
+
+    console.log(data)
+
+    data1.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+    data1.append('data', JSON.stringify(data).slice(1,JSON.stringify(data).lastIndexOf(']')));
+    data1.append('file',file)
+  
+    return this.http.post(`${this.env.api}/admin/update/user/${idAdmin}/${id}`, data);
+  }
+
 
   //methode qui retourne l'ensemble des utilisateurs
   getAllUsers(login :String, password:String):Observable<any>{

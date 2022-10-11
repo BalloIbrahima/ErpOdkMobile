@@ -15,6 +15,7 @@ import { ClocheComponent } from '../cloche/cloche.component';
     FormsModule,
     IonicModule,
     ImporterListeparticipantPageRoutingModule
+    
   ],
   declarations: [ImporterListeparticipantPage, ClocheComponent]
 })

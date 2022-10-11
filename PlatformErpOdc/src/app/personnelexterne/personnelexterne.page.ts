@@ -41,61 +41,15 @@ export class PersonnelexternePage implements OnInit {
       console.log(data.data)
     });
 
-
-    
-
-    this.getAllUser(this.Utilisateur)
-
-
-    //Recuperation des entités
-    this.entiteService.getAllEntites(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
-      if(data.message=='ok'){
-        this.Entites=data.data
-        console.log(this.Entites)
-      }
-    })
-
   }
 
-  actualisePagApresSuppresion(util:any){
-    setTimeout(() => {
-      this.getAllUser(util)
-    }, 1000);
-  }
-  
-  getAllUser(utilis: any){
-  
-    this.userService.getAllUsers(utilis.login,utilis.password).subscribe(data=>{
-      this.users=data.data;
-      
-      console.log(data.data)
-    });
-  }
 
 //La fonction pour recuperer les details du personnel 
-  RedirigerPersonnel(id:number){
-    return this.router.navigate(['/dashboard/detail-personnel',id]);
+  // RedirigerPersonnel(id:number){
+  //   // return this.router.navigate(['/dashboard/detail-personnel',id]);
     
-  }
+  // }
 
-  //Filtrage fonction
-  filtrebyentity(){
-       //recuperation de l'id l'entite
-       var identity=0 ;
-       for(let i=0 ; i<this.Entites.length; i++){
-        if(this.Entites[i].libelleentite==this.Entites){
-          identity=this.Entites[i].id
-          console.log(identity)
-        }
-              if(this.textFiltre0 ==this.Entites[i].libelleentite){
-                this.entiteService.getAllEntites(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
-                  if(data.message=='ok'){
-                    this.Entites=data.data
-                    console.log(this.Entites)
-                  }
-                })
-              }
-      }
-    
-  }
+  
+
 }

@@ -15,19 +15,25 @@
   <div class="row">
     <div class="col-lg-3 col-12">
       <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-start">
-        <select class="form-select form-select-md" aria-label=".form-select-sm example" (change)="filtrebyentity()">
+        <select [(ngModel)]="textFiltre0" name="textFiltre0" class="form-select form-select-md"   (change)="filtrebyentity()" aria-label=".form-select-sm example">
           <option selected>
             <ion-icon name="funnel-outline" slot="start"></ion-icon>Filtrer par entité
           </option>
           <option *ngFor="let entite of Entites" >{{entite.libelleentite}}</option>
         </select>
-        <select class="form-select form-select-md" aria-label=".form-select-sm example" (change)="filtrebyentity()">
+        <!-- <select [(ngModel)]="textFiltre" name="textFiltre" class="form-select form-select-md" aria-label=".form-select-sm example" (change)="filtrebyentity()">
           <option selected>
             <ion-icon name="funnel-outline" slot="start"></ion-icon>Filtrer par type personnel
           </option>
           <option value="Personnels externes">Personnels externes</option>
           <option value="Personnels internes">Personnels internes</option>
-          <!-- <option *ngFor="let user of users" >{{user.libelle}}</option> -->
+        </select> -->
+        <select [(ngModel)]="textFiltre" name="textFiltre" class="form-select form-select-md" aria-label=".form-select-sm example" (change)="filtreparpersonnel()">
+          <option >
+            <ion-icon name="funnel-outline" slot="start" selected></ion-icon>--Filtrer par Status--
+          </option>
+          <option value="Personnels internes" >Personnels internes</option>
+          <option value="Personnels externes">Personnels externes</option>
         </select>
       </div>
     </div>

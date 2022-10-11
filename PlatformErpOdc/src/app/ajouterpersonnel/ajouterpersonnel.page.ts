@@ -28,7 +28,6 @@ export class AjouterpersonnelPage implements OnInit {
   email:any;
   domaine:any;
   formatMail: any;
-  window: any;
 
   constructor(private router: Router, private roleservice:RoleService, private alertController : AlertController,private entiteService:EntiteService,private userService:UtilisateurService) { }
 
@@ -72,7 +71,7 @@ export class AjouterpersonnelPage implements OnInit {
           if (result.isConfirmed) {
               // this.actualisePagApresSuppresion()
               this.router.navigateByUrl('/dashboard/personnel-externe')
-              this.window.location.reload();
+              window.location.reload();
         }else if (result.isDenied) {
           this.router.navigateByUrl('/dashboard/personnels')
         }
@@ -98,6 +97,7 @@ export class AjouterpersonnelPage implements OnInit {
     this.userService.CreateUserExterne(this.Utilisateur.login,this.Utilisateur.password,this.email,this.Genre,this.nom,this.prenom,this.numero,this.RoleSelectionner).subscribe(retour=>{
       console.log(retour)
       this.MessageSuccess();
+     
     })
   }
 

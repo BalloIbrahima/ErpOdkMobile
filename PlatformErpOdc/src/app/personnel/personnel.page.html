@@ -63,8 +63,8 @@
           <img *ngIf="a.image==null" src="assets/images/profile.png" class="card-img-top" alt="...">
 
           <div class="card-body">
-            <h5 class="card-title"  [innerHTML]="a.nom | slice:0:10"></h5><label>...</label>
-            <p class="card-text" [innerHTML]="a.prenom | slice:0:10"></p><label>...</label>
+            <h5 class="card-title">{{a.nom}}</h5>
+            <p class="card-text">{{a.prenom}}</p>
           </div>
 
         </div>

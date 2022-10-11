@@ -174,7 +174,7 @@
 
 
 
-                  <div *ngIf="i<3" class="carousel-caption d-none d-md-block">
+                  <div [routerLink]="['/dashboard/detailactivite', activiteEncour.id]"  *ngIf="i<3" style="cursor: pointer; " class="carousel-caption d-none d-md-block">
 
                     <h5 class="nom_activite">{{activiteEncour.nom}}</h5>
                     <span class="encours_ticket">{{activiteEncour.dateDebut | date }}</span> <span  *ngIf="activiteEncour.salle!=null" class="encours_ticket"> -- {{activiteEncour.salle.libelle}}</span><br>
@@ -279,9 +279,10 @@
 
                 <!-- </div> -->
 
-                   <div *ngIf="i<3" class="col align-self-end"
+                   <div [routerLink]="['/dashboard/detailactivite', aa.id]" *ngIf="i<3" class="col align-self-end"
                       style=" background: rgb(221 199 199 / 74%);
                       height: 75px;
+                      cursor: pointer;
                       width: 60% !important;
                       margin: 10%;
                       margin-top: -50%;

@@ -85,7 +85,7 @@
       </caption>
       <thead class="thead-dark">
         <tr>
-          <th scope="col">Id</th>
+          <!-- <th scope="col">Id</th> -->
           <th scope="col">Nom</th>
           <th scope="col">Prenom</th>
           <th scope="col">email</th>
@@ -97,11 +97,11 @@
       <tbody>
 
         <tr *ngFor="let p of postulants  | paginate: {itemsPerPage:nombreLingne1, currentPage: pages} ; let i= index">
-          <th scope="row">{{p.postulant.id}}</th>
+          <!-- <th scope="row">{{p.postulant.id}}</th> -->
           <td>{{p.postulant.nom}}</td>
           <td>{{p.postulant.prenom}}</td>
           <td>{{p.postulant.email}}</td>
-          <td>{{p.postulant.dateNaissance}}</td>
+          <td>{{p.postulant.dateNaissance | date: 'dd/MM/YYYY'}}</td>
           <td>{{p.postulant.genre}}</td>
           <td>{{p.postulant.numero}}</td>
         </tr>

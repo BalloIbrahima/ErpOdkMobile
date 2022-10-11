@@ -14,6 +14,7 @@ export class DashboardPage implements OnInit {
   constructor(private router:Router,private menu: MenuController) { }
 
   ngOnInit() {
+    //location.reload();
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'))
     
     if(this.Utilisateur.image!=null){

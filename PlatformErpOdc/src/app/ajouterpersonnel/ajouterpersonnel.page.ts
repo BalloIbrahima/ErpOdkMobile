@@ -65,13 +65,17 @@ export class AjouterpersonnelPage implements OnInit {
           title: "Personnel externe creer avec succes",
           showConfirmButton: true,
           confirmButtonText: "OK",
-          confirmButtonColor: 'green',
+          confirmButtonColor: '#FF7900',
           heightAuto: false
         }).then((result) => {
           if (result.isConfirmed) {
+            this.router.navigateByUrl('/dashboard/personnels', {skipLocationChange: true}).then(() => {
+              this.router.navigate(["/personnels"])
+            })
+
               // this.actualisePagApresSuppresion()
-              this.router.navigateByUrl('/dashboard/personnel-externe')
-              window.location.reload();
+              // this.router.navigateByUrl('/dashboard/personnel-externe')
+              // window.location.reload();
         }else if (result.isDenied) {
           this.router.navigateByUrl('/dashboard/personnels')
         }

@@ -167,14 +167,8 @@ export class DetailpostulantPage implements OnInit {
 
 
     
-  //Delete methode personnel
-  DeleteUser(){
-    for(let i=0; i<this.Roles.length;i++){
-      if(this.Roles[i].libellerole==this.role){
-        this.RoleSelectionner=this.Roles[i]
-      }
-    }
-    console.log(this.RoleSelectionner)
+  //Pop up apres suppression
+  MessageDeleteUserEffectuer(){
     Swal.fire({
       title: "Attention vous etes sûr de vouloir SUPPRIMER le personnel",
       showConfirmButton: true,
@@ -198,10 +192,8 @@ export class DetailpostulantPage implements OnInit {
           heightAuto: false
         }).then((result) => {
           if (result.isConfirmed) {
-            this.userService.DeleteUser(this.Utilisateur.login,this.Utilisateur.password,this.RoleSelectionner,this.idUser).subscribe(retour=>{
-              console.log(retour)
-              this.actualisePagApresSuppresion()
-              this.router.navigateByUrl('/dashboard/personnels')
+            this.router.navigateByUrl('/dashboard/personnels', {skipLocationChange: true}).then(() => {
+              this.router.navigate(["/personnels"])
             })
         }else if (result.isDenied) {
           Swal.fire('Suppression annuler !');
@@ -215,6 +207,19 @@ export class DetailpostulantPage implements OnInit {
   
   }
      
+
+
+    //Delete methode personnel
+  DeleteUser(){
+    this.userService.DeleteUser(this.Utilisateur.login,this.Utilisateur.password,this.RoleSelectionner,this.idUser).subscribe(retour=>{
+      console.log(retour)
+      // this.actualisePagApresSuppresion()
+      // this.router.navigateByUrl('/dashboard/personnels')
+    });
+      this.MessageDeleteUserEffectuer();
+      // this.presentAlert()
+    }
+
 
      //Desactiver methode
      DesactiverUser(){
@@ -251,6 +256,9 @@ export class DetailpostulantPage implements OnInit {
               this.userService.DesactiverUser(this.Utilisateur.login,this.Utilisateur.password,this.RoleSelectionner,this.idUser).subscribe(retour=>{
                 console.log(retour)
             });
+            this.router.navigateByUrl('/dashboard/personnels', {skipLocationChange: true}).then(() => {
+              this.router.navigate(["/personnels"])
+            })
           }else if (result.isDenied) {
             Swal.fire('Desacivation annuler !');
           }

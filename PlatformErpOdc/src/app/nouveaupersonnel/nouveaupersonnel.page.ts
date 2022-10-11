@@ -106,12 +106,13 @@ export class NouveaupersonnelPage implements OnInit {
       title: "Personnel créer avec succes",
       showConfirmButton: true,
       confirmButtonText: "OK",
-      confirmButtonColor: 'green',
+      confirmButtonColor: '#FF7900',
       heightAuto: false
     }).then((result) => {
       if (result.isConfirmed) {
-          // this.actualisePagApresSuppresion()
-          this.router.navigateByUrl('/dashboard/personnels')
+          this.router.navigateByUrl('/dashboard/personnels', {skipLocationChange: true}).then(() => {
+      this.router.navigate(["/personnels"]);
+      });
       
     }else if (result.isDenied) {
       this.router.navigateByUrl('/dashboard/personnels')

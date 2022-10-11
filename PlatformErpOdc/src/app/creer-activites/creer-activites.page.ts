@@ -72,6 +72,8 @@ export class CreerActivitesPage implements OnInit {
 
 
     this.typeActiviteService.getListe(this.Utilisateur.login,this.Utilisateur.password).subscribe(r=>{
+      console.log(r)
+
       if(r.message=='ok'){
         this.TypesActivites=r.data
         console.log(this.TypesActivites)
@@ -151,31 +153,40 @@ export class CreerActivitesPage implements OnInit {
     console.log(this.FormateursExternes)
     console.log(this.FormateursInternes)
 
-    for(let i=0;i<this.FormateursInternes.length;i++){
-      const array=this.FormateursInternes[i].split(" ")
-
-      for(let j=0 ; j<this.PersonnelsActives.length; j++){
-
-        if(this.PersonnelsActives[j].nom==array[0] && this.PersonnelsActives[j].prenom==array[1]){
-          console.log(this.PersonnelsActives[j])
-
-          FormateursUsers.push(this.PersonnelsActives[j])
+    try {
+      for(let i=0;i<this.FormateursInternes.length;i++){
+        const array=this.FormateursInternes[i].split(" ")
+  
+        for(let j=0 ; j<this.PersonnelsActives.length; j++){
+  
+          if(this.PersonnelsActives[j].nom==array[0] && this.PersonnelsActives[j].prenom==array[1]){
+            console.log(this.PersonnelsActives[j])
+  
+            FormateursUsers.push(this.PersonnelsActives[j])
+          }
         }
+        
       }
+    } catch (error) {
       
     }
-
-    for(let i=0;i<this.FormateursExternes.length;i++){
-      const array=this.FormateursExternes[i].split(" ")
-
-      for(let j=0 ; j<this.externes.length; j++){
-        if(this.externes[j].nom==array[0] && this.externes[j].prenom==array[1]){
-          console.log(this.externes[j])
-          FormateursExters.push(this.externes[j])
+    
+    try {
+      for(let i=0;i<this.FormateursExternes.length;i++){
+        const array=this.FormateursExternes[i].split(" ")
+  
+        for(let j=0 ; j<this.externes.length; j++){
+          if(this.externes[j].nom==array[0] && this.externes[j].prenom==array[1]){
+            console.log(this.externes[j])
+            FormateursExters.push(this.externes[j])
+          }
         }
+        
       }
+    } catch (error) {
       
     }
+    
 
 
     console.log(FormateursUsers)

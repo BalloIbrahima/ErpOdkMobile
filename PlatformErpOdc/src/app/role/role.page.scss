@@ -480,6 +480,27 @@ h4 {
 ion-title{
   font-size: large !important;
 }
+@media screen and (max-width: 450px){
+  .styleLibelleRolle{
+    font-size: 10px;
+  }
+  th{
+    font-size: small;
+  }
+  .showImage{
+    display: none;
+  }
+  .socials a {
+    width: 16%;
+    height:  16%;
+    display: inline-block;
+    cursor: pointer;
+  
+    margin: 0 5px;
+  }
+}
+
+
 
 
 
@@ -619,4 +640,8 @@ label {
   display: flex;
   align-items: center;
   opacity: 1 !important;
+}
+
+ion-title{
+  font-size: 26px !important;
 }

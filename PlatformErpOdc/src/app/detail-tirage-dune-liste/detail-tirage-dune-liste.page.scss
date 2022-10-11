@@ -2,7 +2,7 @@
   display: grid;   
   grid-template-columns: 80% 18%;
   column-gap: 2%;
-  height: 650px;
+ 
   height: 100%;
   background-color: #F2EDED;
   
@@ -66,6 +66,9 @@ img{
   height: 100%;
   
 }
+.menuResponsive{
+  display: none;
+}
 
 .labelContainer{
   display: flex;
@@ -112,6 +115,12 @@ img{
   margin: auto;
   width: 30%;
 }
+.aucunT{
+  text-align: center;
+  font-size: x-large;
+  margin-top: 10%;
+  color: #FF7900;
+}
 .InputSearch > input{
   border: 0;
   font-size: 20px;
@@ -127,17 +136,16 @@ td{
 th{
   font-family: myfon2;
   color: #ffff !important;
-    font-weight: 600;
+  font-weight: 600;
 }
 thead{
   background-color: #FF7900;
 }
 .voirPlus{
   color: #FF7900;
+  cursor: pointer;
 }
-// table{
-//   margin-top: 10%;
-// }
+
 @media screen and (max-width: 900px) {
   .form-select{
     font-size: medium;
@@ -163,6 +171,71 @@ thead{
     font-family: cursive;
   }
 
+  .menuResponsive{
+    display: flex;
+    right: 0px;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 5px;
+    
+
+}
+.menuResponsive >.photo{
+  display: none;
+}
+.InputSearch {
+    margin-top: 10px;
+    width: auto !important; 
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 30% 65%;
+}
+
+.droite{
+    display: none ;
+}
+
+.gauche{
+    padding: 20px;
+    height: 100%
+}
+
+.libelleListe{
+    border-right: solid;
+    border-color: #FF7900;
+    padding-right: 12px;    
+}
+
+.nbrePost{
+    padding-left: 12px;  
+    border-right: solid;
+    padding-right: 12px; 
+    border-color:  #FF7900;
+}
+
+.dateImport{
+    padding-left: 12px; 
+}
+
+.container{
+    display: block;
+    height: 85vh;
+}
+
+.listeList{
+    display: grid;
+    padding: 4%;
+    grid-template-columns: auto auto !important;
+    column-gap: 2%;
+    row-gap: 14px;
+}
+
+
 }
 @media screen and (max-width: 450px) {
   .buttonColor{
@@ -178,11 +251,14 @@ thead{
     font-size: small;
   }
 
+  .labelContainer{
+    font-size: 15px;
+  }
+
   .InputSearch > input{
     border: 0;
     font-size: 10px;
     font-family: cursive;
   }
-  
 
 }

@@ -138,7 +138,7 @@ const routes: Routes = [
       loadChildren: () => import('../tirage/tirage.module').then( m => m.TiragePageModule)
     },
     {
-      path: 'detail-tirage',
+      path: 'detail-tirage/:idT',
       loadChildren: () => import('../detailtirage/detailtirage.module').then( m => m.DetailtiragePageModule)
     },
     {

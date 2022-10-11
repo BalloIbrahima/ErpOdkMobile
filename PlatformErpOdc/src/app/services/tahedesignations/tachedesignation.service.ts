@@ -28,13 +28,13 @@ export class TachedesignationService {
 
 //;;;;;;;;;;;;;;;;;;;;;;creer designation::::::::::::::::::::
 
-  creerDesignation(login: String, password: String ,nom:string, etat: boolean): Observable<any> {
+  creerDesignation(login: String, password: String ,libelle: String ): Observable<any> {
 
     const data: FormData = new FormData();
     const user = [{ "login": login, "password": password }]
-    const designation=[{ "libelle": nom, "etat": etat }]
+    const designation=[{ "libelle": libelle}]    // "etat": etat 
     data.append('user', JSON.stringify(user).slice(1, JSON.stringify(user).lastIndexOf(']')));
-    data.append('designation', JSON.stringify(user).slice(1, JSON.stringify(user).lastIndexOf(']')));
+    data.append('designation', JSON.stringify(designation).slice(1, JSON.stringify(designation).lastIndexOf(']')));
 
     return this.http.post(`${this.env.api}/designation/designation`, data)
 

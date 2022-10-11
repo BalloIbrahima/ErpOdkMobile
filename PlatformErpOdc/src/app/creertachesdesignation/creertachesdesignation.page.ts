@@ -6,6 +6,7 @@ import { SalleServiceService } from '../services/salles/salle-service.service';
 import { TachedesignationService } from '../services/tahedesignations/tachedesignation.service';
 import { StatusService } from '../services/statut/status.service';
 import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-creertachesdesignation',
@@ -29,7 +30,8 @@ export class CreertachesdesignationPage implements OnInit {
 
   //:::::::::::::designation::::::::::::::::::::::::
   designations: any;
-
+  lieu:any
+  statutt:any
 
   //:::::::::::::::::::::::::create Tache::::::::::::::::::::::::
 
@@ -41,6 +43,10 @@ export class CreertachesdesignationPage implements OnInit {
   libelleStatut: any;
   personneEx: any;
   personneIn: any;
+  desi: any;
+  
+  alertTrue: boolean = false;
+  alertFalse: boolean = false;
 
 
   // if (etatselect = "Actif") {
@@ -48,7 +54,7 @@ export class CreertachesdesignationPage implements OnInit {
   // } elsif (etatselect = "Inactif") {
   //   this.etat = false
   // }
-  constructor( private tachedesign : TachedesignationService,private user: UtilisateurService ,private route: ActivatedRoute , private  statut : StatusService, private activiteService : ActiviteService ,private salleService: SalleServiceService,private entiteService:EntiteService) { }
+  constructor( private tachedesign : TachedesignationService,private user: UtilisateurService ,private route: ActivatedRoute , private  statut : StatusService, private activiteService : ActiviteService ,private salleService: SalleServiceService,private entiteService:EntiteService, private modalController : ModalController) { }
 
   ngOnInit() {
     
@@ -110,21 +116,42 @@ this.user.getAllUsers(this.Utilisateur.login, this.Utilisateur.password).subscri
     console.log(retour)
   })
 
-
+  
 
 
   }
 
 
   creerDesignation() {
-    this.tachedesign.creerDesignation(this.Utilisateur.login, this.Utilisateur.password, this.nom, this.etat).subscribe({
-      next : reponse => {
-        alert(reponse.data)
-      },
-      error : data => {
-        alert(data.data)
+
+
+  //   this.tachedesign.creerDesignation(this.Utilisateur.login, this.Utilisateur.password, this.libelleDesignation).subscribe(retour=>{
+  //     // next : reponse => {
+  //     //   alert(reponse.data)
+  //     // },
+  //     // error : data => {
+  //     //   alert(data.data)
+  //     // }
+
+  //     this.desi = retour.data
+  //     console.log(this.desi);
+  //   })
+
+
+
+
+    this.tachedesign.creerDesignation(this.Utilisateur.login,this.Utilisateur.password, this.libelleDesignation).subscribe(retour=>{
+      
+      console.log(retour)
+      if(retour.message == 'ok'){
+        this.alertTrue = true
+        this.alertFalse = false
+      }else{
+        this.alertTrue = false
+        this.alertFalse = true
       }
     })
+    this.modalController.dismiss()
   }
 
 

@@ -187,6 +187,33 @@ background-color:#ff7900;
 color:white;
 }
 
+.btndesi {
+  background-color: #FF7900;
+  width: 135px;
+  font-weight: bold;
+  border-radius: 15px;
+  margin-top: 2%;
+  letter-spacing: 0.03em;
+  font-family: myfon2;
+  margin-left: 23%;
+  color: #fff;
+  --bs-btn-active-bg: white;
+  --bs-btn-active-border-color: #FF7900;
+}
+
+.btndesi:hover {
+  background-color: #fff !important;
+  width: 135px;
+  border: 1px solid #FF7900 !important;
+  font-weight: bold;
+  border-radius: 15px;
+  color:#FF7900 !important;
+  letter-spacing: 0.03em;
+  font-family: myfon2;
+  margin-top: 2%;
+  margin-left: 23%;
+}
+
 
 
 @media screen and (min-width:560px) {
@@ -216,7 +243,6 @@ color:white;
     }
     
     }
-
 
 
 

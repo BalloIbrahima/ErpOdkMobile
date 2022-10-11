@@ -195,7 +195,7 @@
           </div> -->
 
 
-          <form>
+          <form #f="ngForm" class="formulaire">
 
 
             <div class="input mb-3">
@@ -207,7 +207,7 @@
                     <div class="input mb-3">
                                 
                     <label for="inputs" class="form-label">Lieu *</label>
-                        <select id="inputs"   class="form-select" aria-label="Default select exemple" name="entiteNom"  required>
+                        <select id="inputs"   class="form-select" aria-label="Default select exemple" name="entiteNom" ngModel required>
                             <option selected>Choisisez un lieu</option>
                             <option *ngFor="let lieu of sallesDipo ">  {{lieu.libelle}} </option>
                         </select>
@@ -215,8 +215,10 @@
 
 
             <div class="d-grid gap-2 col-6 text-center mx-auto mt-2">
-              <button type="button" class="btn colorbutton2 btn-sm" id="open-modal1"
-                >Enregistrer</button>
+              <button type="button" class="btn colorbutton2 btn-sm btndesi" id="open-modal1" 
+              [disabled]="f.form.invalid">
+                Enregistrer
+              </button>
             </div>
           </form>
         </div>

@@ -95,7 +95,7 @@ export class TachedesignationPage implements OnInit {
 
      this.tachedesignationService.getAlltaches(this.Utilisateur.login, this.Utilisateur.password,this.id).subscribe(retour => {
        this.taches = retour.data;
-       console.log(retour);
+       console.log(this.taches);
      });
 
 

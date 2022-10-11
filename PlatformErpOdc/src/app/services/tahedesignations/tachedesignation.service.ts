@@ -21,20 +21,20 @@ export class TachedesignationService {
     
     console.log(taches)
     data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
-    data.append('data', JSON.stringify(taches).slice(1,JSON.stringify(taches).lastIndexOf(']')));
+    data.append('tache', JSON.stringify(taches).slice(1,JSON.stringify(taches).lastIndexOf(']')));
     return this.http.post(`${this.env.api}/tache/creerTache`,data);
   }
 
 
 //;;;;;;;;;;;;;;;;;;;;;;creer designation::::::::::::::::::::
 
-  creerDesignation(login: String, password: String ,nom:string, etat: boolean): Observable<any> {
+  creerDesignation(login: String, password: String ,libelle: String ): Observable<any> {
 
     const data: FormData = new FormData();
     const user = [{ "login": login, "password": password }]
-    const designation=[{ "libelle": nom, "etat": etat }]
+    const designation=[{ "libelle": libelle}]    // "etat": etat 
     data.append('user', JSON.stringify(user).slice(1, JSON.stringify(user).lastIndexOf(']')));
-    data.append('designation', JSON.stringify(user).slice(1, JSON.stringify(user).lastIndexOf(']')));
+    data.append('designation', JSON.stringify(designation).slice(1, JSON.stringify(designation).lastIndexOf(']')));
 
     return this.http.post(`${this.env.api}/designation/designation`, data)
 
@@ -64,7 +64,7 @@ getEtat(){
       
       data.append('user', JSON.stringify(user).slice(1, JSON.stringify(user).lastIndexOf(']')));
   
-      return this.http.post(`${this.env.api}​/designation​/Designation​/GetAll`, data);
+      return this.http.post(`${this.env.api}/designation/Designation/GetAll`, data);
   
       }
 

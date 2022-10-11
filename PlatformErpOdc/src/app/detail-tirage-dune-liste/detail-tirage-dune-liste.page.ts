@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { DetailListPostService } from '../services/detailListe/detail-list-post.service';
@@ -70,23 +69,8 @@ export class DetailTirageDuneListePage implements OnInit {
     return this.routers.navigate(['detail-tirage', idT])
   }
 
+  
+ 
+
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

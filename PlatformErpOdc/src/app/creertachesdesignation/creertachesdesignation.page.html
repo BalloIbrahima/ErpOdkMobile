@@ -66,8 +66,8 @@
                 <label for="inputs" class="form-label">Nom (Désignation) *</label>
                     <select id="inputs" [(ngModel)]="libelleDesignation"    name=" designations" class="form-select" aria-label="Default select exemple" name="entiteNom"  required>
                   
-                        <option selected>Choisisez une entité</option>
-                         <option *ngFor="let desi of designations">{{desi.libelle}}</option>
+                        <option selected>Choisisez une designation</option>
+                        <option *ngFor="let desi of designe">{{desi.libelle}}</option>
                         
                     </select>
             </div> 

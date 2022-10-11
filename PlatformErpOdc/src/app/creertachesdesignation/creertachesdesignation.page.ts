@@ -30,7 +30,7 @@ export class CreertachesdesignationPage implements OnInit {
   //:::::::::::::designation::::::::::::::::::::::::
   designations: any;
   designation: any;
-
+  designe:any
 
   //:::::::::::::::::::::::::create Tache::::::::::::::::::::::::
 
@@ -78,10 +78,18 @@ export class CreertachesdesignationPage implements OnInit {
       console.log(this.Entites)
     });
 
-    this.tachedesign.getAlldesignation(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour=>{
-  this.designations = retour.data
-  console.log(retour)
-    });
+  this.tachedesign.getAlldesignation(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour=>{
+    // next: retour=>{
+    //   this.designations = retour.data
+    //   console.log(this.designations)
+    //   },
+    // error: erreur => {
+    //   alert(erreur);
+    //   console.log(erreur)
+    // }
+    this.designe=retour.data
+      console.log(this.designe)
+  })
 
 
     
@@ -124,6 +132,8 @@ this.user.getAllUsers(this.Utilisateur.login, this.Utilisateur.password).subscri
 
 
   creerDesignation() {
+
+
     this.tachedesign.creerDesignation(this.Utilisateur.login, this.Utilisateur.password, this.nom, this.etat).subscribe({
       next : reponse => {
         alert(reponse.data)

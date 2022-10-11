@@ -64,7 +64,7 @@ getEtat(){
       
       data.append('user', JSON.stringify(user).slice(1, JSON.stringify(user).lastIndexOf(']')));
   
-      return this.http.post(`${this.env.api}​/designation​/Designation​/GetAll`, data);
+      return this.http.post(`${this.env.api}/designation/Designation/GetAll`, data);
   
       }
 

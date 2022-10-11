@@ -47,7 +47,11 @@ export class CreerActivitesPage implements OnInit {
 
   //  FormateursUsers:any;
   //  FormateursExters:any;
-
+  alertFalse:any
+  alertTrue:any
+  alertNomTrue:any
+  alertNomFalse:any
+  messageerror:any
   message:String;
   erreur:Boolean;
   fichier:any
@@ -193,7 +197,7 @@ export class CreerActivitesPage implements OnInit {
     console.log(FormateursExters)
     //recuperation de l'id l'entite
     for(let i=0 ; i<this.Entites.length; i++){
-      if(this.Entites[i].libelleentite==this.typeactivite){
+      if(this.Entites[i].libelleentite==this.typeentite){
         identity=this.Entites[i]
       }
     }
@@ -230,7 +234,7 @@ export class CreerActivitesPage implements OnInit {
         this.lead=this.PersonnelsActives[i]
       }
     }
-    
+
 
 
     //creation de l'activite il manque lentite concernée dans la bdd//affaire de salles dispo a ala creation de lactivite
@@ -248,14 +252,58 @@ export class CreerActivitesPage implements OnInit {
       "typeActivite":idType,
       "intervenantExternes":FormateursExters
     }]
+    
+       if(this.nomActivite == null) {
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="Veuillez donner un titre a l'activité "
+    }else if(this.typeactivite == null){
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="Donner un type à l'activité!"
+    }else if(this.image == null){
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="Ajoutez une image"
+    }
+    else if(this.description == null){
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="Donner une description à l'activité"
+    }
+    else if(this.leadNomPrenom == null){
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="Lead non définis une image"
+    }
+    else if(this.typeentite == null){
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="Entité non définie"
+    }else{
+      this.activiteService.Creer(this.Utilisateur.login,this.Utilisateur.password,this.fichier,activite).subscribe(data=>{
+        console.log(data)
+        if(data.message == 'ok'){
+          this.alertTrue = true
+          this.alertFalse = false
+          this.router.navigateByUrl('/dashboard/allactivity', {skipLocationChange: true}).then(() => {
+            this.router.navigate(["/dashboard/allactivity"]);
+            });
+        }
+        else{
+          this.alertTrue = false
+          this.alertFalse = true
+        }
+
+      })
 
 
-    this.activiteService.Creer(this.Utilisateur.login,this.Utilisateur.password,this.fichier,activite).subscribe(data=>{
-      console.log(data)
-      if(data.message="ok"){
-        this.presentAlert()
-      }
-    })
+
+
+    }
+
+
+
   }
 
 

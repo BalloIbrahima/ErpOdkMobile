@@ -15,7 +15,7 @@ const routes: Routes = [
         pathMatch: 'full'
       },
 
-      
+
       {
         path: 'reporting-participant',
         loadChildren: () => import('../reporting-participant/reporting-participant.module').then( m => m.ReportingParticipantPageModule)
@@ -48,11 +48,16 @@ const routes: Routes = [
         path: 'ajout-entite',
         loadChildren: () => import('../ajout-entite/ajout-entite.module').then( m => m.AjoutEntitePageModule)
       },
-      
+
 
       {
         path: 'allactivity',
         loadChildren: () => import('../allactivity/allactivity.module').then( m => m.AllactivityPageModule)
+      },
+
+      {
+        path: 'activites',
+        loadChildren: () => import('../activites/activites.module').then( m => m.ActivitesPageModule)
       },
       {
         path: 'ajoutparticipant/:id',
@@ -94,7 +99,7 @@ const routes: Routes = [
         path: 'reporting',
         loadChildren: () => import('../reporting/reporting.module').then( m => m.ReportingPageModule)
       },
-      
+
     {
       path: 'personnels',
       loadChildren: () => import('../personnel/personnel.module').then( m => m.PersonnelPageModule)

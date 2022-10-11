@@ -43,7 +43,7 @@
             <div class="item-native my-3">
                 <ion-label class="titre m-3">Salle</ion-label>
                 <ion-label *ngIf="salles!=null" class="contenu">{{salles}} </ion-label>
-                <button class="btn buttonColor largerButton" type="button" *ngIf="salles==null" >Associer une salle </button>
+                <button style="color:#FF7900" type="button" *ngIf="salles == null" >Associer une salle </button>
 
               </div>
             <div class="item-native my-3">
@@ -54,6 +54,10 @@
             <ion-label class="titre m-3">Date Fin</ion-label>
             <ion-label class="contenu">{{dateFin | date: 'dd MMMM yyyy à hh:mm'}}</ion-label>
         </div>
+        <div class="item-native my-3">
+          <ion-label class="titre m-3">Description</ion-label>
+          <ion-label class="contenu">{{description}}</ion-label>
+      </div>
 
         </div>
     </div>
@@ -76,7 +80,7 @@
     <table class="table caption-top" id="season-tble" >
       <caption>
         <!-- <input type="number" [(ngModel)]="nombreLingne" /> -->
-        
+
         <button class="btn buttonColor largerButton" type="submit" (click)="envoyernombre()">Afficher toute la liste</button>
       </caption>
       <thead class="thead-dark">

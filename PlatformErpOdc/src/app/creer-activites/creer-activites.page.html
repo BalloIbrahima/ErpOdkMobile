@@ -15,8 +15,24 @@
 <ion-content>
   <div class="container">
     <form (ngSubmit)="CreerActivite()">
+
+
+
       <div class="box">
         <h1>Nouvelle Activité</h1>
+
+        <div class="alert alert-danger" role="alert" *ngIf="alertFalse">
+          <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>  Erreur survenue l'or de la création de l'activité
+        </div>
+
+        <div class="alert alert-success" role="alert" *ngIf="alertTrue">
+          <i class="fa fa-check-circle-o" aria-hidden="true" style="color: green;"></i>  Activité créée avec succès.
+
+        </div>
+
+        <div class="alert alert-danger" role="alert" *ngIf="alertNomTrue">
+          <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>{{messageerror}}
+        </div>
         <div class="activite-details">
           <div class="input-box">
             <span class="details">Entité *</span>

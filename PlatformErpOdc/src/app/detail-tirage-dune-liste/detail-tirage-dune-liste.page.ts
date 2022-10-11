@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { DetailListPostService } from '../services/detailListe/detail-list-post.service';
@@ -69,36 +70,4 @@ export class DetailTirageDuneListePage implements OnInit {
     return this.routers.navigate(['detail-tirage', idT])
   }
 
-  
- 
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
-    //   console.log(this.Utilisateur.login)
-
-    //   this.service.GetTotalTirage(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
-    //     this.totaltirage=data.data;
-    //     console.log(data)
-    //     console.log(data.data.length)
-    //   });

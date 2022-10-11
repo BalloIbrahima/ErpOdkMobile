@@ -29,6 +29,7 @@ export class AllactivityPage implements OnInit {
   ngOnInit(){ 
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
     console.log(this.Utilisateur)
+    location.reload()
     //console.log(this.Utilisateur.password)
     this.service.GetTtActivite(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
       console.log(data.message)

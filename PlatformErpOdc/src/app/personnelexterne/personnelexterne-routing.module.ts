@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PopupNotificationPage } from './popup-notification.page';
 
-
+import { PersonnelexternePage } from './personnelexterne.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: PopupNotificationPage
+    component: PersonnelexternePage
   }
 ];
 
@@ -15,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class PopupNotificationPageRoutingModule {}
+export class PersonnelexternePageRoutingModule {}

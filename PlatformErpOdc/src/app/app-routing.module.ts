@@ -29,6 +29,10 @@ const routes: Routes = [
   {
     path: 'detail-taches',
     loadChildren: () => import('./detail-taches/detail-taches.module').then( m => m.DetailTachesPageModule)
+  },
+  {
+    path: 'personnelexterne',
+    loadChildren: () => import('./personnelexterne/personnelexterne.module').then( m => m.PersonnelexternePageModule)
   }
 
 ];

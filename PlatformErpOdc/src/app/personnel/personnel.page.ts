@@ -31,6 +31,8 @@ export class PersonnelPage implements OnInit {
   longueur: any;
   Entites: any;
   textFiltre0: any;
+  textFiltre: any;
+  intervenant: any;
 
   constructor(private userService:UtilisateurService,private entiteService:EntiteService,private router: Router, private route:ActivatedRoute) { }
 
@@ -46,8 +48,15 @@ export class PersonnelPage implements OnInit {
       console.log(data.data)
     });
 
-    this.getAllUser(this.Utilisateur)
+    // this.getAllUser(this.Utilisateur)
 
+
+
+    // this.userService.getAllIntervenant(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+    //   this.intervenant=data.data;
+    //   this.longueur=data.data.length;
+    //   console.log(data.data)
+    // })
 
     //Recuperation des entités
     this.entiteService.getAllEntites(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
@@ -59,27 +68,26 @@ export class PersonnelPage implements OnInit {
 
   }
 
-  actualisePagApresSuppresion(util:any){
-    setTimeout(() => {
-      this.getAllUser(util)
-    }, 1000);
-  }
+  // actualisePagApresSuppresion(util:any){
+  //   setTimeout(() => {
+  //     this.getAllUser(util)
+  //   }, 1000);
+  // }
   
-  getAllUser(utilis: any){
+  // getAllUser(utilis: any){
   
-    this.userService.getAllUsers(utilis.login,utilis.password).subscribe(data=>{
-      this.users=data.data;
+  //   this.userService.getAllUsers(utilis.login,utilis.password).subscribe(data=>{
+  //     this.users=data.data;
       
-      console.log(data.data)
-    });
-  }
+  //     console.log(data.data)
+  //   });
+  // }
 
 //La fonction pour recuperer les details du personnel 
   RedirigerPersonnel(id:number){
     return this.router.navigate(['/dashboard/detail-personnel',id]);
     
   }
-
 
   //Filtrage fonction
   filtrebyentity(){
@@ -99,7 +107,34 @@ export class PersonnelPage implements OnInit {
                 })
               }
       }
-    
+
   }
+
+
+
+  filtreparpersonnel(){
+    console.log(this.textFiltre);
+    if(this.textFiltre=="Personnels internes"){
+      this.userService.getAllUsers(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+        this.users=data.data;
+        this.longueur=data.data.length;
+        console.log(data.data)
+      })
+    }
+    else if(this.textFiltre=="Personnels externes"){
+      this.userService.getAllIntervenant(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+        this.users=data.data;
+        this.longueur=data.data.length;
+        console.log(data.data)
+      })
+    }
+  }
+
+
+
+
+
+
+
 
 }

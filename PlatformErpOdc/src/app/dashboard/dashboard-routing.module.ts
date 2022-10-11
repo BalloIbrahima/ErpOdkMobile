@@ -101,6 +101,10 @@ const routes: Routes = [
       },
 
     {
+      path: 'personnel-externe',
+      loadChildren: () => import('../personnelexterne/personnelexterne.module').then( m => m.PersonnelexternePageModule)
+    },
+    {
       path: 'personnels',
       loadChildren: () => import('../personnel/personnel.module').then( m => m.PersonnelPageModule)
     },

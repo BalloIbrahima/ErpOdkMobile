@@ -6,8 +6,11 @@ import { IonicModule } from '@ionic/angular';
 
 import { PopupNotificationPageRoutingModule } from './popup-notification-routing.module';
 
+
 import { PopupNotificationPage } from './popup-notification.page';
 import { ClocheComponent } from '../cloche/cloche.component';
+
+
 
 @NgModule({
   imports: [

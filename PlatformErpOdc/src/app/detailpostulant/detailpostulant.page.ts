@@ -41,6 +41,13 @@ export class DetailpostulantPage implements OnInit {
   EntiteSelectionner: any;
   domaine: any;
   image1: any;
+  idEntite: any;
+  idRole: any;
+  shouldHide: boolean;
+  dividerHide: boolean;
+  network: any;
+  platform: any;
+  numero: any;
 
   constructor(private alertController : AlertController,private modalController:ModalController,private entiteService:EntiteService,private roleservice:RoleService,private userService:UtilisateurService,
     private router: Router, private route:ActivatedRoute) { }
@@ -84,6 +91,11 @@ export class DetailpostulantPage implements OnInit {
     })
 
     }
+  
+
+
+
+
 
 
     //Pour récupérer le personnel par id
@@ -98,21 +110,36 @@ export class DetailpostulantPage implements OnInit {
         this.image = this.users.image
         this.nomEntite = this.users.monEntite.libelleentite
         this.statusUser = this.users.role.libellerole
-      })
 
+      })
     }
+    
+
+
+     //Pour récupérer le personnel par id
+    //  getIntervenantParId(id: any, utilisateur: any){
+    //   this.userService.DetailsUserById(utilisateur.login, utilisateur.password, id).subscribe(data => {
+    //     this.users = data.data
+    //     console.log(this.users)
+    //     this.nom = this.users.nom
+    //     this.prenom = this.users.prenom
+    //     this.genre = this.users.genre
+    //     this.email = this.users.email
+    //     this.numero = this.users.numero
+    //   })
+    // }
 
 
 
     //Methode de update du personnel
     UpdateUser(){
       for(let i=0; i<this.Roles.length;i++){
-        if(this.Roles[i].libellerole==this.role){
+        if(this.Roles[i].libellerole==this.idRole){
           this.RoleSelectionner=this.Roles[i]
         }
       }
       for(let i=0; i<this.Entites.length;i++){
-        if(this.Entites[i].libelleentite==this.entite){
+        if(this.Entites[i].libelleentite==this.idEntite){
           this.EntiteSelectionner=this.Entites[i]
         }
       }

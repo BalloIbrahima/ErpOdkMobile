@@ -10,6 +10,10 @@ import { NotificationService } from '../services/notification/notification.servi
   styleUrls: ['./popup-notification.page.scss'],
 })
 export class PopupNotificationPage implements OnInit {
+ 
+  constructor(private popoverCtrl:PopoverController,private notificationService:NotificationService,
+    private router: Router, private route: ActivatedRoute) { }
+
   p: number = 1;
   Utilisateur: any;
   notif: any;
@@ -24,9 +28,6 @@ export class PopupNotificationPage implements OnInit {
   prenomCreateurActivite: any;
   idNotif: any;
 
-
-  constructor(private popoverCtrl: PopoverController, private notificationService: NotificationService,
-    private router: Router, private route: ActivatedRoute) { }
   // salleactivites=[
   //   {
   //     user:"Fatoumata Kalogo",
@@ -53,13 +54,13 @@ export class PopupNotificationPage implements OnInit {
   //     activite:"activité",
   //   },
   // ]
-  close() {
-    this.popoverCtrl.dismiss();
+
+  close(){
+    this.popoverCtrl.dismiss()
   }
 
   ngOnInit() {
-    // this.idNotif = this.route.snapshot.params['id'];
-    this.Utilisateur = JSON.parse(localStorage.getItem('utilisateur'));
+    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
 
     this.notificationService.GetAllNotif(this.Utilisateur.login, this.Utilisateur.password).subscribe(data => {
       this.notif = data.data;
@@ -67,7 +68,6 @@ export class PopupNotificationPage implements OnInit {
       this.notifTotal = data.data.length;
       console.log("data notif total" + this.notif);
     });
-
 
     this.notificationService.GetNotificationById(this.Utilisateur.login, this.Utilisateur.password, this.id).subscribe(data => {
       this.notif = data.data;
@@ -80,9 +80,6 @@ export class PopupNotificationPage implements OnInit {
       this.prenomCreateurActivite = this.notif.idactivite.createur.prenom;
 
     });
-
   }
-
-
-
 }
+

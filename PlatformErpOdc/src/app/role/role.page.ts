@@ -129,6 +129,7 @@ export class RolePage implements OnInit {
   }
 
   handleChange(ev) {
+    
     //this.currentRoleCreate = ev.target.value;
     this.currentRoleCreate = this.currentRoleCreate.concat(ev.target.value)
     console.log(this.currentRoleCreate)
@@ -187,6 +188,8 @@ export class RolePage implements OnInit {
       })
       
     }
+
+    this.currentRoleCreate = []
 
   }
   isModalOpen = false;

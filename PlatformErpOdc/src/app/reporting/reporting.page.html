@@ -44,7 +44,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let activite of activites">
+      <tr *ngFor="let activite of activites | paginate : { itemsPerPage:10, currentPage:a}" >
         <td>{{activite.nom}}</td>
         <td>{{activite.typeActivite.libelle}}</td>
         <td class="hideColonne hideColonneOder">Encours</td>

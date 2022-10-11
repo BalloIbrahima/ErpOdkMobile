@@ -17,11 +17,28 @@ p{
 }
 .filtre{
     margin-right: 40px;
-    background-color: #FF7900;
+    background-color: #FF7900 !important;
+    color: #FFFFFF !important;
+    font-weight: bold;
     border-radius: 15px;
     height: 40px;
     width: 100px;
     
+}
+.part{
+  background-color: #FF7900 !important;
+  color: #FFFFFF !important;
+  height: 40px;
+  border-radius: 15px;
+  font-weight: bold;
+
+
+}
+.part:hover{
+  border: 1px solid #FF7900 !important;
+  color: #FF7900 !important;
+  background-color: #ffff !important;
+  
 }
 .filtre:hover{
     border: 1px solid #FF7900 !important;

@@ -32,15 +32,15 @@
 
 
                     <div class="col salles" style="background-color: #D9D9D9;">
-                        <div *ngIf="sallesDipoLength==0">Aucune salle disponible</div>
+                        <div *ngIf="sallesDipoLength == 0">Aucune salle disponible</div>
 
 
                         <div class="col chaquesalle" *ngFor="let salle of sallesDipo">
-                            <div class="row">
+                            <div class="row" *ngIf="sallesDipoLength!=0">
                                 <div class="col ">
                                     <img class="img" src="../../assets/salle.png" alt="">
                                 </div>
-                                <div class="col" style=" margin-top: 10px;
+                                <div  class="col" style=" margin-top: 10px;
                                     margin-left: 10px;
                                     width: 50%;">
                                     <div class="col">{{salle.libelle}}</div>
@@ -141,13 +141,13 @@
                         <div *ngIf="sallesIndispoLength==0">Aucune salle indisponible</div>
 
 
-                        <div class="col chaquesalle" *ngFor="let salle of sallesIndispo">
-                            <div class="row">
+                        <div  class="col chaquesalle" *ngFor="let salle of sallesIndispo">
+                            <div class="row" *ngIf="sallesIndispoLength!=0">
                                 <div class="col ">
                                     <img class="img" src="../../assets/salle.png" alt="">
                                 </div>
 
-                                <div class="col" style=" margin-top: 10px;
+                                <div  class="col" style=" margin-top: 10px;
                                     margin-left: 10px;
                                     width: 50%;">
                                     <div class="col">{{salle.libelle}}</div>

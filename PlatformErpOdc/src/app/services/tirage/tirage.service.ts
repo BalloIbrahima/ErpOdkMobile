@@ -56,7 +56,7 @@ ValiderTirage(login:String,password:String,idTirage:number):Observable<any>{
   return this.http.post(`${this.env.api}/responsable/valider/tirage/${idTirage}`,data);
 }
 
-//tous les postiulants d'un tirage
+//tous les postulants d'un tirage
 AllPostulantsByTirage(login:String,password:String, idTirage:number):Observable<any>{
   const data:FormData=new FormData();
   const user=[{"login":login,"password":password}]

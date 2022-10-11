@@ -1,4 +1,4 @@
-import{ Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { AccueilserviceService } from '../services/acceuil/accueilservice.service';
 
@@ -32,11 +32,12 @@ export class EntitePage implements OnInit {
   descriptionMo: any;
   responsableEntiteMo: any;
   idEntite: any;
+  imageentite1: any;
 
-  constructor(private entitedetailservice: DetailentiteService, private entiteService:EntiteService,private acceuilService: AccueilserviceService,
-    private userService: UtilisateurService, private router: Router, private route:ActivatedRoute) { }
+  constructor(private entitedetailservice: DetailentiteService, private entiteService: EntiteService, private acceuilService: AccueilserviceService,
+    private userService: UtilisateurService, private router: Router, private route: ActivatedRoute) { }
 
-  longueur:any
+  longueur: any
 
   Utilisateur: any;
   donneEntite: any;
@@ -46,21 +47,23 @@ export class EntitePage implements OnInit {
   toutUtilisateur: any;
   responsableEntite: any;
   lead: any;
-  donner:any
+  donner: any
 
-
-  entites:any;
+  entites: any;
   ngOnInit() {
-    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
-    console.log("recuperantion l'utilisateur"+this.Utilisateur)
+    this.Utilisateur = JSON.parse(localStorage.getItem('utilisateur'));
+    console.log("recuperantion l'utilisateur" + this.Utilisateur)
     this.allEntite();
-
+    //console.log(this.getAllEntite())
     this.userService.getActivesUsers(this.Utilisateur.login, this.Utilisateur.password).subscribe(data => {
       this.toutUtilisateur = data.data;
-      
+
       console.log(data.data[1].nom)
 
     })
+
+    
+
   }
 
   popUp() {
@@ -70,23 +73,24 @@ export class EntitePage implements OnInit {
       heightAuto: false,
       showConfirmButton: true,
       confirmButtonText: "D'accord",
-      confirmButtonColor: 'green',
+      confirmButtonColor: '#FF7900',
       showDenyButton: false,
-      showCancelButton : false,
+      showCancelButton: false,
       allowOutsideClick: false
     })
   }
 
   //Methode permettant de recuperer les entite
 
-  getAllEntite(){
-    this.entiteService.getAllEntites(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
-      if(data.message=='ok'){
-        this.entites=data.data
-        this.longueur=data.data.length
-        console.log("nos entites "+data.data)
+  getAllEntite(): any {
+    this.entiteService.getAllEntites(this.Utilisateur.login, this.Utilisateur.password).subscribe(data => {
+      if (data.message == 'ok') {
+        this.entites = data.data
+        this.longueur = data.data.length
+        console.log(data.data)
       }
     })
+
 
   }
 
@@ -98,67 +102,107 @@ export class EntitePage implements OnInit {
     this.imageentite = event.target["files"][0];
     console.log(this.imageentite)
   }
-//Redirection voir +
+  recuperationImage1(event: any) {
 
-RedirigerEntite(id:number){
-  return this.router.navigate(['/dashboard/entite/details-entite',id]);
-  
-}
-  
+    this.imageentite1 = event.target["files"][0];
+    console.log(this.imageentite)
+  }
+  //Redirection voir +
+
+  RedirigerEntite(id: number) {
+    return this.router.navigate(['/dashboard/entite/details-entite', id]);
+
+  }
+
   // methode permettant de creer une entite
   alet(): void {
     setTimeout(() => {
-        this.getAllEntite();
+      this.getAllEntite();
     }, 1000);
   }
 
   postAllEntite() {
-    this.alertTrue = false
-    this.alertFalse = false
-    console.log(this.imageentite+" libelleentite : "+this.libelleentite+"description : "+this.description+"responsable : "+this.responsableEntite)
-    for(let i = 0; i< this.toutUtilisateur.length; i++){
+    // this.alertTrue = false
+    // this.alertFalse = false
+    console.log(this.imageentite + " libelleentite : " + this.libelleentite + "description : " + this.description + "responsable : " + this.responsableEntite)
+    for (let i = 0; i < this.toutUtilisateur.length; i++) {
 
-      const array=this.responsableEntite.split(' ')
+      const array = this.responsableEntite.split(' ')
 
-      if(this.toutUtilisateur[i].prenom==array[0] && this.toutUtilisateur[i].nom==array[1]){   
-        this.lead =this.toutUtilisateur[i]
+      if (this.toutUtilisateur[i].prenom == array[0] && this.toutUtilisateur[i].nom == array[1]) {
+        this.lead = this.toutUtilisateur[i]
       }
     }
-
-    this.entiteService.PostEntite(this.Utilisateur.login, this.Utilisateur.password, this.imageentite, this.libelleentite, this.description, this.Utilisateur, this.lead).subscribe(data => {
-      console.log(data);
-      this.donner = data
-      if(this.donner.message == 'ok'){
-        // this.alertTrue = true
-        // this.alertFalse = false
-        this.popUp()
-      }else{
-        this.alertTrue = false
-        this.alertFalse = true
-      }
-    })
+    if (this.entites.length == 0) {
+      this.entiteService.PostEntite(this.Utilisateur.login, this.Utilisateur.password, this.imageentite, this.libelleentite, this.description, this.Utilisateur, this.lead).subscribe(data => {
+        console.log(data);
+        this.donner = data
+        if (this.donner.message == 'ok') {
+          // this.alertTrue = true
+          // this.alertFalse = false
+          this.popUp()
+        } else {
+          this.alertTrue = false
+          this.alertFalse = true
+        }
+      })
       this.alet();
+    } else {
+      for (let index = 0; index < this.entites.length; index++) {
+        if (this.lead.nom == this.entites[index].gerant.nom && this.lead.prenom == this.entites[index].gerant.prenom) {
+          Swal.fire({
+            title: 'Alerte',
+            text: 'Cette personne est déjà responsable d\'une entité',
+            heightAuto: false,
+            showConfirmButton: true,
+            confirmButtonText: "OK",
+            confirmButtonColor: '#FF7900',
+            showDenyButton: false,
+            showCancelButton: false,
+            allowOutsideClick: false
+          })
+        } else {
+          this.entiteService.PostEntite(this.Utilisateur.login, this.Utilisateur.password, this.imageentite, this.libelleentite, this.description, this.Utilisateur, this.lead).subscribe(data => {
+            console.log(data);
+            this.donner = data
+            if (this.donner.message == 'ok') {
+              // this.alertTrue = true
+              // this.alertFalse = false
+              this.popUp()
+            } else {
+              this.alertTrue = false
+              this.alertFalse = true
+            }
+          })
+          this.alet();
+        }
+
+      }
+
+    }
+
+
     // this.presentAlert()
   }
 
 
 
-  allEntite(){
+  allEntite() {
     console.log("zzzz")
-    this.entiteService.getAllEntites(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
-      if(data.message=='ok'){
-        this.entites=data.data
-        this.longueur=data.data.length
-        console.log("nos entites "+data.data)
+    this.entiteService.getAllEntites(this.Utilisateur.login, this.Utilisateur.password).subscribe(data => {
+      if (data.message == 'ok') {
+        this.entites = data.data
+        this.longueur = data.data.length
+        console.log("nos entites " + data.data)
       }
     })
-    
+
   }
   //Methode permettant de d'afficher le popup modifier 
 
-   isModalOpen = false;
+  isModalOpen = false;
 
-  setOpen(isOpen: boolean, id:any) {
+  setOpen(isOpen: boolean, id: any) {
     this.isModalOpen = isOpen;
     console.log("________________________")
     console.log(this.Utilisateur.login)
@@ -168,7 +212,7 @@ RedirigerEntite(id:number){
     this.entitedetailservice.voirdetailsEntiteid(this.Utilisateur.login, this.Utilisateur.password, id).subscribe(data => {
       this.entites = data.data
       console.log(this.entites.libelleentite)
-      this.libelleentiteMo=this.entites.libelleentite
+      this.libelleentiteMo = this.entites.libelleentite
       // this.statusResponsable = this.entites.createur.role.libellerole
       this.descriptionMo = this.entites.description
       console.log(this.descriptionEntite1)
@@ -177,36 +221,37 @@ RedirigerEntite(id:number){
       // this.imageEntite = this.entites.image
     })
   }
-  setClose(isOpen: boolean){
-    this.isModalOpen = isOpen;
+  setClose() {
+    this.isModalOpen = false;
   }
-   //Methode permettant de Modifier une entite
-   modifierEntite(id:any){
-    for(let i = 0; i< this.toutUtilisateur.length; i++){
+  //Methode permettant de Modifier une entite
+  modifierEntite() {
+    for (let i = 0; i < this.toutUtilisateur.length; i++) {
 
-      const array=this.responsableEntiteMo.split(' ')
+      const array = this.responsableEntiteMo.split(' ')
 
-      if(this.toutUtilisateur[i].prenom==array[0] && this.toutUtilisateur[i].nom==array[1]){   
-        this.lead =this.toutUtilisateur[i]
+      if (this.toutUtilisateur[i].prenom == array[0] && this.toutUtilisateur[i].nom == array[1]) {
+        this.lead = this.toutUtilisateur[i]
       }
     }
-    this.entiteService.updateEntiteById(this.Utilisateur.login, this.Utilisateur.password,id,this.imageentite, this.libelleentiteMo, this.descriptionMo, this.Utilisateur, this.lead).subscribe(data =>{
-      
+    this.entiteService.updateEntiteById(this.Utilisateur.login, this.Utilisateur.password, this.idEntite, this.imageentite1, this.libelleentiteMo, this.descriptionMo, this.Utilisateur, this.lead).subscribe(data => {
+
       console.log(data)
     })
-   }
+    this.alet();
+  }
 
-   supprimerEntite(id:any){
-    
-    this.entiteService.deleteEntiteById(this.Utilisateur.login, this.Utilisateur.password,id).subscribe(data =>{
+  supprimerEntite(id: any) {
+
+    this.entiteService.deleteEntiteById(this.Utilisateur.login, this.Utilisateur.password, id).subscribe(data => {
       console.log("sssssssssssssssssssssssssssssss")
       console.log(data)
     })
-   }
+  }
 
-  
 
-   
 
-   
+
+
+
 }

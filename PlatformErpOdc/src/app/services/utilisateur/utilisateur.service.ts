@@ -162,6 +162,7 @@ export class UtilisateurService {
 
   //methode qui retourne l'ensemble des utilisateurs
   getAllUsers(login :String, password:String):Observable<any>{
+
     const data:FormData=new FormData();
     const user=[{"login":login,"password":password}]
     data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
@@ -181,25 +182,25 @@ export class UtilisateurService {
   }
 
   
-  //l'ensemble des personnes externes
-  readPersonEx(login :String, password:String):Observable<any>{
+  // //l'ensemble des personnes externes
+  // readPersonEx(login :String, password:String):Observable<any>{
    
-    const data:FormData=new FormData();
-    const user=[{"login":login,"password":password}]
-    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+  //   const data:FormData=new FormData();
+  //   const user=[{"login":login,"password":password}]
+  //   data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
 
-    return this.http.post(`${this.env.api}....................`, data);  
-  }
+  //   return this.http.post(`${this.env.api}....................`, data);  
+  // }
 
-    //l'ensemble des personnes interne
-    readPersonIn(login :String, password:String):Observable<any>{
+  //   //l'ensemble des personnes interne
+  //   readPersonIn(login :String, password:String):Observable<any>{
    
-      const data:FormData=new FormData();
-      const user=[{"login":login,"password":password}]
-      data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+  //     const data:FormData=new FormData();
+  //     const user=[{"login":login,"password":password}]
+  //     data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
   
-      return this.http.post(`${this.env.api}....................`, data);  
-    }
+  //     return this.http.post(`${this.env.api}....................`, data);  
+  //   }
   
 
     

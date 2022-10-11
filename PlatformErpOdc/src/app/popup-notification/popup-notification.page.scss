@@ -17,11 +17,16 @@ margin-bottom: 20px;
     box-shadow: none;
 }
 
+
 .card {
     overflow: hidden;
     padding: 5;
     border: none;
     margin-top: 20px;
+}
+.card:hover {
+    background-color: #ccc;
+    cursor: pointer;
 }
 .float-left{
     
@@ -81,38 +86,36 @@ h6{
         
     }
     .img {
-        max-width: 100%;
+        max-width: auto;
         border: 0;
-        margin-top: 22px;
+        margin-top: 15px;
         margin-left: 15px;
         border-radius: 50%;
         width: auto;
-        height: 60%;
     }
-    h6{
-        font-size: 13px;
-    }
-    .act-nom{
-        font-size:13px ;
-        span{
-            color:#FF7900;
-            font-size: 15px;
-        }
+    // h6{
+    //     // font-size: 13px;
+    // }
+    // .act-nom{
+    //     // font-size:13px ;
+    //     span{
+    //         // color:#FF7900;
+    //         // font-size: 15px;
+    //     }
         
-    }
+    // }
 
 }
 
-@media (max-width: 1060px) {
+@media (max-width: 1200px) {
     
     .img {
         max-width: 100%;
         border: 0;
-        margin-top: 22px;
+        margin-top: 15px;
         margin-left: 15px;
         border-radius: 50%;
         width: auto;
-        height: 40%;
     }
 
 }

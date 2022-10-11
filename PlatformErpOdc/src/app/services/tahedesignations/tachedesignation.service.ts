@@ -21,7 +21,7 @@ export class TachedesignationService {
     
     console.log(taches)
     data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
-    data.append('data', JSON.stringify(taches).slice(1,JSON.stringify(taches).lastIndexOf(']')));
+    data.append('tache', JSON.stringify(taches).slice(1,JSON.stringify(taches).lastIndexOf(']')));
     return this.http.post(`${this.env.api}/tache/creerTache`,data);
   }
 
@@ -64,7 +64,7 @@ getEtat(){
       
       data.append('user', JSON.stringify(user).slice(1, JSON.stringify(user).lastIndexOf(']')));
   
-      return this.http.post(`${this.env.api}​/designation​/Designation​/GetAll`, data);
+      return this.http.post(`${this.env.api}/designation/Designation/GetAll`, data);
   
       }
 

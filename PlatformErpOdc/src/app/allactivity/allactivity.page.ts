@@ -26,7 +26,7 @@ export class AllactivityPage implements OnInit {
   constructor(private route:ActivatedRoute,private router: Router,private entiteService:EntiteService,private service:ActiviteService) { }
 
 
-  ngOnInit(){ 
+  ngOnInit(){
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
     console.log(this.Utilisateur)
     //console.log(this.Utilisateur.password)

@@ -37,6 +37,7 @@ description:any
   byentity:any
   nombreLingne: any
   nombreLingne1 = 8;
+  salleid: any;
 
 //act a venir rediriger vers son detail()id
   constructor(private activiteservice:ActiviteService,private navv:NavController, private route:ActivatedRoute) { }
@@ -65,6 +66,8 @@ description:any
       this.image=this.activite.image
       this.dateDebut=this.activite.dateDebut
       this.dateFin=this.activite.dateFin
+      this.salleid=this.activite.salle.id
+      console.log(this.salleid)
     })
 
     this.activiteservice.GetActiviteStatut(this.Utilisateur.login,this.Utilisateur.password,idactivite).subscribe(r=>{

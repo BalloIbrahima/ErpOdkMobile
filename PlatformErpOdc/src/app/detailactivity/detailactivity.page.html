@@ -43,8 +43,7 @@
             <div class="item-native my-3">
                 <ion-label class="titre m-3">Salle</ion-label>
                 <ion-label *ngIf="salles!=null" class="contenu">{{salles}} </ion-label>
-                <button style="color:#FF7900" type="button" *ngIf="salles == null" >Associer une salle </button>
-
+                <button style="color:#FF7900" type="button" *ngIf="salles == null" [routerLink]="['/dashboard/salle']" > Associer une salle </button>
               </div>
             <div class="item-native my-3">
               <ion-label class="titre m-3">Date début</ion-label>

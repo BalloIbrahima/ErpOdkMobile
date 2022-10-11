@@ -18,6 +18,7 @@ export class DetailTirageDuneListePage implements OnInit {
   Utilisateur:any;
   id:any;
   listparid:any;
+  listparidLength:any;
   nbrPost:number=0;
   nbrPostTirer:any;
   nbrPostTirer1:any;
@@ -53,16 +54,16 @@ export class DetailTirageDuneListePage implements OnInit {
       console.log(this.nbrPost);
      
       //liste de tous les tirages faite sur un liste données
-      this.listparid=data.data.tirages;
+      this.listparid=data.data.tirages; 
+      this.listparidLength=data.data.tirages.length
       console.log(this.listparid);
+      console.log(this.listparidLength);
+      
     
     })
   }
 
-  // goDetailTirage(id:number){
-  //   console.log(id);
-  //   return this.router.navigate(['detail-tirage-liste', id])
-  // }
+  
   goResultatTirage(idT:number){
     console.log(idT);
     return this.routers.navigate(['detail-tirage', idT])

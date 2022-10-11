@@ -17,6 +17,7 @@ export class DetailDesListesPage implements OnInit {
   nbreTirageValides:number=0;
   searchText:any
   retour:any
+  totallistLength:any;
 
   
 
@@ -33,30 +34,13 @@ export class DetailDesListesPage implements OnInit {
 
       //tutes les listes
       this.service.GetListeTotal(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
-        console.log(data.message)
-        if(data.message=="ok"){
-          this.totallist=data.data;
-          this.nbrliste=data.data.length;
-          console.log(data)
-        }
-        else{
-          this.totallist="aucun donne"
-        }
-        
-       
-        
+        this.totallist=data.data;
+        this.totallistLength = data.data.length
+        this.nbrliste=data.data.length;
         
       });
 
-      // this.service.GetListeTotal(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
-    
-      //   console.log(data.message)
-       
-      //   this.totallist=data.data;
-      //   console.log(data)
-      //   this.nbrliste=data.data.length;
-        
-      // });
+   
 
 
       //tirage total

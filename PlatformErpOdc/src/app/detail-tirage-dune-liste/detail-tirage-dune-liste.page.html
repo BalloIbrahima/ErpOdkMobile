@@ -6,7 +6,6 @@
     <ion-title>Détail liste</ion-title>
     <ion-button slot="end" fill="clear">
       <app-cloche></app-cloche>
-
     </ion-button>
   </ion-toolbar>
 </ion-header>
@@ -14,17 +13,6 @@
 <ion-content>
   <div class="container">
     <div class="gauche">
-
-      <!-- barre de recherche et son input -->
-
-      <div class="searchBar">
-        <div class="InputSearch">
-          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill=" #FF7900" class="bi bi-search" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-          </svg>
-          <input type="text" name="motCle" id="motCle" placeholder="Recherche liste" > <!-- [(ngModel)]="searchText" -->
-        </div>
-      </div>
 
       <div class="menuResponsive">
         <div class="libelleListe">
@@ -50,7 +38,18 @@
       </div>
 
       <div *ngIf="listparidLength==0" class="aucunT">Accun tirage !</div> 
+
       <div *ngIf="listparidLength!=0">
+        <!-- barre de recherche et son input -->
+        <div class="searchBar">
+          <div class="InputSearch">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill=" #FF7900" class="bi bi-search" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg>
+            <input type="text" name="motCle" id="motCle" placeholder="Recherche liste" > <!-- [(ngModel)]="searchText" -->
+          </div>
+        </div>
+
         <table class="table table-striped text-center">
           <thead>
             <tr>
@@ -69,7 +68,8 @@
               <td> {{trg.libelle}}</td> 
               <td class="hideColonne hideColonneOder"> {{trg.date | date: "dd MMMM yyyy à hh:mm"}} </td>
               <td> {{trg.postulanttires.length}}</td>
-              <td class="hideColonne hideColonneOder" > {{trg.valider}} </td>
+              <td class="hideColonne hideColonneOder" *ngIf="trg.valider==true" > Validé</td>
+              <td class="hideColonne hideColonneOder" *ngIf="trg.valider==false" > Non validé</td>
               <td class="hideColonne"><span class="voirPlus" (click)="goResultatTirage(trg.id)" >voir <ion-icon name="add-outline"></ion-icon></span> </td>
             </tr>
   

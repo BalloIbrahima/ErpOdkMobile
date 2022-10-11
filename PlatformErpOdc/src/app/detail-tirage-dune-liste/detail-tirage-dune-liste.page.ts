@@ -71,3 +71,22 @@ export class DetailTirageDuneListePage implements OnInit {
   }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -37,6 +37,7 @@ export class DetailDesListesPage implements OnInit {
         this.totallist=data.data;
         this.totallistLength = data.data.length
         this.nbrliste=data.data.length;
+        console.log(this.totallistLength)
         
       });
 

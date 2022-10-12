@@ -5,6 +5,8 @@
     background-color: #f2eded;
    
 }
+.pagination ::ng-deep .ngx-pagination .current {
+  background-color: #000; }
 
 .headerContent{
     display: flex;

@@ -338,7 +338,8 @@ input#InputEmail,input#InputMdp,input#InputCmdp {
   margin-right: auto;
 }
 
- 
+.pagination ::ng-deep .ngx-pagination .current {
+  background-color: #000; }
 
 p {
   margin-top: 0;

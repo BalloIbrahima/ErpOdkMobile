@@ -154,7 +154,7 @@ ion-modal{
 
 .box {
     width: 80%;
-    padding: 50px 30px;
+    padding: 80px 30px;
     border-radius: 15px;
     // margin: 5% auto;
     height: 33rem;
@@ -354,52 +354,52 @@ textarea {
     }
 }
 
-@media only screen and (max-width: 316px) {
-    .buttom{
-        padding: 0% 5% 0% 5%;
-        display: flex;
-        flex-direction: column;
-    }
-    .button1{
-        height: 50px;
-        margin-left: 10px;
+// @media only screen and (max-width: 316px) {
+//     .buttom{
+//         padding: 0% 5% 0% 5%;
+//         display: flex;
+//         flex-direction: column;
+//     }
+//     .button1{
+//         height: 50px;
+//         margin-left: 10px;
        
-    }
-    .button2{
-        margin-left: 10px;
+//     }
+//     .button2{
+//         margin-left: 10px;
         
-    }
-    .but1{
-        margin-right: 20px;
-        height: 40px;
-        padding: 10px;
-        font-size: 10px;
-     }
-     .but2{
-        height: 40px;
-        padding: 10px;
-        font-size: 10px;
-     }
-    .info{
-        font-weight: 700;
-        text-align:center;
-        font-size: 12px;
-    }
-    .taille2{
-        font-size: 12px; 
-    }
-    .taille1{
-        font-size: 16px;
-    }
-    ion-label{
-        margin-right: 10px;
-    }
-    ion-list{
-        padding: 0px;
-    }
+//     }
+//     .but1{
+//         margin-right: 20px;
+//         height: 40px;
+//         padding: 10px;
+//         font-size: 10px;
+//      }
+//      .but2{
+//         height: 40px;
+//         padding: 10px;
+//         font-size: 10px;
+//      }
+//     .info{
+//         font-weight: 700;
+//         text-align:center;
+//         font-size: 12px;
+//     }
+//     .taille2{
+//         font-size: 12px; 
+//     }
+//     .taille1{
+//         font-size: 16px;
+//     }
+//     ion-label{
+//         margin-right: 10px;
+//     }
+//     ion-list{
+//         padding: 0px;
+//     }
  
    
-}
+// }
 
 
 
@@ -489,16 +489,29 @@ textarea {
         font-size: 10px;
     }
     h1{
+        margin-bottom: 2rem;
         font-size: 16px;
         padding-right: 2rem;
-        top: 8%;
+        top: 6%;
+    }
+    .ajout{
+       height: 1000px;
+    }
+    .card{
+        height: 800px;
     }
     .box{
+        top: 9%;
         padding: 6px;
-        border: #000 1px solid;
+        // border: #000 1px solid;
+        width: 100%;
+        height: 420px;
     }
+   .btn-close{
+    display: none;
+   }
     .container{
-        padding: 4%;
+       height: 450px;
     }
     .ajout .input-box input {
         font-size: 12px;
@@ -554,6 +567,7 @@ textarea {
 
 .card{
     width: 1000px;
+    height: 900px;
 }
 .container{
     width: 2000px;

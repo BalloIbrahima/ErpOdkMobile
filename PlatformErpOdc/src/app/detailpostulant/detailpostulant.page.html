@@ -197,16 +197,23 @@
 
           </div>
     </div>
-    <div class="button">
+    <br><br>
+    <div class="row">
+      <div class="col-lg-9 col-12">
+        <div class="d-grid m-2 gap-2 d-md-flex justify-content-md-center">
+          <button class="btn buttonColor" (click)="UpdateUser()" type="button">Modifier</button>
+          <button class="btn buttonColor" (click)="cancel()" type="button">Annuler</button>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="button">
       <ion-buttons slot="end">
         <ion-button (click)="UpdateUser()" class="but">Modifier</ion-button>
       </ion-buttons>
       <ion-buttons slot="start">
         <ion-button (click)="cancel()" class="but">Annuler</ion-button>
-      </ion-buttons>
-      <!-- <input class="but" type="submit" (click)="modal.dismiss()" value="Annuler"> -->
     
-    </div>
+    </div> -->
 
     
   </form>

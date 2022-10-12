@@ -104,13 +104,17 @@ img{
   border-radius: 50%;
   margin: 0 auto;
   box-shadow: 0 0 10px rgba(0,0,0,.2);
+  height: 100px;
+  width: 100px;
 }
 
 .card-body{
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
  
   /* margin: auto; */
-  text-align: center;
+  text-align: start;
 }
 
 .card{
@@ -122,8 +126,11 @@ img{
 }
 
 .card-title{
+  float: left;
   font-weight: 700;
   font-size: 1em;
+  display: flex;
+  flex-direction: row;
 }
 
 // .btn{

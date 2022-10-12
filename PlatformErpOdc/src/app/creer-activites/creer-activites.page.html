@@ -13,14 +13,11 @@
 
 
 <ion-content>
-  <div class="container">
+  <div class="container" id="mere">
     <form (ngSubmit)="CreerActivite()">
-
-
 
       <div class="box">
         <h1>Nouvelle Activité</h1>
-
         <div class="alert alert-danger" role="alert" *ngIf="alertFalse">
           <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>  Erreur survenue l'or de la création de l'activité
         </div>
@@ -34,47 +31,63 @@
           <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>{{messageerror}}
         </div>
         <div class="activite-details">
-          <div class="input-box">
+          <div class="input-box mb-3">
             <span class="details">Entité *</span>
 
-            <select name="typeentite" [(ngModel)]="typeentite" class="select" required>
+            <select name="typeentite" [(ngModel)]="typeentite" class="form-select" required>
               <option>Choisisez une entité</option>
               <option *ngFor="let entite of Entites">{{entite.libelleentite}}</option>
               <!--pour recuperer l'id de lentite<option *ngFor="let entite of Entites" >{{entite.id}}</option> -->
 
             </select>
           </div>
-          <div class="input-box">
-            <span class="details">Titre Activité *</span>
-            <input type="text" [(ngModel)]="nomActivite" name="nomActivite" placeholder="Nom de l'activité" required>
+
+
+          <div class="input-box mb-3">
+            <Label for="inputs" >Titre Activité *</Label>
+            <input type="text" [(ngModel)]="nomActivite"  id="inputs" name="nomActivite" placeholder="Nom de l'activité" class="form-control" required>
           </div>
 
-          <div class="input-box ">
-            <span class="details">Type d'activité *</span>
-            <select name="typeactivite" [(ngModel)]="typeactivite" class="select" required>
+          <div class="input-box mb-3">
+            <Label for="inputs" >Type d'activité *</Label>
+            <select name="typeactivite" id="inputs" [(ngModel)]="typeactivite" class="form-select" required>
                 <option>Choisir le type de  l'activité</option>
               <option *ngFor="let type of TypesActivites">{{type.libelle}}</option>
             </select>
           </div>
-          <div class="input-box">
+
+
+          <div class="input-box mb-3">
             <span class="details">Lead Activité *</span>
-            <select name="leadNomPrenom" [(ngModel)]="leadNomPrenom" class="select" required>
+            <select name="leadNomPrenom" [(ngModel)]="leadNomPrenom" class="form-select" required>
               <option>Choisir un lead *</option>
               <option *ngFor="let user of PersonnelsActives">{{user.nom}} {{user.prenom}}</option>
 
             </select>
           </div>
 
-          <div class="input-box">
+          <!-- <div class="input-box mb-3">
             <span class="details">Date debut *</span>
             <input name="datedebut" [(ngModel)]="datedebut" type="datetime-local" required />
-          </div>
-          ²
-          <div class="input-box">
+          </div> -->
+
+    <div class="input-box mb-3">
+      <label for="inputs" class="form-label"> Date début *</label>
+      <input type="date" id="inputs" class="form-control" name="datedebut"  [(ngModel)]="datedebut"  required>
+    </div>
+
+    <div class="input-box mb-3">
+      <label for="inputs" class="form-label"> Date fin *</label>
+      <input type="date" id="inputs" class="form-control" name="datefin"  [(ngModel)]="datefin"  required>
+    </div>
+
+
+
+          <!-- <div class="input-box mb-3">
 
             <span class="details">Date fin *</span>
-            <input type="datetime-local" name="dateFin" [(ngModel)]="dateFin" required />
-          </div>
+            <input type="datetime-local" name="dateFin" [(ngModel)]="dateFin" class="form-control" required />
+          </div> -->
 
 
 
@@ -110,22 +123,39 @@
 
           </div>
 
-          <div class="input-box">
+
+          <!-- <div class="input-box">
             <span class="details">Salle </span>
             <select name="libellesalle" [(ngModel)]="libellesalle" class="select">
                 <option>Choisir une salle *</option>
               <option *ngFor="let s of SallesDisponibles">{{s.libelle}}</option>
             </select>
-          </div>
+          </div> -->
+
+
+        <div class="input-box mb-3">
+             <label for="inputs" class="form-label">
+              Salle
+             </label>
+            <select name="libellesalle"  [(ngModel)]="libellesalle"  class="form-select" aria-label="Default select exemple"  reqiuired>
+              <option>Choisir une salle *</option>
+              <option *ngFor="let s of SallesDisponibles">{{s.libelle}}</option>
+           </select>
+        </div>
+
+
+
+
+
 
           <div class="input-box">
-            <span class="details">Ajouter image *</span>
-            <input type="file" [(ngModel)]="image" placeholder="Logo.jpg" id="logo" name="file"
+            <Label >Ajouter image *</Label>
+            <input type="file" [(ngModel)]="image" placeholder="Logo.jpg" id="logo" name="file" class="form-control"
               (change)="selectFile($event)" accept="image/png, image/jpeg, image/jpg" required />
           </div>
           <div class="input-box">
-            <span class="details"> Description </span>
-            <textarea name="description" [(ngModel)]="description" id="details" rows="5" cols="28"
+            <span > Description   *</span>
+            <textarea class="form-control" name="description" [(ngModel)]="description" id="details"
               placeholder="Donner une description de l'activité"></textarea>
           </div>
 

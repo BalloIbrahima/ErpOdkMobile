@@ -20,6 +20,7 @@ export class AjoutparticipantPage implements OnInit {
    daten:any
    email:any
    numero:any
+   genre:any
 
    id:any
 
@@ -61,7 +62,10 @@ export class AjoutparticipantPage implements OnInit {
         idact=this.activiteselect[i].id
       }
     }
-
+var g=0
+if(this.genre=="Feminin"){
+  g=1
+}
       //creation de l'activite
       var participant=[{
         "nom":this.nomparticipant,
@@ -69,7 +73,7 @@ export class AjoutparticipantPage implements OnInit {
         "email":this.email,
         "numero":this.numero,
         "dateNaissance":this.daten,
-
+        "genre":g
       }]
       console.log(this.id)
 
@@ -86,5 +90,5 @@ export class AjoutparticipantPage implements OnInit {
   }
 
 
-  
+
 }

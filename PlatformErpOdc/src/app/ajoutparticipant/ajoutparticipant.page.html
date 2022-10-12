@@ -27,26 +27,36 @@
                               <input type="text" [(ngModel)]="prenom"  name="prenom" placeholder="Prenom du participant" required>
                           </div>
                            <div class="input-box">
-                            <span class="details">Mail *</span>
+                            <span class="details">Email *</span>
                             <input type="email" [(ngModel)]="email"  name="email" placeholder="Email du  participant" required>
                         </div>
 
                         <div class="input-box">
                           <span class="details">Date de naissance *</span>
-                          <input type="date" [(ngModel)]="daten"  name="daten" placeholder="Date de naissance" required>
+                          <input type="date" [(ngModel)]="daten"  min="01/01/1995"  max="01/01/2009" name="daten" placeholder="Date de naissance" required>
 
                         </div>
                         <div class="input-box">
                         <span class="details">Telephone *</span>
-                        <input type="tel" [(ngModel)]="numero"  name="numero" placeholder="Numero de telephone" required>
+                        <input type="tel" [(ngModel)]="numero"  length="8" name="numero" placeholder="Numero de telephone" required>
                     </div>
+                    <!-- <div class="input-box">
+                      <span class="details"> Activité *</span>
+                      <select name="nom" [(ngModel)]="nom" class="select" required>
+
+                      <option >{{nom}}</option>
+
+                  </select>
+
+                  </div> -->
 
 
                     <div class="input-box">
-                        <span class="details"> Activité *</span>
-                        <select name="nom" [(ngModel)]="nom" class="select" required>
+                        <span class="details"> Genre *</span>
+                        <select name="nom" [(ngModel)]="genre" class="select" required>
+                          <option value="1" >Feminin</option>
 
-                        <option >{{nom}}</option>
+                        <option value="0">Masculin</option>
 
                     </select>
 
@@ -59,7 +69,7 @@
         </form>
 
     </div>
-    
+
 
 
 

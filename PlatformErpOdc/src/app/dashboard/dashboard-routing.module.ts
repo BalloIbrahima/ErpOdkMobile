@@ -93,8 +93,10 @@ const routes: Routes = [
         path: 'tachedesignation/:id',
         loadChildren: () => import('../tachedesignation/tachedesignation.module').then( m => m.TachedesignationPageModule)
       },
+
+ 
       {
-        path: 'creertachesdesignation',
+        path: 'creertachesdesignation/:id',
         loadChildren: () => import('../creertachesdesignation/creertachesdesignation.module').then( m => m.CreertachesdesignationPageModule)
       },
       {
@@ -140,11 +142,11 @@ const routes: Routes = [
       loadChildren: () => import('../tirage/tirage.module').then( m => m.TiragePageModule)
     },
     {
-      path: 'detail-tirage',
+      path: 'detail-tirage/:idT',
       loadChildren: () => import('../detailtirage/detailtirage.module').then( m => m.DetailtiragePageModule)
     },
     {
-      path: 'detail-tirage-liste/:id',
+      path: 'detail-tirage-dune-liste/:id',
       loadChildren: () => import('../detail-tirage-dune-liste/detail-tirage-dune-liste.module').then( m => m.DetailTirageDuneListePageModule)
     },
     {

@@ -22,11 +22,11 @@ export class ImporterListeparticipantPage implements OnInit {
    id:any
    //nom de lectivité
    nom:any
-  constructor( private liste:ActiviteService, private chemin: Router, private importation: ListeparticipantService,private nav:NavController,private route:ActivatedRoute) { }
+  constructor( private liste:ActiviteService, private router: Router, private importation: ListeparticipantService,private nav:NavController,private route:ActivatedRoute) { }
   NoImporte(){
     Swal.fire({
       position:'center',
-      title: 'Cette liste existe dejà',
+      title: 'erreur back',
       heightAuto: false,
   });
   }
@@ -47,7 +47,10 @@ export class ImporterListeparticipantPage implements OnInit {
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-         this.nav.navigateRoot('detailactivite,idactivite')
+          this.router.navigateByUrl('/dashboard/detailactivite,idactivite', {skipLocationChange: true}).then(() => {
+            this.router.navigate(["/allactivity"])
+          })
+
         } else if (result.isDenied) {
           this.nav.navigateRoot('importer-listeparticipant')
         }

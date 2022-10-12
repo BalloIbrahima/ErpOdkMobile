@@ -15,11 +15,17 @@ export class DetailDesListesPage implements OnInit {
   nbrliste:number=0;
   totaltirage:any;
   nbreTirageValides:number=0;
-// id:number=1
+  searchText:any
+  retour:any
+  totallistLength:any;
+
   
 
 
-  constructor( private service: DetailListPostService, private services: TirageService,private router:Router /*public listeService:ListeService,public tirageService:TirageService*/) { }
+  constructor( 
+    private service: DetailListPostService,
+    private services: TirageService,
+    private router:Router) { }
 
   ngOnInit(): void {
 
@@ -28,13 +34,14 @@ export class DetailDesListesPage implements OnInit {
 
       //tutes les listes
       this.service.GetListeTotal(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
-        console.log(data.message);
-        console.log(data.data.length);
         this.totallist=data.data;
-        console.log(data)
+        this.totallistLength = data.data.length
         this.nbrliste=data.data.length;
         
       });
+
+   
+
 
       //tirage total
       this.services.GetTotalTirage(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
@@ -53,41 +60,7 @@ export class DetailDesListesPage implements OnInit {
 
   goDetailTirage(id:number){
     console.log(id);
-    return this.router.navigate(['detail-tirage-liste', id])
+    return this.router.navigate(['detail-tirage-dune-liste', id])
   }
-
-  // ngOnInit(): void {
-  //   //recupeartion de l'ensemble des listes
-  //   this.listeService.getListe().subscribe(donne=>{
-  //     console.log(donne.message)
-  //     console.log(donne.data.length)
-
-  //     if(donne.message=="ok"){
-  //       this.listeService.liste=donne.data
-  //     }
-
-  //   })
-
-  //   //recupeartion du nombre de tirage
-  //   this.tirageService.getNombre().subscribe(donne=>{
-  //     console.log(donne.message)
-  //     console.log(donne.data.length)
-
-  //     if(donne.message=="ok"  && donne.data!=null){
-  //       this.nombreTirage=donne.data
-  //     }
-
-  //   })
-
-  //   //recupeartion du nombre de listes
-  //   this.listeService.getNombreListe().subscribe(donne=>{
-  //     console.log(donne.data.length)
-  //     if(donne.message=="ok"  && donne.data!=null){
-  //       this.nombreList=donne.data
-  //     }
-
-  //   })
-  // }
-  
 
 }

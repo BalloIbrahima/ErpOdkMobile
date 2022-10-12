@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ListeService } from '../services/listes/liste.service';
 
 @Component({
   selector: 'app-detailtirage',
@@ -6,91 +8,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detailtirage.page.scss'],
 })
 export class DetailtiragePage implements OnInit {
-  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
-  page: number = 1;
-  students =[
-    {
-      numero:'1',
-      name: 'Kanoute',
-        prenom: 'Rokiatou',
-        email: 'rose@gmail.com',
-        date: '2022-12-12'
-    },
-    {
-      numero:'2',
-      name: 'Samake',
-        prenom: 'Kadidia',
-        email: 'rose@gmail.com',
-        date: '2022-12-12'
-  },
-  {
-    numero:'3',
 
-    name: 'Diallo',
-        prenom: 'Abdoulaye',
-        email: 'rose@gmail.com',
-        date: '2022-12-12'
-  },
-  {
-    numero:'4',
+  Utilisateur:any;
+  page:number=0;
+  idT:any;
+  idTirage:number
+  resultTir:any;
+  resultTirs:any;
 
-    name: 'Djenika',
-    prenom: 'Aboubacar',
-    email: 'rose@gmail.com',
-    date: '2022-12-12'
-  },
-  {
-    numero:'5',
+  Tirage:any
 
-    name: 'Kanoute',
-        prenom: 'Rokiatou',
-        email: 'rose@gmail.com',
-        date: '2022-12-12'
-  },
-  {
-    numero:'6',
-
-    name: 'Samake',
-    prenom: 'Kadidia',
-    email: 'rose@gmail.com',
-
-    date: '2022-12-12'
-  },
-  {
-    numero:'7',
-
-    name: 'Diallo',
-    prenom: 'Abdoulaye',
-    email: 'rose@gmail.com',
-    date: '2022-12-12'
-  },
-  {
-    numero:'8',
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    email: 'rose@gmail.com',
-    date: '+223 8456789'
-  },
-  {
-    numero:'9',
-    name: 'Djenika',
-    prenom: 'Aboubacar',
-    email: 'rose@gmail.com',
-    date: '2022-12-12'
-  },
-  {
-    numero:'10',
-    name: 'Djiguiba',
-    prenom: 'Barema',
-    email: 'rose@gmail.com',
-    date: '+223 8456789'
-  }
-
-  ];
-
-  constructor() { }
+  constructor(private route:ActivatedRoute, private service: ListeService) { }
 
   ngOnInit() {
+
+    this.idT = this.route.snapshot.params['idT']
+    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
+      console.log(this.Utilisateur.login)
+      console.log(this.idT)
+
+      this.service.GetPostulantParListe(this.Utilisateur.login,this.Utilisateur.password,this.idT).subscribe(data=>{
+        this.resultTir=data.data;
+        console.log(this.resultTir)
+       
+      
+        
+      })
+
+     
+         
+
   }
 
 }

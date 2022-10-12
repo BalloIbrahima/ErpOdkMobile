@@ -23,7 +23,7 @@
 
         <select [(ngModel)]="textFiltre" name="textFiltre" class="form-select form-select-md" aria-label=".form-select-sm example" (change)="activitesavenir()">
           <option >
-            <ion-icon name="funnel-outline" slot="start" selected></ion-icon>Filtrer par Status
+            <ion-icon name="funnel-outline" slot="start" ></ion-icon>Filtrer par Status
           </option>
           <option  >Activités en cour</option>
           <option >Activités à venir</option>
@@ -42,9 +42,21 @@
   </div>
   <div class="content-wrapper">
       <div class="pag" *ngFor= "let ta of  touteactivite  | paginate:{itemsPerPage:6, currentPage:p}; let index =index; ">
+
+
+           <div class="text" style="background-color: transparent; width:100%;
+           margin-right: auto;
+            border-radius: 5px; height: auto;">
+            <h2 class="news-card__title"> Titre:
+              {{ta.nom}}</h2>
+
+            </div>
+
           <div class="news-card">
+
             <a [routerLink]="['/dashboard/detailactivite',ta.id]" class="news-card__card-link"></a>
             <img src={{ta.image}} alt="" class="news-card__image">
+
             <div class="news-card__text-wrapper">
               <h2 class="news-card__title">{{ta.nom}}</h2>
               <div class="news-card__post-date" style="font-size: larger; color:black"><b>{{ta.typeActivite.libelle}}</b></div>
@@ -61,7 +73,9 @@
 
               </div>
             </div>
+
           </div>
+
         </div>
 
   </div>

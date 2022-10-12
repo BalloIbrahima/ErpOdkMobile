@@ -32,7 +32,7 @@ h1 {
 .box {
   width: 100%;
   padding: 25px 30px;
-  border-radius: 15px;
+  // border-radius: 15px;
   border: #000 3px solid;
   margin: 20px auto;
 
@@ -46,7 +46,16 @@ h1 {
   border-radius: 15px;
   background: #fff;
   margin: auto;
+  height: auto !important;
+
 }
+#mere{
+overflow-y:scroll;
+}
+::-webkit-scrollbar{
+display: none;
+}
+
 
 input {
   color: #000;
@@ -87,7 +96,7 @@ form .activite-details .input-box {
   outline: none;
   height: 40px;
   width: 100%;
-  border-radius: 15px;
+  // border-radius: 15px;
   border: 1px solid #ccc;
   padding-left: 15px;
   font-size: 16px;
@@ -95,13 +104,16 @@ form .activite-details .input-box {
   transition: all 0, 3s ease;
 }
 
+
+
+
 .activite-details .input-box input:focus,
 .activite-details .input-box input:valid {
   border-color: #ccc;
 }
 
 form .button {
-  height: 45px;
+  // height: 45px;
   margin: 45px 0;
   width: 100%;
   display: flex;
@@ -123,7 +135,7 @@ form .button {
 
 form .button .input {
   height: 100%;
-  width: 45%;
+  // width: 45%;
   color: #FFFF;
   border: none;
   font-size: 18px;
@@ -138,6 +150,7 @@ form .button input:hover {
 
 textarea {
   color: #000;
+  padding:5px !important;
 }
 
 @media (max-width: 584px) {
@@ -147,32 +160,36 @@ textarea {
       background: #FFFF;
       padding: 5% 7%;
   }
+
   form .activite-details .input-box {
       margin-bottom: 15px;
       width: 100%;
   }
+
   .container form .activite-details {
       overflow-y: scroll;
   }
+
   .activite-details::-webkit-scrollbar {
       width: 0;
   }
 
   form .button {
       padding: 5%;
-      width: 100%;
+      // width: 100%;
   }
 
-  .title{
+  .title {
       margin-top: 5%;
   }
+
   input[type=submit] {
       border-radius: 10px;
       padding: 7px 10px;
       background-color: #FF7900;
       color: #FFFF;
       margin-bottom: 3%;
-      width: 100%;
+      // width: 100%;
   }
 
   input[type=reset] {

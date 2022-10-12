@@ -26,7 +26,7 @@ const routes: Routes = [
     path: 'forgotpassword1',
     loadChildren: () => import('./forgetpassword1/forgetpassword1.module').then( m => m.Forgetpassword1PageModule)
   },
- 
+
 
 
 
@@ -38,77 +38,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
-
-
-// import { NgModule } from '@angular/core';
-// import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
-// const routes: Routes = [
-//   {
-//     path: 'home',
-//     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-//   },
-//   {
-//     path: '',
-//     redirectTo: 'home',
-//     pathMatch: 'full'
-//   },
-//   {
-//     path: 'login',
-//     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-//   },
-//   {
-//     path: 'activite',
-//     loadChildren: () => import('./activite/activite.module').then( m => m.ActivitePageModule)
-//   },
-
-// ];
-
-// @NgModule({
-//   imports: [
-//     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-//   ],
-//   exports: [RouterModule]
-// })
-
-
-
-
-
-
-
-// import { NgModule } from '@angular/core';
-// import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
-// const routes: Routes = [
-//   {
-//     path: 'home',
-//     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-//   },
-//   {
-//     path: '',
-//     redirectTo: 'home',
-//     pathMatch: 'full'
-//   },
-//   {
-//     path: 'login',
-//     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-//   },
-//   {
-//     path: 'activite',
-//     loadChildren: () => import('./activite/activite.module').then( m => m.ActivitePageModule)
-//   },
-
-// ];
-
-// @NgModule({
-//   imports: [
-//     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-//   ],
-//   exports: [RouterModule]
-// })
-
-
-
 

@@ -32,6 +32,8 @@ export class NouveaupersonnelPage implements OnInit {
 
   Genre: number;
   formatMailSelectionner: any;
+  contact: number;
+  lieunaissance: String;
 
   constructor(private router: Router, private alertController : AlertController,private entiteService:EntiteService,private roleservice:RoleService,private userService:UtilisateurService) { }
 
@@ -63,6 +65,9 @@ export class NouveaupersonnelPage implements OnInit {
     
   }
 
+  back(): void {
+    window.history.back()
+  }
 
   envoyerImage(event: any){
     this.image = event.target["files"][0];
@@ -106,12 +111,13 @@ export class NouveaupersonnelPage implements OnInit {
       title: "Personnel crée avec succès",
       showConfirmButton: true,
       confirmButtonText: "OK",
-      confirmButtonColor: 'green',
+      confirmButtonColor: '#FF7900',
       heightAuto: false
     }).then((result) => {
       if (result.isConfirmed) {
-          // this.actualisePagApresSuppresion()
-          this.router.navigateByUrl('/dashboard/personnels')
+          this.router.navigateByUrl('/dashboard/personnels', {skipLocationChange: true}).then(() => {
+      this.router.navigate(["/personnels"]);
+      });
       
     }else if (result.isDenied) {
       this.router.navigateByUrl('/dashboard/personnels')
@@ -146,7 +152,7 @@ export class NouveaupersonnelPage implements OnInit {
     }else{
       this.Genre = 1
     }
-    this.userService.CreateUser(this.Utilisateur.login,this.Utilisateur.password ,this.nom,this.prenom,this.email+this.domaine,this.Genre,this.image,this.EntiteSelectioner,this.RoleSelectionner).subscribe(retour=>{
+    this.userService.CreateUser(this.Utilisateur.login,this.Utilisateur.password ,this.nom,this.prenom,this.email+this.domaine,this.Genre,this.image,this.EntiteSelectioner,this.RoleSelectionner,this.contact,this.lieunaissance).subscribe(retour=>{
       console.log(retour)
       this.alertSiTousLesChampSonBienRenseigner();
       // this.presentAlert()

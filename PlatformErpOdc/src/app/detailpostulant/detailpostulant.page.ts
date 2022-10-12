@@ -48,6 +48,10 @@ export class DetailpostulantPage implements OnInit {
   network: any;
   platform: any;
   numero: any;
+  RoleSelectionner2: any;
+  EmailSelectionner: any;
+  contact: any;
+  lieunaissance: String;
 
   constructor(private alertController : AlertController,private modalController:ModalController,private entiteService:EntiteService,private roleservice:RoleService,private userService:UtilisateurService,
     private router: Router, private route:ActivatedRoute) { }
@@ -60,6 +64,7 @@ export class DetailpostulantPage implements OnInit {
     //Fonction pour recupérer le user connecter
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) 
     console.log(this.Utilisateur)
+
 
     //Fonction pour actualisation
     this.getPersonneParId(this.idUser, this.Utilisateur)
@@ -90,10 +95,18 @@ export class DetailpostulantPage implements OnInit {
       }
     })
 
-    }
+
   
 
 
+    }
+  
+
+  
+    back(): void {
+      window.history.back()
+    }
+  
 
 
 
@@ -110,7 +123,8 @@ export class DetailpostulantPage implements OnInit {
         this.image = this.users.image
         this.nomEntite = this.users.monEntite.libelleentite
         this.statusUser = this.users.role.libellerole
-
+        this.contact = this.users.contact
+        this.lieunaissance = this.users.lieunaissance
       })
     }
     
@@ -134,15 +148,28 @@ export class DetailpostulantPage implements OnInit {
     //Methode de update du personnel
     UpdateUser(){
       for(let i=0; i<this.Roles.length;i++){
-        if(this.Roles[i].libellerole==this.idRole){
+        if(this.Roles[i].libellerole==this.role){
           this.RoleSelectionner=this.Roles[i]
         }
       }
       for(let i=0; i<this.Entites.length;i++){
-        if(this.Entites[i].libelleentite==this.idEntite){
+        if(this.Entites[i].libelleentite==this.entite){
           this.EntiteSelectionner=this.Entites[i]
         }
       }
+
+      // for(let i=0; i<this.formatMailperonnel.length;i++){
+      //   if(this.formatMailperonnel[i].libelle==this.email){
+      //     this.EmailSelectionner=this.formatMailperonnel[i]
+      //   }
+      // }
+
+      // for(let i=0; i<this.Roles.length;i++){
+      //   if(this.Roles[i].libellerole==this.statusUser){
+      //     this.RoleSelectionner2=this.statusUser
+      //   }
+      // }
+      // console.log(this.RoleSelectionner2)
       console.log(this.RoleSelectionner)
       console.log(this.EntiteSelectionner)
      
@@ -154,7 +181,7 @@ export class DetailpostulantPage implements OnInit {
       }
       console.log("immmmmmmmmmmmmmm")
       console.log(this.image1)
-      this.userService.UpdateUser(this.Utilisateur.login,this.Utilisateur.password,this.nom,this.prenom,this.email+this.domaine,this.Genre,this.image1,this.EntiteSelectionner,this.RoleSelectionner,this.idUser).subscribe(retour=>{
+      this.userService.UpdateUser(this.Utilisateur.login,this.Utilisateur.password,this.nom,this.prenom,this.email+this.domaine,this.Genre,this.image1,this.EntiteSelectionner,this.RoleSelectionner,this.idUser,this.contact,this.lieunaissance).subscribe(retour=>{
         console.log(retour)
         // this.presentAlert()
       })
@@ -167,14 +194,8 @@ export class DetailpostulantPage implements OnInit {
 
 
     
-  //Delete methode personnel
-  DeleteUser(){
-    for(let i=0; i<this.Roles.length;i++){
-      if(this.Roles[i].libellerole==this.role){
-        this.RoleSelectionner=this.Roles[i]
-      }
-    }
-    console.log(this.RoleSelectionner)
+  //Pop up apres suppression
+  MessageDeleteUserEffectuer(){
     Swal.fire({
       title: "Attention vous etes sûr de vouloir SUPPRIMER le personnel",
       showConfirmButton: true,
@@ -200,21 +221,35 @@ export class DetailpostulantPage implements OnInit {
           if (result.isConfirmed) {
             this.userService.DeleteUser(this.Utilisateur.login,this.Utilisateur.password,this.RoleSelectionner,this.idUser).subscribe(retour=>{
               console.log(retour)
-              this.actualisePagApresSuppresion()
-              this.router.navigateByUrl('/dashboard/personnels')
+            });
+            this.router.navigateByUrl('/dashboard/personnels', {skipLocationChange: true}).then(() => {
+              this.router.navigate(["/personnels"])
             })
         }else if (result.isDenied) {
           Swal.fire('Suppression annuler !');
         }
-      
+    
       });
     }else if (result.isDenied) {
-      // Swal.fire('Changes are not saved', '', 'info');
+    // Swal.fire('Annuler', '', 'info');
     }
   });
   
   }
      
+
+
+    //Delete methode personnel
+  // DeleteUser(){
+  //   this.MessageDeleteUserEffectuer();
+  //   this.userService.DeleteUser(this.Utilisateur.login,this.Utilisateur.password,this.RoleSelectionner,this.idUser).subscribe(retour=>{
+  //     console.log(retour)
+  //     // this.actualisePagApresSuppresion()
+  //     // this.router.navigateByUrl('/dashboard/personnels')
+  //   });
+  //     // this.presentAlert()
+  //   }
+
 
      //Desactiver methode
      DesactiverUser(){
@@ -251,6 +286,9 @@ export class DetailpostulantPage implements OnInit {
               this.userService.DesactiverUser(this.Utilisateur.login,this.Utilisateur.password,this.RoleSelectionner,this.idUser).subscribe(retour=>{
                 console.log(retour)
             });
+            this.router.navigateByUrl('/dashboard/personnels', {skipLocationChange: true}).then(() => {
+              this.router.navigate(["/personnels"])
+            })
           }else if (result.isDenied) {
             Swal.fire('Desacivation annuler !');
           }
@@ -301,11 +339,11 @@ export class DetailpostulantPage implements OnInit {
 
 ///Methode permettant de rediriger apres la suppression d'une personne
 // ActualisePage Apres suppression
-actualisePagApresSuppresion(){
-  setTimeout(() => {
-    this.getAllUser()
-  }, 1000);
-}
+// actualisePagApresSuppresion(){
+//   setTimeout(() => {
+//     this.getAllUser()
+//   }, 1000);
+// }
 
 getAllUser(){
 

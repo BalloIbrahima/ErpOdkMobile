@@ -9,6 +9,9 @@
     font-family: myfon;
 }
 
+#back{
+    cursor: pointer;
+}
 .firsttitle{
     text-transform: uppercase;
     font-size: 2rem;
@@ -232,6 +235,11 @@ textarea {
     .firsttitle{
         margin-left: none;
         font-size: 1rem;
+    }
+    #back{
+        top: 22px;
+        position: absolute;
+        font-size: 10px;
     }
     ion-title{
         margin-left: 1em;

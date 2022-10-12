@@ -43,6 +43,9 @@ this.infos();
 
   }
 
+
+
+
   // actualisePagApresSuppresion(util:any){
   //   setTimeout(() => {
   //     this.getAllUser(util)

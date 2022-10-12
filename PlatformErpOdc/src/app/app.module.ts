@@ -18,10 +18,12 @@ import { PopupNotificationPage } from "./popup-notification/popup-notification.p
 import { registerLocaleData } from '@angular/common';
 import * as fr from '@angular/common/locales/fr';
 import { PopupdtiragePage } from './popupdtirage/popupdtirage.page';
+import { DetailDesListesPage } from './detail-des-listes/detail-des-listes.page';
+import { DetailTirageDuneListePage } from './detail-tirage-dune-liste/detail-tirage-dune-liste.page';
 
 
 @NgModule({
-   declarations: [AppComponent,  PopupdtiragePage,PopupNotificationPage],
+   declarations: [AppComponent,  PopupdtiragePage,PopupNotificationPage,DetailTirageDuneListePage],
   // imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
 
   imports: [FormsModule, RouterModule.forRoot([]), IonicModule.forRoot({}),

@@ -47,7 +47,9 @@ export class PopupdtiragePage implements OnInit {
       confirmButtonColor:'#FF7900',
       allowOutsideClick:false
   }).then(()=>{
-    this.router.navigate(["/detailactivite",this.data.activite.id]);
+    this.router.navigateByUrl('/detailactivite', {skipLocationChange: true}).then(() => {
+      this.router.navigate(["/detailactivite",this.data.activite.id]);
+      });
   })
   await this.modalController.dismiss(close);
   }

@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ActiviteService } from '../services/activite/activite.service';
 import { EntiteService } from '../services/entite/entite.service';
+// telecharger fichier excel
+import * as XLSX from 'xlsx';
 
 @Component({
+
   selector: 'app-reporting',
   templateUrl: './reporting.page.html',
   styleUrls: ['./reporting.page.scss'],
@@ -55,4 +58,14 @@ export class ReportingPage implements OnInit {
 
   }
 
+  name = 'ExcelSheet.xlsx';
+  exportToExcel(): void {
+    let element = document.getElementById('season-tble');
+    const worksheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+
+    const book: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(book, worksheet, 'Sheet1');
+
+    XLSX.writeFile(book, this.name);
+  }
 }

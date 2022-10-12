@@ -100,12 +100,12 @@
         <div class="card">
 
           <div class="card-body text-start">
-            <div class="alert alert-success mb-3" role="alert" *ngIf="alertTrue">
+            <!-- <div class="alert alert-success mb-3" role="alert" *ngIf="alertTrue">
               L'entite Creer avec succes
             </div>
             <div class="alert alert-danger mb-3" role="alert" *ngIf="alertFalse">
               ERREUR LORS DE CREATION DE L'ENTITE
-            </div>
+            </div> -->
             <form>
               <div for="libelleEntite" class="">Nom entité *</div>
               <input type="text" name="libelleentite" [(ngModel)]="libelleentite" class="form-control"
@@ -211,7 +211,7 @@
                 Responsable <br>{{inf.gerant.prenom}} {{inf.gerant.nom}}</h6>
               <h6>
               </h6>
-              <p class="card-text" [innerHTML]="inf.description | slice:0:50"><label for="">...</label></p> 
+              <p class="card-text">{{inf.description | slice:0:50}}...</p> 
               
                 <div class="position-absolute bottom-0 start-50 translate-middle-x mb-2">
                   <div class="socials">

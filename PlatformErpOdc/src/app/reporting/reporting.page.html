@@ -13,13 +13,13 @@
 
 <ion-content>
 
-  <ion-button class="part" routerLink="/dashboard/reporting-participant">Participant</ion-button>
+  <button class="part" routerLink="/dashboard/reporting-participant">Participant</button>
 
 
   <div class="header">
     <div class="cd">
       <div class="headerContent">
-        <p>Liste des activité</p>
+        <p>Liste des activités</p>
         <button class="filtre" id="open-modal">Filtre par</button>
       </div>
     </div>
@@ -29,9 +29,10 @@
 
 
 
+<div class="mx-3">
+  
 
-
-  <table class="table table-striped text-center mx-3">
+  <table class="table table-striped text-center" id="season-tble">
     <thead>
       <tr>
         <th scope="col">Activité</th>
@@ -54,11 +55,12 @@
     </tbody>
 
   </table>
+</div>
 
   <div class="header">
 
     <div class="headerContent">
-      <button class="filtre2"><i class="fa fa-download" aria-hidden="true"></i> Télécharger </button>
+      <button class="filtre2" (click)="exportToExcel()"><i class="fa fa-download" aria-hidden="true"></i> Télécharger </button>
       <pagination-controls (pageChange)="a = $event" nextLabel="Suivants" previousLabel="Précédents">
       </pagination-controls>
 

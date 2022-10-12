@@ -123,8 +123,6 @@ export class DetailpostulantPage implements OnInit {
         this.image = this.users.image
         this.nomEntite = this.users.monEntite.libelleentite
         this.statusUser = this.users.role.libellerole
-        this.contact = this.users.contact
-        this.lieunaissance = this.users.lieunaissance
       })
     }
     
@@ -181,7 +179,7 @@ export class DetailpostulantPage implements OnInit {
       }
       console.log("immmmmmmmmmmmmmm")
       console.log(this.image1)
-      this.userService.UpdateUser(this.Utilisateur.login,this.Utilisateur.password,this.nom,this.prenom,this.email+this.domaine,this.Genre,this.image1,this.EntiteSelectionner,this.RoleSelectionner,this.idUser,this.contact,this.lieunaissance).subscribe(retour=>{
+      this.userService.UpdateUser(this.Utilisateur.login,this.Utilisateur.password,this.nom,this.prenom,this.email+this.domaine,this.Genre,this.image1,this.EntiteSelectionner,this.RoleSelectionner,this.idUser).subscribe(retour=>{
         console.log(retour)
         // this.presentAlert()
       })

@@ -152,7 +152,7 @@ export class NouveaupersonnelPage implements OnInit {
     }else{
       this.Genre = 1
     }
-    this.userService.CreateUser(this.Utilisateur.login,this.Utilisateur.password ,this.nom,this.prenom,this.email+this.domaine,this.Genre,this.image,this.EntiteSelectioner,this.RoleSelectionner,this.contact,this.lieunaissance).subscribe(retour=>{
+    this.userService.CreateUser(this.Utilisateur.login,this.Utilisateur.password ,this.nom,this.prenom,this.email+this.domaine,this.Genre,this.image,this.EntiteSelectioner,this.RoleSelectionner).subscribe(retour=>{
       console.log(retour)
       this.alertSiTousLesChampSonBienRenseigner();
       // this.presentAlert()

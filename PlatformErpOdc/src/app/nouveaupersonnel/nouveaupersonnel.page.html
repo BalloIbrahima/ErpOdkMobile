@@ -63,6 +63,31 @@
             </select>
         </div>
 
+        <div class="input-box">
+          <span class="details">Lieu de nanissance *</span>
+          <select name="lieunaissance" class="form-control" [(ngModel)]="lieunaissance" class="select" required>
+            <option selected>Bamako</option>
+            <option >Kayes</option>
+            <option >Koulikoro</option>
+            <option >Sikasso</option>
+            <option >Segou</option>
+            <option >Mopti</option>
+            <option >Tombouctou</option>
+            <option >Gao</option>
+            <option >Kidal</option>
+              <option >Tadoudeni</option>
+            <option >Menaca</option>
+            <!-- <option *ngFor="let entite of Entites" >{{entite.libelleentite}}</option> -->
+            
+          </select>
+      </div>
+
+      <div class="input-box">
+        <span class="details" for="phone">Numéro de telephone *</span>
+        <input type="tel"  id="phone" name="contact"  [(ngModel)]="contact" placeholder="70000000" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" required>
+
+      </div>
+
           <div class="input-box">
             <span class="details">Entité *</span>
             <select class="select" class="form-control" [(ngModel)]="entite" name="entite" required>

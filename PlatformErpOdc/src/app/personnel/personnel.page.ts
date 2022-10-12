@@ -68,6 +68,9 @@ export class PersonnelPage implements OnInit {
 
   }
 
+
+
+
   // actualisePagApresSuppresion(util:any){
   //   setTimeout(() => {
   //     this.getAllUser(util)

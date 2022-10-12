@@ -1,3 +1,4 @@
+import { ConfigurableFocusTrapFactory } from '@angular/cdk/a11y';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -27,7 +28,7 @@ export class UtilisateurService {
 
   //methode pour la creation d'un utilisateur
   CreateUser(login:String,password:String,
-    nom:String,prenom:String,email:string,Genre: any,file:any,entiteid:any,roleid:any): Observable<any>{
+    nom:String,prenom:String,email:string,Genre: any,file:any,entiteid:any,roleid:any,contact:number,lieunaissance:String): Observable<any>{
 
     const data1:FormData=new FormData();
     const user=[{"login":login,"password":password}]
@@ -42,7 +43,9 @@ export class UtilisateurService {
       //"login":login,
       //"password":password,
       "monEntite":entiteid,
-      "role":roleid
+      "role":roleid,
+      "contact":contact,
+      "lieunaissance":lieunaissance
     }]
 
     console.log(data)
@@ -106,7 +109,7 @@ export class UtilisateurService {
 
   //La methode pour mettre a jour un user
   UpdateUser(login:String,password:String,
-    nom:String,prenom:String,email:string,Genre: any,file:any,entiteid:any,roleid:any,id:any):Observable<any>{
+    nom:String,prenom:String,email:string,Genre: any,file:any,entiteid:any,roleid:any,id:any,contact:any,lieunaissance:String):Observable<any>{
 
     const data1:FormData=new FormData();
     const user=[{"login":login,"password":password}]
@@ -122,7 +125,9 @@ export class UtilisateurService {
       //"login":login,
       //"password":password,
       "monEntite":entiteid,
-      "role":roleid
+      "role":roleid,
+      "contact":contact,
+      "lieunaissance":lieunaissance
     }]
 
     console.log(data)

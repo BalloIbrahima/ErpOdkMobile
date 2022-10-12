@@ -13,7 +13,7 @@
 
 
 <ion-content>
-
+  <a (click)="back()" id="back"> <p><i class="fa fa-hand-o-left" style="font-size:20px"></i> Retour</p></a> 
   <img *ngIf="image!=null" src={{image}} class="center" alt="Image du personnel">
   <img *ngIf="image==null" src="assets/images/profile.png" class="center" alt="Image du personnel">
 
@@ -45,7 +45,7 @@
     </ion-item> -->
     <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Lieu de naissance:</ion-label>
-      <ion-label slot="" style="color: black;" class="taille2">Bamako</ion-label>
+      <ion-label slot="" style="color: black;" class="taille2">{{ lieunaissance }}</ion-label>
     </ion-item>
     <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Genre:</ion-label>
@@ -53,7 +53,7 @@
     </ion-item>
     <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Contact:</ion-label>
-      <ion-label slot="" style="color: black;" class="taille2">+233 66577887</ion-label>
+      <ion-label slot="" style="color: black;" class="taille2">{{ contact }}</ion-label>
     </ion-item>
     <ion-item lines="none">
       <ion-label slot="start" style="color: black;" class="taille1">Email:</ion-label>
@@ -182,6 +182,32 @@
                     <option *ngFor="let g of genre" >{{g.genre}}</option>
                 </select> -->
             </div>
+
+            <div class="input-box">
+              <span class="details">Lieu de nanissance *</span>
+              <select name="lieunaissance" class="form-control" [(ngModel)]="lieunaissance" class="select" required>
+                <option selected>Bamako</option>
+                <option >Kayes</option>
+                <option >Koulikoro</option>
+                <option >Sikasso</option>
+                <option >Segou</option>
+                <option >Mopti</option>
+                <option >Tombouctou</option>
+                <option >Gao</option>
+                <option >Kidal</option>
+                  <option >Tadoudeni</option>
+                <option >Menaca</option>
+                <!-- <option *ngFor="let entite of Entites" >{{entite.libelleentite}}</option> -->
+                
+              </select>
+          </div>
+    
+          <div class="input-box">
+            <span class="details" for="phone">Numéro de telephone *</span>
+            <input type="tel"  id="phone" name="contact"  [(ngModel)]="contact" [value]="contact" placeholder="70000000" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" required>
+    
+          </div>
+
             <div class="input-box">
               <span class="details">Rôle *</span>
               <select name="role" [(ngModel)]="role" class="select" required >

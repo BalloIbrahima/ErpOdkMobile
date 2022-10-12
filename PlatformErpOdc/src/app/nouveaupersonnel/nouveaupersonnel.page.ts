@@ -32,6 +32,8 @@ export class NouveaupersonnelPage implements OnInit {
 
   Genre: number;
   formatMailSelectionner: any;
+  contact: number;
+  lieunaissance: String;
 
   constructor(private router: Router, private alertController : AlertController,private entiteService:EntiteService,private roleservice:RoleService,private userService:UtilisateurService) { }
 
@@ -150,7 +152,7 @@ export class NouveaupersonnelPage implements OnInit {
     }else{
       this.Genre = 1
     }
-    this.userService.CreateUser(this.Utilisateur.login,this.Utilisateur.password ,this.nom,this.prenom,this.email+this.domaine,this.Genre,this.image,this.EntiteSelectioner,this.RoleSelectionner).subscribe(retour=>{
+    this.userService.CreateUser(this.Utilisateur.login,this.Utilisateur.password ,this.nom,this.prenom,this.email+this.domaine,this.Genre,this.image,this.EntiteSelectioner,this.RoleSelectionner,this.contact,this.lieunaissance).subscribe(retour=>{
       console.log(retour)
       this.alertSiTousLesChampSonBienRenseigner();
       // this.presentAlert()

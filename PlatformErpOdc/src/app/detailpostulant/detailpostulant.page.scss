@@ -6,6 +6,9 @@
     font-family: myfon3;
     src: url("../../assets/font/Poppins-Black.ttf");
 }
+#back{
+    display: none;
+}
 ion-content{
     font-family: myfon3;
     --ion-background-color: #ffff;
@@ -516,6 +519,11 @@ textarea {
     .ajout .input-box input {
         font-size: 12px;
     }
+    #back{
+        display: inline;
+        cursor: pointer;
+      }
+      
 }
 
 

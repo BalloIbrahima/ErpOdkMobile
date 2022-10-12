@@ -37,6 +37,7 @@ export class DetailDesListesPage implements OnInit {
         this.totallist=data.data;
         this.totallistLength = data.data.length
         this.nbrliste=data.data.length;
+        console.log(this.totallistLength)
         
       });
 
@@ -60,7 +61,7 @@ export class DetailDesListesPage implements OnInit {
 
   goDetailTirage(id:number){
     console.log(id);
-    return this.router.navigate(['detail-tirage-liste', id])
+    return this.router.navigate(['detail-tirage-dune-liste', id])
   }
 
 }

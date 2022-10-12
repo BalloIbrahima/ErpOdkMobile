@@ -13,95 +13,26 @@ export class TachedesignationPage implements OnInit {
   taches:any
   Utilisateur:any;
   p:any
-  // students =[
-  //   {
-  //       name: 'Djiguiba',
-  //       prenom: 'Barema',
-  //       genre: 'Masculin',
-  //       email: 'djiguiba@orangemali.com',
-  //       contact: '+223 8456789'
-  //   },
-  //   {
-  //     name: 'Djiguiba',
-  //     prenom: 'Barema',
-  //     genre: 'Masculin',
-  //     email: 'djiguiba@orangemali.com',
-  //     contact: '+223 8456789'
-  // },
-  // {
-  //   name: 'Djiguiba',
-  //   prenom: 'Barema',
-  //   genre: 'Masculin',
-  //   email: 'djiguiba@orangemali.com',
-  //   contact: '+223 8456789'
-  // },
-  // {
-  //   name: 'Djiguiba',
-  //   prenom: 'Barema',
-  //   genre: 'Masculin',
-  //   email: 'djiguiba@orangemali.com',
-  //   contact: '+223 8456789'
-  // },
-  // {
-  //   name: 'Djiguiba',
-  //   prenom: 'Barema',
-  //   genre: 'Masculin',
-  //   email: 'djiguiba@orangemali.com',
-  //   contact: '+223 8456789'
-  // },
-  // {
-  //   name: 'Djiguiba',
-  //   prenom: 'Barema',
-  //   genre: 'Masculin',
-  //   email: 'djiguiba@orangemali.com',
-  //   contact: '+223 8456789'
-  // },
-  // {
-  //   name: 'Djiguiba',
-  //   prenom: 'Barema',
-  //   genre: 'Masculin',
-  //   email: 'djiguiba@orangemali.com',
-  //   contact: '+223 8456789'
-  // },
-  // {
-  //   name: 'Djiguiba',
-  //   prenom: 'Barema',
-  //   genre: 'Masculin',
-  //   email: 'djiguiba@orangemali.com',
-  //   contact: '+223 8456789'
-  // },
-  // {
-  //   name: 'Djiguiba',
-  //   prenom: 'Barema',
-  //   genre: 'Masculin',
-  //   email: 'djiguiba@orangemali.com',
-  //   contact: '+223 8456789'
-  // },
-  // {
-  //   name: 'Djiguiba',
-  //   prenom: 'Barema',
-  //   genre: 'Masculin',
-  //   email: 'djiguiba@orangemali.com',
-  //   contact: '+223 8456789'
-  // }
-  
-  // ];
   constructor(private route:ActivatedRoute, private tachedesignationService:TachedesignationService) { }
 
   ngOnInit() {
 
      this.id=this.route.snapshot.params['id'];
      this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) ;
-
-     this.tachedesignationService.getAlltaches(this.Utilisateur.login, this.Utilisateur.password,this.id).subscribe(retour => {
-       this.taches = retour.data;
-       console.log(this.taches);
-     });
-
-
-   
+    this.alltaches()
 
   }
+  alltaches(){
+
+    this.tachedesignationService.getAlltaches(this.Utilisateur.login, this.Utilisateur.password,this.id).subscribe(retour => {
+      this.taches = retour.data;
+      console.log(this.taches);
+    });
+  }
+  ionViewWillEnter(){
+    this.alltaches()
+  }
+
 
   
 

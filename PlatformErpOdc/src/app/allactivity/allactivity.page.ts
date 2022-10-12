@@ -21,6 +21,7 @@ export class AllactivityPage implements OnInit {
   actevenir:any
   actterminer:any
 
+  filtreEntity:any;
   textFiltre:any="Filtrer par Status";
   textFiltre0:any
   constructor(private route:ActivatedRoute,private router: Router,private entiteService:EntiteService,private service:ActiviteService) { }
@@ -45,18 +46,28 @@ export class AllactivityPage implements OnInit {
 
   filtrebyentity(){
    //recuperation de l'id l'entite
-    var identity=0 ;
+    var identity=null ;
+    console.log(this.filtreEntity)
    for(let i=0 ; i<this.allentity.length; i++){
-    if(this.allentity[i].libelleentite==this.allentity){
+    if(this.allentity[i].libelleentite==this.filtreEntity){
       identity=this.allentity[i].id
       console.log(identity)
     }
-      if(this.textFiltre0 ==this.allentity[i].libelleentite){
-        this.service.GetActivitebyentite(this.Utilisateur.login, this.Utilisateur.password,identity).subscribe(retour=>{
-          this.allentity=retour.data
-          console.log(this.allentity)
-        })
-      }
+    
+       
+      
+  }
+
+  try {
+    if(identity!=null){
+      this.service.GetActivitebyentite(this.Utilisateur.login, this.Utilisateur.password,identity).subscribe(retour=>{
+        this.touteactivite=retour.data
+        console.log(this.allentity)
+      })
+    }
+    
+  } catch (error) {
+    
   }
 
 

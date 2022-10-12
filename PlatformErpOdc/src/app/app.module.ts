@@ -1,3 +1,4 @@
+import { EditactivityPage } from './editactivity/editactivity.page';
 import { CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy, RouterModule } from '@angular/router';
@@ -23,7 +24,7 @@ import { DetailTirageDuneListePage } from './detail-tirage-dune-liste/detail-tir
 
 
 @NgModule({
-   declarations: [AppComponent,  PopupdtiragePage,PopupNotificationPage,DetailTirageDuneListePage],
+   declarations: [AppComponent,  PopupdtiragePage,PopupNotificationPage,DetailTirageDuneListePage,EditactivityPage],
   // imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
 
   imports: [FormsModule, RouterModule.forRoot([]), IonicModule.forRoot({}),

@@ -3,7 +3,7 @@
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-title>Détail listes</ion-title>
+      <ion-title>Liste Importer</ion-title>
       <ion-button slot="end" fill="clear">
         <app-cloche></app-cloche>
 
@@ -26,6 +26,13 @@
     </div>
     <div class="container">
         <div class="left">
+
+            <div class="menuResponsive">
+                <label for="" class="nbrTirages">{{totaltirage}} Tirages</label>
+                <label for="" class="nbrListes">{{nbrliste}} Listes</label>
+                <label for="" class="nbrTiragesValide">{{nbreTirageValides}} Tirages Validés</label>
+            </div>
+
             <div class="searchBar">
                 <div class="InputSearch">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill=" #FF7900" class="bi bi-search"
@@ -60,9 +67,11 @@
                         <label id="nbrTirageListe"  *ngIf="l.tirages.length>1" >{{l.tirages.length}} tirages</label>
                     </div>
                 </div>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
                 
             </div>
-            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+           
         </div>
 
         <div class="right">

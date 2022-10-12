@@ -69,7 +69,7 @@
                 <button class="btn buttonColor largerButton" type="button" (click)="exportToExcel()"> Exporter liste</button>
                 <button class="btn buttonColor largerButton" type="button" [routerLink]="['/dashboard/ajoutparticipant',idact]" >+ &nbsp; Ajouter participant</button>
                 <button class="btn buttonColor largerButton" type="button" [routerLink]="['/dashboard/tachedesignation',idact]"> Tâche</button>
-                <button class="btn buttonColor largerButton" type="button"  (click)="supprimeractivite()"> Supprimer</button>
+                <button class="btn buttonColor largerButton" type="button"  (click)="succesImport()"> Supprimer</button>
                 <button class="btn buttonColor largerButton" type="button"  [routerLink]="['/dashboard/editactivity',idact]" > Editer</button>
 
             </div>
@@ -91,9 +91,23 @@
           <th scope="col">Date de naissance</th>
           <th scope="col">Genre</th>
           <th scope="col">Numero</th>
+          <!-- <th scope="col">Action</th> -->
+
         </tr>
       </thead>
       <tbody>
+        <!-- <tr>
+          <td>bonj</td>
+          <td>bonj</td>
+          <td>bonj</td>
+
+          <td>bonj</td>
+
+          <td>bonj</td>
+          <td><button (click)="successsuppost()" style="background-color: #FF7900; border-radius: 5px;" >  <i class="bi bi-trash"></i></button></td>
+
+
+        </tr> -->
 
         <tr *ngFor="let p of postulants  | paginate: {itemsPerPage:nombreLingne1, currentPage: pages} ; let i= index">
           <!-- <th scope="row">{{p.postulant.id}}</th> -->
@@ -103,7 +117,10 @@
           <td>{{p.postulant.dateNaissance | date: 'dd/MM/YYYY'}}</td>
           <td>{{p.postulant.genre}}</td>
           <td>{{p.postulant.numero}}</td>
+          <!-- <td><button (click)="successsuppost()" style="background-color: #FF7900; border-radius: 5px;" >  <i class="bi bi-trash"></i></button></td> -->
         </tr>
+
+
 
       </tbody>
     </table>

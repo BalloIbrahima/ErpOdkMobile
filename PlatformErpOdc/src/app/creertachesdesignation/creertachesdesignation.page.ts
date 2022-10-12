@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ActiviteService } from '../services/activite/activite.service';
 import { EntiteService } from '../services/entite/entite.service';
@@ -7,6 +7,7 @@ import { TachedesignationService } from '../services/tahedesignations/tachedesig
 import { StatusService } from '../services/statut/status.service';
 import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
 import { ModalController } from '@ionic/angular';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-creertachesdesignation',
@@ -52,6 +53,10 @@ export class CreertachesdesignationPage implements OnInit {
   datedebut: any;
   datefin: any;
   Commissions: any;
+  alertNomTrue: boolean;
+  alertNomFalse: boolean;
+  messageerror: string;
+  realisateurs: any;
 
 
   // if (etatselect = "Actif") {
@@ -59,7 +64,7 @@ export class CreertachesdesignationPage implements OnInit {
   // } elsif (etatselect = "Inactif") {
   //   this.etat = false
   // }
-  constructor(private tachedesign: TachedesignationService, private user: UtilisateurService, private route: ActivatedRoute, private statut: StatusService, private activiteService: ActiviteService, private salleService: SalleServiceService, private entiteService: EntiteService, private modalController: ModalController) { }
+  constructor(private tachedesign: TachedesignationService, private router:Router,private user: UtilisateurService, private route: ActivatedRoute, private statut: StatusService, private activiteService: ActiviteService, private salleService: SalleServiceService, private entiteService: EntiteService, private modalController: ModalController) { }
 
   ngOnInit() {
 
@@ -128,7 +133,30 @@ export class CreertachesdesignationPage implements OnInit {
 
   }
 
+  succesImport() {
+    //   Swal.fire({'Félicitations ...', 'Fichier importer avec succès !', 'success',
+    // });
+      Swal.fire({
+        position:'center',
+        title: 'Designation enregistrée',
+        //showDenyButton: true,
+        // showCancelButton: true,
+        confirmButtonText: 'OK',
+        //denyButtonText: `Faire tirage`,
+        //denyButtonColor:'green',
+        // cancelButtonText: 'Non',
+        // cancelButtonColor:'#FF7900',
+        heightAuto: false,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          this.router.navigateByUrl('/dashboard/creertachesdesignation', {skipLocationChange: true}).then(() => {
+            this.router.navigate(["/dashboard/creertachesdesignation",this.idActivites])
+          })
 
+        } 
+      });
+    }
   creerDesignation() {
 
 
@@ -150,13 +178,7 @@ export class CreertachesdesignationPage implements OnInit {
     this.tachedesign.creerDesignation(this.Utilisateur.login, this.Utilisateur.password, this.libelleDesignation).subscribe(retour => {
 
       console.log(retour)
-      if (retour.message == 'ok') {
-        this.alertTrue = true
-        this.alertFalse = false
-      } else {
-        this.alertTrue = false
-        this.alertFalse = true
-      }
+      this.succesImport()
     })
     this.ngOnInit();
     this.modalController.dismiss()
@@ -164,6 +186,36 @@ export class CreertachesdesignationPage implements OnInit {
 
 
 
+
+
+
+
+
+
+  succesImporttaches() {
+    //   Swal.fire({'Félicitations ...', 'Fichier importer avec succès !', 'success',
+    // });
+      Swal.fire({
+        position:'center',
+        title: 'Tache  enregistrée',
+        //showDenyButton: true,
+        // showCancelButton: true,
+        confirmButtonText: 'OK',
+        //denyButtonText: `Faire tirage`,
+        //denyButtonColor:'green',
+        // cancelButtonText: 'Non',
+        // cancelButtonColor:'#FF7900',
+        heightAuto: false,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          this.router.navigateByUrl('/dashboard/tachedesignation', {skipLocationChange: true}).then(() => {
+            this.router.navigate(["/dashboard/tachedesignation",this.idActivites])
+          })
+
+        } 
+      });
+    }
 
   createTache() {
 
@@ -254,12 +306,50 @@ export class CreertachesdesignationPage implements OnInit {
       "commissionsExterne": FormateursExters
     }]
     console.log(tache)
+    if(this.libelleDesignation == null ){
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="  Veuillez définir une désignation  pour la tâche!"
+    }
+    else if(this.datedebut == null) {
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="  Veuillez définir une date de debut à la tâche !"
+    }else if(this.datefin == null ){
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror=" Veuillez définir une date de fin à la tâche !"
+    }
+    
+    else if(this.libelleStatut == null ){
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror=" Statut de la tâche non définie !"
+    }else if(this.libelleSalle==null){
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="Attribuer une salle à la tâche !"
+    }
+    else if(this.realisateurs == null){
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="  Realisateur  non definit !"
+    }else if(this.Commissions == null){
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror=" Commission non renseignée !"
+    }else{
+      this.tachedesign.CreateTache(this.Utilisateur.login, this.Utilisateur.password, tache).subscribe(retour => {
+        console.log(retour)
+        this.succesImporttaches()
+      })
+    }
 
-
-    this.tachedesign.CreateTache(this.Utilisateur.login, this.Utilisateur.password, tache).subscribe(retour => {
-      console.log(retour)
-    })
+   
 
   }
+
+ 
+
 
 }

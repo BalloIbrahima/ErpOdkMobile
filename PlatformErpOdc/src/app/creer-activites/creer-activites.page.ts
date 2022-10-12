@@ -120,19 +120,48 @@ export class CreerActivitesPage implements OnInit {
 
   }
 
+  // async presentAlert() {
+  //   Swal.fire({
+  //     title:'Validé!!!',
+  //     text:'Activité créée avec Succès!!',
+  //     icon:'success',
+  //     heightAuto: false,
+  //     confirmButtonColor:"#FF7900"
+  // }).then((result) => {
+  //   if(result.isConfirmed){
+  //     this.router.navigateByUrl('/dashboard/allactivity', {skipLocationChange: true}).then(() =>{
+  //       this.router.navigate(["/allactivity"])
+  //     })
+
+  //   }
+  //   }
+
+  // }
   async presentAlert() {
-    Swal.fire({
-      title:'Validé!!!',
-      text:'Activité créée avec Succès!!',
-      icon:'success',
-      heightAuto: false,
-      confirmButtonColor:"#FF7900"
-  }).then(()=>{
-      this.router.navigateByUrl('/dashboard/allactivity', {skipLocationChange: true}).then(() => {
-      this.router.navigate(["/dashboard/allactivity"]);
-      });
-  });
   }
+  ajoutactivite(){
+    
+        Swal.fire({
+          title: "Activité créee avec Succès",
+          showConfirmButton: true,
+          confirmButtonText: "OK",
+          confirmButtonColor: 'green',
+          // showCancelButton: true,
+          // cancelButtonText: "Annuler",
+          // cancelButtonColor: 'red',
+          heightAuto: false
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.router.navigate(["/dashboard/allactivity"]);
+
+            // this.router.navigateByUrl('/dashboard/allactivity', {skipLocationChange: true}).then(() => {
+            //   this.router.navigate(["/allactivity"])
+            // })
+        }
+      });
+    }
+
+
   async notpresent() {
     Swal.fire({
       title:'Désolé!!!\nActivité non créée',
@@ -305,10 +334,10 @@ export class CreerActivitesPage implements OnInit {
       this.activiteService.Creer(this.Utilisateur.login,this.Utilisateur.password,this.fichier,activite).subscribe(data=>{
         console.log(data)
         if(data.message == 'ok'){
-          this.alertTrue = true
-          this.alertFalse = false
+          this.ajoutactivite();
+          // this.alertTrue = true
+          // this.alertFalse = false
           //this.router.navigateByUrl('/dashboard/allactivity', {skipLocationChange: true}).then(() => {
-            this.router.navigate(["/dashboard/allactivity"]);
             //})
             // ;
             // setTimeout(()=>{

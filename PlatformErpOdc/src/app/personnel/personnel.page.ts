@@ -38,33 +38,8 @@ export class PersonnelPage implements OnInit {
 
   ngOnInit() {
 
-
-    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
-    console.log(this.Utilisateur)
-     //!::::::::::::total perso ::::::::::::
-     this.userService.getAllUsers(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
-      this.users=data.data;
-      this.longueur=data.data.length;
-      console.log(data.data)
-    });
-
-    // this.getAllUser(this.Utilisateur)
-
-
-
-    // this.userService.getAllIntervenant(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
-    //   this.intervenant=data.data;
-    //   this.longueur=data.data.length;
-    //   console.log(data.data)
-    // })
-
-    //Recuperation des entités
-    this.entiteService.getAllEntites(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
-      if(data.message=='ok'){
-        this.Entites=data.data
-        console.log(this.Entites)
-      }
-    })
+this.infos();
+    
 
   }
 
@@ -111,6 +86,7 @@ export class PersonnelPage implements OnInit {
   }
 
 
+  
 
   filtreparpersonnel(){
     console.log(this.textFiltre);
@@ -135,6 +111,38 @@ export class PersonnelPage implements OnInit {
 
 
 
+  ionViewWillEnter(){
+    this.infos()
+  }
 
+
+  infos(){
+    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
+    console.log(this.Utilisateur)
+     //!::::::::::::total perso ::::::::::::
+     this.userService.getAllUsers(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+      this.users=data.data;
+      this.longueur=data.data.length;
+      console.log(data.data)
+    });
+
+    // this.getAllUser(this.Utilisateur)
+
+
+
+    // this.userService.getAllIntervenant(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+    //   this.intervenant=data.data;
+    //   this.longueur=data.data.length;
+    //   console.log(data.data)
+    // })
+
+    //Recuperation des entités
+    this.entiteService.getAllEntites(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+      if(data.message=='ok'){
+        this.Entites=data.data
+        console.log(this.Entites)
+      }
+    })
+  }
 
 }

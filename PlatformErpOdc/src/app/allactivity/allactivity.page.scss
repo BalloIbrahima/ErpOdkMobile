@@ -212,3 +212,79 @@ color: white;
       width: auto !important;
     }
   }
+
+  
+
+
+  
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #f4b927;
+ }
+ .wrapper {
+ padding-top: 30px;
+ }
+ .card-img-top {
+  object-fit: cover;
+  height: 150px;
+ box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+ }
+ .card-body{
+     text-align: center;
+     box-shadow: 0px 15px 15px -8px rgba(0,0,0,0.5)
+ }
+ .card-body h6 {
+ font-size: 14px;
+ text-transform: uppercase;
+ color: black;
+ }
+ .card-title {
+ text-transform: uppercase;
+ font-weight: bold;
+ font-size: 24px;
+ }
+ .card-text{
+  color: black;
+ }
+
+ .laragerColonne{
+  height: 400px !important;
+ }
+ 
+ .socials a {
+ width: 60%;
+ height: 60%;
+ display: inline-block;
+ cursor: pointer;
+ 
+ margin: 0 10px;
+ }
+ @media screen and (max-width: 450px) {
+
+  .socials a {
+    width: 35%;
+    height: 35%;
+    
+    }
+  
+ }
+ .socials a i {
+ color: #fff;
+ padding: 12px 0;
+ }    
+ 
+//  .socials a:nth-child(1) {
+//  background: #3b5998;
+//  }.socials a:nth-child(2) {
+//  background: #ff0000;
+//  }.socials a:nth-child(3) {
+//  background: #007bb5;
+//  }.socials a:nth-child(4) {
+//  background: #ea4c89;
+//  }
+ 
+ @media (max-width: 800px){
+     .mx-30{
+         margin-bottom: 30px;
+     }
+ }

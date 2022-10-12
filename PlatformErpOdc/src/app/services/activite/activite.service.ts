@@ -88,13 +88,13 @@ export class ActiviteService {
       return this.http.post(`${this.env.api}/admin/activites/termines`,data);
     }
 
-    GetActivitebyentite(login:string,password:string,idActivite:Number):Observable<any>{
+    GetActivitebyentite(login:string,password:string,idEntite:Number):Observable<any>{
       const data:FormData=new FormData();
       const user=[{"login":login,"password":password}]
 
       data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
 
-      return this.http.post(`${this.env.api}/admin/activites/entite/${idActivite}`,data);
+      return this.http.post(`${this.env.api}/admin/activites/entite/${idEntite}`,data);
 
     }
 
@@ -162,6 +162,15 @@ export class ActiviteService {
     return this.http.post(`${this.env.api}/utilisateur/update/activity/${idactivite}`,data);
    }
 
+
+   delpost(login:String,password:String, ispost:number):Observable<any>{
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+    return this.http.post(`${this.env.api}/utilisateur/DeleteApprenant/${ispost}`,data);
+   }
+
+   
   getpersonnelsexternes(login:String,password:String):Observable<any>{
     const data:FormData=new FormData();
     const user=[{"login":login,"password":password}]

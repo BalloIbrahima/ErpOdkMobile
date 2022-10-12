@@ -60,7 +60,14 @@
   
             <div class="col- col-sm- col-md-6 col-lg-6 col-xl-6" >
    
-
+              <div class="alert alert-success" role="alert" *ngIf="alertTrue">
+                <i class="fa fa-check-circle-o" aria-hidden="true" style="color: green;"></i>  Tâche créée avec succès.
+      
+              </div>
+      
+              <div class="alert alert-danger" role="alert" *ngIf="alertNomTrue">
+                <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>{{messageerror}}
+              </div>
               <div class="input mb-3">
                                 
                 <label for="inputs" class="form-label">Nom (Désignation) *</label>
@@ -92,7 +99,7 @@
                 <label for="inputs" class="form-label">Statut *</label>
                     <select id="inputs" [(ngModel)]="libelleStatut"  name=" statuts" class="form-select" aria-label="Default select exemple" name="libelleStatut"  required>
                     
-                        <option selected>Choisisez une entité</option>
+                        <option selected>Etat de la tache </option>
                     
                          <option *ngFor="let statut of Allstatut">{{statut.libelle}}</option> -->
 
@@ -116,7 +123,7 @@
            <div class="input mb-3">
                                 
             <label for="inputs" class="form-label">Réalisateur *</label>
-                <select id="inputs"   class="form-select" aria-label="Default select exemple" name="entiteNom"  required>
+                <select id="inputs"   class="form-select" aria-label="Default select exemple" [(ngModel)]="realisateurs" name="entiteNom"  required>
                     <option selected>Choisisez un réalisateur</option>
                      <option *ngFor="let pex of personEx" >{{pex.nom}} {{pex.prenom}}</option>
                      <option *ngFor="let pin of personIn" >{{pin.nom}} {{pin.prenom}}</option>
@@ -207,19 +214,14 @@
 
 
           <form #f="ngForm" class="formulaire">
-          <div class="alert alert-danger" role="alert" *ngIf="alertFalse">
-            <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>  Impossible de créer une désignation.
-          </div>
 
-          <div class="alert alert-success" role="alert" *ngIf="alertTrue">
-            <i class="fa fa-check-circle-o" aria-hidden="true" style="color: green;"></i>  Désignation créée avec succès.
-            
-          </div>
+
+         
 
 
             <div class="input mb-3">
               <label for="inputs" class="form-label">Libelle *</label>
-              <input id="inputs" name="libelle" [(ngModel)]="libelleDesignation" type="text"  class="form-control" id="inputs" min="0" max="4" ngModel required>
+              <input id="inputs" name="libelle" [(ngModel)]="libelleDesignation" type="text"  class="form-control" autocomplete="off" id="inputs" min="0" max="4" ngModel required>
             </div>
 
 <!--             

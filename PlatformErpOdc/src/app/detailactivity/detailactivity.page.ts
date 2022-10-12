@@ -1,5 +1,5 @@
 import { NavController } from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ActiviteService } from '../services/activite/activite.service';
 import * as XLSX from "xlsx"
@@ -38,9 +38,10 @@ export class DetailactivityPage implements OnInit {
   nombreLingne: any
   nombreLingne1 = 8;
   salleid: any;
+  delpost: any;
 
-  //act a venir rediriger vers son detail()id
-  constructor(private activiteservice: ActiviteService, private navv: NavController, private route: ActivatedRoute) { }
+//act a venir rediriger vers son detail()id
+  constructor(private activiteservice:ActiviteService,private navv:NavController, private route:ActivatedRoute, private router:Router) { }
 
   id: any;
 
@@ -80,7 +81,7 @@ export class DetailactivityPage implements OnInit {
       console.log(r)
       this.postulants = r.data;
       this.nombreLingne = this.postulants.length
-      console.log(this.postulants.length)
+      console.log(this.postulants)
 
     })
 
@@ -115,46 +116,108 @@ export class DetailactivityPage implements OnInit {
     }, 1000);
   }
   succesImport() {
-    //   Swal.fire({'Félicitations ...', 'Fichier importer avec succès !', 'success',
-    // });
-    Swal.fire({
-      position: 'center',
-      title: 'voulez-vous supprimer cette activité !',
-      //showDenyButton: true,
-      showCancelButton: true,
-      confirmButtonText: 'Oui',
-      //denyButtonText: `Faire tirage`,
-      //denyButtonColor:'green',
-      cancelButtonText: 'Non',
-      cancelButtonColor: '#FF7900',
-      heightAuto: false,
-    }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed) {
-        this.navv.navigateBack('allactivity')
-        //this.navv.navigateRoot('detailactivite,idactivite')
-      } else if (result.isDenied) {
-        this.navv.back
+      Swal.fire({
+        title: "Attention vous etes sûr de vouloir SUPPRIMER cette activité",
+        showConfirmButton: true,
+        confirmButtonText: "Oui",
+        confirmButtonColor: 'green',
+        showCancelButton: true,
+        cancelButtonText: "Non",
+        cancelButtonColor: 'red',
+        heightAuto: false
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: " Suppression definitive?",
+            showConfirmButton: true,
+            confirmButtonText: "Confirmer",
+            confirmButtonColor: 'green',
+            showCancelButton: true,
+            cancelButtonText: "Annuler",
+            cancelButtonColor: 'red',
+            heightAuto: false
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.supprimeractivite()
+              this.router.navigateByUrl('/dashboard/allactivity', {skipLocationChange: true}).then(() => {
+                this.router.navigate(["/dashboard/allactivity"])
+              })
+          }else if(result.isDenied) {
+            Swal.fire('Suppression annuler !');
+          }
 
+        });
+      }else if (result.isDenied) {
+        // Swal.fire('Changes are not saved', '', 'info');
       }
     });
-  }
+
+
+    }
 
   supprimeractivite() {
     this.activiteservice.deletebyid(this.Utilisateur.login, this.Utilisateur.password, this.idact).subscribe(
       d => {
         console.log(d)
-        this.suppvar = d.message;
-        console.log(this.suppvar)
+      this.suppvar=d.message;
+      console.log(this.suppvar)
+      }
+    );
 
-        if (d.message == "ok") {
-          this.succesImport();
-        } else if (d.message != "ok") {
-          console.log("impossible de supprimer cette activite")
+  }
+  //////////////////////////////supppostulant
+
+  successsuppost() {
+    Swal.fire({
+      title: "Attention vous etes sûr de vouloir SUPPRIMER cet postulant",
+      showConfirmButton: true,
+      confirmButtonText: "Oui",
+      confirmButtonColor: 'green',
+      showCancelButton: true,
+      cancelButtonText: "Non",
+      cancelButtonColor: 'red',
+      heightAuto: false
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: " Suppression definitive?",
+          showConfirmButton: true,
+          confirmButtonText: "Confirmer",
+          confirmButtonColor: 'green',
+          showCancelButton: true,
+          cancelButtonText: "Annuler",
+          cancelButtonColor: 'red',
+          heightAuto: false
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.supppostulant()
+            // this.router.navigateByUrl('/dashboard/allactivity', {skipLocationChange: true}).then(() => {
+            //   this.router.navigate(["/allactivity"])
+            // })
+        }else if(result.isDenied) {
+          Swal.fire('Suppression annuler !');
         }
+
+      });
+    }else if (result.isDenied) {
+      // Swal.fire('Changes are not saved', '', 'info');
+    }
+  });
+
+
+  }
+
+  supppostulant(){
+    this.activiteservice.delpost(this.Utilisateur.login,this.Utilisateur.password,this.idact).subscribe(
+      d=>{
+        console.log(d)
+        this.delpost=d.message;
+        console.log(this.delpost)
+        //this.ngOnInit()
       }
     )
-
 
   }
   update() {

@@ -64,22 +64,21 @@ export class PopupNotificationPage implements OnInit {
 
     this.notificationService.GetAllNotif(this.Utilisateur.login, this.Utilisateur.password).subscribe(data => {
       this.notif = data.data;
-      console.log("data notif" + this.notif);
+      console.log(this.notif);
       this.notifTotal = data.data.length;
-      console.log("data notif total" + this.notif);
     });
 
-    this.notificationService.GetNotificationById(this.Utilisateur.login, this.Utilisateur.password, this.id).subscribe(data => {
-      this.notif = data.data;
-      console.log("Les notifications" + this.notif);
-      this.dateNotif = this.notif.datenotif;
-      this.descriptionNotif = this.notif.description;
-      this.titreNotif = this.notif.titre;
-      this.nomActivite = this.notif.idactivite.nom;
-      this.nomCreateurActivite = this.notif.idactivite.createur.nom;
-      this.prenomCreateurActivite = this.notif.idactivite.createur.prenom;
+    // this.notificationService.GetNotificationById(this.Utilisateur.login, this.Utilisateur.password, this.id).subscribe(data => {
+    //   this.notif = data.data;
+    //   console.log("Les notifications" + this.notif);
+    //   this.dateNotif = this.notif.datenotif;
+    //   this.descriptionNotif = this.notif.description;
+    //   this.titreNotif = this.notif.titre;
+    //   this.nomActivite = this.notif.idactivite.nom;
+    //   this.nomCreateurActivite = this.notif.idactivite.createur.nom;
+    //   this.prenomCreateurActivite = this.notif.idactivite.createur.prenom;
 
-    });
+    // });
   }
 }
 

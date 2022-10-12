@@ -14,7 +14,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let table of postulantTires">
+      <tr *ngFor="let table of postulantTires | paginate: {itemsPerPage:8, currentPage: a} ; let i= index">
         <td> {{table.postulant.nom}} </td>
         <td> {{table.postulant.prenom}} </td>
         <td class="hideColonne hideColonneOder">{{table.postulant.email}}</td>

@@ -14,7 +14,7 @@
 <div class="row">
   <div class="col-lg-6 col-12">
     <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-start">
-      <select class="form-select  form-select-md larger" aria-label=".form-select-sm example" (change)="filtrebyentity()" >
+      <select class="form-select  form-select-md larger" aria-label=".form-select-sm example" (change)="filtrebyentity()" [(ngModel)]="filtreEntity" >
         <option>
           <ion-icon name="funnel-outline" slot="start"></ion-icon>Filtrer par Entité
         </option>
@@ -46,8 +46,8 @@
     </div>
   </div>
 </div>
-<div class="content-wrapper">
-    <div class="pag" *ngFor= "let ta of  touteactivite  | paginate:{itemsPerPage:6, currentPage:p}; let index =index; ">
+<!--<div class="content-wrapper">
+     <div class="pag" *ngFor= "let ta of  touteactivite  | paginate:{itemsPerPage:6, currentPage:p}; let index =index; ">
         <div class="news-card">
           <a [routerLink]="['/dashboard/detailactivite',ta.id]" class="news-card__card-link"></a>
           <img src={{ta.image}} alt="" class="news-card__image">
@@ -66,11 +66,57 @@
               </div>
 
             </div>
+
+          </div>
+
+        </div>
+      </div> 
+
+</div>-->
+
+
+
+<!--code permettant de recuperer appliquer aux -->
+
+
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-lg-4 col-12 position-relative my-3" *ngFor= "let ta of  touteactivite  | paginate:{itemsPerPage:6, currentPage:p}; let index =index; " [routerLink]="['/dashboard/detailactivite',ta.id]">
+        <div class="card mx-30 laragerColonne">
+          <img src={{ta.image}} class="card-img-top" alt="...">
+          <div class="card-body">
+            <h4 class="card-title">{{ta.nom}}</h4>
+            <h6 class="card-title">
+               <br>{{ta.etat.statut}}</h6>
+            <h6>
+            </h6>
+            <p class="card-text">{{ta.description | slice:0:50}}...</p> 
+            
+              <div class="position-absolute bottom-0 start-50 translate-middle-x mb-2">
+                <div class="socials">
+                  <a  title="Voir plus de detail sur l'entité"><img
+                      src="../../assets/icon/voir.png" alt="" srcset=""></a>
+                  <!-- <a  title="cliquer ici pour modifier l'entité"><img
+                      src="../../assets/icon/modifier-le-fichier.png" alt="" srcset=""></a>
+                  <a  title="cliquer ici pour supprimer l'entité"><img src="../../assets/icon/supprimer.png" alt=""
+                      srcset=""></a> -->
+                </div>
+              </div>
+            
+
+
           </div>
         </div>
       </div>
 
+
+    </div>
+  </div>
 </div>
+
+
+
 
 <div class="pagination">
   <pagination-controls (pageChange)="p=$event" nextLabel="Suivants" previousLabel="Précédents"></pagination-controls>

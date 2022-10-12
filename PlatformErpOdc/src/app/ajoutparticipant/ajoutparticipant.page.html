@@ -17,36 +17,53 @@
         <form  #f="ngForm">
             <div class="box">
                 <h1>Nouveau Participant</h1>
+                
+                
+        
+                
+                <div class="alert alert-danger" role="alert" *ngIf="alertNomTrue">
+                  <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>{{messageerror}}
+                </div>
                 <div class="activite-details">
                               <div class="input-box">
                                 <span class="details">Nom*</span>
-                                <input type="text" [(ngModel)]="nomparticipant"  name="nomparticipant" placeholder="Nom du participant" required>
+                                <input type="text" [(ngModel)]="nomparticipant"  name="nomparticipant" placeholder="Nom du participant" autocomplete="off" required>
                             </div>
                             <div class="input-box">
                               <span class="details">Prenom *</span>
-                              <input type="text" [(ngModel)]="prenom"  name="prenom" placeholder="Prenom du participant" required>
+                              <input type="text" [(ngModel)]="prenom"  name="prenom" placeholder="Prenom du participant"  autocomplete="off" required>
                           </div>
                            <div class="input-box">
-                            <span class="details">Mail *</span>
-                            <input type="email" [(ngModel)]="email"  name="email" placeholder="Email du  participant" required>
+                            <span class="details">Email *</span>
+                            <input type="email" [(ngModel)]="email"  name="email" placeholder="Email du  participant" autocomplete="off"  required>
                         </div>
 
                         <div class="input-box">
                           <span class="details">Date de naissance *</span>
-                          <input type="date" [(ngModel)]="daten"  name="daten" placeholder="Date de naissance" required>
+                          <input type="date" [(ngModel)]="daten"   max="2012-01-01"  min="1990-01-01" name="daten" placeholder="Date de naissance"  required>
 
                         </div>
                         <div class="input-box">
                         <span class="details">Telephone *</span>
-                        <input type="tel" [(ngModel)]="numero"  name="numero" placeholder="Numero de telephone" required>
+                        <input type="tel" [(ngModel)]="numero"  name="numero" placeholder="123-45-678" pattern="[0-9]{3}[0-9]{2}[0-9]{3}" autocomplete="off"  required>
                     </div>
+                    <!-- <div class="input-box">
+                      <span class="details"> Activité *</span>
+                      <select name="nom" [(ngModel)]="nom" class="select" required>
+
+                      <option >{{nom}}</option>
+
+                  </select>
+
+                  </div> -->
 
 
                     <div class="input-box">
-                        <span class="details"> Activité *</span>
-                        <select name="nom" [(ngModel)]="nom" class="select" required>
+                        <span class="details"> Genre *</span>
+                        <select name="nom" [(ngModel)]="genre" class="select" required>
+                          <option  selected>Feminin</option>
 
-                        <option >{{nom}}</option>
+                        <option >Masculin</option>
 
                     </select>
 
@@ -59,7 +76,7 @@
         </form>
 
     </div>
-    
+
 
 
 

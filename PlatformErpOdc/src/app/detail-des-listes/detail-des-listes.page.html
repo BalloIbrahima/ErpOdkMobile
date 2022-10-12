@@ -1,16 +1,16 @@
 <ion-header>
     <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>Détail listes</ion-title>
-      <ion-button slot="end" fill="clear">
-        <app-cloche></app-cloche>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Détail listes</ion-title>
+        <ion-button slot="end" fill="clear">
+            <app-cloche></app-cloche>
 
-      </ion-button>
+        </ion-button>
     </ion-toolbar>
-  </ion-header>
- 
+</ion-header>
+
 <ion-content>
     <div class="row">
         <div class="col-lg-3 col-12 col-sm-6">
@@ -20,7 +20,8 @@
         </div>
         <div class="col-lg-9 col-12 col-sm-6">
             <div class="d-grid m-2 gap-2 d-md-flex justify-content-md-end">
-                <button class="btn buttonColor" type="button" routerLink="/dashboard/importeliste">Importer Liste</button>
+                <button class="btn buttonColor" type="button" routerLink="/dashboard/importeliste">Importer
+                    Liste</button>
             </div>
         </div>
     </div>
@@ -34,7 +35,7 @@
                             d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                     </svg>
                     <input type="text" name="motCle" id="motCle" placeholder="Recherche liste">
-                    
+
                 </div>
             </div>
 
@@ -45,12 +46,12 @@
             </div>
 
             <div class="listeList">
-                <div id="list" class="col" *ngFor="let l of totallist | paginate: { itemsPerPage: 10, currentPage: p} " >
+                <div id="list" class="col" *ngFor="let l of totallist | paginate: { itemsPerPage: 10, currentPage: p} ">
                     <div class="row">
-                        <img src="../../assets/listetof1.png" alt="" style="width: 100px ;" >
+                        <img src="../../assets/listetof1.png" alt="" style="width: 100px ;">
                     </div>
                     <div class="row">
-                        <label id="libelleListe" (click)="goDetailTirage(l.id)"  >{{l.libelle}}</label>
+                        <label id="libelleListe" (click)="goDetailTirage(l.id)">{{l.libelle}}</label>
                         <label id="nbrTirageListe" for="">{{l.tirages.length}} tirages</label>
                     </div>
                 </div>
@@ -67,12 +68,14 @@
                     <label id="nbrTirageListe" for="">22 tirages</label>
                 </div>
             </div>
-            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            <div class="pagination">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
         </div>
 
         <div class="right">
 
-            
+
             <div class="nbrTirage">
                 <div class="labelContainer">
                     <label for="">{{totaltirage}}</label>

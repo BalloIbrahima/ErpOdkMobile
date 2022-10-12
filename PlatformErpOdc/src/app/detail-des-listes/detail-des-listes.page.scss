@@ -5,6 +5,8 @@
     height: 650px;
     
 }
+.pagination ::ng-deep .ngx-pagination .current {
+    background-color: #000; }
 
 .left{
     border-radius: 15px;

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ActiviteService } from '../services/activite/activite.service';
 import { ForgetPasswordService } from '../services/ForgetPass/forget-password.service';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-forgotpassword',
@@ -10,7 +12,7 @@ import { ForgetPasswordService } from '../services/ForgetPass/forget-password.se
 })
 export class ForgotpasswordPage implements OnInit {
 
-  constructor(private activiteservice:ActiviteService,private emailService:ForgetPasswordService, private route:ActivatedRoute) { }
+  constructor(private activiteservice:ActiviteService,private emailService:ForgetPasswordService, private route:ActivatedRoute,private router:Router) { }
   email:any
   password:any
   password2:any
@@ -38,7 +40,7 @@ export class ForgotpasswordPage implements OnInit {
 
       this.emailService.ChangePass(this.email, this.password,this.code).subscribe(retour=>{
         if(retour.message=='ok'){
-
+          this.presentAlert();
         }else{
           this.error=true;
           this.erreur=retour.data;
@@ -52,5 +54,20 @@ export class ForgotpasswordPage implements OnInit {
     }
 
   }
+
+
+  async presentAlert() {
+    Swal.fire({
+      title:'Mots de passe changé !',
+      text:'Votre mots de passe a été changé avec succes !',
+      icon:'success',
+      heightAuto: false,
+      confirmButtonColor:"#FF7900"
+    }).then(()=>{
+      this.router.navigate(["/login"]);
+    });
+  }
+
+  
 
 }

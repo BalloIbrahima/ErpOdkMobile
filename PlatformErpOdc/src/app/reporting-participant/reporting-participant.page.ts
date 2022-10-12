@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActiviteService } from '../services/activite/activite.service';
 import { EntiteService } from '../services/entite/entite.service';
+import * as XLSX from 'xlsx';
+import { ListeparticipantService } from '../services/listeparticipants/listeparticipant.service';
 
 @Component({
   selector: 'app-reporting-participant',
@@ -17,8 +19,9 @@ utilisateur : any;
   entiteselect : any;
   datedebut : Date;
   datefin : Date;
+  listeparticipants : any;
 
-  constructor(private serviceactivite : ActiviteService, private serviceentite : EntiteService) { }
+  constructor(private serviceactivite : ActiviteService, private serviceentite : EntiteService,private servicelp : ListeparticipantService) { }
   // accueil=[
   //   {nom:"ali"},
   //   {activite:"ndckc"},
@@ -37,6 +40,14 @@ utilisateur : any;
         console.log(this.entites)
       }
     )
+
+    this.servicelp.ToutLesParticipant(this.utilisateur.login, this.utilisateur.password).subscribe(
+      reponse => {
+        this.listeparticipants = reponse.data;
+        console.log(this.listeparticipants);
+      }
+    )
+
   }
   filtrerActivite() {
     console.log(this.nomactivite)
@@ -45,6 +56,17 @@ utilisateur : any;
     console.log(this.typeactivite)
     console.log(this.entiteselect)
    
+  }
+  //Methode permettant d'exporter un tableau sous format excel
+  name = 'ExcelSheet.xlsx';
+  exportToExcel(): void {
+    let element = document.getElementById('season-tble');
+    const worksheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+
+    const book: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(book, worksheet, 'Sheet1');
+
+    XLSX.writeFile(book, this.name);
   }
     
   }

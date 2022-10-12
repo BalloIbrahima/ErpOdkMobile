@@ -193,4 +193,8 @@ h1, h2, h3, h4, h5, h6 {
   text-align: justify;
   font-family: myfon;
 }
+
  }
+
+ .pagination ::ng-deep .ngx-pagination .current {
+  background-color: #000; }

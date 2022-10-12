@@ -9,6 +9,9 @@ body {
     text-transform: uppercase;
 }
 
+.pagination ::ng-deep .ngx-pagination .current {
+  background-color: #000; }
+
 .card-block {
     font-size: 1em;
     position: relative;

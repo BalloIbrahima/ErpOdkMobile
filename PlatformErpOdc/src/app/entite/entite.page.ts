@@ -50,6 +50,11 @@ export class EntitePage implements OnInit {
 
 
   entites:any;
+
+
+
+
+
   ngOnInit() {
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
     console.log("recuperantion l'utilisateur"+this.Utilisateur)
@@ -57,7 +62,7 @@ export class EntitePage implements OnInit {
 
     this.userService.getActivesUsers(this.Utilisateur.login, this.Utilisateur.password).subscribe(data => {
       this.toutUtilisateur = data.data;
-      
+
       console.log(data.data[1].nom)
 
     })
@@ -102,9 +107,9 @@ export class EntitePage implements OnInit {
 
 RedirigerEntite(id:number){
   return this.router.navigate(['/dashboard/entite/details-entite',id]);
-  
+
 }
-  
+
   // methode permettant de creer une entite
   alet(): void {
     setTimeout(() => {
@@ -120,7 +125,7 @@ RedirigerEntite(id:number){
 
       const array=this.responsableEntite.split(' ')
 
-      if(this.toutUtilisateur[i].prenom==array[0] && this.toutUtilisateur[i].nom==array[1]){   
+      if(this.toutUtilisateur[i].prenom==array[0] && this.toutUtilisateur[i].nom==array[1]){
         this.lead =this.toutUtilisateur[i]
       }
     }
@@ -152,9 +157,9 @@ RedirigerEntite(id:number){
         console.log("nos entites "+data.data)
       }
     })
-    
+
   }
-  //Methode permettant de d'afficher le popup modifier 
+  //Methode permettant de d'afficher le popup modifier
 
    isModalOpen = false;
 
@@ -186,27 +191,26 @@ RedirigerEntite(id:number){
 
       const array=this.responsableEntiteMo.split(' ')
 
-      if(this.toutUtilisateur[i].prenom==array[0] && this.toutUtilisateur[i].nom==array[1]){   
+      if(this.toutUtilisateur[i].prenom==array[0] && this.toutUtilisateur[i].nom==array[1]){
         this.lead =this.toutUtilisateur[i]
       }
     }
     this.entiteService.updateEntiteById(this.Utilisateur.login, this.Utilisateur.password,id,this.imageentite, this.libelleentiteMo, this.descriptionMo, this.Utilisateur, this.lead).subscribe(data =>{
-      
+
       console.log(data)
     })
    }
 
    supprimerEntite(id:any){
-    
     this.entiteService.deleteEntiteById(this.Utilisateur.login, this.Utilisateur.password,id).subscribe(data =>{
       console.log("sssssssssssssssssssssssssssssss")
       console.log(data)
     })
    }
 
-  
 
-   
 
-   
+
+
+
 }

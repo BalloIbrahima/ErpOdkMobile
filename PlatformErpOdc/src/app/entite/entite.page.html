@@ -32,7 +32,7 @@
     <div class="box">
     </div>
   </div>
-  <div *ngIf="longueur ==0" id="flex-container" class="testimonials">
+  <div *ngIf="longueur==0" id="flex-container" class="testimonials">
     <div class="container-fluid mere" style="height: 100%;">
       <ion-label class="lblAucune"> Aucune entite
       </ion-label>
@@ -90,7 +90,7 @@
           <ion-title>Ajouter entité</ion-title>
           <ion-buttons slot="end">
             <button type="button" class="btn-close"  (click)="modal.dismiss()" data-bs-dismiss="modal" aria-label="Close"></button>
-   
+
             <!-- <ion-button (click)="modal.dismiss()">Close</ion-button> -->
           </ion-buttons>
         </ion-toolbar>
@@ -214,7 +214,7 @@
               <h6>
               </h6>
               <p class="card-text" [innerHTML]="inf.description | slice:0:80"></p>
-              
+
                 <div class="position-absolute bottom-0 start-50 translate-middle-x mb-2">
                   <div class="socials">
                     <a (click)="RedirigerEntite(inf.id)" title="Voir plus de detail sur l'entité"><img
@@ -225,7 +225,7 @@
                         srcset=""></a>
                   </div>
                 </div>
-              
+
 
 
             </div>

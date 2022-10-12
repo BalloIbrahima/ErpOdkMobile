@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class EntiteService {
-  
+
 
   env=environment;
 
@@ -27,7 +27,7 @@ export class EntiteService {
     return this.http.post(`${this.env.api}/entite/getAll/entite`, data);
   }
 
-  
+
 
   PostEntite(login :String, password:String, file:File, libelleentite :String, description: String, utilisateur: any, gerant: any):Observable<any>{
 
@@ -75,10 +75,13 @@ export class EntiteService {
 
     return this.http.post(`${this.env.api}/entite/update/entite/${id}`,data)
   }
+
+  //Suppression d'une entité
   deleteEntiteById(login: any, password: any, id: any){
 
     const data:FormData=new FormData();
     const user=[{"login":login,"password":password}]
+
     return this.http.post(`${this.env.api}/entite/delete/entite/${id}`,data)
   }
 }

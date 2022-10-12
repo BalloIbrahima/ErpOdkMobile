@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@angular/material": "^14.2.4",
     "ngx-pagination": "^6.0.2",
     "sweetalert2": "^11.4.37"
   }

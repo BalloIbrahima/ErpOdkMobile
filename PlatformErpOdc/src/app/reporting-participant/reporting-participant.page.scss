@@ -2,6 +2,7 @@
     // background-color: red;
     height: 100px;
     width: 100%;
+    background-color: #f2eded;
    
 }
 
@@ -193,6 +194,13 @@ p{
     width: 25%;
   
   }
+  ion-modal {
+ 
+    padding: none;
+    --border-radius:15px;
+    
+  }
+  
   
   @media screen and (max-width: 900px) {
     .form-select {

@@ -12,18 +12,24 @@
 
 <ion-content  >
 <div class="row">
-  <div class="col-lg-3 col-12">
+  <div class="col-lg-6 col-12">
     <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-start">
-      <select class="form-select form-select-md" aria-label=".form-select-sm example" (change)="filtrebyentity()" >
-        <option >
+      <select class="form-select  form-select-md larger" aria-label=".form-select-sm example" (change)="filtrebyentity()" >
+        <option>
           <ion-icon name="funnel-outline" slot="start"></ion-icon>Filtrer par Entité
+        </option>
+        <option>
+          <ion-icon name="funnel-outline" ></ion-icon>Tout afficher
         </option>
         <option *ngFor="let entite of allentity" >{{entite.libelleentite}}</option>
       </select>
 
-      <select [(ngModel)]="textFiltre" name="textFiltre" class="form-select form-select-md" aria-label=".form-select-sm example" (change)="activitesavenir()">
+      <select class="form-select form-select-md larger" aria-label=".form-select-sm example" (change)="activitesavenir()" [(ngModel)]="textFiltre" name="textFiltre">
         <option >
           <ion-icon name="funnel-outline" slot="start" selected></ion-icon>Filtrer par Status
+        </option>
+        <option>
+          <ion-icon name="funnel-outline" ></ion-icon>Tout afficher
         </option>
         <option  >Activités en cour</option>
         <option >Activités à venir</option>
@@ -34,7 +40,7 @@
     </div>
 
   </div>
-  <div class="col-lg-9 col-12">
+  <div class="col-lg-6 col-12">
     <div class="d-grid m-2 gap-2 d-md-flex justify-content-md-end">
       <button class="btn buttonColor" type="button" routerLink="/dashboard/allactivity/creer-activites" >+ &nbsp; Creer Activité</button>
     </div>

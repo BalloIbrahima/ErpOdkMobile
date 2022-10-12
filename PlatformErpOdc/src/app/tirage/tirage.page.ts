@@ -99,7 +99,7 @@ export class TiragePage implements OnInit {
     }
     
 
-    this.tirageService.doTirage(this.Utilisateur.login, this.Utilisateur.password,this.libelleListe,this.activiteSelect.id,this.nombre,this.libelletirage).subscribe(retour=>{
+    this.tirageService.doTirage(this.Utilisateur.login, this.Utilisateur.password,this.libelleListe,this.nombre,this.libelletirage).subscribe(retour=>{
       if(retour.message=='ok'){
         console.log(retour)
         this.ouvrirPopup(retour.data)

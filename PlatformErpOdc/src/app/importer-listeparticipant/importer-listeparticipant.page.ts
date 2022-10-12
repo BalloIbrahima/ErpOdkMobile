@@ -70,7 +70,6 @@ export class ImporterListeparticipantPage implements OnInit {
       console.log(this.listeactivite)
       this.nom=this.listeactivite.nom
     })
-
   }
 
 

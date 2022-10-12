@@ -145,6 +145,8 @@ export class CreerActivitesPage implements OnInit {
 
   CreerActivite(){
 
+    this.alertNomTrue=false
+      this.alertNomFalse=false
     var idSalle=null;
     var idType=null;
     var identity=null;
@@ -159,16 +161,21 @@ export class CreerActivitesPage implements OnInit {
 
     try {
       for(let i=0;i<this.FormateursInternes.length;i++){
-        const array=this.FormateursInternes[i].split(" ")
-  
-        for(let j=0 ; j<this.PersonnelsActives.length; j++){
-  
-          if(this.PersonnelsActives[j].nom==array[0] && this.PersonnelsActives[j].prenom==array[1]){
-            console.log(this.PersonnelsActives[j])
-  
-            FormateursUsers.push(this.PersonnelsActives[j])
+        try {
+          const array=this.FormateursInternes[i].split(" ")
+
+          for(let j=0 ; j<this.PersonnelsActives.length; j++){
+    
+            if(this.PersonnelsActives[j].nom==array[0] && this.PersonnelsActives[j].prenom==array[1]){
+              console.log(this.PersonnelsActives[j])
+    
+              FormateursUsers.push(this.PersonnelsActives[j])
+            }
           }
+        } catch (error) {
+          
         }
+        
         
       }
     } catch (error) {
@@ -177,14 +184,19 @@ export class CreerActivitesPage implements OnInit {
     
     try {
       for(let i=0;i<this.FormateursExternes.length;i++){
-        const array=this.FormateursExternes[i].split(" ")
+        try {
+          const array=this.FormateursExternes[i].split(" ")
   
-        for(let j=0 ; j<this.externes.length; j++){
-          if(this.externes[j].nom==array[0] && this.externes[j].prenom==array[1]){
-            console.log(this.externes[j])
-            FormateursExters.push(this.externes[j])
+          for(let j=0 ; j<this.externes.length; j++){
+            if(this.externes[j].nom==array[0] && this.externes[j].prenom==array[1]){
+              console.log(this.externes[j])
+              FormateursExters.push(this.externes[j])
+            }
           }
+        } catch (error) {
+          
         }
+        
         
       }
     } catch (error) {
@@ -228,11 +240,16 @@ export class CreerActivitesPage implements OnInit {
     //recuperation de l'id du lead
      for(let i=0 ; i<this.PersonnelsActives.length; i++){
       console.log(this.leadNomPrenom)
-      const array=this.leadNomPrenom.split(" ")
+        try {
+          const array=this.leadNomPrenom.split(" ")
 
-      if(this.PersonnelsActives[i].nom==array[0] && this.PersonnelsActives[i].prenom==array[1]){
-        this.lead=this.PersonnelsActives[i]
+        if(this.PersonnelsActives[i].nom==array[0] && this.PersonnelsActives[i].prenom==array[1]){
+          this.lead=this.PersonnelsActives[i]
+        }
+      } catch (error) {
+        
       }
+      
     }
 
 
@@ -252,47 +269,60 @@ export class CreerActivitesPage implements OnInit {
       "typeActivite":idType,
       "intervenantExternes":FormateursExters
     }]
+    if(this.typeentite == null || this.typeentite=="Choisisez une entité"){
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="  Veuillez definir une entité !"
+    }
+    else if(this.nomActivite == null) {
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="  Veuillez donner un titre a l'activité !"
+    }else if(this.typeactivite == null || this.typeActivite=="Choisir le type de  l'activité !"){
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="  Veuillez donner un type à l'activité !"
+    }
     
-       if(this.nomActivite == null) {
+    else if(this.leadNomPrenom == null || this.leadNomPrenom=="Choisir un lead *"){
       this.alertNomTrue=true
       this.alertNomFalse=false
-      this.messageerror="Veuillez donner un titre a l'activité "
-    }else if(this.typeactivite == null){
+      this.messageerror="  Veuillez  definir un lead pour l'activité !"
+    }else if(this.datedebut==null || this.dateFin==null){
       this.alertNomTrue=true
       this.alertNomFalse=false
-      this.messageerror="Donner un type à l'activité!"
-    }else if(this.image == null){
-      this.alertNomTrue=true
-      this.alertNomFalse=false
-      this.messageerror="Ajoutez une image"
+      this.messageerror="  Vous devez fournir les dates de debut et de fin !"
     }
-    else if(this.description == null){
+    else if(this.image == null){
       this.alertNomTrue=true
       this.alertNomFalse=false
-      this.messageerror="Donner une description à l'activité"
-    }
-    else if(this.leadNomPrenom == null){
+      this.messageerror="  Veuillez ajoutez une image !"
+    }else if(this.description == null){
       this.alertNomTrue=true
       this.alertNomFalse=false
-      this.messageerror="Lead non définis une image"
-    }
-    else if(this.typeentite == null){
-      this.alertNomTrue=true
-      this.alertNomFalse=false
-      this.messageerror="Entité non définie"
+      this.messageerror="  Veuillez donner une description à l'activité !"
     }else{
       this.activiteService.Creer(this.Utilisateur.login,this.Utilisateur.password,this.fichier,activite).subscribe(data=>{
         console.log(data)
         if(data.message == 'ok'){
           this.alertTrue = true
           this.alertFalse = false
-          this.router.navigateByUrl('/dashboard/allactivity', {skipLocationChange: true}).then(() => {
+          //this.router.navigateByUrl('/dashboard/allactivity', {skipLocationChange: true}).then(() => {
             this.router.navigate(["/dashboard/allactivity"]);
-            });
+            //})
+            // ;
+            // setTimeout(()=>{
+            //   window.location.reload()
+            // },1000)
+
+            //this.navParams.get("parentPage").someFnToUpdateParent();
+
+            
         }
         else{
-          this.alertTrue = false
-          this.alertFalse = true
+          this.alertNomTrue=true
+          this.alertNomFalse=false
+          this.messageerror=data.data
         }
 
       })
@@ -306,36 +336,30 @@ export class CreerActivitesPage implements OnInit {
 
   }
 
+  //fichier selection
+  selectFile(e:any){
+    //verification si une photo a été choisie ou pas
+    if(!e.target.files[0] || e.target.files[0].length==0){
+      this.message="Vous devez choisir un fichier execel !";
+      this.erreur=true;
+      return;
+    }
 
-
-
-            //fichier selection
-            selectFile(e:any){
-              //verification si une photo a été choisie ou pas
-              if(!e.target.files[0] || e.target.files[0].length==0){
-                this.message="Vous devez choisir un fichier execel !";
-                this.erreur=true;
-                return;
-              }
-
-              //verification du type de fichier choisi pour recaler si ce n'est pas une photo
-              var typeFichier=e.target.files[0].type;
+    //verification du type de fichier choisi pour recaler si ce n'est pas une photo
+    var typeFichier=e.target.files[0].type;
 
 
 
 
-              if(e.target.files){
-                var reader= new FileReader();
-                reader.readAsDataURL(e.target.files[0]);
-                reader.onload=(event:any)=>{
-                  this.message="";
-                  //this.fichier=event.target.result;
-                  this.fichier=e.target['files'][0];
-                }
-              }
-            }
-
-
-
+    if(e.target.files){
+      var reader= new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload=(event:any)=>{
+        this.message="";
+        //this.fichier=event.target.result;
+        this.fichier=e.target['files'][0];
+      }
+    }
+  }
 }
 

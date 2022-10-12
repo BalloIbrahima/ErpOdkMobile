@@ -4,10 +4,10 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Créer activité</ion-title>
-    <ion-button slot="end" fill="clear">
+    <!-- <ion-button slot="end" fill="clear">
       <app-cloche></app-cloche>
 
-    </ion-button>
+    </ion-button> -->
   </ion-toolbar>
 </ion-header>
 
@@ -21,9 +21,9 @@
       <div class="box">
         <h1>Nouvelle Activité</h1>
 
-        <div class="alert alert-danger" role="alert" *ngIf="alertFalse">
+        <!-- <div class="alert alert-danger" role="alert" *ngIf="alertFalse">
           <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>  Erreur survenue l'or de la création de l'activité
-        </div>
+        </div> -->
 
         <div class="alert alert-success" role="alert" *ngIf="alertTrue">
           <i class="fa fa-check-circle-o" aria-hidden="true" style="color: green;"></i>  Activité créée avec succès.
@@ -113,7 +113,7 @@
           <div class="input-box">
             <span class="details">Salle </span>
             <select name="libellesalle" [(ngModel)]="libellesalle" class="select">
-                <option>Choisir une salle *</option>
+                <option>Choisir une salle</option>
               <option *ngFor="let s of SallesDisponibles">{{s.libelle}}</option>
             </select>
           </div>
@@ -124,7 +124,7 @@
               (change)="selectFile($event)" accept="image/png, image/jpeg, image/jpg" required />
           </div>
           <div class="input-box">
-            <span class="details"> Description </span>
+            <span class="details"> Description *</span>
             <textarea name="description" [(ngModel)]="description" id="details" rows="5" cols="28"
               placeholder="Donner une description de l'activité"></textarea>
           </div>

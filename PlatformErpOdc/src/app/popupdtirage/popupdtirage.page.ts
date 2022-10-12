@@ -18,6 +18,7 @@ export class PopupdtiragePage implements OnInit {
   TirageSelect: any;activite
   idtira: any;
   tiraget: any;
+idtirage: any;
   constructor(private modalController: ModalController,private tirageService:TirageService,private navCltr:NavController,private route:ActivatedRoute,private router:Router) { }
   @Input() valider: boolean;
 

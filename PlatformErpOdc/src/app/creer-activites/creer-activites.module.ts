@@ -16,6 +16,6 @@ import { ClocheComponent } from '../cloche/cloche.component';
     IonicModule,
     CreerActivitesPageRoutingModule,ReactiveFormsModule,FormsModule
   ],
-  declarations: [CreerActivitesPage ,ClocheComponent]
+  declarations: [CreerActivitesPage]
 })
 export class CreerActivitesPageModule {}

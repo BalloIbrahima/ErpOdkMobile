@@ -202,13 +202,3 @@ color: white;
   border: 1px solid #FF7900 ;
   color: #FF7900;
   }
-  .larger{
-    width: 250px !important;
-  }
-
-  @media screen and (max-width: 600px) {
-
-    .larger{
-      width: auto !important;
-    }
-  }

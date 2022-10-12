@@ -21,28 +21,18 @@ export class AllactivityPage implements OnInit {
   actevenir:any
   actterminer:any
 
-  textFiltre:any;
+  textFiltre:any="Filtrer par Status";
   textFiltre0:any
   constructor(private route:ActivatedRoute,private router: Router,private entiteService:EntiteService,private service:ActiviteService) { }
 
 
-  ngOnInit(){ 
+  ngOnInit(){
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
     console.log(this.Utilisateur)
     //location.reload()
     //console.log(this.Utilisateur.password)
-    this.service.GetTtActivite(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
-      console.log(data.message)
-      if(data.message =="ok"){
-        this.touteactivite=data.data;
-        this.longueur=data.data.length
-        console.log(this.touteactivite)
-      }else{
-        this.touteactivite="Aucune activité enregistrée"
-      }
-
-    })
-
+    
+    this.AllActivite();
 //recuperrer tout les entites
     this.entiteService.getAllEntites(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour=>{
       this.allentity=retour.data
@@ -61,12 +51,12 @@ export class AllactivityPage implements OnInit {
       identity=this.allentity[i].id
       console.log(identity)
     }
-          if(this.textFiltre0 ==this.allentity[i].libelleentite){
-            this.service.GetActivitebyentite(this.Utilisateur.login, this.Utilisateur.password,identity).subscribe(retour=>{
-              this.allentity=retour.data
-              console.log(this.allentity)
-            })
-          }
+      if(this.textFiltre0 ==this.allentity[i].libelleentite){
+        this.service.GetActivitebyentite(this.Utilisateur.login, this.Utilisateur.password,identity).subscribe(retour=>{
+          this.allentity=retour.data
+          console.log(this.allentity)
+        })
+      }
   }
 
 
@@ -93,8 +83,29 @@ export class AllactivityPage implements OnInit {
         this.longueur=data.data.length
         console.log(data)
       })
+    }else{
+      this.AllActivite()
     }
 
+  }
+
+
+  AllActivite(){
+    this.service.GetTtActivite(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+      console.log(data.message)
+      if(data.message =="ok"){
+        this.touteactivite=data.data;
+        this.longueur=data.data.length
+        console.log(this.touteactivite)
+      }else{
+        this.touteactivite="Aucune activité enregistrée"
+      }
+
+    })
+  }
+
+  ionViewWillEnter(){
+    this.AllActivite()
   }
 
 }

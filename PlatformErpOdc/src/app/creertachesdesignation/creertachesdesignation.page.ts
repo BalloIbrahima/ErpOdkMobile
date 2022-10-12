@@ -158,6 +158,7 @@ export class CreertachesdesignationPage implements OnInit {
         this.alertFalse = true
       }
     })
+    this.ngOnInit();
     this.modalController.dismiss()
   }
 

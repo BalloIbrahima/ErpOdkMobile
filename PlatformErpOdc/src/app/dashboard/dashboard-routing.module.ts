@@ -74,6 +74,10 @@ const routes: Routes = [
         loadChildren: () => import('../detailactivity/detailactivity.module').then( m => m.DetailactivityPageModule)
       },
       {
+        path: 'liaisonsalle/:id',
+        loadChildren: () => import('../liaisonsalle/liaisonsalle.module').then( m => m.LiaisonsallePageModule)
+      },
+      {
         path: 'lier-salle-activity',
         loadChildren: () => import('../lier-salle-activity/lier-salle-activity.module').then( m => m.LierSalleActivityPageModule)
       },

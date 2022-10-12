@@ -49,13 +49,16 @@ utilisateur : any;
     )
 
   }
-  filtrerActivite() {
-    console.log(this.nomactivite)
+  filtrerParticipant() {
+    console.log(this.typeactivite)
     console.log(this.datedebut)
     console.log(this.datefin)
-    console.log(this.typeactivite)
-    console.log(this.entiteselect)
-   
+    this.servicelp.filtrerParticipant(this.utilisateur.login, this.utilisateur.password, this.typeactivite, this.datedebut, this.datefin).subscribe(
+      reponse => {
+        this.listeparticipants = reponse.data;
+        console.log(this.listeparticipants)
+      }
+    )
   }
   //Methode permettant d'exporter un tableau sous format excel
   name = 'ExcelSheet.xlsx';

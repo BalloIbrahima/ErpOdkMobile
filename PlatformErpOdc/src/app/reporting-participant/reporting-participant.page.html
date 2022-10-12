@@ -24,7 +24,7 @@
           <th scope="col">Date début</th>
           <th scope="col" class="hideColonne hideColonneOder">Date fin</th>
           <th scope="col">Nom</th>
-          <th scope="col">Prenom</th>
+          <th scope="col" class="hideColonne hideColonneOder">Prenom</th>
           <th scope="col">Email</th>
           <th scope="col" class="hideColonne hideColonneOder">Date de naissance</th>
         </tr>
@@ -112,33 +112,15 @@
                 <div class="text">
                   <p>Filtre activité</p>
                 </div>
-                <!-- Champ nom activité -->
-                <div class="input mb-3 form1">
-                  <label for="exampleInputNom" class="form-label">Nom de l'activité *</label>
-                  <input placeholder="Hacking" type="text" class="form-control" id="InputCmdp" required
-                    [(ngModel)]="nomactivite" [ngModelOptions]="{standalone: true}">
-
-                </div>
 
                 <!-- Champ type activité -->
                 <div>
                   <label for="inputs" class="form-label">Type d'activité *</label>
-                  <select class="form-select" aria-label="Default select example" required [(ngModel)]="typeactivite"
+                  <select class="form-select" aria-label="Default select example" required 
+                    [(ngModel)]="typeactivite"
                     [ngModelOptions]="{standalone: true}">
                     <option value="1">Selectionner activité</option>
-                    <option></option>
-                  </select>
-
-                </div>
-
-
-                <!-- Champ entité -->
-                <div>
-                  <label for="inputs" class="form-label">Entité</label>
-                  <select class="form-select" aria-label="Default select example" required [(ngModel)]="entiteselect"
-                    [ngModelOptions]="{standalone: true}">
-                    <option selected>Selectionner entité</option>
-                    <option value="1" *ngFor="let entite of entites">{{entite.libelleentite}}</option>
+                    <option *ngFor="let activite of activites">{{activite.typeActivite.libelle}}</option>
                   </select>
 
                 </div>
@@ -162,7 +144,7 @@
 
                   <div class="col-lg-12 col-12 ">
 
-                    <button type="button" class="btn bouton" (click)="filtrerActivite()">Enregistrer</button>
+                    <button type="button" class="btn bouton" (click)="filtrerParticipant()">Enregistrer</button>
 
                   </div>
                 </div>
@@ -173,14 +155,6 @@
         </div>
 
       </form>
-
-
-
-
-
-
-
-
     </ng-template>
   </ion-modal>
 </div>

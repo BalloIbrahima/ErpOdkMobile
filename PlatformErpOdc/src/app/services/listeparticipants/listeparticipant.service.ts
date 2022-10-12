@@ -33,6 +33,17 @@ export class ListeparticipantService {
     dataa.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
       return this.http.post(`${this.env.api}/responsable/participants/All`,dataa);
     }
+  
+  // Filtrer les participants 
+  filtrerParticipant(login : String, password : String, typeactivite : String, datedebut : Date, datefin : Date) : Observable<any> {
+    const data : FormData = new FormData();
+
+    const user = [{"login":login,"password":password}];
+
+    data.append('user',JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+
+    return this.http.post(`${this.env.api}/responsable/participants/filtre/${typeactivite}/${datedebut}/${datefin}`,data);
+  } 
 
   
 }

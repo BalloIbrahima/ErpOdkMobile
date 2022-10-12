@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AjoutparticipantPageRoutingModule } from './ajoutparticipant-routing.module';
+import { ModifiertachePageRoutingModule } from './modifiertache-routing.module';
 
-import { AjoutparticipantPage } from './ajoutparticipant.page';
+import { ModifiertachePage } from './modifiertache.page';
 import { ClocheComponent } from '../cloche/cloche.component';
 
 @NgModule({
@@ -14,8 +14,8 @@ import { ClocheComponent } from '../cloche/cloche.component';
     CommonModule,
     FormsModule,
     IonicModule,
-    AjoutparticipantPageRoutingModule
+    ModifiertachePageRoutingModule
   ],
-  declarations: [AjoutparticipantPage,ClocheComponent]
+  declarations: [ModifiertachePage,ClocheComponent]
 })
-export class AjoutparticipantPageModule {}
+export class ModifiertachePageModule {}

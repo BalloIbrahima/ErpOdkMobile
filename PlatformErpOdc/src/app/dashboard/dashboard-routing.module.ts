@@ -199,6 +199,11 @@ const routes: Routes = [
       loadChildren: () => import('../profil/profil.module').then( m => m.ProfilPageModule)
     },
 
+    {
+      path: 'modifiertache/:id',
+      loadChildren: () => import('../modifiertache/modifiertache.module').then( m => m.ModifiertachePageModule)
+  },
+
 
 
       { path: '**', redirectTo:'accueil',pathMatch:'full'}

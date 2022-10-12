@@ -5,6 +5,17 @@
     background-color: #f2eded;
    
 }
+.pagination ::ng-deep .ngx-pagination .current {
+  background-color: #000; }
+
+.pagination {
+  display: flex;
+  // justify-content: center;
+  margin-top: 4%;
+  margin-left: 34%;
+  }
+  
+
 
 .headerContent{
     display: flex;
@@ -22,6 +33,7 @@ p{
     border-radius: 15px;
     height: 40px;
     width: 100px;
+    font-weight: bold;
     
 }
 .filtre:hover{
@@ -259,11 +271,12 @@ p{
   
   }
   .filtre2{
-    margin-left: 45px;
+    margin-left: 35px;
     background-color: #FF7900;
     color: white;
     border-radius: 15px;
     font-weight: bold;
+    padding: 11px 25px;
     
     i{
         font-size: 20px;

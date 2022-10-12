@@ -38,9 +38,10 @@
         <td scope="col" class="hideColonne hideColonneOder">{{activite.datenaissance | date : 'dd-MM-YYYY'}}</td>
       </tr>
       
-    </tbody>
-
+    </tbody> 
+    <div class="pagination">
     <pagination-controls (pageChange)=" pages = $event"> </pagination-controls>
+    </div>
   </table>
 </div>
 </ion-content>

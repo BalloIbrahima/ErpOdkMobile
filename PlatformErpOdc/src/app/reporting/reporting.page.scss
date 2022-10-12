@@ -29,15 +29,22 @@ p{
   background-color: #FF7900 !important;
   color: #FFFFFF !important;
   height: 40px;
+  margin-top: 2%;
+  margin-left: 2%;
+  padding: 11px 22px;
   border-radius: 15px;
   font-weight: bold;
-
-
 }
+
 .part:hover{
   border: 1px solid #FF7900 !important;
   color: #FF7900 !important;
   background-color: #ffff !important;
+  margin-top: 2%;
+  margin-left: 2%;
+  padding: 11px 22px;
+  border-radius: 15px;
+  font-weight: bold;
   
 }
 .filtre:hover{
@@ -275,11 +282,12 @@ p{
   
   // }
   .filtre2{
-    margin-left: 45px;
+    margin-left: 23px;
     background-color: #FF7900;
     color: white;
     border-radius: 15px;
     font-weight: bold;
+    padding: 12px 29px;
     
     i{
         font-size: 20px;
@@ -338,7 +346,8 @@ input#InputEmail,input#InputMdp,input#InputCmdp {
   margin-right: auto;
 }
 
- 
+.pagination ::ng-deep .ngx-pagination .current {
+  background-color: #000; }
 
 p {
   margin-top: 0;
@@ -421,6 +430,25 @@ select{
   outline:none;
   border: 1px solid black !important;
 }
+
+.pagination {
+  display: flex;
+  // justify-content: center;
+  margin-top: 4%;
+  margin-left: 35%;
+}
+
+// pagination-controls{
+//   // margin-left: 30%;
+//   font-size: 16px;
+// }
+
+
+
+
+
+
+
 // @media screen and (max-width:600px) {
 //   .bouton {
 //       background-color: #FF7900;

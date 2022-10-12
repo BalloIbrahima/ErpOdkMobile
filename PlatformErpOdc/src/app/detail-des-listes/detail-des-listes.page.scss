@@ -5,6 +5,8 @@
     height: 650px;
     
 }
+.pagination ::ng-deep .ngx-pagination .current {
+    background-color: #000; }
 
 .left{
     border-radius: 15px;
@@ -303,3 +305,17 @@
     border: 1px solid #FF7900 !important;
     color: #FF7900 !important;
   }
+
+
+.pagination ::ng-deep .ngx-pagination .current {
+    background-color: #000; 
+}
+
+ .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 4%;
+    // margin-left: 31%;
+ }
+      
+    

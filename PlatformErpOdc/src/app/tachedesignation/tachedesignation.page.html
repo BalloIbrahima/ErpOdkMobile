@@ -31,24 +31,35 @@
         <table class="table table-striped"  >
             <thead class="thead entete" >
               <tr>
+                <th>N°</th>
                 <th>Désignation</th>
                 <th>Réalisateur</th>
                 <th>Lieu</th>
                 <th>Statut</th>
                 <th>Date début</th>
                 <th>Date fin</th>
+                <th>Action</th>
               </tr>
             </thead>
-            <tbody *ngFor="let tache of taches">
-              <tr >
-                <!-- {{tache.designation.libelle}}
-                {{tache.porteur}} -->
+            <tbody >
+              <tr *ngFor="let tache of taches">
+
+                <td>{{tache.id}}</td>
                 <td>{{tache.designation.libelle}}</td>
                 <td> {{tache.porteurInterne.nom}} {{tache.porteurInterne.prenom}}</td>
                 <td>{{tache.salle.libelle}}</td>
                 <td>{{tache.statut.libelle}}</td>
                 <td>{{tache.datedebut | date: "dd MMMM yyyy"}}</td>
                 <td>{{tache.datefin | date: "dd MMMM yyyy"}}</td>
+                <td> 
+                  <!-- <a [routerLink]="['/dashboard/modifiertache/',tache.id ]"><i class="bi bi-pencil-square"
+                      style="color: green; font-size:20px;" ></i>
+                    </a>  -->
+                    <a (click)="popDeleteTache(tache.id)">
+                      <i class="bi bi-trash3"
+                           style="color: red; font-size:20px;"></i>
+                    </a>
+                </td>
               </tr>    
               </tbody>
           </table>

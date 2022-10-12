@@ -147,3 +147,17 @@ body {
       top: 50%;
 
   }
+
+  .pagination {
+    display: flex;
+    // justify-content: center;
+    margin-top: 4%;
+    margin-left: 31%;
+  }
+
+  .pagination ::ng-deep .ngx-pagination .current {
+    background-color: #000; }
+  
+
+  
+

@@ -40,7 +40,7 @@
           <th scope="col" class="hideColonne hideColonneOder">Statut</th>
           <th scope="col">Date début</th>
           <th scope="col" class="hideColonne hideColonneOder">Date fin</th>
-          <th scope="col" class="hideColonne">Entité</th>
+          <!-- <th scope="col" class="hideColonne">Entité</th> -->
         </tr>
       </thead>
       <tbody>
@@ -50,7 +50,7 @@
           <td class="hideColonne hideColonneOder">Encours</td>
           <td>{{activite.dateDebut | date: 'dd MMMM yyyy à hh:mm'}}</td>
           <td class="hideColonne hideColonneOder">{{activite.dateFin | date: 'dd MMMM yyyy à hh:mm'}}</td>
-          <td class="hideColonne hideColonneOder">{{activite.leader.monEntite}}</td>
+          <!-- <td class="hideColonne hideColonneOder">{{activite.leader.monEntite}}</td> -->
         </tr>
       </tbody>
 
@@ -63,12 +63,15 @@
       <button class="filtre2" (click)="exportToExcel()"><i class="fa fa-download" aria-hidden="true"></i> Télécharger
       </button>
 
-      <div class="pagination">
-        <pagination-controls (pageChange)="a = $event" nextLabel="Suivants" previousLabel="Précédents">
-        </pagination-controls>
-      </div>
+      
     </div>
   </div>
+
+  <div class="pagination">
+    <pagination-controls (pageChange)="a = $event" nextLabel="Suivants" previousLabel="Précédents">
+    </pagination-controls>
+  </div>
+  
 </ion-content>
 
 <div class="container">

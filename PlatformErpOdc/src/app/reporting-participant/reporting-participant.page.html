@@ -42,6 +42,19 @@
       </tbody>
     </table>
   </div>
+  <div class="header">
+
+    <div class="headerContent">
+      <button class="filtre2" (click)="exportToExcel()"><i class="fa fa-download" aria-hidden="true"></i>
+        Télécharger
+      </button>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <pagination-controls (pageChange)="a = $event" nextLabel="Suivants" previousLabel="Précédents">
+    </pagination-controls>
+  </div>
 </ion-content>
 
 
@@ -84,18 +97,7 @@
 
   </table> -->
 
-<div class="header">
 
-  <div class="headerContent">
-    <button class="filtre2" (click)="exportToExcel()"><i class="fa fa-download" aria-hidden="true"></i>
-      Télécharger
-    </button>
-    <div class="pagination">
-    <pagination-controls (pageChange)="a = $event" nextLabel="Suivants" previousLabel="Précédents">
-    </pagination-controls>
-</div>
-  </div>
-</div>
 
 <div class="container">
 

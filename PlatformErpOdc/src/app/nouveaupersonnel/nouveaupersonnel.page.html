@@ -15,7 +15,8 @@
 
 <ion-content>
   <div class="container">
-    <form action="#">
+    <form action="#" #f="ngForm" autocomplete="off">
+      <a (click)="back()" id="back"> <p><i class="fa fa-hand-o-left" style="font-size:20px"></i> Retour</p></a> 
       <div class="box">
         <h1>Nouveau personnel</h1>
         <div class="ajout">
@@ -24,7 +25,7 @@
             <input type="text" [(ngModel)]="nom" class="form-control" placeholder="Nom du personnel" name="nom" required>
           </div>
           <div class="input-box">
-            <span class="details">Mail *</span>
+            <span class="details">Email *</span>
             <div class="mail">
               <input type="text" class="form-control" [(ngModel)]="email" name="email" placeholder="personnel..." id="inp" required>
               <!-- <span class="input-group-text" aria-label="fin de mail">@orangemali.com</span> -->
@@ -54,13 +55,14 @@
           <div class="input-box">
             <span class="details">Genre *</span>
             <select name="genre" class="form-control" [(ngModel)]="genre" class="select" required>
-              <option >--Votre genre--</option>
+              <option selected>--Votre genre--</option>
               <option >Masculin</option>
               <option >Feminin</option>
               <!-- <option *ngFor="let entite of Entites" >{{entite.libelleentite}}</option> -->
               
             </select>
         </div>
+
           <div class="input-box">
             <span class="details">Entité *</span>
             <select class="select" class="form-control" [(ngModel)]="entite" name="entite" required>
@@ -89,7 +91,8 @@
         </div>
       </div>
       <div class="button">
-        <input class="but" type="submit"  (click)="CreateUser()" value="Ajouter">
+        <button [disabled]="f.form.invalid" [style.backgroundColor]="'#FF7900'"type="button" class="but" (click)="CreateUser()" class="btn btn-outline-dark bouton">Ajouter</button>
+        
       </div>
 
     </form>

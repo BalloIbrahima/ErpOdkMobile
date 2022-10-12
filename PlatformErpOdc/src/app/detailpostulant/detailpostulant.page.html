@@ -92,7 +92,7 @@
     <div class="col-lg-9 col-12">
       <div class="d-grid m-2 gap-2 d-md-flex justify-content-md-center">
         <button class="btn buttonColor" id="open-modal" type="button">+ &nbsp; Modifier</button>
-        <button class="btn buttonColor" (click)="DeleteUser()" type="button">+ &nbsp; Supprimer</button>
+        <button class="btn buttonColor" (click)="MessageDeleteUserEffectuer()" type="button">+ &nbsp; Supprimer</button>
         <button class="btn buttonColor" (click)="DesactiverUser()" type="button">+ &nbsp; Desactiver</button>
       </div>
     </div>
@@ -127,11 +127,11 @@
               </div>
               <div class="input-box">
                 <span class="details">Email *</span>
-                <div class="mail">
-                  <input type="email" name="email" [(ngModel)]="email" placeholder="loremipsun" id="inp" [value]="email.split('@orangemali.com')" required>
+                <div class="mail"   *ngFor="let d of formatMailperonnel">
+                  <input type="email" name="email" [(ngModel)]="email" placeholder="loremipsun" id="inp" [value]="email" required>
                   <div style="width: 270px;">
                   <select name="domaine" [(ngModel)]="domaine" class="mailmodel" required>
-                    <option >--Choisisez un domaine--</option>
+                    <!-- <option >--Choisisez un domaine--</option> -->
                     <option *ngFor="let d of formatMailperonnel" >{{d.libelle}}</option>
                     <!-- formatMail
                     <option value="">@orangefablab.com</option>
@@ -165,15 +165,15 @@
              </div> -->
               <div class="input-box">
                   <span class="details">Entité *</span>
-                  <select name="idEntite" [(ngModel)]="entite" class="select"  required>
-                    <option selected>--Choisisez une entité--</option>
+                  <select name="entite" [(ngModel)]="entite" class="select"  required>
+                    <!-- <option>--Choisisez une entité--</option> -->
                     <option *ngFor="let entite of Entites" >{{entite.libelleentite}}</option>
                   </select>
               </div>
               <div class="input-box">
                 <span class="details">Votre genre </span>
                 <select name="idGenre" [(ngModel)]="genre" class="select" required>
-                  <option selected>--Votre genre--</option>
+                  <!-- <option>--Votre genre--</option> -->
                   <option >Masculin</option>
                     <option >Feminin</option>
                 </select>
@@ -184,9 +184,9 @@
             </div>
             <div class="input-box">
               <span class="details">Rôle *</span>
-              <select name="idRole" [(ngModel)]="role" class="select" required >
-                <option selected>--Choisisez un role--</option>
-                <option *ngFor="let r of Roles" >{{r.libellerole}}</option>
+              <select name="role" [(ngModel)]="role" class="select" required >
+                <!-- <option selected>{{statusUser}}</option> -->
+                <option *ngFor="let role of Roles" >{{role.libellerole}}</option>
               </select>
           </div>
           <div class="input-box">
@@ -198,13 +198,14 @@
           </div>
     </div>
     <div class="button">
+      <ion-buttons slot="end">
+        <ion-button (click)="UpdateUser()" class="but">Modifier</ion-button>
+      </ion-buttons>
       <ion-buttons slot="start">
         <ion-button (click)="cancel()" class="but">Annuler</ion-button>
       </ion-buttons>
       <!-- <input class="but" type="submit" (click)="modal.dismiss()" value="Annuler"> -->
-      <ion-buttons slot="end">
-        <ion-button (click)="UpdateUser()" class="but">Modifier</ion-button>
-      </ion-buttons>
+    
     </div>
 
     

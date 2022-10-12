@@ -63,6 +63,9 @@ export class NouveaupersonnelPage implements OnInit {
     
   }
 
+  back(): void {
+    window.history.back()
+  }
 
   envoyerImage(event: any){
     this.image = event.target["files"][0];

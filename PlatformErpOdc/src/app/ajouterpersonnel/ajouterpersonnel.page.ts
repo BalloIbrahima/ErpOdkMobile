@@ -59,6 +59,11 @@ export class AjouterpersonnelPage implements OnInit {
 
   }
 
+
+  back(): void {
+    window.history.back()
+  }
+  
       //Pop up de enregistrement reçu
       MessageSuccess(){
         Swal.fire({

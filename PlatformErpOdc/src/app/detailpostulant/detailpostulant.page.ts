@@ -48,6 +48,8 @@ export class DetailpostulantPage implements OnInit {
   network: any;
   platform: any;
   numero: any;
+  RoleSelectionner2: any;
+  EmailSelectionner: any;
 
   constructor(private alertController : AlertController,private modalController:ModalController,private entiteService:EntiteService,private roleservice:RoleService,private userService:UtilisateurService,
     private router: Router, private route:ActivatedRoute) { }
@@ -60,6 +62,7 @@ export class DetailpostulantPage implements OnInit {
     //Fonction pour recupérer le user connecter
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) 
     console.log(this.Utilisateur)
+
 
     //Fonction pour actualisation
     this.getPersonneParId(this.idUser, this.Utilisateur)
@@ -89,6 +92,10 @@ export class DetailpostulantPage implements OnInit {
         console.log(this.formatMailperonnel)
       }
     })
+
+
+  
+
 
     }
   
@@ -134,15 +141,28 @@ export class DetailpostulantPage implements OnInit {
     //Methode de update du personnel
     UpdateUser(){
       for(let i=0; i<this.Roles.length;i++){
-        if(this.Roles[i].libellerole==this.idRole){
+        if(this.Roles[i].libellerole==this.role){
           this.RoleSelectionner=this.Roles[i]
         }
       }
       for(let i=0; i<this.Entites.length;i++){
-        if(this.Entites[i].libelleentite==this.idEntite){
+        if(this.Entites[i].libelleentite==this.entite){
           this.EntiteSelectionner=this.Entites[i]
         }
       }
+
+      // for(let i=0; i<this.formatMailperonnel.length;i++){
+      //   if(this.formatMailperonnel[i].libelle==this.email){
+      //     this.EmailSelectionner=this.formatMailperonnel[i]
+      //   }
+      // }
+
+      // for(let i=0; i<this.Roles.length;i++){
+      //   if(this.Roles[i].libellerole==this.statusUser){
+      //     this.RoleSelectionner2=this.statusUser
+      //   }
+      // }
+      // console.log(this.RoleSelectionner2)
       console.log(this.RoleSelectionner)
       console.log(this.EntiteSelectionner)
      
@@ -192,16 +212,19 @@ export class DetailpostulantPage implements OnInit {
           heightAuto: false
         }).then((result) => {
           if (result.isConfirmed) {
+            this.userService.DeleteUser(this.Utilisateur.login,this.Utilisateur.password,this.RoleSelectionner,this.idUser).subscribe(retour=>{
+              console.log(retour)
+            });
             this.router.navigateByUrl('/dashboard/personnels', {skipLocationChange: true}).then(() => {
               this.router.navigate(["/personnels"])
             })
         }else if (result.isDenied) {
           Swal.fire('Suppression annuler !');
         }
-      
+    
       });
     }else if (result.isDenied) {
-      // Swal.fire('Changes are not saved', '', 'info');
+    // Swal.fire('Annuler', '', 'info');
     }
   });
   
@@ -210,15 +233,15 @@ export class DetailpostulantPage implements OnInit {
 
 
     //Delete methode personnel
-  DeleteUser(){
-    this.userService.DeleteUser(this.Utilisateur.login,this.Utilisateur.password,this.RoleSelectionner,this.idUser).subscribe(retour=>{
-      console.log(retour)
-      // this.actualisePagApresSuppresion()
-      // this.router.navigateByUrl('/dashboard/personnels')
-    });
-      this.MessageDeleteUserEffectuer();
-      // this.presentAlert()
-    }
+  // DeleteUser(){
+  //   this.MessageDeleteUserEffectuer();
+  //   this.userService.DeleteUser(this.Utilisateur.login,this.Utilisateur.password,this.RoleSelectionner,this.idUser).subscribe(retour=>{
+  //     console.log(retour)
+  //     // this.actualisePagApresSuppresion()
+  //     // this.router.navigateByUrl('/dashboard/personnels')
+  //   });
+  //     // this.presentAlert()
+  //   }
 
 
      //Desactiver methode
@@ -309,11 +332,11 @@ export class DetailpostulantPage implements OnInit {
 
 ///Methode permettant de rediriger apres la suppression d'une personne
 // ActualisePage Apres suppression
-actualisePagApresSuppresion(){
-  setTimeout(() => {
-    this.getAllUser()
-  }, 1000);
-}
+// actualisePagApresSuppresion(){
+//   setTimeout(() => {
+//     this.getAllUser()
+//   }, 1000);
+// }
 
 getAllUser(){
 

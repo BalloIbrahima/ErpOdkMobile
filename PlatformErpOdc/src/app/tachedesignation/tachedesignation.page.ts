@@ -14,79 +14,7 @@ export class TachedesignationPage implements OnInit {
   taches:any
   Utilisateur:any;
   p:any
-  // students =[
-  //   {
-  //       name: 'Djiguiba',
-  //       prenom: 'Barema',
-  //       genre: 'Masculin',
-  //       email: 'djiguiba@orangemali.com',
-  //       contact: '+223 8456789'
-  //   },
-  //   {
-  //     name: 'Djiguiba',
-  //     prenom: 'Barema',
-  //     genre: 'Masculin',
-  //     email: 'djiguiba@orangemali.com',
-  //     contact: '+223 8456789'
-  // },
-  // {
-  //   name: 'Djiguiba',
-  //   prenom: 'Barema',
-  //   genre: 'Masculin',
-  //   email: 'djiguiba@orangemali.com',
-  //   contact: '+223 8456789'
-  // },
-  // {
-  //   name: 'Djiguiba',
-  //   prenom: 'Barema',
-  //   genre: 'Masculin',
-  //   email: 'djiguiba@orangemali.com',
-  //   contact: '+223 8456789'
-  // },
-  // {
-  //   name: 'Djiguiba',
-  //   prenom: 'Barema',
-  //   genre: 'Masculin',
-  //   email: 'djiguiba@orangemali.com',
-  //   contact: '+223 8456789'
-  // },
-  // {
-  //   name: 'Djiguiba',
-  //   prenom: 'Barema',
-  //   genre: 'Masculin',
-  //   email: 'djiguiba@orangemali.com',
-  //   contact: '+223 8456789'
-  // },
-  // {
-  //   name: 'Djiguiba',
-  //   prenom: 'Barema',
-  //   genre: 'Masculin',
-  //   email: 'djiguiba@orangemali.com',
-  //   contact: '+223 8456789'
-  // },
-  // {
-  //   name: 'Djiguiba',
-  //   prenom: 'Barema',
-  //   genre: 'Masculin',
-  //   email: 'djiguiba@orangemali.com',
-  //   contact: '+223 8456789'
-  // },
-  // {
-  //   name: 'Djiguiba',
-  //   prenom: 'Barema',
-  //   genre: 'Masculin',
-  //   email: 'djiguiba@orangemali.com',
-  //   contact: '+223 8456789'
-  // },
-  // {
-  //   name: 'Djiguiba',
-  //   prenom: 'Barema',
-  //   genre: 'Masculin',
-  //   email: 'djiguiba@orangemali.com',
-  //   contact: '+223 8456789'
-  // }
-  
-  // ];
+
   constructor(private route:ActivatedRoute, private tachedesignationService:TachedesignationService) { }
 
   ngOnInit() {
@@ -94,11 +22,11 @@ export class TachedesignationPage implements OnInit {
      this.id=this.route.snapshot.params['id'];
      this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) ;
 
+     this.callTaches()
      this.tachedesignationService.getAlltaches(this.Utilisateur.login, this.Utilisateur.password,this.id).subscribe(retour => {
-       this.taches = retour.data;
-       console.log(this.taches);
-     });
-
+      this.taches = retour.data;
+      console.log(this.taches);
+    });
 
    
 
@@ -127,8 +55,9 @@ export class TachedesignationPage implements OnInit {
         //Swal.fire('Saved!', '', 'success');
         this.tachedesignationService.deleteTache(this.Utilisateur.login,this.Utilisateur.password,id).subscribe(data=>{
           // if(data.message=="ok"){
-          //   this.callSalle()
+          //   this.callTaches()
           // }
+          this.callTaches()
         });
        
       } else if (result.isDenied) {
@@ -137,6 +66,13 @@ export class TachedesignationPage implements OnInit {
       }
     });
  
+  }
+  callTaches(){
+    
+    this.tachedesignationService.getAlltaches(this.Utilisateur.login, this.Utilisateur.password,this.id).subscribe(retour => {
+      this.taches = retour.data;
+      console.log(this.taches);
+    });
   }
   
 

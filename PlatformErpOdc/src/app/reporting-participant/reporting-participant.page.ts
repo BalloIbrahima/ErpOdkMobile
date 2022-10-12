@@ -3,6 +3,8 @@ import { ActiviteService } from '../services/activite/activite.service';
 import { EntiteService } from '../services/entite/entite.service';
 import * as XLSX from 'xlsx';
 import { ListeparticipantService } from '../services/listeparticipants/listeparticipant.service';
+import { ModalController } from '@ionic/angular';
+import { TypeActiviteService } from '../services/typeActivite/type-activite.service';
 
 @Component({
   selector: 'app-reporting-participant',
@@ -20,8 +22,9 @@ utilisateur : any;
   datedebut : Date;
   datefin : Date;
   listeparticipants : any;
+  listetp: any;
 
-  constructor(private serviceactivite : ActiviteService, private serviceentite : EntiteService,private servicelp : ListeparticipantService) { }
+  constructor(private serviceactivite : ActiviteService, private serviceentite : EntiteService,private servicelp : ListeparticipantService, private modalController : ModalController, private typeact : TypeActiviteService) { }
   // accueil=[
   //   {nom:"ali"},
   //   {activite:"ndckc"},
@@ -41,6 +44,12 @@ utilisateur : any;
       }
     )
 
+    this.typeact.getListe(this.utilisateur.login, this.utilisateur.password).subscribe(
+      reponse => {
+        this.listetp = reponse.data;
+      }
+    )
+
     this.servicelp.ToutLesParticipant(this.utilisateur.login, this.utilisateur.password).subscribe(
       reponse => {
         this.listeparticipants = reponse.data;
@@ -57,6 +66,7 @@ utilisateur : any;
       reponse => {
         this.listeparticipants = reponse.data;
         console.log(this.listeparticipants)
+        this.modalController.dismiss()
       }
     )
   }

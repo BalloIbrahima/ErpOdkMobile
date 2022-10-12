@@ -101,7 +101,7 @@
                   <select class="form-select" aria-label="Default select example" required [(ngModel)]="typeactivite"
                     [ngModelOptions]="{standalone: true}">
                     <option value="1">Selectionner activité</option>
-                    <option *ngFor="let activite of activites">{{activite.typeActivite.libelle}}</option>
+                    <option *ngFor="let ta of listetp">{{ta.libelle}}</option>
                   </select>
 
                 </div>

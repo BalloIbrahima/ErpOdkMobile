@@ -266,14 +266,17 @@
 
           <div class="row align-items-center venir"  >
 
-         
+            <div class="col m-1">
+              <button type="button" class="btnPlus btn buttonColor " style=" height: 95%; width: 70%; margin-left:10px; margin-top: 7px; border-radius: 15px; " routerLink="/dashboard/allactivity/creer-activites"><i class="fa fa-plus-circle" id="plus" aria-hidden="true" ></i></button>
+              </div>
 
-            <div  *ngIf="aVenirLong==0" >
-              <div class="">Aucune activité à venir</div>
-            </div>
- 
-          
-            <div class="col- col-sm- col-lg-4" >
+              <div  *ngIf="aVenirLong==0" >
+                <div class="aucune">Aucune activité à venir</div>
+              </div>
+              <div class="col m-2 image row"  
+                *ngFor="let aa of activiteAvenir ; let i=index "  
+                
+                style=" background-repeat: no-repeat;   background-position: center; background-size: cover; border-radius: 10px;">
               
               <div class="content">
                 <img src="../../assets/images/odcTalk.jpg" class="image" alt="">
@@ -283,7 +286,15 @@
 
 
 
-                  <div class="ticketAvenir">
+                   <div *ngIf="i<3" class="col align-self-end"
+                      style=" background: rgb(221 199 199 / 74%);
+                      height: 75px;
+                      width: 60% !important;
+                      margin: 10%;
+                      margin-top: -50%;
+                      justify-content: center;
+                      border-radius: 15px;
+                      text-align: center;">
                     <span class="nomActivite">
                      Nom Activité
                     </span>
@@ -301,6 +312,10 @@
 
  
 
+                    <br>
+                    <span class="Date" *ngIf="aa.salle!=null">
+                      {{aa.salle.libelle}}
+                    </span>
 
 
 

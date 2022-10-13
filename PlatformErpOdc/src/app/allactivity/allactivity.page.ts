@@ -21,24 +21,19 @@ export class AllactivityPage implements OnInit {
   actevenir:any
   actterminer:any
 
-  textFiltre:any;
+  filtreEntity:any="Filtrer par Entité";
+  textFiltre:any="Filtrer par Status";
   textFiltre0:any
   constructor(private route:ActivatedRoute,private router: Router,private entiteService:EntiteService,private service:ActiviteService) { }
 
 
-  ngOnInit() {
-
-
-
+  ngOnInit(){
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
     console.log(this.Utilisateur)
+    //location.reload()
     //console.log(this.Utilisateur.password)
-    this.service.GetTtActivite(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
-      this.touteactivite=data.data;
-      this.longueur=data.data.length
-      console.log(data)
-    })
-
+    
+    this.AllActivite();
 //recuperrer tout les entites
     this.entiteService.getAllEntites(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour=>{
       this.allentity=retour.data
@@ -51,18 +46,28 @@ export class AllactivityPage implements OnInit {
 
   filtrebyentity(){
    //recuperation de l'id l'entite
-    var identity=0 ;
+    var identity=null ;
+    console.log(this.filtreEntity)
    for(let i=0 ; i<this.allentity.length; i++){
-    if(this.allentity[i].libelleentite==this.allentity){
+    if(this.allentity[i].libelleentite==this.filtreEntity){
       identity=this.allentity[i].id
       console.log(identity)
     }
-          if(this.textFiltre0 ==this.allentity[i].libelleentite){
-            this.service.GetActivitebyentite(this.Utilisateur.login, this.Utilisateur.password,identity).subscribe(retour=>{
-              this.allentity=retour.data
-              console.log(this.allentity)
-            })
-          }
+    
+       
+      
+  }
+
+  try {
+    if(identity!=null){
+      this.service.GetActivitebyentite(this.Utilisateur.login, this.Utilisateur.password,identity).subscribe(retour=>{
+        this.touteactivite=retour.data
+        console.log(this.allentity)
+      })
+    }
+    
+  } catch (error) {
+    
   }
 
 
@@ -83,14 +88,35 @@ export class AllactivityPage implements OnInit {
         this.longueur=data.data.length
         console.log(data)
       })
-    }else if(this.textFiltre=="Activités Terminée"){
+    }else if(this.textFiltre=="Activités Terminées"){
       this.service.GetActiviteterminer(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
         this.touteactivite=data.data;
         this.longueur=data.data.length
         console.log(data)
       })
+    }else{
+      this.AllActivite()
     }
 
+  }
+
+
+  AllActivite(){
+    this.service.GetTtActivite(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
+      console.log(data.message)
+      if(data.message =="ok"){
+        this.touteactivite=data.data;
+        this.longueur=data.data.length
+        console.log(this.touteactivite)
+      }else{
+        this.touteactivite="Aucune activité enregistrée"
+      }
+
+    })
+  }
+
+  ionViewWillEnter(){
+    this.AllActivite()
   }
 
 }

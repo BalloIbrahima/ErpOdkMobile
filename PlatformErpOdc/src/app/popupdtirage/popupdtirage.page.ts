@@ -18,6 +18,7 @@ export class PopupdtiragePage implements OnInit {
   TirageSelect: any;activite
   idtira: any;
   tiraget: any;
+idtirage: any;
   constructor(private modalController: ModalController,private tirageService:TirageService,private navCltr:NavController,private route:ActivatedRoute,private router:Router) { }
   @Input() valider: boolean;
 
@@ -47,7 +48,9 @@ export class PopupdtiragePage implements OnInit {
       confirmButtonColor:'#FF7900',
       allowOutsideClick:false
   }).then(()=>{
-    this.router.navigate(["/detailactivite",this.data.activite.id]);
+    this.router.navigateByUrl('/detailactivite', {skipLocationChange: true}).then(() => {
+      this.router.navigate(["/detailactivite",this.data.activite.id]);
+      });
   })
   await this.modalController.dismiss(close);
   }

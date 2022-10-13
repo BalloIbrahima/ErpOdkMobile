@@ -9,6 +9,7 @@ import { AllactivityPageRoutingModule } from './allactivity-routing.module';
 
 import { AllactivityPage } from './allactivity.page';
 import { ClocheComponent } from '../cloche/cloche.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { ClocheComponent } from '../cloche/cloche.component';
     FormsModule,
     IonicModule,
     AllactivityPageRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatCardModule
   ],
   declarations: [AllactivityPage,ClocheComponent]
 })

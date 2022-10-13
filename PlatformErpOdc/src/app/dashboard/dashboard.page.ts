@@ -14,6 +14,7 @@ export class DashboardPage implements OnInit {
   constructor(private router:Router,private menu: MenuController) { }
 
   ngOnInit() {
+    //location.reload();
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'))
     
     if(this.Utilisateur.image!=null){
@@ -24,6 +25,9 @@ export class DashboardPage implements OnInit {
 
   FermerSideBar(){
     this.menu.close()
+    setTimeout(() => {
+      window.location.reload()
+    }, 0);
   }
 
   deconnecter(){
@@ -31,4 +35,13 @@ export class DashboardPage implements OnInit {
     this.router.navigate(['../login'])
   }
 
+
+  ionViewWillEnter(){
+    this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'))
+    
+    if(this.Utilisateur.image!=null){
+      this.img=this.Utilisateur.image
+    }
+    console.log(this.Utilisateur)
+  }
 }

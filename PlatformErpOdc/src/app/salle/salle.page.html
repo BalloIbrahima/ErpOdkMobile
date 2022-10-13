@@ -32,15 +32,15 @@
 
 
                     <div class="col salles" style="background-color: #D9D9D9;">
-                        <div *ngIf="sallesDipoLength==0">Aucune salle disponible</div>
+                        <div *ngIf="sallesDipoLength == 0">Aucune salle disponible</div>
 
 
                         <div class="col chaquesalle" *ngFor="let salle of sallesDipo">
-                            <div class="row">
+                            <div class="row" *ngIf="sallesDipoLength!=0">
                                 <div class="col ">
                                     <img class="img" src="../../assets/salle.png" alt="">
                                 </div>
-                                <div class="col" style=" margin-top: 10px;
+                                <div  class="col" style=" margin-top: 10px;
                                     margin-left: 10px;
                                     width: 50%;">
                                     <div class="col">{{salle.libelle}}</div>
@@ -51,7 +51,7 @@
                                     width: 50%;">
                                     <div class="col">
 
-                                        <button type="button" class="btn btn-outline-dark  ">Lier Activité</button>
+                                        <button type="button" class="btn btn-outline-dark" [routerLink]="['/dashboard/liaisonsalle',salle.id]">Lier Activité</button>
 
                                     </div>
                                     <div class="row icondiv" style=" margin-top: 10px;">
@@ -68,35 +68,6 @@
                             </div>
                         </div>
 
-                        <!-- (click)="deleteSalle(salle.id)" -->
-                        <!-- <div class="col chaquesalle">
-                            <div class="row">
-                                <div class="col ">
-                                    <img class="img" src="../../assets/salle.png" alt="">
-                                </div>
-                                <div class="col" style=" margin-top: 10px;
-                      margin-left: 10px;
-                      width: 50%;">
-                                    <div class="col">Nom Salle</div>
-                                    <div class="col">1ere etage</div>
-                                </div>
-                                <div class="col justify-content-end" style=" margin-top: 10px;
-                      margin-left: 10px;
-                      width: 50%;">
-                                    <div class="col">
-
-                                        <button type="button" class="btn btn-outline-dark  ">Lier Activité</button>
-
-                                    </div>
-                                    <div class="row icondiv" style=" margin-top: 10px;">
-                                        <div class="col"><i class="bi bi-pencil-square"
-                                                style="color: green; font-size:20px;"></i></div>
-                                        <div class="col"><i class="bi bi-trash3"
-                                                style="color: red; font-size:20px;"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
 
                     </div>
 
@@ -134,19 +105,20 @@
                         <div class="title"> Salles Occupées</div>
                     </div>
 
+                    <!-- les salle occuper -->
 
                     <div class="col salles" style="background-color: #D9D9D9;">
 
-                        <div *ngIf="sallesIndispoLength==0">Aucune salle indisponible</div>
+                        <div *ngIf="sallesIndispoLength==0">Aucune salle Occupée</div>
 
 
-                        <div class="col chaquesalle" *ngFor="let salle of sallesIndispo">
-                            <div class="row">
+                        <div  class="col chaquesalle" *ngFor="let salle of sallesIndispo">
+                            <div class="row" *ngIf="sallesIndispoLength!=0">
                                 <div class="col ">
                                     <img class="img" src="../../assets/salle.png" alt="">
                                 </div>
 
-                                <div class="col" style=" margin-top: 10px;
+                                <div  class="col" style=" margin-top: 10px;
                                     margin-left: 10px;
                                     width: 50%;">
                                     <div class="col">{{salle.libelle}}</div>
@@ -157,15 +129,15 @@
                                         width: 50%;">
                                     <div class="col">
 
-                                        <button type="button" class="btn btn-outline-dark  ">Lier Activité</button>
+                                        <button type="button" class="btn btn-outline-dark" disabled >Lier Activité</button>
 
                                     </div>
                                     <div class="row icondiv" style=" margin-top: 10px;">
                                         <div class="col"><a [routerLink]="['/dashboard/salle/modifier-salle',salle.id]"><i class="bi bi-pencil-square"
                                                 style="color: green; font-size:20px;" ></i></a></div>
 
-                                        <div class="col">   
-                                            
+                                        <div class="col">
+
                                             <a (click)="popDeleteSalle(salle.id)">
                                             <i class="bi bi-trash3"
                                                 style="color: red; font-size:20px;"></i>
@@ -176,49 +148,6 @@
                             </div>
                         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-                        <!-- <div class="col chaquesalle">
-                            <div class="row">
-                                <div class="col ">
-                                    <img class="img" src="../../assets/salle.png" alt="">
-                                </div>
-                                <div class="col" style=" margin-top: 10px;
-                margin-left: 10px;
-                width: 50%;">
-                                    <div class="col">Nom Salle</div>
-                                    <div class="col">1ere etage</div>
-                                </div>
-                                <div class="col justify-content-end" style=" margin-top: 10px;
-                margin-left: 10px;
-                width: 50%;">
-                                    <div class="col">
-
-                                        <button type="button" class="btn btn-outline-dark  ">Lier Activité</button>
-
-                                    </div>
-                                    <div class="row icondiv" style=" margin-top: 10px;">
-                                        <div class="col"><i class="bi bi-pencil-square"
-                                                style="color: green; font-size:20px;"></i></div>
-                                        <div class="col"><i class="bi bi-trash3"
-                                                style="color: red; font-size:20px;"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
- -->
 
                     </div>
 
@@ -297,11 +226,11 @@
       </div> -->
 <!-- </ion-toolbar>
 
- 
+
 </ion-header> -->
-<!-- 
+<!--
 <ion-content>
-       
+
   <div class="row justify-content-center">
     <button type="button" class="btn btn-outline-dark ajout ">Ajouter Salle</button>
    </div>
@@ -317,7 +246,7 @@
             <details class="panel">
 
                 <summary>Salle Disponible</summary>
-                
+
 
 
 
@@ -331,7 +260,7 @@
 
                 <div class="col chaquesalle">
                   <div class="row">
-                      <div class="col "> 
+                      <div class="col ">
                           <img class="img" src="../../assets/salle.png" alt="">
                       </div>
                       <div class="col" style=" margin-top: 20px;
@@ -344,12 +273,12 @@
                       margin-left: 10px;
                       width: 100%;" >
                           <div class="col">
-                              
+
                               <button type="button" class="btn lierAct ">Lier Activité</button>
-  
+
                           </div>
                           <div class="row icondiv" style=" margin-top: 10px;">
-                            
+
                               <div class="col"><i class="bi bi-pencil-square" style="color: green; font-size:20px;"></i></div>
                               <div class="col"><i class="bi bi-trash3" style="color: red; font-size:20px;"></i></div>
                           </div>
@@ -369,7 +298,7 @@
 
               <div class="col chaquesalle">
                 <div class="row">
-                    <div class="col "> 
+                    <div class="col ">
                         <img class="img" src="../../assets/salle.png" alt="">
                     </div>
                     <div class="col" style=" margin-top: 20px;
@@ -382,12 +311,12 @@
                     margin-left: 10px;
                     width: 100%;" >
                         <div class="col">
-                            
+
                             <button type="button" class="btn lierAct ">Lier Activité</button>
 
                         </div>
                         <div class="row icondiv" style=" margin-top: 10px;">
-                          
+
                             <div class="col"><i class="bi bi-pencil-square" style="color: green; font-size:20px;"></i></div>
                             <div class="col"><i class="bi bi-trash3" style="color: red; font-size:20px;"></i></div>
                         </div>
@@ -409,7 +338,7 @@
 
             <div class="col chaquesalle">
               <div class="row">
-                  <div class="col "> 
+                  <div class="col ">
                       <img class="img" src="../../assets/salle.png" alt="">
                   </div>
                   <div class="col" style=" margin-top: 20px;
@@ -422,12 +351,12 @@
                   margin-left: 10px;
                   width: 100%;" >
                       <div class="col">
-                          
+
                           <button type="button" class="btn lierAct ">Lier Activité</button>
 
                       </div>
                       <div class="row icondiv" style=" margin-top: 10px;">
-                        
+
                           <div class="col"><i class="bi bi-pencil-square" style="color: green; font-size:20px;"></i></div>
                           <div class="col"><i class="bi bi-trash3" style="color: red; font-size:20px;"></i></div>
                       </div>
@@ -444,7 +373,7 @@
 
           <div class="col chaquesalle">
             <div class="row">
-                <div class="col "> 
+                <div class="col ">
                     <img class="img" src="../../assets/salle.png" alt="">
                 </div>
                 <div class="col" style=" margin-top: 20px;
@@ -457,12 +386,12 @@
                 margin-left: 10px;
                 width: 100%;" >
                     <div class="col">
-                        
+
                         <button type="button" class="btn lierAct ">Lier Activité</button>
 
                     </div>
                     <div class="row icondiv" style=" margin-top: 10px;">
-                      
+
                         <div class="col"><i class="bi bi-pencil-square" style="color: green; font-size:20px;"></i></div>
                         <div class="col"><i class="bi bi-trash3" style="color: red; font-size:20px;"></i></div>
                     </div>
@@ -475,24 +404,24 @@
 
 
 
-                
-                
+
+
             </details>
 
 
         </li>
-      
+
         <li class="timeline">
             <div class="icon done"></div>
             <details class="panel">
                 <summary>Salles Occupées</summary>
-               
-     
-     
-     
+
+
+
+
                 <div class="col chaquesalle">
                   <div class="row">
-                      <div class="col "> 
+                      <div class="col ">
                           <img class="img" src="../../assets/salle.png" alt="">
                       </div>
                       <div class="col" style=" margin-top: 20px;
@@ -505,12 +434,12 @@
                       margin-left: 10px;
                       width: 100%;" >
                           <div class="col">
-                              
+
                               <button type="button" class="btn lierAct ">Lier Activité</button>
-  
+
                           </div>
                           <div class="row icondiv" style=" margin-top: 10px;">
-                            
+
                               <div class="col"><i class="bi bi-pencil-square" style="color: green; font-size:20px;"></i></div>
                               <div class="col"><i class="bi bi-trash3" style="color: red; font-size:20px;"></i></div>
                           </div>
@@ -526,7 +455,7 @@
 
               <div class="col chaquesalle">
                 <div class="row">
-                    <div class="col "> 
+                    <div class="col ">
                         <img class="img" src="../../assets/salle.png" alt="">
                     </div>
                     <div class="col" style=" margin-top: 20px;
@@ -539,12 +468,12 @@
                     margin-left: 10px;
                     width: 100%;" >
                         <div class="col">
-                            
+
                             <button type="button" class="btn lierAct ">Lier Activité</button>
 
                         </div>
                         <div class="row icondiv" style=" margin-top: 10px;">
-                          
+
                             <div class="col"><i class="bi bi-pencil-square" style="color: green; font-size:20px;"></i></div>
                             <div class="col"><i class="bi bi-trash3" style="color: red; font-size:20px;"></i></div>
                         </div>
@@ -563,7 +492,7 @@
 
             <div class="col chaquesalle">
               <div class="row">
-                  <div class="col "> 
+                  <div class="col ">
                       <img class="img" src="../../assets/salle.png" alt="">
                   </div>
                   <div class="col" style=" margin-top: 20px;
@@ -576,12 +505,12 @@
                   margin-left: 10px;
                   width: 100%;" >
                       <div class="col">
-                          
+
                           <button type="button" class="btn lierAct ">Lier Activité</button>
 
                       </div>
                       <div class="row icondiv" style=" margin-top: 10px;">
-                        
+
                           <div class="col"><i class="bi bi-pencil-square" style="color: green; font-size:20px;"></i></div>
                           <div class="col"><i class="bi bi-trash3" style="color: red; font-size:20px;"></i></div>
                       </div>
@@ -596,7 +525,7 @@
 
           <div class="col chaquesalle">
             <div class="row">
-                <div class="col "> 
+                <div class="col ">
                     <img class="img" src="../../assets/salle.png" alt="">
                 </div>
                 <div class="col" style=" margin-top: 20px;
@@ -609,19 +538,19 @@
                 margin-left: 10px;
                 width: 100%;" >
                     <div class="col">
-                        
+
                         <button type="button" class="btn lierAct ">Lier Activité</button>
 
                     </div>
                     <div class="row icondiv" style=" margin-top: 10px;">
-                      
+
                         <div class="col"><i class="bi bi-pencil-square" style="color: green; font-size:20px;"></i></div>
                         <div class="col"><i class="bi bi-trash3" style="color: red; font-size:20px;"></i></div>
                     </div>
                 </div>
             </div>
         </div>
-     
+
               </details>
         </li>
 

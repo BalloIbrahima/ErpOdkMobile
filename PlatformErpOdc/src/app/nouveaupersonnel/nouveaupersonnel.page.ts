@@ -31,6 +31,9 @@ export class NouveaupersonnelPage implements OnInit {
   RoleSelectionner:any;
 
   Genre: number;
+  formatMailSelectionner: any;
+  contact: number;
+  lieunaissance: String;
 
   constructor(private router: Router, private alertController : AlertController,private entiteService:EntiteService,private roleservice:RoleService,private userService:UtilisateurService) { }
 
@@ -62,6 +65,9 @@ export class NouveaupersonnelPage implements OnInit {
     
   }
 
+  back(): void {
+    window.history.back()
+  }
 
   envoyerImage(event: any){
     this.image = event.target["files"][0];
@@ -70,49 +76,48 @@ export class NouveaupersonnelPage implements OnInit {
 
 
   
-  async presentAlert() {
-    const alert = await this.alertController.create({
-      header: 'Validé!!!',
-      subHeader: 'Personnel créée avec Succès!!',
+  // async presentAlert() {
+  //   const alert = await this.alertController.create({
+  //     header: 'Validé!!!',
+  //     subHeader: 'Personnel créée avec Succès!!',
 
-      buttons: ['OK'],
-    });
+  //     buttons: ['OK'],
+  //   });
 
-    await alert.present();
-  }
-  async notpresent() {
-    const alert = await this.alertController.create({
-      header: 'Personnel non créée!!!',
-      subHeader: 'veuillez réessayer!!',
+  //   await alert.present();
+  // }
+  // async notpresent() {
+  //   const alert = await this.alertController.create({
+  //     header: 'Personnel non créée!!!',
+  //     subHeader: 'veuillez réessayer!!',
 
-      buttons: ['OK'],
-    });
+  //     buttons: ['OK'],
+  //   });
 
-    await alert.present();
-  }
+  //   await alert.present();
+  // }
   alertSiTousLesChampSonVide(){
     Swal.fire({
       title: "Tous les champs sont Obligatoires",
       showConfirmButton: true,
       confirmButtonText: "OK",
-      confirmButtonColor: 'green',
-      showCancelButton: true,
+      confirmButtonColor: 'red',
       heightAuto: false
     })
   }
 
   alertSiTousLesChampSonBienRenseigner(){
     Swal.fire({
-      title: "Personnel créer avec succes",
+      title: "Personnel crée avec succès",
       showConfirmButton: true,
       confirmButtonText: "OK",
-      confirmButtonColor: 'green',
-      showCancelButton: true,
+      confirmButtonColor: '#FF7900',
       heightAuto: false
     }).then((result) => {
       if (result.isConfirmed) {
-          // this.actualisePagApresSuppresion()
-          this.router.navigateByUrl('/dashboard/personnels')
+          this.router.navigateByUrl('/dashboard/personnels', {skipLocationChange: true}).then(() => {
+      this.router.navigate(["/personnels"]);
+      });
       
     }else if (result.isDenied) {
       this.router.navigateByUrl('/dashboard/personnels')
@@ -132,8 +137,14 @@ export class NouveaupersonnelPage implements OnInit {
         this.RoleSelectionner=this.Roles[i]
       }
     }
+    for(let i=0; i<this.formatMail.length;i++){
+      if(this.formatMail[i].libelle==this.domaine){
+        this.formatMailSelectionner=this.formatMail[i]
+      }
+    }
     console.log(this.RoleSelectionner)
     console.log(this.EntiteSelectioner)
+    console.log(this.formatMailSelectionner)
    
     if(this.genre == 'Masculin')
     {

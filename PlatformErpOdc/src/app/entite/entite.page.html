@@ -80,34 +80,32 @@
   <ion-modal #modal trigger="open-modal" backdropDismiss="false">
 
     <ng-template>
-      <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-end">
+      <!-- <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-end">
         <!-- <ion-buttons slot="end">
           <ion-button (click)="modal.dismiss()">Close</ion-button>
-        </ion-buttons> -->
-      </div>
+        </ion-buttons> 
+      </div> -->
       <ion-header>
         <ion-toolbar>
           <ion-title>Ajouter entité</ion-title>
           <ion-buttons slot="end">
-            <button type="button" class="btn-close"  (click)="modal.dismiss()" data-bs-dismiss="modal" aria-label="Close"></button>
-   
-            <!-- <ion-button (click)="modal.dismiss()">Close</ion-button> -->
+            <ion-button (click)="modal.dismiss()"><span aria-hidden="true" style="font-size: 30px;">&times;</span></ion-button>
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
 
       <div class="container">
         <!-- <button type="button" class="btn-close"  (click)="modal.dismiss()" data-bs-dismiss="modal" aria-label="Close"></button> -->
-        <h5 class="card-title text-center">Nouvelle entité</h5>
+        <!-- <h5 class="card-title text-center">Nouvelle entité</h5> -->
         <div class="card">
 
           <div class="card-body text-start">
-            <div class="alert alert-success mb-3" role="alert" *ngIf="alertTrue">
+            <!-- <div class="alert alert-success mb-3" role="alert" *ngIf="alertTrue">
               L'entite Creer avec succes
             </div>
             <div class="alert alert-danger mb-3" role="alert" *ngIf="alertFalse">
               ERREUR LORS DE CREATION DE L'ENTITE
-            </div>
+            </div> -->
             <form>
               <div for="libelleEntite" class="">Nom entité *</div>
               <input type="text" name="libelleentite" [(ngModel)]="libelleentite" class="form-control"
@@ -152,7 +150,7 @@
         <ion-toolbar>
           <ion-title>Modifier entité</ion-title>
           <ion-buttons slot="end">
-            <ion-button (click)="setClose(false); allEntite()">Close</ion-button>
+            <ion-button (click)="setClose()">Close</ion-button>
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
@@ -163,12 +161,12 @@
         <div class="card">
 
           <div class="card-body text-start">
-            <div class="alert alert-success mb-3" role="alert" *ngIf="alertTrue">
+            <!-- <div class="alert alert-success mb-3" role="alert" *ngIf="alertTrue">
               Entité modifier avec succès
             </div>
             <div class="alert alert-danger mb-3" role="alert" *ngIf="alertFalse">
               Erreur, Veuillez verfier tous les champs
-            </div>
+            </div> -->
             <form>
               <div for="libelleEntite" class="">Nom entité *</div>
               <input type="text" name="libelleentiteMo" [(ngModel)]="libelleentiteMo" class="form-control"
@@ -180,16 +178,16 @@
 
               </select>
               <div for="imageEntite" class="">Image entite *</div>
-              <input type="file" (change)="recuperationImage($event)" class="form-control" id="imageEntite"
+              <input type="file" (change)="recuperationImage1($event)" class="form-control" id="imageEntite"
                 placeholder="selectionner une image">
 
               <div for="description" class="">Description de l'entité *</div>
               <textarea class="form-control" id="description" name="descriptionMo" [(ngModel)]="descriptionMo" rows="3"
-                [innerText]="descriptionMo"></textarea>
+                ></textarea>
 
               <div class="d-grid gap-2 col-6 text-center mx-auto mt-2">
                 <button type="button" class="btn colorbutton2 btn-sm" id="open-modal1"
-                  (click)="modifierEntite(idEntite)">Modifier</button>
+                  (click)="modifierEntite();setClose()">Modifier</button>
               </div>
             </form>
           </div>
@@ -204,7 +202,7 @@
   <div class="wrapper">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 col-lg-4 col-6 position-relative" *ngFor="let inf of entites">
+        <div class="col-md-6 col-lg-4 col position-relative" *ngFor="let inf of entites">
           <div class="card mx-30 laragerColonne">
             <img src={{inf.image}} class="card-img-top" alt="...">
             <div class="card-body">
@@ -213,7 +211,7 @@
                 Responsable <br>{{inf.gerant.prenom}} {{inf.gerant.nom}}</h6>
               <h6>
               </h6>
-              <p class="card-text" [innerHTML]="inf.description | slice:0:80"></p>
+              <p class="card-text">{{inf.description | slice:0:50}}...</p> 
               
                 <div class="position-absolute bottom-0 start-50 translate-middle-x mb-2">
                   <div class="socials">

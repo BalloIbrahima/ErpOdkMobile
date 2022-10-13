@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Trage effectué, voici un aperçu</ion-title>
+    <ion-title>Tirage effectué, voici un aperçu</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,16 +14,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let table of postulantTires">
+      <tr *ngFor="let table of postulantTires | paginate: {itemsPerPage:8, currentPage: a} ; let i= index">
         <td> {{table.postulant.nom}} </td>
         <td> {{table.postulant.prenom}} </td>
         <td class="hideColonne hideColonneOder">{{table.postulant.email}}</td>
       </tr>
     </tbody>
   </table>
-  <!-- <div class="paginat">
+  <div class="paginat">
     <pagination-controls (pageChange)=" a = $event"> </pagination-controls>
-  </div> -->
+  </div>
   <div class="button">
     <input class="but" type="submit" value="Valider" (click)="ValiderT(idtirage)">
     <input class="but" type="submit" value="Annuler" (click)="annulerPopup()">

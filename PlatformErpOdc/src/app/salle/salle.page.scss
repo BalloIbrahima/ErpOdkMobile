@@ -36,14 +36,10 @@
 
   }
   .ajout:hover{
-    font-weight: 900;
-    width: 15%;
     border: 1px solid #FF7900 !important;
     color: #FF7900 !important;
     background: white !important;  
     box-shadow: none;
-    margin-bottom: 2%;
-    border-radius: 10px;
   }
 
 
@@ -56,12 +52,10 @@
         // cursor: pointer;
         font-weight: 900;
         // box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
-         border: 2px solid #FF7900;     
-         margin-top: 2%;
-         margin-bottom: 2%;
+         border: 1px solid #FF7900;     
+        
          font-family: poppinsL;
          font-size: 15;
-        border-radius: 15px;
       }
   }
 

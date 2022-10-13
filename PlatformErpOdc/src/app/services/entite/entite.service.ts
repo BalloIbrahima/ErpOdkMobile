@@ -75,6 +75,15 @@ export class EntiteService {
 
     return this.http.post(`${this.env.api}/entite/update/entite/${id}`,data)
   }
+
+  MiseupdateEntiteById(login: any, password: any, id: any,active:boolean):Observable<any>{
+    const data:FormData=new FormData();
+    const user=[{"login":login,"password":password}]
+    data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+
+    return this.http.post(`${this.env.api}/entite/update/entite/${active}/${id}`,data)
+  }
+
   deleteEntiteById(login: any, password: any, id: any){
 
     const data:FormData=new FormData();

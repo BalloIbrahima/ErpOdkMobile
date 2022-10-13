@@ -3,6 +3,9 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>Detail entité</ion-title>
     <ion-button slot="end" fill="clear">
       <app-cloche></app-cloche>
@@ -54,6 +57,13 @@
         <hr size="3">
 
       </div>
+      <!-- <div class="">
+        <div class="socials">
+          <a (click)="setOpen(true)" title="cliquer ici pour modifier l'entité"><img
+              src="../../assets/icon/modifier-le-fichier.png" alt="" srcset=""></a>
+          
+        </div>
+      </div> -->
     </div>
   </div>
   <!-- tableau contenant les personels de l'entite  -->
@@ -91,5 +101,60 @@
       <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)=" pages = $event"> </pagination-controls>
     </div>
   </div>
+
+
+  <!-- formulaire de modification de l'Entité -->
+<!-- 
+  <ion-modal [isOpen]="isModalOpen" backdropDismiss="false">
+
+    <ng-template>
+
+      </div>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Modifier entité</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setClose()">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+
+      <div class="container">
+        
+        <div class="card">
+
+          <div class="card-body text-start">
+            
+            <form>
+              <div for="libelleEntite" class="">Nom entité *</div>
+              <input type="text" name="libelleentiteMo" [(ngModel)]="libelleentiteMo" class="form-control"
+                id="libelleEntite" [value]="nomEntite">
+              <div for="responsableEntite" class="">Responsable de l'entité *</div>
+              <select class="form-select form-select-sm" name="responsableEntiteMo" [(ngModel)]="responsableEntiteMo">
+                <option selected>--selectionner un responsable</option>
+                <option *ngFor="let user of toutUtilisateur ">{{user.prenom}} {{user.nom}}</option>
+
+              </select>
+              <div for="imageEntite" class="">Image entite *</div>
+              <input type="file" (change)="recuperationImage($event)" class="form-control" id="imageEntite"
+                placeholder="selectionner une image">
+
+              <div for="description" class="">Description de l'entité *</div>
+              <textarea class="form-control" id="description" name="descriptionMo" [(ngModel)]="descriptionMo" rows="3"
+                ></textarea>
+
+              <div class="d-grid gap-2 col-6 text-center mx-auto mt-2">
+                <button type="button" class="btn colorbutton2 btn-sm" id="open-modal1"
+                  (click)="modifierEntite()">Modifier</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+    </ng-template>
+  </ion-modal> -->
+
 
 </ion-content>

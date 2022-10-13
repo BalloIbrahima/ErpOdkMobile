@@ -24,95 +24,75 @@
             <div class="col-12 col-lg-6 mx-auto">
               <div for="exampleFormControlInput1" class="">Libelle role *</div>
               <input type="email" class="form-control" [(ngModel)]="libelleRole" name="libelleRole"
-                id="exampleFormControlInput1" placeholder="Orange digital kalanso">
+                id="exampleFormControlInput1" placeholder="Orange digital kalanso" autocomplete="off">
             </div>
           </div>
-          <ul class="timeline">
-            <li class="timeline">
-              <div class="icon done"></div>
-              <details class="panel">
+          <div class="row">
+            <div class="col">
+              <ion-list>
+                <ion-item>
+                  <ion-select [compareWith]="compareWith" placeholder="Droit de Lecture"
+                    (ionChange)="handleChange($event)" [multiple]="true">
+                    <ion-select-option *ngFor="let food of LibelleRoleLecture" [value]="food">
+                      {{ food.libelle }}
+                    </ion-select-option>
+                  </ion-select>
+                </ion-item>
+                <!-- <ion-item lines="none">
+                  <ion-label>Current value: {{ currentRoleCreate | json }}</ion-label>
+                </ion-item> -->
+              </ion-list>
+            </div>
+            <div class="col">
+              <ion-list>
+                <ion-item>
+                  <ion-select [compareWith]="compareWith" placeholder="Droit de creation"
+                    (ionChange)="handleChange($event)" [multiple]="true">
+                    <ion-select-option *ngFor="let creat of LibelleRoleCreation" [value]="creat">
+                      {{ creat.libelle }}
+                    </ion-select-option>
+                  </ion-select>
+                </ion-item>
+                <!-- <ion-item lines="none">
+                  <ion-label>Current value: {{ currentRoleCreate | json }}</ion-label>
+                </ion-item> -->
+              </ion-list>
+            </div>
+          </div>
 
-                <summary> Droit de Lecture</summary>
+          <div class="row">
+            <div class="col">
+              <ion-list>
+                <ion-item>
+                  <ion-select [compareWith]="compareWith" placeholder="Droits de mise à jours"
+                    (ionChange)="handleChange($event)" [multiple]="true">
+                    <ion-select-option *ngFor="let upd of LibelleRoleUpdate" [value]="upd">
+                      {{ upd.libelle }}
+                    </ion-select-option>
+                  </ion-select>
+                </ion-item>
+                <!-- <ion-item lines="none">
+                  <ion-label>Current value: {{ currentRoleCreate | json }}</ion-label>
+                </ion-item> -->
+              </ion-list>
+            </div>
+            <div class="col">
+              <ion-list>
+                <ion-item>
+                  <ion-select [compareWith]="compareWith" placeholder="Droits Suppression"
+                    (ionChange)="handleChange($event)" [multiple]="true">
+                    <ion-select-option *ngFor="let sup of LibelleRoleSuppression" [value]="sup">
+                      {{ sup.libelle }}
+                    </ion-select-option>
+                  </ion-select>
+                </ion-item>
+                <!-- <ion-item lines="none">
+                  <ion-label>Current value: {{ currentRoleCreate | json }}</ion-label>
+                </ion-item> -->
+              </ion-list>
+            </div>
+          </div>
 
-                <div class="row" *ngFor="let create of TousLesDroits">
-                  <div class="col">
-                    <div class="notification" *ngIf="create.libelle.split(' ')[0] == read"> {{create.description}}
-                      <div class="row iconLabel mb-3">
-                        <div class="col"> <label class="switch">
-                            <input type="checkbox" [(ngModel)]="readEntite" name="readEntite">
-                            <span class="slider round"></span>
-                          </label>
-                        </div>
-                        <div class="col icon_mail" *ngIf="create.libelle.split(' ')[0] == read">par mail </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </details>
-
-            </li>
-
-            <li class="timeline">
-              <div class="icon done"></div>
-              <details class="panel">
-                <summary> Droit de creation</summary>
-                <div class="row" *ngFor="let create of TousLesDroits">
-                  <div class="col">
-                    <div class="notification" *ngIf="create.libelle.split(' ')[0] == creation"> {{create.description}}
-                      <div class="row iconLabel mb-3">
-                        <div class="col"> <label class="switch">
-                            <input type="checkbox" [(ngModel)]="createEntite" name="createEntite">
-                            <span class="slider round"></span>
-                          </label>
-                        </div>
-                        <div class="col icon_mail" *ngIf="create.libelle.split(' ')[0] == creation">par mail </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </details>
-            </li>
-            <li class="timeline">
-              <div class="icon done"></div>
-              <details class="panel">
-                <summary>Droits de mise à jours </summary>
-                <div class="row" *ngFor="let create of TousLesDroits">
-                  <div class="col">
-                    <div class="notification" *ngIf="create.libelle.split(' ')[0] == update"> {{create.description}}
-                      <div class="row iconLabel mb-3">
-                        <div class="col"> <label class="switch">
-                            <input type="checkbox" [(ngModel)]="updateEntite" name="updateEntite">
-                            <span class="slider round"></span>
-                          </label>
-                        </div>
-                        <div class="col icon_mail" *ngIf="create.libelle.split(' ')[0] == update">par mail </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </details>
-            </li>
-            <li class="timeline">
-              <div class="icon done"></div>
-              <details class="panel">
-                <summary>Droits Suppression </summary>
-                <div class="row" *ngFor="let create of TousLesDroits">
-                  <div class="col">
-                    <div class="notification" *ngIf="create.libelle.split(' ')[0] == supprimer"> {{create.description}}
-                      <div class="row iconLabel mb-3">
-                        <div class="col"> <label class="switch">
-                            <input type="checkbox" [(ngModel)]="deleteEntite" name="deleteEntite">
-                            <span class="slider round"></span>
-                          </label>
-                        </div>
-                        <div class="col icon_mail" *ngIf="create.libelle.split(' ')[0] == supprimer">par mail </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </details>
-            </li>
-          </ul>
           <div class="d-grid gap-2 col-6 text-center mx-auto mt-2">
             <button type="button" class="btn colorbutton2 btn-sm" (click)="postRole()">Enregistrer</button>
           </div>

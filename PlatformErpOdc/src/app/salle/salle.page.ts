@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { DetailDesListesPage } from '../detail-des-listes/detail-des-listes.page';
 import { SalleServiceService } from '../services/salles/salle-service.service';
@@ -12,21 +12,19 @@ import { UtilisateurService } from '../services/utilisateur/utilisateur.service'
 })
 export class SallePage implements OnInit {
 
+  sallesSupp:any;
   sallesDipo:any;
   sallesDipoLength:any;
   sallesIndispoLength:any
   url="/modifier-salle"
-  // deleteSalleParId:number;
+  id: number = 0;
 
   sallesIndispo:any;
   Utilisateur:any;
-  id: number;
-  constructor(private userService:UtilisateurService,private salleService:SalleServiceService) { }
-
-
-
-
+  constructor(private userService:UtilisateurService,private salleService:SalleServiceService, private route:ActivatedRoute,  private router: Router) { }
   ngOnInit() {
+    //  this.id =+this.route.snapshot.params['id']
+    console.log(this.id)
 
     // this.id =+this.route.snapshot.params['id']
     
@@ -91,5 +89,9 @@ export class SallePage implements OnInit {
       }
     });
  
+  }
+
+  ionViewWillEnter(){
+    this.callSalle();
   }
 }

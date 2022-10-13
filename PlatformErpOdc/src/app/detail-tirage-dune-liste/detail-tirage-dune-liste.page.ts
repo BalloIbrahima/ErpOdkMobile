@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { DetailListPostService } from '../services/detailListe/detail-list-post.service';
 import { ListeService } from '../services/listes/liste.service';
 import { TirageService } from '../services/tirage/tirage.service';
+
 
 @Component({
   selector: 'app-detail-tirage-dune-liste',
@@ -17,6 +18,7 @@ export class DetailTirageDuneListePage implements OnInit {
   Utilisateur:any;
   id:any;
   listparid:any;
+  listparidLength:any;
   nbrPost:number=0;
   nbrPostTirer:any;
   nbrPostTirer1:any;
@@ -25,7 +27,9 @@ export class DetailTirageDuneListePage implements OnInit {
  
 
 
-  constructor(private route:ActivatedRoute, private service: DetailListPostService, private services: ListeService/*public service: TirageService*/) { }
+  constructor(private route:ActivatedRoute,
+    private services: ListeService,
+    private routers:Router) { }
 
   ngOnInit() {
     
@@ -50,19 +54,19 @@ export class DetailTirageDuneListePage implements OnInit {
       console.log(this.nbrPost);
      
       //liste de tous les tirages faite sur un liste données
-      this.listparid=data.data.tirages;
+      this.listparid=data.data.tirages; 
+      this.listparidLength=data.data.tirages.length
       console.log(this.listparid);
+      console.log(this.listparidLength);
       
     
-      //nombre de postulant tirées lors d'un tirage donne  postulanttires
-      this.nbrPostTirer=data.data;
-      console.log(this.nbrPostTirer);
-
-    
     })
+  }
 
-
-
+  
+  goResultatTirage(idT:number){
+    console.log(idT);
+    return this.routers.navigate(['detail-tirage', idT])
   }
 
   
@@ -70,31 +74,3 @@ export class DetailTirageDuneListePage implements OnInit {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur'));
-    //   console.log(this.Utilisateur.login)
-
-    //   this.service.GetTotalTirage(this.Utilisateur.login,this.Utilisateur.password).subscribe(data=>{
-    //     this.totaltirage=data.data;
-    //     console.log(data)
-    //     console.log(data.data.length)
-    //   });

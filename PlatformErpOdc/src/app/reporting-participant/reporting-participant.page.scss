@@ -2,8 +2,20 @@
     // background-color: red;
     height: 100px;
     width: 100%;
+    background-color: #f2eded;
    
 }
+.pagination ::ng-deep .ngx-pagination .current {
+  background-color: #000; }
+
+.pagination {
+  display: flex;
+  // justify-content: center;
+  margin-top: 4%;
+  margin-left: 34%;
+  }
+  
+
 
 .headerContent{
     display: flex;
@@ -20,7 +32,9 @@ p{
     background-color: #FF7900;
     border-radius: 15px;
     height: 40px;
+    color: #f2eded;
     width: 100px;
+    font-weight: bold;
     
 }
 .filtre:hover{
@@ -193,6 +207,13 @@ p{
     width: 25%;
   
   }
+  ion-modal {
+ 
+    padding: none;
+    --border-radius:15px;
+    
+  }
+  
   
   @media screen and (max-width: 900px) {
     .form-select {
@@ -251,11 +272,12 @@ p{
   
   }
   .filtre2{
-    margin-left: 45px;
+    margin-left: 35px;
     background-color: #FF7900;
     color: white;
     border-radius: 15px;
     font-weight: bold;
+    padding: 11px 25px;
     
     i{
         font-size: 20px;

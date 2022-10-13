@@ -1,3 +1,4 @@
+import { ConfigurableFocusTrapFactory } from '@angular/cdk/a11y';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -89,6 +90,20 @@ export class UtilisateurService {
       return this.http.post(`${this.env.api}/admin/get/user/${id}`, data);
   }
 
+  //La fonction pour recuperer un utilisateur
+  DetailsIntervenantById(login:String, password:String,id:number):Observable<any>{
+    const data:FormData=new FormData();
+    const user=[
+      {
+        "login":login,
+        "password":password
+      }];
+      data.append('user' , JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+      // data.append('id' , JSON.stringify(identite).slice(1,JSON.stringify(identite).lastIndexOf(']')));
+      return this.http.post(`${this.env.api}/admin/get/intervenant/${id}`, data);
+  }
+
+
 
   //La methode pour mettre a jour un user
   UpdateUser(login:String,password:String,
@@ -162,13 +177,19 @@ export class UtilisateurService {
 
   //methode qui retourne l'ensemble des utilisateurs
   getAllUsers(login :String, password:String):Observable<any>{
+
     const data:FormData=new FormData();
     const user=[{"login":login,"password":password}]
     data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
-
     return this.http.post(`${this.env.api}/admin/getUsers/all`, data);  
-  
   }
+    //methode qui retourne l'ensemble des intervenants
+    getAllIntervenant(login :String, password:String):Observable<any>{
+      const data:FormData=new FormData();
+      const user=[{"login":login,"password":password}]
+      data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+      return this.http.post(`${this.env.api}/admin/intervenant/all`, data);  
+    }
 
   //l'esamble des users active
   getActivesUsers(login :String, password:String):Observable<any>{
@@ -179,6 +200,30 @@ export class UtilisateurService {
 
     return this.http.post(`${this.env.api}/admin/getUsers/active`, data);  
   }
+
+  
+  // //l'ensemble des personnes externes
+  // readPersonEx(login :String, password:String):Observable<any>{
+   
+  //   const data:FormData=new FormData();
+  //   const user=[{"login":login,"password":password}]
+  //   data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+
+  //   return this.http.post(`${this.env.api}....................`, data);  
+  // }
+
+  //   //l'ensemble des personnes interne
+  //   readPersonIn(login :String, password:String):Observable<any>{
+   
+  //     const data:FormData=new FormData();
+  //     const user=[{"login":login,"password":password}]
+  //     data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));
+  
+  //     return this.http.post(`${this.env.api}....................`, data);  
+  //   }
+  
+
+    
 
   //l'esamble des users desactive
   getDesactivesUsers():Observable<any>{

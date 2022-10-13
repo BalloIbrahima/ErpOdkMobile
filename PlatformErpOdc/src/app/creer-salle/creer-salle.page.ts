@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { EntiteService } from '../services/entite/entite.service';
 import { SalleServiceService } from '../services/salles/salle-service.service';
 import { TypeActiviteService } from '../services/typeActivite/type-activite.service';
@@ -26,8 +28,11 @@ export class CreerSallePage implements OnInit {
   alertTrue: boolean = false;
   alertFalse: boolean = false;
   niveauEtage: string;
+  alertNomTrue: boolean =false;
+  alertNomFalse: boolean =false;
+  messageerror: string;
 
-  constructor(private salleService:SalleServiceService,private entiteService:EntiteService,private typeActiviteService:TypeActiviteService,private userService:UtilisateurService) { }
+  constructor(private router: Router,private salleService:SalleServiceService,private entiteService:EntiteService,private typeActiviteService:TypeActiviteService,private userService:UtilisateurService) { }
 
   ngOnInit() {
 
@@ -50,19 +55,62 @@ export class CreerSallePage implements OnInit {
       this.niveauEtage = "Rez-de-chaussée"
     }
     else if(this.niveau == 1){
-      this.niveauEtage = this.niveau + "er étage"
+      this.niveauEtage = this.niveau + "ère étage"
     }else{
       this.niveauEtage = this.niveau + "ème étage"
     }
-    
-    this.salleService.ajoutSalle(this.Utilisateur.login,this.Utilisateur.password,this.nom,this.description,this.niveauEtage,this.nombrePlace,this.Utilisateur).subscribe(retour=>{
+
+    if (this.nom == null) {
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="Le champ nom vide!!"
+    }else if(this.nombrePlace == null){
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="Le champ nombre place est vide!!"
+    }else if(this.niveau == null){
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="Le champ niveau est vide!!"
+    }
+    else{
+      this.salleService.ajoutSalle(this.Utilisateur.login,this.Utilisateur.password,this.nom,this.description,this.niveauEtage,this.nombrePlace,this.Utilisateur).subscribe(retour=>{
       console.log(retour)
+
       if(retour.message == 'ok'){
         this.alertTrue = true
         this.alertFalse = false
+        this.popUp();
       }else{
         this.alertTrue = false
         this.alertFalse = true
+      }
+
+    })
+    // this.alertNomTrue=false
+    // this.alertNomFalse=true
+    }
+
+
+
+  }
+
+  popUp() {
+    Swal.fire({
+      title: 'Félicitation !!',
+      text: 'Salle créée avec succes',
+      heightAuto: false,
+      showConfirmButton: true,
+      confirmButtonText: "OK",
+      confirmButtonColor: '#FF7900',
+      showDenyButton: false,
+      showCancelButton: false,
+      allowOutsideClick: false
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.router.navigateByUrl('/dashboard/salle', {skipLocationChange: true}).then(() => {
+          this.router.navigate(["/dashboard/salle"])
+        })
       }
     })
 

@@ -22,11 +22,11 @@ export class ImporterListeparticipantPage implements OnInit {
    id:any
    //nom de lectivité
    nom:any
-  constructor( private liste:ActiviteService, private chemin: Router, private importation: ListeparticipantService,private nav:NavController,private route:ActivatedRoute) { }
-  NoImporte(){
+  constructor( private liste:ActiviteService, private router: Router, private importation: ListeparticipantService,private nav:NavController,private route:ActivatedRoute) { }
+  NoImporte(string){
     Swal.fire({
       position:'center',
-      title: 'Cette liste existe dejà',
+      title: string,
       heightAuto: false,
   });
   }
@@ -37,17 +37,20 @@ export class ImporterListeparticipantPage implements OnInit {
         position:'center',
         title: 'Liste importée avec succès !\nVoulez-vous voir la liste :',
         //showDenyButton: true,
-        showCancelButton: true,
-        confirmButtonText: 'Oui',
+        // showCancelButton: true,
+        confirmButtonText: 'OK',
         //denyButtonText: `Faire tirage`,
         //denyButtonColor:'green',
-        cancelButtonText: 'Non',
-        cancelButtonColor:'#FF7900',
+        // cancelButtonText: 'Non',
+        // cancelButtonColor:'#FF7900',
         heightAuto: false,
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-         this.nav.navigateRoot('detailactivite,idactivite')
+          this.router.navigateByUrl('/dashboard/detailactivite', {skipLocationChange: true}).then(() => {
+            this.router.navigate(["/dashboard/detailactivite",this.id])
+          })
+
         } else if (result.isDenied) {
           this.nav.navigateRoot('importer-listeparticipant')
         }
@@ -70,9 +73,11 @@ export class ImporterListeparticipantPage implements OnInit {
       console.log(this.listeactivite)
       this.nom=this.listeactivite.nom
     })
-
   }
+
+
   importAouP(){
+    
     var idact=0;
     for(let i = 0; i < this.listeactivite.length; i++) {
       if(this.listeactivite[i].nom == this.idactivite) {
@@ -83,18 +88,24 @@ export class ImporterListeparticipantPage implements OnInit {
     }
     console.log(this.id)
 
-    this.importation.ImporterlisteParticipant(this.Utilisateur.login, this.Utilisateur.password, this.file, this.libelleliste ,this.id).subscribe(chemin=>{
+    if(this.file==null){
+      this.NoImporte("Veuillez selectionner un fichier !");
 
-      this.importerliste= chemin.data;
-      console.log(this.importerliste)
-      if(chemin.message=="ok"){
-        this.succesImport();
-      }
-      else{
-        this.NoImporte();
-      }
+    }else{
+      this.importation.ImporterlisteParticipant(this.Utilisateur.login, this.Utilisateur.password, this.file, this.libelleliste ,this.id).subscribe(chemin=>{
 
-    })
+        this.importerliste= chemin.data;
+        console.log(this.importerliste)
+        if(chemin.message=="ok"){
+          this.succesImport();
+        }
+        else{
+          this.NoImporte("Erreur du serveur !");
+        }
+  
+      })
+  
+    }
   }
   televerser(event:any) {
     this.file = event.target["files"][0];

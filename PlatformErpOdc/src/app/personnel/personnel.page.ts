@@ -31,7 +31,7 @@ export class PersonnelPage implements OnInit {
   longueur: any;
   Entites: any;
   textFiltre0: any;
-  textFiltre: any;
+  textFiltre: any="--Filtrer par Status--";
   intervenant: any;
 
   constructor(private userService:UtilisateurService,private entiteService:EntiteService,private router: Router, private route:ActivatedRoute) { }

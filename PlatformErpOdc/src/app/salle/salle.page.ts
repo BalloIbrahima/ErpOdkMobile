@@ -90,4 +90,8 @@ export class SallePage implements OnInit {
     });
  
   }
+
+  ionViewWillEnter(){
+    this.callSalle();
+  }
 }

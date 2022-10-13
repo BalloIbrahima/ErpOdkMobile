@@ -39,6 +39,10 @@ export class DetailactivityPage implements OnInit {
   nombreLingne1 = 8;
   salleid: any;
   delpost: any;
+  nomCreateur: any;
+  prenomCreateur: any;
+  formateursExter: any;
+  formateursInter: any;
 
 //act a venir rediriger vers son detail()id
   constructor(private activiteservice:ActiviteService,private navv:NavController, private route:ActivatedRoute, private router:Router) { }
@@ -61,14 +65,20 @@ export class DetailactivityPage implements OnInit {
       this.description = this.activite.description
       if (this.activite.salle != null) {
         this.salles = this.activite.salle.libelle
+        this.salleid = this.activite.salle.id
+
       }
       this.leadnom = this.activite.leader.nom
       this.leadprenom = this.activite.leader.prenom
       this.image = this.activite.image
       this.dateDebut = this.activite.dateDebut
       this.dateFin = this.activite.dateFin
-      this.salleid = this.activite.salle.id
-      console.log(this.salleid)
+      this.nomCreateur=this.activite.createur.nom
+      this.prenomCreateur=this.activite.createur.prenom
+      this.formateursExter=this.activite.intervenantExternes
+      this.formateursInter=this.activite.utilisateurs
+
+      console.log(this.activite.createur.nom)
     })
 
     this.activiteservice.GetActiviteStatut(this.Utilisateur.login, this.Utilisateur.password, idactivite).subscribe(r => {
@@ -231,6 +241,53 @@ export class DetailactivityPage implements OnInit {
   }
 
 
+  ionViewWillEnter(){
+    const idactivite = this.route.snapshot.params['id']
+    this.id = idactivite
+    this.Utilisateur = JSON.parse(localStorage.getItem('utilisateur'))
+    this.idact = idactivite
+    console.log("recuperation de l'utilisateur " + this.Utilisateur)
+    this.activiteservice.getactivitybyId(this.Utilisateur.login, this.Utilisateur.password, idactivite).subscribe(r => {
+      this.activite = r.data;
+      console.log(this.activite)
+      this.nom = this.activite.nom
+      this.description = this.activite.description
+      if (this.activite.salle != null) {
+        this.salles = this.activite.salle.libelle
+        this.salleid = this.activite.salle.id
+
+      }
+      this.leadnom = this.activite.leader.nom
+      this.leadprenom = this.activite.leader.prenom
+      this.image = this.activite.image
+      this.dateDebut = this.activite.dateDebut
+      this.dateFin = this.activite.dateFin
+
+      this.nomCreateur=this.activite.createur.nom
+      this.prenomCreateur=this.activite.createur.prenom
+      console.log(this.activite.createur.nom)
+    })
+
+    this.activiteservice.GetActiviteStatut(this.Utilisateur.login, this.Utilisateur.password, idactivite).subscribe(r => {
+      console.log(r)
+      this.Status = r.message;
+      console.log(this.Status)
+    })
+
+    this.activiteservice.getallpostulantsbyidact(this.Utilisateur.login, this.Utilisateur.password, idactivite).subscribe(r => {
+      console.log(r)
+      this.postulants = r.data;
+      this.nombreLingne = this.postulants.length
+      console.log(this.postulants)
+
+    })
+
+    this.activiteservice.getactivitybyId(this.Utilisateur.login, this.Utilisateur.password, idactivite).subscribe(r => {
+      console.log(r)
+      this.byentity = r.message;
+      console.log(this.byentity)
+    })
+  }
 
 
   //en attente back

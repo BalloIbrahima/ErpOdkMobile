@@ -18,7 +18,7 @@ $card-height-mobile: 12rem;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Open Sans";
+  font-family: myfon2;
 }
 
 body {
@@ -231,7 +231,8 @@ body {
  }
  .card-body{
      text-align: center;
-     box-shadow: 0px 15px 15px -8px rgba(0,0,0,0.5)
+     box-shadow: 0px 15px 15px -8px rgba(0,0,0,0.5);
+     font-family: myfon2 !important;
  }
  .card-body h6 {
  font-size: 14px;

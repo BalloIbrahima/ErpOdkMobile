@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { EntiteService } from '../services/entite/entite.service';
 import { SalleServiceService } from '../services/salles/salle-service.service';
 import { TypeActiviteService } from '../services/typeActivite/type-activite.service';
@@ -30,7 +32,7 @@ export class CreerSallePage implements OnInit {
   alertNomFalse: boolean =false;
   messageerror: string;
 
-  constructor(private salleService:SalleServiceService,private entiteService:EntiteService,private typeActiviteService:TypeActiviteService,private userService:UtilisateurService) { }
+  constructor(private router: Router,private salleService:SalleServiceService,private entiteService:EntiteService,private typeActiviteService:TypeActiviteService,private userService:UtilisateurService) { }
 
   ngOnInit() {
 
@@ -78,6 +80,7 @@ export class CreerSallePage implements OnInit {
       if(retour.message == 'ok'){
         this.alertTrue = true
         this.alertFalse = false
+        this.popUp();
       }else{
         this.alertTrue = false
         this.alertFalse = true
@@ -89,6 +92,27 @@ export class CreerSallePage implements OnInit {
     }
 
 
+
+  }
+
+  popUp() {
+    Swal.fire({
+      title: 'Félicitation !!',
+      text: 'Salle créée avec succes',
+      heightAuto: false,
+      showConfirmButton: true,
+      confirmButtonText: "OK",
+      confirmButtonColor: '#FF7900',
+      showDenyButton: false,
+      showCancelButton: false,
+      allowOutsideClick: false
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.router.navigateByUrl('/dashboard/salle', {skipLocationChange: true}).then(() => {
+          this.router.navigate(["/dashboard/salle"])
+        })
+      }
+    })
 
   }
 

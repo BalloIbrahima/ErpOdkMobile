@@ -109,7 +109,7 @@
 
                     <div class="col salles" style="background-color: #D9D9D9;">
 
-                        <div *ngIf="sallesIndispoLength==0">Aucune salle indisponible</div>
+                        <div *ngIf="sallesIndispoLength==0">Aucune salle Occupée</div>
 
 
                         <div  class="col chaquesalle" *ngFor="let salle of sallesIndispo">
@@ -129,7 +129,7 @@
                                         width: 50%;">
                                     <div class="col">
 
-                                        <button type="button" class="btn btn-outline-dark" >Lier Activité</button>
+                                        <button type="button" class="btn btn-outline-dark" disabled >Lier Activité</button>
 
                                     </div>
                                     <div class="row icondiv" style=" margin-top: 10px;">

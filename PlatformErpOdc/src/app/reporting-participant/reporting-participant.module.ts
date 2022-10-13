@@ -8,6 +8,7 @@ import { ReportingParticipantPageRoutingModule } from './reporting-participant-r
 
 import { ReportingParticipantPage } from './reporting-participant.page';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ClocheComponent } from '../cloche/cloche.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ReportingParticipantPageRoutingModule,
     NgxPaginationModule
   ],
-  declarations: [ReportingParticipantPage]
+  declarations: [ReportingParticipantPage, ClocheComponent]
 })
 export class ReportingParticipantPageModule {}

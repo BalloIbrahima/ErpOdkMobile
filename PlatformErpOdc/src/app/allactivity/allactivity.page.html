@@ -14,7 +14,7 @@
 <div class="row">
   <div class="col-lg-6 col-12">
     <div class="d-grid gap-2 m-2 d-md-flex justify-content-md-start">
-      <select class="form-select  form-select-md larger" aria-label=".form-select-sm example" (change)="filtrebyentity()" [(ngModel)]="filtreEntity" >
+      <!-- <select class="form-select  form-select-md larger" aria-label=".form-select-sm example" (change)="filtrebyentity()" [(ngModel)]="filtreEntity" >
         <option>
           <ion-icon name="funnel-outline" slot="start"></ion-icon>Filtrer par Entité
         </option>
@@ -22,7 +22,7 @@
           <ion-icon name="funnel-outline" ></ion-icon>Tout afficher
         </option>
         <option *ngFor="let entite of allentity" >{{entite.libelleentite}}</option>
-      </select>
+      </select> -->
 
       <select class="form-select form-select-md larger" aria-label=".form-select-sm example" (change)="activitesavenir()" [(ngModel)]="textFiltre" name="textFiltre">
         <option >

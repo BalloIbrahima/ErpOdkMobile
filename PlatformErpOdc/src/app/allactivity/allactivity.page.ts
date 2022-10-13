@@ -21,7 +21,7 @@ export class AllactivityPage implements OnInit {
   actevenir:any
   actterminer:any
 
-  filtreEntity:any;
+  filtreEntity:any="Filtrer par Entité";
   textFiltre:any="Filtrer par Status";
   textFiltre0:any
   constructor(private route:ActivatedRoute,private router: Router,private entiteService:EntiteService,private service:ActiviteService) { }

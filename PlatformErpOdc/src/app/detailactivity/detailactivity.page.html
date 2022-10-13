@@ -3,6 +3,9 @@
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
       <ion-title>Detail activités</ion-title>
       <ion-button slot="end" fill="clear">
         <app-cloche></app-cloche>
@@ -22,7 +25,7 @@
         <div class="col-lg-6 col-12 colonne">
             <div  class="item-native my-3">
                 <ion-label class="titre m-3">Créer par</ion-label>
-                <ion-label class="contenu">{{Utilisateur.nom}} {{Utilisateur.prenom}}</ion-label>
+                <ion-label class="contenu">{{nomCreateur}} {{prenomCreateur}}</ion-label>
             </div>
             <div class="item-native my-3" >
                 <ion-label class="titre m-3">Titre</ion-label>
@@ -54,6 +57,15 @@
             <ion-label class="contenu">{{dateFin | date: 'dd MMMM yyyy à hh:mm'}}</ion-label>
         </div>
         <div class="item-native my-3">
+          <ion-label class="titre m-3">Formateurs Internes</ion-label>
+          <ion-label class="contenu" *ngFor="let form of formateursInter">{{form.nom}} {{form.prenom}}</ion-label>
+      </div>
+
+      <div class="item-native my-3">
+        <ion-label class="titre m-3">Formateurs Externes</ion-label>
+        <ion-label class="contenu" *ngFor="let form of formateursExter">{{form.nom}} {{form.prenom}}</ion-label>
+    </div>
+        <div class="item-native my-3">
           <ion-label class="titre m-3">Description</ion-label>
           <ion-label class="contenu">{{description}}</ion-label>
       </div>
@@ -70,7 +82,7 @@
                 <button class="btn buttonColor largerButton" type="button" [routerLink]="['/dashboard/ajoutparticipant',idact]" >+ &nbsp; Ajouter participant</button>
                 <button class="btn buttonColor largerButton" type="button" [routerLink]="['/dashboard/tachedesignation',idact]"> Tâche</button>
                 <button class="btn buttonColor largerButton" type="button"  (click)="succesImport()"> Supprimer</button>
-                <button class="btn buttonColor largerButton" type="button"  [routerLink]="['/dashboard/editactivity',idact]" > Editer</button>
+                <!-- <button class="btn buttonColor largerButton" type="button"  [routerLink]="['/dashboard/editactivity',idact]" > Editer</button> -->
 
             </div>
             </div>

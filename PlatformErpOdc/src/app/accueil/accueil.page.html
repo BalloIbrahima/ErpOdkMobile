@@ -173,7 +173,7 @@
                 
 
 
-                <div *ngIf="i<3" class="carousel-caption d-none d-md-block">
+                <div *ngIf="i<3" class="carousel-caption d-none d-md-block" [routerLink]="['/dashboard/detailactivite',activiteEncour.id]">
                     <h5 class="nom_activite">{{activiteEncour.nom}}</h5>
                     <span class="encours_ticket">{{activiteEncour.dateDebut | date }}</span> 
                     <span  *ngIf="activiteEncour.salle!=null" class="encours_ticket"> -- {{activiteEncour.salle.libelle}}</span><br>
@@ -257,7 +257,7 @@
      
                    <br>
                    <span class="Date">
-                    {{activiteAveni.date_debut  | date}}
+                    {{activiteAveni.dateDebut  | date}}
                    </span>
      
                      <br>

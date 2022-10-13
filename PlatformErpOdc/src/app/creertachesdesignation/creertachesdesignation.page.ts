@@ -150,9 +150,7 @@ export class CreertachesdesignationPage implements OnInit {
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-          this.router.navigateByUrl('/dashboard/creertachesdesignation', {skipLocationChange: true}).then(() => {
-            this.router.navigate(["/dashboard/creertachesdesignation",this.idActivites])
-          })
+         this.ionViewWillEnter()
 
         } 
       });
@@ -351,5 +349,65 @@ export class CreertachesdesignationPage implements OnInit {
 
  
 
+  ionViewWillEnter(){
+
+    //::::::::::::::recuperation de l'id de l'activité :::::::::::::::::::::::::::::::
+
+    this.idActivites = this.route.snapshot.params['id'];
+    //::::::::::::::fin de recuperation :::::::::::::::::::::::::::::::
+
+    //::::::::::::::recuperation du User qui se trouve dans le LocalStorage :::::::::::::::::::::::::::::::
+
+    this.Utilisateur = JSON.parse(localStorage.getItem('utilisateur'));
+
+    this.salleService.getSalleDisponible(this.Utilisateur.login, this.Utilisateur.password).subscribe(data => {
+      this.sallesDipo = data.data;
+      this.sallesDipoLength = data.data.length
+      console.log(data.data)
+    });
+
+
+    this.entiteService.getAllEntites(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour => {
+      this.Entites = retour.data
+      console.log(this.Entites)
+    });
+
+
+
+
+    this.tachedesign.getAlldesignation(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour => {
+      this.designations = retour.data
+      console.log(this.designations)
+    })
+
+
+
+
+    //::::::::::::::::::::::::::::: getactivitybyId:::::::::::::::::::::::::::::::::::::::::::::::
+    this.activiteService.getactivitybyId(this.Utilisateur.login, this.Utilisateur.password, this.idActivites).subscribe(retour => {
+      this.idActivites
+      this.ActiviteCourant = retour.data
+      console.log(this.ActiviteCourant)
+      this.idRecuperer = this.ActiviteCourant.id;
+
+    })
+
+    this.statut.getStatut(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour => {
+      this.Allstatut = retour.data
+      console.log(this.Allstatut)
+    })
+
+
+    this.activiteService.getpersonnelsexternes(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour => {
+      this.personEx = retour.data
+      console.log(retour)
+    })
+    //:::::::::::::::::::: get all User ::::::::::::::::::::::::::::::::::::::
+
+    this.user.getAllUsers(this.Utilisateur.login, this.Utilisateur.password).subscribe(retour => {
+      this.personIn = retour.data
+      console.log(this.personIn)
+    });
+  }
 
 }

@@ -67,12 +67,14 @@
                         <label id="nbrTirageListe" *ngIf="l.tirages.length==0">{{l.tirages.length}} tirage</label>
                         <label id="nbrTirageListe"  *ngIf="l.tirages.length>1" >{{l.tirages.length}} tirages</label>
                     </div>
+
                 </div>
-                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                
 
                 
             </div>
-           
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
         </div>
 
         <div class="right">

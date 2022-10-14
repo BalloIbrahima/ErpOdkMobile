@@ -4,6 +4,7 @@ import { ActiviteService } from '../services/activite/activite.service';
 import { EntiteService } from '../services/entite/entite.service';
 // telecharger fichier excel
 import * as XLSX from 'xlsx';
+import { TypeActiviteService } from '../services/typeActivite/type-activite.service';
 
 @Component({
 
@@ -22,7 +23,8 @@ export class ReportingPage implements OnInit {
   entiteselect : any;
   datedebut : Date;
   datefin : Date;
-  constructor(private serviceactivite : ActiviteService, private serviceentite : EntiteService, private modalController : ModalController) { }
+  listetp: any;
+  constructor(private serviceactivite : ActiviteService, private serviceentite : EntiteService, private modalController : ModalController, private typeact : TypeActiviteService) { }
 
   ngOnInit() {
     this.utilisateur = JSON.parse(localStorage.getItem('utilisateur'))
@@ -36,6 +38,11 @@ export class ReportingPage implements OnInit {
       reponse => {
         this.entites = reponse.data
         console.log(this.entites)
+      }
+    )
+    this.typeact.getListe(this.utilisateur.login, this.utilisateur.password).subscribe(
+      reponse => {
+        this.listetp = reponse.data;
       }
     )
   }

@@ -50,7 +50,7 @@ export class ForgotpasswordPage implements OnInit {
     }
   }else{
       this.error=true;
-      this.erreur="Les deux mots de passe  sont différent"
+      this.erreur="Mots de passe différents !"
     }
 
   }
@@ -58,8 +58,8 @@ export class ForgotpasswordPage implements OnInit {
 
   async presentAlert() {
     Swal.fire({
-      title:'Mots de passe changé !',
-      text:'Votre mots de passe a été changé avec succes !',
+      title:'Mot de passe changé !',
+      text:'Votre mot de passe a été changé avec succès !',
       icon:'success',
       heightAuto: false,
       confirmButtonColor:"#FF7900"

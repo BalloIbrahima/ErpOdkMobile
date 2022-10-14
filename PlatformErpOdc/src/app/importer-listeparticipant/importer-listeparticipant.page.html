@@ -3,6 +3,9 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>Importer liste participant</ion-title>
     <ion-button slot="end" fill="clear">
       <app-cloche></app-cloche>
@@ -53,16 +56,15 @@
         </div>
 
 
-
+<!-- 
         <div class="input mb-3">
           <label for="inputs" class="form-label">Activité *</label>
           <select name="" id="select" class="col" [(ngModel)]="idactivite" [ngModelOptions]="{standalone : true}">
-            <option value="">Choisissez une activité</option>
             <option >{{nom}}</option>
 
-            <!-- <option *ngFor="let lact of listeactivite" >{{lact.nom}}</option> -->
+            - <option *ngFor="let lact of listeactivite" >{{lact.nom}}</option> --
           </select>
-        </div>
+        </div> -->
 
 
 

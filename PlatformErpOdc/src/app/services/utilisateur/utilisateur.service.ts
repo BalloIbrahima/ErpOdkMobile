@@ -177,6 +177,7 @@ export class UtilisateurService {
 
   //methode qui retourne l'ensemble des utilisateurs
   getAllUsers(login :String, password:String):Observable<any>{
+
     const data:FormData=new FormData();
     const user=[{"login":login,"password":password}]
     data.append('user', JSON.stringify(user).slice(1,JSON.stringify(user).lastIndexOf(']')));

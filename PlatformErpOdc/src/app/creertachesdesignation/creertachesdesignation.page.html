@@ -3,6 +3,9 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>Creer tâche</ion-title>
     <ion-button slot="end" fill="clear">
       <app-cloche></app-cloche>
@@ -60,14 +63,21 @@
   
             <div class="col- col-sm- col-md-6 col-lg-6 col-xl-6" >
    
-
+              <div class="alert alert-success" role="alert" *ngIf="alertTrue">
+                <i class="fa fa-check-circle-o" aria-hidden="true" style="color: green;"></i>  Tâche créée avec succès.
+      
+              </div>
+      
+              <div class="alert alert-danger" role="alert" *ngIf="alertNomTrue">
+                <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>{{messageerror}}
+              </div>
               <div class="input mb-3">
                                 
                 <label for="inputs" class="form-label">Nom (Désignation) *</label>
                     <select id="inputs" [(ngModel)]="libelleDesignation"    name=" designations" class="form-select" aria-label="Default select exemple" name="entiteNom"  required>
                   
-                        <option selected>Choisisez une entité</option>
-                         <option *ngFor="let desi of designations">{{desi.libelle}}</option>
+                        <option selected>Choisisez une designation</option>
+                        <option *ngFor="let desi of designations">{{desi.libelle}}</option>
                         
                     </select>
             </div> 
@@ -90,9 +100,9 @@
               <div class="input mb-3">
                                 
                 <label for="inputs" class="form-label">Statut *</label>
-                    <select id="inputs" [(ngModel)]="libelleStatut"  name=" statuts" class="form-select" aria-label="Default select exemple" name="entiteNom"  required>
+                    <select id="inputs" [(ngModel)]="libelleStatut"  name=" statuts" class="form-select" aria-label="Default select exemple" name="libelleStatut"  required>
                     
-                        <option selected>Choisisez une entité</option>
+                        <option selected>Etat de la tache </option>
                     
                          <option *ngFor="let statut of Allstatut">{{statut.libelle}}</option> -->
 
@@ -116,10 +126,10 @@
            <div class="input mb-3">
                                 
             <label for="inputs" class="form-label">Réalisateur *</label>
-                <select id="inputs"   class="form-select" aria-label="Default select exemple" name="entiteNom"  required>
+                <select id="inputs"   class="form-select" aria-label="Default select exemple" [(ngModel)]="realisateurs" name="entiteNom"  required>
                     <option selected>Choisisez un réalisateur</option>
                      <option *ngFor="let pex of personEx" >{{pex.nom}} {{pex.prenom}}</option>
-                     <option *ngFor="let pin of personEx" >{{pin.nom}} {{pin.prenom}}</option>
+                     <option *ngFor="let pin of personIn" >{{pin.nom}} {{pin.prenom}}</option>
                     <option></option>
                 </select>
           </div>  
@@ -131,7 +141,7 @@
                 <ion-item>
                   <ion-select placeholder="Selectionner les formateurs" [multiple]="true" [(ngModel)]="Commissions" name="Commissions">
                     <ion-select-option *ngFor="let pex of personEx" >{{pex.nom}} {{pex.prenom}}</ion-select-option>
-                    <ion-select-option *ngFor="let pin of personEx" >{{pin.nom}} {{pin.prenom}}</ion-select-option>
+                    <ion-select-option *ngFor="let pin of personIn" >{{pin.nom}} {{pin.prenom}}</ion-select-option>
                     <!-- <ion-select-option *ngFor="let u of utilisateurs">{{u.nom}} {{u.prenom}}</ion-select-option> -->
 
                    </ion-select>
@@ -196,29 +206,43 @@
             ERREUR LORS DE CREATION DE L'ENTITE
           </div> -->
 
+          <!-- <div class="alert alert-danger" role="alert" *ngIf="alertFalse">
+            <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>  Impossible de créer une désignation.
+          </div>
 
-          <form>
+          <div class="alert alert-success" role="alert" *ngIf="alertTrue">
+            <i class="fa fa-check-circle-o" aria-hidden="true" style="color: green;"></i>  Désignation créée avec succès.
+            
+          </div> -->
+
+
+          <form #f="ngForm" class="formulaire">
+
+
+         
 
 
             <div class="input mb-3">
-              <label for="inputs" class="form-label">Statut *</label>
-              <input id="inputs" name="niveau" type="text"  class="form-control" id="inputs" min="0" max="4" ngModel required>
+              <label for="inputs" class="form-label">Libelle *</label>
+              <input id="inputs" name="libelle" [(ngModel)]="libelleDesignation" type="text"  class="form-control" autocomplete="off" id="inputs" min="0" max="4" ngModel required>
             </div>
 
-            
+<!--             
                     <div class="input mb-3">
                                 
                     <label for="inputs" class="form-label">Lieu *</label>
-                        <select id="inputs"   class="form-select" aria-label="Default select exemple" name="entiteNom"  required>
+                        <select id="inputs"  [(ngModel)]="lieu" class="form-select" aria-label="Default select exemple" name="entiteNom" ngModel required>
                             <option selected>Choisisez un lieu</option>
                             <option *ngFor="let lieu of sallesDipo ">  {{lieu.libelle}} </option>
                         </select>
-                </div>
+                </div> -->
 
 
             <div class="d-grid gap-2 col-6 text-center mx-auto mt-2">
-              <button type="button" class="btn colorbutton2 btn-sm" id="open-modal1"
-                >Enregistrer</button>
+              <button type="button" class="btn colorbutton2 btn-sm btndesi" id="open-modal1" 
+              [disabled]="f.form.invalid" (click)="creerDesignation()">
+                Enregistrer
+              </button>
             </div>
           </form>
         </div>

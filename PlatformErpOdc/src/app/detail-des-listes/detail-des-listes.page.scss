@@ -5,6 +5,8 @@
     height: 650px;
     
 }
+.pagination ::ng-deep .ngx-pagination .current {
+    background-color: #000; }
 
 .left{
     border-radius: 15px;
@@ -35,6 +37,7 @@
     display: grid;
     grid-template-columns: 30% 65%;
     background-color: #D9D9D9;
+    
 }
 .InputSearch >svg{
     display: flex;
@@ -73,19 +76,24 @@
 .right{
     border-radius: 15px;
     background-color: white;
-    padding: 2%;
+    padding: 1%;
     grid-template-rows: 32% 32% 32%;
-    row-gap: 2%;
+    row-gap: 1%;
     display: grid;
 }
-
+.auccunT{
+    text-align: center;
+    font-size: x-large;
+    margin-top: 10%;
+    color: #FF7900;
+  }
 .nbrTirage{
     width: 170px;
     height: 170px;
     border-radius: 50%;
     background: rgba(0, 128, 0, 0);
     margin: auto;
-    border:  #A885D8 15px solid;
+    border:  #A885D8 13px solid;
 }
 
 
@@ -95,7 +103,7 @@
     border-radius: 50%;
     background: rgba(0, 128, 0, 0);
     margin: auto;
-    border: #50BE87 15px solid;
+    border: #50BE87 13px solid;
 }
 
 .nbrTirageValide{
@@ -104,7 +112,7 @@
     border-radius: 50%;
     background: rgba(0, 128, 0, 0);
     margin: auto;
-    border: #FFD200 15px solid;
+    border: #FFD200 13px solid;
    
 }
 
@@ -184,10 +192,10 @@
     
     .menuResponsive{
         display: flex;
-    right: 0px;
-    justify-content: center;
-    text-align: center;
-    margin-top: 10px;
+        right: 0px;
+        justify-content: center;
+        text-align: center;
+        margin-top: 10px;
 
     }
     .InputSearch {
@@ -201,6 +209,8 @@
         display: grid;
         grid-template-columns: 30% 65%;
     }
+
+   
 
     .right{
         display: none ;
@@ -257,7 +267,7 @@
         column-gap: 2%;
         row-gap: 14px;
     }
-
+  
     .InputSearch > input{
         font-size: 10px;
     }
@@ -295,3 +305,17 @@
     border: 1px solid #FF7900 !important;
     color: #FF7900 !important;
   }
+
+
+.pagination ::ng-deep .ngx-pagination .current {
+    background-color: #000; 
+}
+
+ .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 4%;
+    // margin-left: 31%;
+ }
+      
+    

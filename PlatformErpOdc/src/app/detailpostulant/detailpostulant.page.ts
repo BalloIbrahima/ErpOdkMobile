@@ -123,8 +123,6 @@ export class DetailpostulantPage implements OnInit {
         this.image = this.users.image
         this.nomEntite = this.users.monEntite.libelleentite
         this.statusUser = this.users.role.libellerole
-        this.contact = this.users.contact
-        this.lieunaissance = this.users.lieunaissance
       })
     }
     

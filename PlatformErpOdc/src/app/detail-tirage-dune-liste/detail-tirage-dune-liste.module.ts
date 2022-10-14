@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-  
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 import { IonicModule } from '@ionic/angular';
 
 import { DetailTirageDuneListePageRoutingModule } from './detail-tirage-dune-liste-routing.module';
@@ -17,6 +18,7 @@ import { ClocheComponent } from '../cloche/cloche.component';
     IonicModule,
     DetailTirageDuneListePageRoutingModule,
     NgxPaginationModule,
+    Ng2SearchPipeModule
   ],
   declarations: [DetailTirageDuneListePage, ClocheComponent]
 })

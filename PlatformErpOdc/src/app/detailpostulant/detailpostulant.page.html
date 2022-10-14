@@ -3,6 +3,9 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>Detail personnels</ion-title>
     <ion-button slot="end" fill="clear">
       <app-cloche></app-cloche>
@@ -183,7 +186,7 @@
                 </select> -->
             </div>
 
-            <!-- <div class="input-box">
+            <div class="input-box">
               <span class="details">Lieu de nanissance *</span>
               <select name="lieunaissance" class="form-control" [(ngModel)]="lieunaissance" class="select" required>
                 <option selected>Bamako</option>
@@ -197,16 +200,16 @@
                 <option >Kidal</option>
                   <option >Tadoudeni</option>
                 <option >Menaca</option>
-                <option *ngFor="let entite of Entites" >{{entite.libelleentite}}</option> 
+                <!-- <option *ngFor="let entite of Entites" >{{entite.libelleentite}}</option> -->
                 
               </select>
-          </div> -->
+          </div>
     
-          <!-- <div class="input-box">
+          <div class="input-box">
             <span class="details" for="phone">Numéro de telephone *</span>
             <input type="tel"  id="phone" name="contact"  [(ngModel)]="contact" [value]="contact" placeholder="70000000" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" required>
     
-          </div> -->
+          </div>
 
             <div class="input-box">
               <span class="details">Rôle *</span>

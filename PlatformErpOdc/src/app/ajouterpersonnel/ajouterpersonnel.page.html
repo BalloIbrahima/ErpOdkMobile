@@ -3,6 +3,9 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>Ajouter personnel Externe</ion-title>
     <ion-button slot="end" fill="clear">
       <app-cloche></app-cloche>
@@ -15,13 +18,14 @@
 <ion-content>
   <div class="container">    
     <form action="#" #f="ngForm"  autocomplete="off">
-      <a (click)="back()" id="back"> <p><i class="fa fa-hand-o-left" style="font-size:20px"></i> Retour</p></a> 
+      <!-- <a (click)="back()" id="back"> <p><i class="fa fa-hand-o-left" style="font-size:20px"></i> Retour</p></a>  -->
       <div class="box">
         <h1>Nouveau personnel externe</h1>
+        
             <div class="ajout">
                 <div class="input-box">
                     <span class="details">Nom *</span>
-                    <input type="text" class="form-control" placeholder="Nom du personnel"  [(ngModel)]="nom" name="nom" required>
+                    <input type="text" class="form-control" placeholder="Nom du personnel"  [(ngModel)]="nom" name="nom"  required>
                 </div>
                 <div class="input-box">
                   <span class="details">Email *</span>

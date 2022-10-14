@@ -259,3 +259,87 @@ caption{
   object-fit: cover;
   height: 200px;
 }
+
+.card {
+  background: #FFFFFF;
+  box-shadow: 0px 6px 4px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  margin-bottom: 10px !important;
+}
+
+
+.container {
+  font-family: myfon1 !important;
+  font-size: small !important;
+  font-weight: 800;
+  color: #FF7900;
+
+  h5 {
+    font-weight: bolder !important;
+    font-size: large !important;
+    margin-bottom: 15px !important;
+    color: black;
+  }
+}
+
+.card-body{
+  text-align: center;
+  box-shadow: 0px 15px 15px -8px rgba(0,0,0,0.5)
+}
+.card-body h6 {
+font-size: 14px;
+text-transform: uppercase;
+color: black;
+}
+.card-title {
+text-transform: uppercase;
+font-weight: bold;
+font-size: 24px;
+}
+.card-text{
+color: black;
+}
+
+.laragerColonne{
+height: 400px !important;
+}
+
+.socials a {
+width: 20%;
+height: 20%;
+display: inline-block;
+cursor: pointer;
+
+margin: 0 10px;
+}
+@media screen and (max-width: 450px) {
+
+.socials a {
+ width: 15%;
+ height: 15%;
+ 
+ }
+
+}
+.socials a i {
+color: #fff;
+padding: 12px 0;
+}    
+ion-modal {
+  --height: auto !important;
+  --border-radius: 15px;
+  --width: 30em;
+}
+
+.colorbutton2 {
+  background-color: rgba($color: #FF7900, $alpha: .85);
+  color: #ffff;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.colorbutton2:hover {
+  background-color: rgba($color: #ffff, $alpha: .85);
+  color: #FF7900 !important;
+  border: 1px solid #FF7900 !important;
+}

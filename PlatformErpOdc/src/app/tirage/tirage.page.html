@@ -3,6 +3,9 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>Effectuer tirage</ion-title>
     <ion-button slot="end" fill="clear">
       <app-cloche></app-cloche>
@@ -29,13 +32,13 @@
               <label for="inputs" class="form-label">Nom du tirage *</label>
               <input [(ngModel)]="libelletirage" name="libelletirage" id="inputs"  name="nomTirage" type="text"  class="form-control" id="inputs" required>
             </div>
-            <div class="input mb-3">
+            <!-- <div class="input mb-3">
               <label for="select" class="form-label">Activité *</label>
               <select  [(ngModel)]="idactivite" name="nomactivite" id="select" class="form-select" aria-label="Default select example">
                   <option selected >Choisisez une activité</option>
                   <option *ngFor="let type of nom" >{{type.nom}}</option>                                    
               </select>
-            </div>
+            </div> -->
             <div class="input mb-3">
               <label for="select" class="form-label">Liste à tirée *</label>
               <select  [(ngModel)]="libelleListe" name="libelleListe" id="select" class="form-select" aria-label="Default select example">

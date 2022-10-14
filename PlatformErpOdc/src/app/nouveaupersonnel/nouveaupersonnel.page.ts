@@ -108,7 +108,7 @@ export class NouveaupersonnelPage implements OnInit {
 
   alertSiTousLesChampSonBienRenseigner(){
     Swal.fire({
-      title: "Personnel créer avec succes",
+      title: "Personnel crée avec succès",
       showConfirmButton: true,
       confirmButtonText: "OK",
       confirmButtonColor: '#FF7900',

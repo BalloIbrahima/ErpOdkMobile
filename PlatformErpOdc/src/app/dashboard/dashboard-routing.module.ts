@@ -15,7 +15,7 @@ const routes: Routes = [
         pathMatch: 'full'
       },
 
-      
+
       {
         path: 'reporting-participant',
         loadChildren: () => import('../reporting-participant/reporting-participant.module').then( m => m.ReportingParticipantPageModule)
@@ -48,11 +48,16 @@ const routes: Routes = [
         path: 'ajout-entite',
         loadChildren: () => import('../ajout-entite/ajout-entite.module').then( m => m.AjoutEntitePageModule)
       },
-      
+
 
       {
         path: 'allactivity',
         loadChildren: () => import('../allactivity/allactivity.module').then( m => m.AllactivityPageModule)
+      },
+
+      {
+        path: 'activites',
+        loadChildren: () => import('../activites/activites.module').then( m => m.ActivitesPageModule)
       },
       {
         path: 'ajoutparticipant/:id',
@@ -67,6 +72,10 @@ const routes: Routes = [
       {
         path: 'detailactivite/:id',
         loadChildren: () => import('../detailactivity/detailactivity.module').then( m => m.DetailactivityPageModule)
+      },
+      {
+        path: 'liaisonsalle/:id',
+        loadChildren: () => import('../liaisonsalle/liaisonsalle.module').then( m => m.LiaisonsallePageModule)
       },
       {
         path: 'lier-salle-activity',
@@ -85,6 +94,10 @@ const routes: Routes = [
         loadChildren: () => import('../tachedesignation/tachedesignation.module').then( m => m.TachedesignationPageModule)
       },
 
+      {
+        path: 'tachedesignation',
+        loadChildren: () => import('../tachedesignation/tachedesignation.module').then( m => m.TachedesignationPageModule)
+      },
  
       {
         path: 'creertachesdesignation/:id',
@@ -94,7 +107,7 @@ const routes: Routes = [
         path: 'reporting',
         loadChildren: () => import('../reporting/reporting.module').then( m => m.ReportingPageModule)
       },
-      
+
     {
       path: 'personnel-externe',
       loadChildren: () => import('../personnelexterne/personnelexterne.module').then( m => m.PersonnelexternePageModule)
@@ -137,15 +150,15 @@ const routes: Routes = [
       loadChildren: () => import('../tirage/tirage.module').then( m => m.TiragePageModule)
     },
     {
-      path: 'detail-tirage',
+      path: 'detail-tirage/:idT',
       loadChildren: () => import('../detailtirage/detailtirage.module').then( m => m.DetailtiragePageModule)
     },
     {
-      path: 'detail-tirage-liste/:id',
+      path: 'detail-tirage-dune-liste/:id',
       loadChildren: () => import('../detail-tirage-dune-liste/detail-tirage-dune-liste.module').then( m => m.DetailTirageDuneListePageModule)
     },
     {
-      path: 'detail-liste',
+      path: 'detail-des-listes', 
       loadChildren: () => import('../detail-des-listes/detail-des-listes.module').then( m => m.DetailDesListesPageModule)
     },
     {
@@ -185,6 +198,11 @@ const routes: Routes = [
         path: 'profil',
       loadChildren: () => import('../profil/profil.module').then( m => m.ProfilPageModule)
     },
+
+    {
+      path: 'modifiertache/:id',
+      loadChildren: () => import('../modifiertache/modifiertache.module').then( m => m.ModifiertachePageModule)
+  },
 
 
 

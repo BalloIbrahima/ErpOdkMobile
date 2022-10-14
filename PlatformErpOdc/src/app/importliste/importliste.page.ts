@@ -17,7 +17,7 @@ export class ImportlistePage implements OnInit {
   idactivite:any;
   activiteselect: any;
   listeactivite : any;
-constructor(private serviceliste : ListeService, private route : Router){}
+constructor(private serviceliste : ListeService, private route : Router, private activiteService:ActiviteService){}
   succesImport() {
     Swal.fire({
        title: 'Liste importée avec succès !',
@@ -56,7 +56,7 @@ constructor(private serviceliste : ListeService, private route : Router){}
 
     this.Utilisateur=JSON.parse(localStorage.getItem('utilisateur')) ;
 
-    this.serviceliste.getAllactivite(this.Utilisateur.login, this.Utilisateur.password).subscribe(chemin=>{
+    this.activiteService.GetAllActiviteSansPartcipant(this.Utilisateur.login, this.Utilisateur.password).subscribe(chemin=>{
       this.listeactivite = chemin.data
       console.log(chemin.data)
     })
@@ -86,7 +86,7 @@ constructor(private serviceliste : ListeService, private route : Router){}
         
       },
       error: reponse => {
-        this.errorImport(reponse)
+        this.errorImport("Erreur lors de l'import !")
       }
     });
     

@@ -47,7 +47,11 @@ export class CreerActivitesPage implements OnInit {
 
   //  FormateursUsers:any;
   //  FormateursExters:any;
-
+  alertFalse:any
+  alertTrue:any
+  alertNomTrue:any
+  alertNomFalse:any
+  messageerror:any
   message:String;
   erreur:Boolean;
   fichier:any
@@ -72,6 +76,8 @@ export class CreerActivitesPage implements OnInit {
 
 
     this.typeActiviteService.getListe(this.Utilisateur.login,this.Utilisateur.password).subscribe(r=>{
+      console.log(r)
+
       if(r.message=='ok'){
         this.TypesActivites=r.data
         console.log(this.TypesActivites)
@@ -114,19 +120,48 @@ export class CreerActivitesPage implements OnInit {
 
   }
 
+  // async presentAlert() {
+  //   Swal.fire({
+  //     title:'Validé!!!',
+  //     text:'Activité créée avec Succès!!',
+  //     icon:'success',
+  //     heightAuto: false,
+  //     confirmButtonColor:"#FF7900"
+  // }).then((result) => {
+  //   if(result.isConfirmed){
+  //     this.router.navigateByUrl('/dashboard/allactivity', {skipLocationChange: true}).then(() =>{
+  //       this.router.navigate(["/allactivity"])
+  //     })
+
+  //   }
+  //   }
+
+  // }
   async presentAlert() {
-    Swal.fire({
-      title:'Validé!!!',
-      text:'Activité créée avec Succès!!',
-      icon:'success',
-      heightAuto: false,
-      confirmButtonColor:"#FF7900"
-  }).then(()=>{
-      this.router.navigateByUrl('/dashboard/allactivity', {skipLocationChange: true}).then(() => {
-      this.router.navigate(["/dashboard/allactivity"]);
-      });
-  });
   }
+  ajoutactivite(){
+    
+        Swal.fire({
+          title: "Activité créee avec Succès",
+          showConfirmButton: true,
+          confirmButtonText: "OK",
+          confirmButtonColor: 'green',
+          // showCancelButton: true,
+          // cancelButtonText: "Annuler",
+          // cancelButtonColor: 'red',
+          heightAuto: false
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.router.navigate(["/dashboard/allactivity"]);
+
+            // this.router.navigateByUrl('/dashboard/allactivity', {skipLocationChange: true}).then(() => {
+            //   this.router.navigate(["/allactivity"])
+            // })
+        }
+      });
+    }
+
+
   async notpresent() {
     Swal.fire({
       title:'Désolé!!!\nActivité non créée',
@@ -139,6 +174,8 @@ export class CreerActivitesPage implements OnInit {
 
   CreerActivite(){
 
+    this.alertNomTrue=false
+      this.alertNomFalse=false
     var idSalle=null;
     var idType=null;
     var identity=null;
@@ -151,38 +188,57 @@ export class CreerActivitesPage implements OnInit {
     console.log(this.FormateursExternes)
     console.log(this.FormateursInternes)
 
-    for(let i=0;i<this.FormateursInternes.length;i++){
-      const array=this.FormateursInternes[i].split(" ")
+    try {
+      for(let i=0;i<this.FormateursInternes.length;i++){
+        try {
+          const array=this.FormateursInternes[i].split(" ")
 
-      for(let j=0 ; j<this.PersonnelsActives.length; j++){
-
-        if(this.PersonnelsActives[j].nom==array[0] && this.PersonnelsActives[j].prenom==array[1]){
-          console.log(this.PersonnelsActives[j])
-
-          FormateursUsers.push(this.PersonnelsActives[j])
+          for(let j=0 ; j<this.PersonnelsActives.length; j++){
+    
+            if(this.PersonnelsActives[j].nom==array[0] && this.PersonnelsActives[j].prenom==array[1]){
+              console.log(this.PersonnelsActives[j])
+    
+              FormateursUsers.push(this.PersonnelsActives[j])
+            }
+          }
+        } catch (error) {
+          
         }
+        
+        
       }
+    } catch (error) {
       
     }
-
-    for(let i=0;i<this.FormateursExternes.length;i++){
-      const array=this.FormateursExternes[i].split(" ")
-
-      for(let j=0 ; j<this.externes.length; j++){
-        if(this.externes[j].nom==array[0] && this.externes[j].prenom==array[1]){
-          console.log(this.externes[j])
-          FormateursExters.push(this.externes[j])
+    
+    try {
+      for(let i=0;i<this.FormateursExternes.length;i++){
+        try {
+          const array=this.FormateursExternes[i].split(" ")
+  
+          for(let j=0 ; j<this.externes.length; j++){
+            if(this.externes[j].nom==array[0] && this.externes[j].prenom==array[1]){
+              console.log(this.externes[j])
+              FormateursExters.push(this.externes[j])
+            }
+          }
+        } catch (error) {
+          
         }
+        
+        
       }
+    } catch (error) {
       
     }
+    
 
 
     console.log(FormateursUsers)
     console.log(FormateursExters)
     //recuperation de l'id l'entite
     for(let i=0 ; i<this.Entites.length; i++){
-      if(this.Entites[i].libelleentite==this.typeactivite){
+      if(this.Entites[i].libelleentite==this.typeentite){
         identity=this.Entites[i]
       }
     }
@@ -213,13 +269,18 @@ export class CreerActivitesPage implements OnInit {
     //recuperation de l'id du lead
      for(let i=0 ; i<this.PersonnelsActives.length; i++){
       console.log(this.leadNomPrenom)
-      const array=this.leadNomPrenom.split(" ")
+        try {
+          const array=this.leadNomPrenom.split(" ")
 
-      if(this.PersonnelsActives[i].nom==array[0] && this.PersonnelsActives[i].prenom==array[1]){
-        this.lead=this.PersonnelsActives[i]
+        if(this.PersonnelsActives[i].nom==array[0] && this.PersonnelsActives[i].prenom==array[1]){
+          this.lead=this.PersonnelsActives[i]
+        }
+      } catch (error) {
+        
       }
+      
     }
-    
+
 
 
     //creation de l'activite il manque lentite concernée dans la bdd//affaire de salles dispo a ala creation de lactivite
@@ -237,46 +298,97 @@ export class CreerActivitesPage implements OnInit {
       "typeActivite":idType,
       "intervenantExternes":FormateursExters
     }]
+    if(this.typeentite == null || this.typeentite=="Choisisez une entité"){
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="  Veuillez definir une entité !"
+    }
+    else if(this.nomActivite == null) {
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="  Veuillez donner un titre a l'activité !"
+    }else if(this.typeactivite == null || this.typeActivite=="Choisir le type de  l'activité !"){
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="  Veuillez donner un type à l'activité !"
+    }
+    
+    else if(this.leadNomPrenom == null || this.leadNomPrenom=="Choisir un lead *"){
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="  Veuillez  definir un lead pour l'activité !"
+    }else if(this.datedebut==null || this.dateFin==null){
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="  Vous devez fournir les dates de debut et de fin !"
+    }
+    else if(this.image == null){
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="  Veuillez ajoutez une image !"
+    }else if(this.description == null){
+      this.alertNomTrue=true
+      this.alertNomFalse=false
+      this.messageerror="  Veuillez donner une description à l'activité !"
+    }else{
+      this.activiteService.Creer(this.Utilisateur.login,this.Utilisateur.password,this.fichier,activite).subscribe(data=>{
+        console.log(data)
+        if(data.message == 'ok'){
+          this.ajoutactivite();
+          // this.alertTrue = true
+          // this.alertFalse = false
+          //this.router.navigateByUrl('/dashboard/allactivity', {skipLocationChange: true}).then(() => {
+            //})
+            // ;
+            // setTimeout(()=>{
+            //   window.location.reload()
+            // },1000)
+
+            //this.navParams.get("parentPage").someFnToUpdateParent();
+
+            
+        }
+        else{
+          this.alertNomTrue=true
+          this.alertNomFalse=false
+          this.messageerror=data.data
+        }
+
+      })
 
 
-    this.activiteService.Creer(this.Utilisateur.login,this.Utilisateur.password,this.fichier,activite).subscribe(data=>{
-      console.log(data)
-      if(data.message="ok"){
-        this.presentAlert()
-      }
-    })
+
+
+    }
+
+
+
   }
 
+  //fichier selection
+  selectFile(e:any){
+    //verification si une photo a été choisie ou pas
+    if(!e.target.files[0] || e.target.files[0].length==0){
+      this.message="Vous devez choisir un fichier execel !";
+      this.erreur=true;
+      return;
+    }
 
-
-
-            //fichier selection
-            selectFile(e:any){
-              //verification si une photo a été choisie ou pas
-              if(!e.target.files[0] || e.target.files[0].length==0){
-                this.message="Vous devez choisir un fichier execel !";
-                this.erreur=true;
-                return;
-              }
-
-              //verification du type de fichier choisi pour recaler si ce n'est pas une photo
-              var typeFichier=e.target.files[0].type;
+    //verification du type de fichier choisi pour recaler si ce n'est pas une photo
+    var typeFichier=e.target.files[0].type;
 
 
 
 
-              if(e.target.files){
-                var reader= new FileReader();
-                reader.readAsDataURL(e.target.files[0]);
-                reader.onload=(event:any)=>{
-                  this.message="";
-                  //this.fichier=event.target.result;
-                  this.fichier=e.target['files'][0];
-                }
-              }
-            }
-
-
-
+    if(e.target.files){
+      var reader= new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload=(event:any)=>{
+        this.message="";
+        //this.fichier=event.target.result;
+        this.fichier=e.target['files'][0];
+      }
+    }
+  }
 }
 

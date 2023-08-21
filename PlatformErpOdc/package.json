@@ -29,7 +29,7 @@
     "@capacitor/haptics": "4.0.1",
     "@capacitor/keyboard": "4.0.1",
     "@capacitor/status-bar": "4.0.1",
-    "@ionic/angular": "^6.1.9",
+    "@ionic/angular": "^6.7.5",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.2.2",
     "bootstrap-icons": "^1.9.1",
